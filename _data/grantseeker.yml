@@ -44,20 +44,6 @@
       type: dropdown
       dbfield: type_of_support
       content: 
-<<<<<<< HEAD
-        - label: support
-        - label: New Project
-        - label: Drop
-      default: What kind of support?
-    - label: Have you done this before
-      type: bool
-      dbfield: donebefore
-      content: 
-        - label: yeah
-        - label: nope
-        - label: maybe
-      default: yeah
-=======
         - label: Capacity-building and technical assistance
         - label: Capital and infrastructure
         - label: Continuing support
@@ -75,7 +61,7 @@
         - label: Research and evaluation
         - label: Other (please specify)
       default: What type of grant? General operating support? Project support, etc?
-   - name: Section 3
+  - name: Section 3
       header: Grant Logistics
       questions:
     - label: Type of application
