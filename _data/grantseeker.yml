@@ -1,37 +1,101 @@
 - page: 1
-  name: Basic Information
+  name: Grant Information
   sections:
   - name: Section 1
-    header: This is the Header 1
+    header: Funder Information
     questions: 
-    - label: What Kind of Grant is This?
+    - label: Funder
+      type: text
+      dbfield: funder
+      default: Name of the funder to which your org is considering applying
+    - label: Has your organization received a grant from this funder in the past?
       type: dropdown
-      dbfield: granttype
-      content: 
-        - label: Support
-        - label: New Project
-        - label: Drop
-      default: What kind of support?
-    - label: A big thing
-      type: dropdown
-      dbfield: bigthing
-      content: 
-        - label: Support
-        - label: New Project
-        - label: Drop
-      default: What kind of support?
+      dbfield: past_grant
+      content:
+        - label: Yes
+        - label: No
+       default: Has this funder supported your organization in the past?
   - name: Section 2
-    header: This is the Header 2
-    questions: 
-    - label: How much do you want?
+      header: Grant Details
+      questions:
+    - label: Amount requested?
       type: money
       dbfield: amount
-      default: What kind of support?
-    - label: What is the likelihood?
-      type: dropdown
+      default: How much is your organization requesting from this funder?
+    - label: Expected likelihood of receiving grant
+      type: percent
       dbfield: probability
+      default: What's your best estimate of the percentage likelihood of getting this grant?
+    - label: New Grant or Renewal?
+      type: dropdown
+      dbfield: new_or_renewal
+      content:
+        - label: new grant
+        - label: renewal
+      default: Is this a new grant?  Or a renewal of an existing grant?
+    - label: Invited or Unsolicited?
+      type: dropdown
+      dbfield: invited_or_unsolicited
+      content:
+        - label: invited
+        - label: unsolicited
+      default: Was your organization invited to apply for this grant, or is the request unsolicited?
+    - label: Type of Support
+      type: dropdown
+      dbfield: type_of_support
       content: 
-        - label: support
-        - label: New Project
-        - label: Drop
-      default: What kind of support?
+        - label: Capacity-building and technical assistance
+        - label: Capital and infrastructure
+        - label: Continuing support
+        - label: Financial sustainability
+        - label: General support
+        - label: Individual development
+        - label: Leadership and professional development
+        - label: Network-building and collaboration
+        - label: Outreach
+        - label: Policy advocacy and systems reform
+        - label: Presentations and productions
+        - label: Product and service development
+        - label: Program development
+        - label: Regranting
+        - label: Research and evaluation
+        - label: Other (please specify)
+      default: What type of grant? General operating support? Project support, etc?
+   - name: Section 3
+      header: Grant Logistics
+      questions:
+    - label: Type of application
+      type: dropdown
+      dbfield: type_of_application
+      content:
+        - label: online
+        - label: via email
+        - label: on paper
+      default: How will you be submitting this application?
+    - label: Length of grant award
+      type: number
+      dbfield: length_of_award
+      default: In years, what is the expected length of this grant award?
+    - label: Number of questions
+      type: number
+      dbfield: number_of_questions
+      default: How many questions are in the application?  You can ballpark if you're not sure, or if the application is less structured, you can estimate or skip
+    - label: Site visit required?
+      type: dropdown
+      dbfield: site_visit
+      content:
+        - label: yes
+        - label: no
+      default: Will the funder conduct a site visit as part of the grant application process?
+    - label: LOI?
+      type: dropdown
+      dbfield: loi
+      content:
+        - label: yes
+        - label: no
+      default: Does this grant have a letter of intent/inquiry prior to the full proposal?
+    - label: Number of reports required
+      type: number
+      dbfield: number_of_reports
+      default: How many progress reports does this funder require?  If unsure, enter 1.
+
