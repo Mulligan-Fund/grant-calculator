@@ -1,0 +1,259 @@
+- page: 1
+  name: Program Information
+  sections:
+  - name: Section 1
+    header: Program Information
+    questions: 
+    - label: Program Name
+      type: text
+      dbfield: program_name
+      default: Name of the program you are analyzing
+    - label: Primary issue addressed
+      type: text
+      dbfield: primary_issue
+      default: What is the primary issue this program addresses?
+  - name: Section 2
+    header: Program Details
+    questions:
+    - label: Expected number of grants to be awarded
+      type: number
+      dbfield: number_of_grants
+      default: How many grants do you expect this program to award?
+    - label: Expected amount to be awarded
+      type: money
+      dbfield: amount_of_grants
+      default: What is the total amount this program is expected to award?
+    - label: Expected number of applications
+      type: number
+      dbfield: number_of_applications
+      default: How many applications do you expect this program to receive?
+  - name: Section 3
+    header: Program Logistics
+    questions:
+    - label: Invited or Unsolicited?
+      type: dropdown
+      dbfield: gm_invited_or_unsolicited
+      content:
+       - label: invited
+       - label: unsolicited
+      default: Was your organization invited to apply for this grant, or is the request unsolicited?
+    - label: Type of application
+      type: dropdown
+      dbfield: gm_type_of_application
+      content:
+       - label: online
+       - label: via email
+       - label: on paper
+      default: How will you be submitting this application?
+    - label: Length of grant award
+      type: number
+      dbfield: gm_length_of_award
+      default: In years, what is the expected length of this grant award?
+    - label: Number of questions
+      type: number
+      dbfield: gm_number_of_questions
+      default: How many questions are in the application?  You can ballpark if you're not sure, or if the application is less structured, you can estimate or skip
+    - label: Site visit required?
+      type: dropdown
+      dbfield: gm_site_visit
+      content:
+       - label: yes
+       - label: no
+      default: Will you conduct a site visit as part of the grant application process?
+    - label: LOI?
+      type: dropdown
+      dbfield: gm_loi
+      content:
+       - label: yes
+       - label: no
+      default: Does this grant have a letter of intent/inquiry prior to the full proposal?
+   - label: Number of reports required
+     type: number
+     dbfield: gm_number_of_reports
+     default: How many progress reports do you require?  If unsure, enter 1.
+- page: 2
+  name: Program Cost
+  sections:
+  - name: Section 1
+    header: Research
+    questions:
+    - label: Preliminary Research
+      type: dropdown
+      dbfield: gm_preliminary_rsch_people
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in preliminary research?
+    - label: In-Depth Research for Specific Opportunity
+      type: dropdown
+      dbfield: gm_in_depth_rsch_people
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in in-depth research for this specific opportunity?
+  - name: Section 2
+    header: LOI
+    questions:
+    - label: Review LOI Requirements
+      type: dropdown
+      dbfield: gm_loi_requirements
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in reviewing the LOI requirements?
+    - label: Pre-Submission Communication with Funder
+      type: dropdown
+      dbfield: gm_pre_loi_comm
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in pre-submission communication with you?
+    - label: Draft LOI 
+      type: dropdown
+      dbfield: gm_draft_loi
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grnatee staff are involved in drafting the LOI?
+    - label: Review LOI Draft
+      type: dropdown
+      dbfield: gm_review_loi_draft
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in reviewing the LOI draft?
+    - label: Edit LOI 
+      type: dropdown
+      dbfield: gm_edit_loi
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in editing the LOI?
+    - label: Finalize LOI
+      type: dropdown
+      dbfield: gm_finalize_loi
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in finalizing the LOI?
+  - name: Section 3
+    header: Proposal
+    questions:
+    - label: Review Proposal Requirements
+      type: dropdown
+      dbfield: gm_proposal_requirements
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in reviewing the proposal requirements?
+    - label: Pre-Submission Communication with Funder
+      type: dropdown
+      dbfield: gm_pre_proposal_comm
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in pre-submission communication with you?
+    - label: Draft Proposal
+      type: dropdown
+      dbfield: gm_draft_proposal
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in drafting the proposal?
+    - label: Review Proposal Draft
+      type: dropdown
+      dbfield: gm_review_proposal_draft
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in reviewing the proposal draft?
+    - label: Edit Proposal
+      type: dropdown
+      dbfield: gm_edit_proposal
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in editing the proposal?
+    - label: Finalize Proposal
+      type: dropdown
+      dbfield: gm_finalize_proposal
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in finalizing the proposal?
+  - name: Section 4
+    header: Site Visit
+    questions:
+    - label: Prepare for Site Visit
+      type: dropdown
+      dbfield: gm_prep_visit
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in preparing for a site visit?
+    - label: Site Visit
+      type: dropdown
+      dbfield: gm_site_visit
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in the site visit?
+    - label: Site Visit Follow Ups
+      type: dropdown
+      dbfield: gm_visit_follow_ups
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in site visit follow-ups?
+  - name: Section 5
+    header: Post-Grant Communications
+    questions:
+    - label: Award Letter Review/Signing
+      type: dropdown
+      dbfield: gm_letter_signing
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in reviewing/signing the award letter?
+    - label: Post-Grant Communications
+      type: dropdown
+      dbfield: gm_post_grant_comm
+      content:
+        - names # this is where the list of names added in the people sections would appear
+      default: Which grantee staff are involved with post-grant communications with the funder?
+  - name: Section 6
+    header: Reporting
+    questions:
+    - label: Review Report Requirements
+      type: dropdown
+      dbfield: gm_report_requirements
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in reviewing the report requirements?
+    - label: Collect Data for Report
+      type: dropdown
+      dbfield: gm_collect_data
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in collecting data for reports?
+    - label: Prepare Financials for Report
+      type: dropdown
+      dbfield: gm_prepare_financials
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in preparing financial information for reports?
+    - label: Draft Report
+      type: dropdown
+      dbfield: gm_draft_report
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in drafting the report?
+    - label: Review Report Draft
+      type: dropdown
+      dbfield: gm_review_report_draft
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in reviewing the report draft?
+    - label: Edit Report
+      type: dropdown
+      dbfield: gm_edit_report
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in editing the report?
+    - label: Finalize Report
+      type: dropdown
+      dbfield: gm_finalize_report
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Which grantee staff are involved in finalizing the report?
+  - name: Section 7
+    header: Other
+    questions:
+    - label: # user input
+     type: text
+     dbfield: other_activity
+     content:
+        - names # this is where the list of names added in the people section would appear
+     default: Which grantee staff are involved in other grant activities?
