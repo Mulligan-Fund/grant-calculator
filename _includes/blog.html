@@ -1,0 +1,20 @@
+  <section id="blog container">
+      {% for post in site.posts %}
+          {% assign loopindex = forloop.index0 | modulo: 2 %}
+          {% if loopindex == 0 %}
+            <div class="row">
+          {% endif %}  
+            <div class="blog-image col col--xs-4 col--sm-2 col--md-2 col--lg-2">
+                <img src="{{ post.img | prepend: site.url }}" />
+            </div>
+            <div class="col col--xs-8 col--sm-4 col--md-4 col--lg-4">
+              <h2>
+                <a class="post-link" href="{{ post.url | prepend: site.url }}">{{ post.title }}</a>
+              </h2>
+              <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+            </div>
+        {% if loopindex == 1 %}
+            </div>
+        {% endif %}  
+      {% endfor %}
+  </section>

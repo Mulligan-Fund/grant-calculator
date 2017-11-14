@@ -1,0 +1,37 @@
+- page: 1
+  name: Basic Information
+  sections:
+  - name: Section 1
+    header: This is the Header 1
+    questions: 
+    - label: What Kind of Grant is This?
+      type: dropdown
+      dbfield: granttype
+      content: 
+        - label: Support
+        - label: New Project
+        - label: Drop
+      default: What kind of support?
+    - label: A big thing
+      type: dropdown
+      dbfield: bigthing
+      content: 
+        - label: Support
+        - label: New Project
+        - label: Drop
+      default: What kind of support?
+  - name: Section 2
+    header: This is the Header 2
+    questions: 
+    - label: How much do you want?
+      type: money
+      dbfield: amount
+      default: What kind of support?
+    - label: What is the likelihood?
+      type: dropdown
+      dbfield: probability
+      content: 
+        - label: support
+        - label: New Project
+        - label: Drop
+      default: What kind of support?

@@ -1,0 +1,264 @@
+*{margin:0; padding:0; widows: 3; orphans: 3;}
+
+section {
+    overflow-x:hidden;
+    width: 100%;
+    background-color: #F5F4F2;
+    padding-top:40px;
+    padding-bottom: 40px;
+
+    @media only screen and (max-width: 480px) {
+        padding: 0!important;
+    }
+
+    &.nopad {
+        padding: 0!important;
+    }
+}
+
+#header {
+    background:transparent;
+}
+
+.mobile {
+    display: none;
+    @media only screen and (max-width: 480px) {
+        display: block;
+    }
+}
+
+.nomobile {
+      display: block;
+    @media only screen and (max-width: 480px) {
+        display: none;
+    }  
+}
+
+.compress {
+    @media only screen and (max-width: 480px) {
+        margin-top: 0;
+    }   
+}
+
+.site-header {
+    min-height: 100px;
+    // height: 80px;
+    // Positioning context for the mobile navigation icon
+    position: relative;
+    background: rgba(255,255,255,0);
+    transition: opacity .5s;
+
+    .logo {
+        @media only screen and (max-width: 480px) {
+            width:80%!important;
+        }
+        img {
+            width: auto;
+            // max-height: 25px;
+            margin: 30px 0 30px 0;
+            @media only screen and (max-width: 480px) {
+                margin: 10px auto;
+                text-align:center;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+
+/**
+ * Site content
+ */
+.preface {
+    img.triangles {
+        width: 90%;
+        @media only screen and (max-width: 480px) {
+                margin-bottom: 20px;
+            }
+    }
+}
+
+#products {
+    background-color: #ffffff;
+
+    .product {
+        .postimg {
+            p {
+                font-size: 14px;
+            }
+            padding-left: 10%;
+            @media only screen and (max-width: 480px) {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+    background-color: #ffffff;
+    // padding: $spacing-unit 0;
+    @media only screen and (max-width: 480px) {
+        text-align:center;
+    }
+}
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.footer-col-wrapper {
+    font-size: 15px;
+    color: $grey-color;
+    margin-left: -$spacing-unit / 2;
+    @extend %clearfix;
+}
+
+.footer-col {
+    float: left;
+    margin-bottom: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 {
+    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+    width:         calc(35% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+    width:         calc(20% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+    width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+    .footer-col-1,
+    .footer-col-2 {
+        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+        width:         calc(50% - (#{$spacing-unit} / 2));
+    }
+
+    .footer-col-3 {
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+@include media-query($on-palm) {
+    .footer-col {
+        float: none;
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+
+body {
+    background-image: url("../img/bg.png");
+    background-color: #F5F4F2;
+    background-repeat: no-repeat;
+    background-origin: top left;
+    background-size: 100% auto;
+
+}
+
+/**
+ * Page content
+ */
+.page-content {
+    // padding: $spacing-unit 0 0 0;
+}
+
+.page-heading {
+    font-size: 20px;
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.post-meta {
+    // padding-top: 20px;
+    font-size: $small-font-size;
+    color: $grey-color;
+}
+
+a.post-link{
+        color: rgb(0,0,0);
+}
+
+.post-link {
+    display: block;
+    font-size: 24px;
+}
+
+p {
+    margin-bottom:30px;
+}
+
+
+/**
+ * Page content
+ */
+.yellow {
+    background: #FFFEF7;
+}
+
+.fullbg {
+    position: fixed;
+    left: 0; right: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+
+    .logo-block {
+        margin-top: 50px;
+    }
+
+    .description {
+        margin-top: 50px;
+    }
+
+    .login {
+        margin-top: 50px;
+    }
+
+    .logo {
+        width: 50%;
+    }
+}
+
+section.page {
+
+}
+
+section.block {
+    form {
+        padding: 20px;
+        background: #FFFEF7;
+        border: 1px solid #EBEBEB;
+    }
+    margin-bottom: 30px;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    <div class="bg"></div>
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="container">
+        <div class="row">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+    {% assign post_count = site.posts | size %}
+    {% if post_count >= 1 %}
+    <div class="blog container">
+      <div class="title">
+        <span>Reports</span>
+      </div>
+      {% include blog.html %}
+    </div>
+    {% endif %} 
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

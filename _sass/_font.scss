@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'Larish';
+    src: url('../fonts/din-regular-webfont.eot');
+    src: url('../fonts/din-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/din-regular-webfont.woff') format('woff'),
+         url('../fonts/din-regular-webfont.ttf') format('truetype'),
+         url('../fonts/din-regular-webfont.svg#DINRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apercu';
+  font-weight: normal;
+  font-style: normal;
+  src:
+    url('../fonts/ApercuPro.woff') format('woff');
+  ;
+}
+
+@font-face {
+  font-family: 'ApercuBold';
+  font-weight: bold;
+  font-style: normal;
+  src:
+    url('../fonts/ApercuPro.woff') format('woff');
+  ;
+}
+
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Vollkorn Regular'), local('Vollkorn-Regular'), url('../fonts/vollkorn.woff') format('woff');
+}
+
+.orange {
+  color: #FF6543!important;
+}
+.black {
+  color: #6B6B6B!important;
+}
+
+h1 {
+  font-family: "Vollkorn";
+  font-size: 60px;
+  color: #FF6543;
+  letter-spacing: 0;
+  line-height: 70px;
+  @media only screen and (max-width: 480px) {
+    font-size: 24px;
+    line-height: 34px;
+  }
+}
+h2 {
+  font-family: "Circular-Black";
+  font-size: 20px;
+  color: #383D42;
+  @media only screen and (max-width: 480px) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+h3 {
+/* Basic Grant Informat: */
+  font-family: "Circular-BookItalic";
+  font-size: 20px;
+  color: #383D42;
+}
+h4 {
+  
+}
+p {
+font-family: "Circular-Book";
+font-size: 16px;
+color: #383D42;
+  a {
+    color: #FF6543;
+    text-decoration: none;
+    &:visited {
+      color: #FF6543;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+hr {
+  border: 1px solid #FF6543;
+  border-width: 1px 0 0 0;
+  margin: 30px 0;
+}
+
+label {
+  font-family: "Circular-Black";
+  font-size: 16px;
+  color: #383D42;
+  width: 140px;
+  text-align: left;
+  display: inline-block;
+}
+
+input {
+  margin-bottom: 20px;
+  background: #FFFFFF;
+  box-shadow: inset 0 1px 5px 0 rgba(0,0,0,0.29);
+  border-radius: 5px;
+  width: 300px;
+  height: 35px;
+}
+
+button {
+  margin-left:304px;
+  width: 140px;
+  height: 35px;
+  font-family: "Circular-Black";
+  font-size: 16px;
+  color: #ACC3CB;
+  background: #FFFEF7;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
+  border-radius: 5px;
+}

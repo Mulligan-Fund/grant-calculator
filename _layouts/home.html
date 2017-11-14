@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    <div class="fullbg yellow">
+      <div class="logo-block">
+     <img class="logo" src="{{ "/img/logo.png" | prepend: site.url }}">
+     </div>
+     <div class="description">
+        <h2>Find your grant truth</h2>
+        <p>See where your grant money is really going. Ask for the right amount the first time, and use that money the way it was intended.
+
+        Grant Calculator breaks down where your dollars are going during the application process so that the grant isn’t just paying for you to apply for it.</p>
+      </div>
+
+      <div class="login">
+        <label>User name</label>
+        <input>
+        <label>password</label>
+        <input>
+        <label>org EIN</label>
+        <input>
+        <button>Register</button>
+
+      </div>
+
+
+     <div class="blog">
+      {% assign post_count = site.posts | size %}
+      {% if post_count >= 1 %}
+      <div class="blog container">
+        {% include blog.html %}
+      </div>
+      {% endif %} 
+      </div>
+   </div>
+
+  </body>
+
+</html>
