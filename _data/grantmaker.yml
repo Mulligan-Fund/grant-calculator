@@ -72,7 +72,7 @@
      dbfield: gm_number_of_reports
      default: How many progress reports do you require?  If unsure, enter 1.
 - page: 2
-  name: Program Cost
+  name: Grant Cost to Grantee
   sections:
   - name: Section 1
     header: Research
@@ -257,3 +257,310 @@
      content:
         - names # this is where the list of names added in the people section would appear
      default: Which grantee staff are involved in other grant activities?
+- page: 3
+  name: Program Cost
+  sections:
+  - name: Section 1
+    header: Research
+    questions:
+    - label: Research Issue Area
+      type: dropdown
+      dbfield: rsch_issue
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in researching the issue area?
+    - label: Communicate internally about program goals
+      type: dropdown
+      dbfield: comm_prog_goals
+      content:
+        - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in communicating program goals internally?
+    - label: Draft LOI
+      type: dropdown
+      dbfield: program_draft_loi
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in drafting the LOI?
+    - label: Review Draft LOI
+      type: dropdown
+      dbfield: program_review_draft_loi
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the draft LOI?
+    - label: Revise LOI
+      type: dropdown
+      dbfield: revise_loi
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in revising the LOI?
+    - label: Publish/Release LOI
+      type: dropdown
+      dbfield: publish_loi
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in publishing/releasing the LOI?
+    - label: Draft RFP
+      type: dropdown
+      dbfield: draft_rfp
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in drafting the RFP?
+    - label: Review Draft RFP
+      type: dropdown
+      dbfield: review_rfp
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the draft RFP?
+    - label: Revise RFP
+      type: dropdown
+      dbfield: revise_rfp
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in revising the RFP?
+    - label: Publish/Release RFP
+      type: dropdown
+      dbfield: publish_rfp
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in publishing/releasing the RFP?
+    - label: Draft Report Requirements
+      type: dropdown
+      dbfield: draft_report_req
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in drafting the reporting requirements?
+    - label: Review Draft Report Requirements
+      type: dropdown
+      dbfield: review_report_req
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the draft reporting requirements?
+    - label: Revise Report Requirements
+      type: dropdown
+      dbfield: revise_report_req
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in revising the reporting requirements?
+    - label: Publish/Release Report Forms/Requirements
+      type: dropdown
+      dbfield: publish_report_req
+      content:
+       - names: # this is where the list of names added in the people section would appear
+      default: Who is involved in publishing/releasing the reporting requirements?
+  - name: Section 2
+    header: LOI
+    questions:
+    - label: Field LOI questions from applicants
+      type: dropdown
+      dbfield: field_loi_q
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in fielding questions from applicants about the LOI?
+    - label: Review submitted LOIs
+      type: dropdown
+      dbfield: review_submitted_lois
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing submitted LOIs?
+    - label: Ask questions about submitted LOIs
+      type: dropdown
+      dbfield: ask_loi_q
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in asking applicants questions about submitted LOIs?
+    - label: Decide which proposal to invite
+      type: dropdown
+      dbfield: decide_invite
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in deciding which proposals to invite?
+    - label: Invite Proposals
+      type: dropdown
+      dbfield: invite_proposal
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in inviting proposals?
+    - label: Other communications about LOIs
+      type: dropdown
+      dbfield: other_comm_loi
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in other questions about LOIs?
+  - name: Section 3
+    header: Proposal
+    questions:
+    - label: Field Proposal Questions from Applicants
+      type: dropdown
+      dbfield: field_proposal_q
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in fielding questions from applicants about proposals?
+    - label: Review Submitted Proposals
+      type: dropdown
+      dbfield: review_submitted_proposals
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing submitted proposals?
+    - label: Ask questions about submitted proposals
+      type: dropdown
+      dbfield: ask_proposal_q
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in asking applicants questions about proposals?
+    - label: Decide which proposals to recommend
+      type: dropdown
+      dbfield: decide_recommend
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in deciding which proposals to recommend?
+    - label: Prepare recommendations for board/committee meeting
+      type: dropdown
+      dbfield: prep_recommendations
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in preparing recommendations for the board/grant/review committee?
+    - label: Review recommendations for board/committee meeting
+      type: dropdown
+      dbfield: review_recommendations
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing recommendations for the board/grant/review committee?
+    - label: Revise recommendations for board/committee meeting
+      type: dropdown
+      dbfield: revise_recommendations
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in revising recommendations for the board/grant/review committee?
+    - label: Schedule board/committee meeting
+      type: dropdown
+      dbfield: schedule_mtg
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in scheduling the board/grant/review committee meeting?
+    - label: Prepare for board/committee meeting
+      type: dropdown
+      dbfield: prep_mtg
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in preparing for the board/grant/review committee meeting?
+    - label: Hold board/committee meeting
+      type: dropdown
+      dbfield: hold_mtg
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in the board/grant/review committee meeting?
+    - label: Other communications about proposals
+      type: dropdown
+      dbfield: other_proposal_comm
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in other communications about proposals?
+  - name: Section 3
+    header: Site Visits
+    questions:
+    - label: Schedule Site Visits
+      type: dropdown
+      dbfield: prog_schedule_visits
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in scheduling site visits?
+    - label: Conduct Site Visits
+      type: dropdown
+      dbfield: conduct_visits
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in conducting site visits?
+    - label: Write Up Site Visit Reports
+      type: dropdown
+      dbfield: visit_reports
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in writing up site visit reports?
+    - label: Post-Site Visit Follow-Up Communications
+      type: dropdown
+      dbfield: post_visit_comm
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in post-site visit follow-up communications with applicants?
+  - name: Section 4
+    header: Post-Decision Communications
+    questions:
+    - label: Create and Send Declines
+      type: dropdown
+      dbfield: declines
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in creating and sending declines?
+    - label: Create and Send Grant Award Letters/Agreements
+      type: dropdown
+      dbfield: award_letters
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in creating and sending award letters/grant agreements?
+    - label: Accept/File Signed Grant Agreements
+      type: dropdown
+      dbfield: accept_agreements
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in accepting/filing signed grant agreements?
+    - label: Release Grant Funds to Grantees
+      type: dropdown
+      dbfield: release_funds
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in release grant funds to grantees?
+    - label: Other Post-Grant Communications with Grantees
+      type: dropdown
+      dbfield: post_grant_comm
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in other post-grant communications with grantees?
+  - name: Section 5
+    header: Reporting
+    questions:
+    - label: Field Report Questions from Grantees
+      type: dropdown
+      dbfield: field_report_q
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in fielding questions from grantees about reports?
+    - label: Review Submitted Reports
+      type: dropdown
+      dbfield: review_submitted_reports
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing submitted reports?
+    - label: Ask questions about submitted reports
+      type: dropdown
+      dbfield: ask_report_q
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in asking grantees questions about reports?
+    - label: Acknowledge Receipt/Approve Reports
+      type: dropdown
+      dbfield: approve_report
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in acknowledging reciept/approving reports?
+    - label: Release Additional Funds to Grantees, if Applicable
+      type: dropdown
+      dbfield: release_addl_funds
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in releasing additional grant funds to grantees, if applicable?
+    - label: Other Communications with Grantees about Reports
+      type: dropdown
+      dbfield: other_report_comm
+      content:
+        - names # this is where the list of names added in the people section would appear
+      default: Who is involved in other communications with grantees about reports?
+  - name: Section 6
+    header: Other
+    questions:
+   - label: # user input
+     type: text
+     dbfield: prog_other_activity
+     content:
+        - names # this is where the list of names added in the people section would appear
+     default: Who is involved in other grant-related activities?
+ 
