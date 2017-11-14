@@ -4,8 +4,6 @@ section {
     overflow-x:hidden;
     width: 100%;
     background-color: #F5F4F2;
-    padding-top:40px;
-    padding-bottom: 40px;
 
     @media only screen and (max-width: 480px) {
         padding: 0!important;
@@ -41,21 +39,19 @@ section {
 }
 
 .site-header {
-    min-height: 100px;
+    height: 65px;
+    width: 100%;
     // height: 80px;
     // Positioning context for the mobile navigation icon
-    position: relative;
+    position: fixed;
     background: rgba(255,255,255,0);
     transition: opacity .5s;
+    background: #FFFEF7;
 
     .logo {
-        @media only screen and (max-width: 480px) {
-            width:80%!important;
-        }
         img {
-            width: auto;
-            // max-height: 25px;
-            margin: 30px 0 30px 0;
+            height: 30px;
+            // margin: 30px 0 30px 0;
             @media only screen and (max-width: 480px) {
                 margin: 10px auto;
                 text-align:center;
@@ -179,8 +175,8 @@ body {
 /**
  * Page content
  */
-.page-content {
-    // padding: $spacing-unit 0 0 0;
+.form-content {
+    padding-top:65px;
 }
 
 .page-heading {

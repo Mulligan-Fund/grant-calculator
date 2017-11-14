@@ -35,3 +35,11 @@
         - label: New Project
         - label: Drop
       default: What kind of support?
+    - label: Have you done this before
+      type: bool
+      dbfield: donebefore
+      content: 
+        - label: yeah
+        - label: nope
+        - label: maybe
+      default: yeah
