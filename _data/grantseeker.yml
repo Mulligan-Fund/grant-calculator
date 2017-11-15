@@ -16,271 +16,271 @@
        - label: No
       default: Has this funder supported your organization in the past?
   - name: Section 2
-      header: Grant Details
-      questions:
-      - label: Amount requested?
-        type: money
-        dbfield: amount
-        default: How much is your organization requesting from this funder?
-      - label: Expected likelihood of receiving grant
-        type: percent
-        dbfield: probability
-        default: What's your best estimate of the percentage likelihood of getting this grant?
-      - label: New Grant or Renewal?
-        type: dropdown
-        dbfield: new_or_renewal
-        content:
-         - label: new grant
-         - label: renewal
-        default: Is this a new grant?  Or a renewal of an existing grant?
-      - label: Invited or Unsolicited?
-        type: dropdown
-        dbfield: invited_or_unsolicited
-        content:
-         - label: invited
-         - label: unsolicited
-        default: Was your organization invited to apply for this grant, or is the request unsolicited?
-      - label: Type of Support
-        type: dropdown
-        dbfield: type_of_support
-        content: 
-         - label: Capacity-building and technical assistance
-         - label: Capital and infrastructure
-         - label: Continuing support
-         - label: Financial sustainability
-         - label: General support
-         - label: Individual development
-         - label: Leadership and professional development
-         - label: Network-building and collaboration
-         - label: Outreach
-         - label: Policy advocacy and systems reform
-         - label: Presentations and productions
-         - label: Product and service development
-         - label: Program development
-         - label: Regranting
-         - label: Research and evaluation
-         - label: Other (please specify)
-        default: What type of grant? General operating support? Project support, etc?
+    header: Grant Details
+    questions:
+    - label: Amount requested?
+      type: money
+      dbfield: amount
+      default: How much is your organization requesting from this funder?
+    - label: Expected likelihood of receiving grant
+      type: percent
+      dbfield: probability
+      default: What's your best estimate of the percentage likelihood of getting this grant?
+    - label: New Grant or Renewal?
+      type: dropdown
+      dbfield: new_or_renewal
+      content:
+       - label: new grant
+       - label: renewal
+      default: Is this a new grant?  Or a renewal of an existing grant?
+    - label: Invited or Unsolicited?
+      type: dropdown
+      dbfield: invited_or_unsolicited
+      content:
+       - label: invited
+       - label: unsolicited
+      default: Was your organization invited to apply for this grant, or is the request unsolicited?
+    - label: Type of Support
+      type: dropdown
+      dbfield: type_of_support
+      content: 
+       - label: Capacity-building and technical assistance
+       - label: Capital and infrastructure
+       - label: Continuing support
+       - label: Financial sustainability
+       - label: General support
+       - label: Individual development
+       - label: Leadership and professional development
+       - label: Network-building and collaboration
+       - label: Outreach
+       - label: Policy advocacy and systems reform
+       - label: Presentations and productions
+       - label: Product and service development
+       - label: Program development
+       - label: Regranting
+       - label: Research and evaluation
+       - label: Other (please specify)
+      default: What type of grant? General operating support? Project support, etc?
   - name: Section 3
-      header: Grant Logistics
-      questions:
-      - label: Type of application
-        type: dropdown
-        dbfield: type_of_application
-        content:
-         - label: online
-         - label: via email
-         - label: on paper
-        default: How will you be submitting this application?
-      - label: Length of grant award
-        type: number
-        dbfield: length_of_award
-        default: In years, what is the expected length of this grant award?
-      - label: Number of questions
-        type: number
-        dbfield: number_of_questions
-        default: How many questions are in the application?  You can ballpark if you're not sure, or if the application is less structured, you can estimate or skip
-      - label: Site visit required?
-        type: dropdown
-        dbfield: site_visit
-        content:
-         - label: yes
-         - label: no
-        default: Will the funder conduct a site visit as part of the grant application process?
-      - label: LOI?
-        type: dropdown
-        dbfield: loi
-        content:
-         - label: yes
-         - label: no
-        default: Does this grant have a letter of intent/inquiry prior to the full proposal?
-      - label: Number of reports required
-        type: number
-        dbfield: number_of_reports
-        default: How many progress reports does this funder require?  If unsure, enter 1.
+    header: Grant Logistics
+    questions:
+    - label: Type of application
+      type: dropdown
+      dbfield: type_of_application
+      content:
+       - label: online
+       - label: via email
+       - label: on paper
+      default: How will you be submitting this application?
+    - label: Length of grant award
+      type: number
+      dbfield: length_of_award
+      default: In years, what is the expected length of this grant award?
+    - label: Number of questions
+      type: number
+      dbfield: number_of_questions
+      default: How many questions are in the application?  You can ballpark if you're not sure, or if the application is less structured, you can estimate or skip
+    - label: Site visit required?
+      type: dropdown
+      dbfield: site_visit
+      content:
+       - label: yes
+       - label: no
+      default: Will the funder conduct a site visit as part of the grant application process?
+    - label: LOI?
+      type: dropdown
+      dbfield: loi
+      content:
+       - label: yes
+       - label: no
+      default: Does this grant have a letter of intent/inquiry prior to the full proposal?
+    - label: Number of reports required
+      type: number
+      dbfield: number_of_reports
+      default: How many progress reports does this funder require?  If unsure, enter 1.
 - page: 2
   name: Grant Cost
   sections:
-   - name: Section 1
-     header: Research
-     questions:
-     - label: Preliminary Research
-       type: dropdown
-       dbfield: preliminary_rsch_people
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in preliminary research?
-     - label: In-Depth Research for Specific Opportunity
-       type: dropdown
-       dbfield: in_depth_rsch_people
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in in-depth research for this specific opportunity?
-   - name: Section 2
-     header: LOI
-     questions:
-     - label: Review LOI Requirements
-       type: dropdown
-       dbfield: loi_requirements
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in reviewing the LOI requirements?
-     - label: Pre-Submission Communication with Funder
-       type: dropdown
-       dbfield: pre_loi_comm
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in pre-submission communication with the funder?
-     - label: Draft LOI 
-       type: dropdown
-       dbfield: draft_loi
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in drafting the LOI?
-     - label: Review LOI Draft
-       type: dropdown
-       dbfield: review_loi_draft
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in reviewing the LOI draft?
-     - label: Edit LOI 
-       type: dropdown
-       dbfield: edit_loi
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in editing the LOI?
-     - label: Finalize LOI
-       type: dropdown
-       dbfield: finalize_loi
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in finalizing the LOI?
-   - name: Section 3
-     header: Proposal
-     questions:
-     - label: Review Proposal Requirements
-       type: dropdown
-       dbfield: proposal_requirements
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in reviewing the proposal requirements?
-     - label: Pre-Submission Communication with Funder
-       type: dropdown
-       dbfield: pre_proposal_comm
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in pre-submission communication with the funder?
-     - label: Draft Proposal
-       type: dropdown
-       dbfield: draft_proposal
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in drafting the proposal?
-     - label: Review Proposal Draft
-       type: dropdown
-       dbfield: review_proposal_draft
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in reviewing the proposal draft?
-     - label: Edit Proposal
-       type: dropdown
-       dbfield: edit_proposal
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in editing the proposal?
-     - label: Finalize Proposal
-       type: dropdown
-       dbfield: finalize_proposal
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in finalizing the proposal?
-   - name: Section 4
-     header: Site Visit
-     questions:
-     - label: Prepare for Site Visit
-       type: dropdown
-       dbfield: prep_visit
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in preparing for a site visit?
-     - label: Site Visit
-       type: dropdown
-       dbfield: site_visit
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in the site visit?
-     - label: Site Visit Follow Ups
-       type: dropdown
-       dbfield: visit_follow_ups
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in site visit follow-ups?
-   - name: Section 5
-     header: Post-Grant Communications
-     questions:
-     - label: Award Letter Review/Signing
-       type: dropdown
-       dbfield: letter_signing
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in reviewing/signing the award letter?
-     - label: Post-Grant Communications
-       type: dropdown
-       dbfield: post_grant_comm
-       content:
-         - names #this is where the list of names added in the people sections would appear
-       default: Who is involved with post-grant communications with the funder?
-   - name: Section 6
-     header: Reporting
-     questions:
-     - label: Review Report Requirements
-       type: dropdown
-       dbfield: report_requirements
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in reviewing the report requirements?
-     - label: Collect Data for Report
-       type: dropdown
-       dbfield: collect_data
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in collecting data for reports?
-     - label: Prepare Financials for Report
-       type: dropdown
-       dbfield: prepare_financials
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in preparing financial information for reports?
-     - label: Draft Report
-       type: dropdown
-       dbfield: draft_report
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in drafting the report?
-     - label: Review Report Draft
-       type: dropdown
-       dbfield: review_report_draft
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in reviewing the report draft?
-     - label: Edit Report
-       type: dropdown
-       dbfield: edit_report
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in editing the report?
-     - label: Finalize Report
-       type: dropdown
-       dbfield: finalize_report
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in finalizing the report?
-   - name: Section 7
-     header: Other
-     questions:
-     - label: # user input
-       type: text
-       dbfield: other_activity
-       content:
-        - names #this is where the list of names added in the people section would appear
-       default: Who is involved in other grant activities?
+  - name: Section 1
+    header: Research
+    questions:
+    - label: Preliminary Research
+      type: peoplelist
+      dbfield: preliminary_rsch_people
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in preliminary research?
+    - label: In-Depth Research for Specific Opportunity
+      type: peoplelist
+      dbfield: in_depth_rsch_people
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in in-depth research for this specific opportunity?
+  - name: Section 2
+    header: LOI
+    questions:
+    - label: Review LOI Requirements
+      type: peoplelist
+      dbfield: loi_requirements
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the LOI requirements?
+    - label: Pre-Submission Communication with Funder
+      type: peoplelist
+      dbfield: pre_loi_comm
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in pre-submission communication with the funder?
+    - label: Draft LOI 
+      type: peoplelist
+      dbfield: draft_loi
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in drafting the LOI?
+    - label: Review LOI Draft
+      type: peoplelist
+      dbfield: review_loi_draft
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the LOI draft?
+    - label: Edit LOI 
+      type: peoplelist
+      dbfield: edit_loi
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in editing the LOI?
+    - label: Finalize LOI
+      type: peoplelist
+      dbfield: finalize_loi
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in finalizing the LOI?
+  - name: Section 3
+    header: Proposal
+    questions:
+    - label: Review Proposal Requirements
+      type: peoplelist
+      dbfield: proposal_requirements
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the proposal requirements?
+    - label: Pre-Submission Communication with Funder
+      type: peoplelist
+      dbfield: pre_proposal_comm
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in pre-submission communication with the funder?
+    - label: Draft Proposal
+      type: peoplelist
+      dbfield: draft_proposal
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in drafting the proposal?
+    - label: Review Proposal Draft
+      type: peoplelist
+      dbfield: review_proposal_draft
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the proposal draft?
+    - label: Edit Proposal
+      type: peoplelist
+      dbfield: edit_proposal
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in editing the proposal?
+    - label: Finalize Proposal
+      type: peoplelist
+      dbfield: finalize_proposal
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in finalizing the proposal?
+  - name: Section 4
+    header: Site Visit
+    questions:
+    - label: Prepare for Site Visit
+      type: peoplelist
+      dbfield: prep_visit
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in preparing for a site visit?
+    - label: Site Visit
+      type: peoplelist
+      dbfield: site_visit
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in the site visit?
+    - label: Site Visit Follow Ups
+      type: peoplelist
+      dbfield: visit_follow_ups
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in site visit follow-ups?
+  - name: Section 5
+    header: Post-Grant Communications
+    questions:
+    - label: Award Letter Review/Signing
+      type: peoplelist
+      dbfield: letter_signing
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing/signing the award letter?
+    - label: Post-Grant Communications
+      type: peoplelist
+      dbfield: post_grant_comm
+      content:
+        - names #this is where the list of names added in the people sections would appear
+      default: Who is involved with post-grant communications with the funder?
+  - name: Section 6
+    header: Reporting
+    questions:
+    - label: Review Report Requirements
+      type: peoplelist
+      dbfield: report_requirements
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the report requirements?
+    - label: Collect Data for Report
+      type: peoplelist
+      dbfield: collect_data
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in collecting data for reports?
+    - label: Prepare Financials for Report
+      type: peoplelist
+      dbfield: prepare_financials
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in preparing financial information for reports?
+    - label: Draft Report
+      type: peoplelist
+      dbfield: draft_report
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in drafting the report?
+    - label: Review Report Draft
+      type: peoplelist
+      dbfield: review_report_draft
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in reviewing the report draft?
+    - label: Edit Report
+      type: peoplelist
+      dbfield: edit_report
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in editing the report?
+    - label: Finalize Report
+      type: peoplelist
+      dbfield: finalize_report
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in finalizing the report?
+  - name: Section 7
+    header: Other
+    questions:
+    - label: # user input
+      type: peoplelist
+      dbfield: other_activity
+      content:
+       - names #this is where the list of names added in the people section would appear
+      default: Who is involved in other grant activities?
