@@ -37,7 +37,7 @@ layout: default
 			{% endif %}
 			{% if question.desc %}
 				<div class="tag" data-tooltip="{{question.desc}}">
-					<img src="{{ "/img/tooltip.png" | prepend: site.url }}"  />
+					<img src="{{ "/img/tooltip.png" | prepend: site.baseurl | prepend: site.url }}"  />
 				</div>
 			{% endif %}
 			{% endfor %}
