@@ -200,3 +200,65 @@ button {
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
   border-radius: 5px;
 }
+
+.tag {
+  width: 33px; height: 33px;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+
+    &:before,
+    &:after {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+    &:before {
+      position: absolute;
+      bottom: 150%;
+      left: 50%;
+      margin-bottom: 5px;
+      margin-left: -80px;
+      padding: 7px;
+      width: 300px;
+      max-width: 300px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background-color: #000;
+      background-color: hsla(0, 0%, 20%, 0.9);
+      color: #fff;
+      content: attr(data-tooltip);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    /* Triangle hack to make tooltip look like a speech bubble */
+    &:after {
+      position: absolute;
+      bottom: 150%;
+      left: 50%;
+      margin-left: -5px;
+      width: 0;
+      border-top: 5px solid #000;
+      border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      content: " ";
+      font-size: 0;
+      line-height: 0;
+    }
+
+    /* Show tooltip content on hover */
+    &:hover:before,
+    &:hover:after {
+      visibility: visible;
+      opacity: 1;
+    }
+  img {
+    width: 100%; height: auto;
+    
+  }
+}

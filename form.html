@@ -18,9 +18,11 @@ layout: default
 						<option>{{option.label}}</option>
 					{% endfor %}
 				</select>
+			{% elsif question.type == "text" %}
+				<input type="text" id="{{question.dbfield}}" />
 			{% elsif question.type == "money" %}
 				<div class="money"><input type="number" min="0.0" step="0.01" id="{{question.dbfield}}" /></div>
-			{% elsif question.type == "bool" %}
+			{% elsif question.type == "radio" %}
 			<div class="radio">
 				{% for option in question.content %}
 				<p>
@@ -33,13 +35,11 @@ layout: default
 			{% else %}
 
 			{% endif %}
-
-
-
-
-			<div class="question">
-				
-			</div>
+			{% if question.desc %}
+				<div class="tag" data-tooltip="{{question.desc}}">
+					<img src="{{ "/img/tooltip.png" | prepend: site.url }}"  />
+				</div>
+			{% endif %}
 			{% endfor %}
 		</form>
 
