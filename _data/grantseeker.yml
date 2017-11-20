@@ -13,7 +13,61 @@
             desc: "Name of the funder to which your org is considering applying"
             type: text
           - 
-            label: Other person without tag
-            dbfield: funder
-            # desc: "Name of the funder to which your org is considering applying"
-            type: text
+            label: Has your organization received a grant from this funder in the past?
+            dbfield: past_grant
+            desc: "Has this funder supported your organization in the past?"
+            type: dropdown
+            content:
+              - label: Yes
+              - label: No
+      -
+        header: "Grant Details"
+        name: "Section 2"
+        questions:
+          -
+            label: Amount requested?
+            dbfield: Amount
+            desc: "How much is your organization requesting from this funder?" 
+            type: money
+          -
+            label: Expected likelihood of receiving grant
+            dbfield: probability
+            desc: "What's your best estimate of the percentage likelihood of getting this grant?"
+            type: percentage
+          -
+            label: New Grant or Renewal?
+            dbfield: new_or_renewal
+            desc: "Is this a new grant?  Or a renewal of an existing grant?"
+            type: dropdown
+            content:
+              - label: New Grant
+              - label: Renewal
+          -
+            label: Invited or Unsolicited?
+            dbfield: invited_or_unsolicited
+            desc: "Was your organization invited to apply for this grant, or is the request unsolicited?"
+            type: dropdown
+            content:
+              - label: Invited
+              - label: Unsolicited
+          -
+            label: Type of Support 
+            dbfield: type_of_support
+            desc: "What type of grant? General operating support? Project support, etc?"
+            content:
+              - label: Capacity-building and technical assistance
+              - label: Capital and infrastructure
+              - label: Continuing support
+              - label: Financial sustainability
+              - label: General support
+              - label: Individual development
+              - label: Leadership and professional development
+              - label: Network-building and collaboration
+              - label: Outreach
+              - label: Policy advocacy and systems reform
+              - label: Presentations and productions
+              - label: Product and service development
+              - label: Program development
+              - label: Regranting
+              - label: Research and evaluation
+              - label: Other (please specify)
