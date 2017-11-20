@@ -40,6 +40,7 @@ section {
 
 .site-header {
     height: 65px;
+    z-index: 10;
     width: 100%;
     // height: 80px;
     // Positioning context for the mobile navigation icon
@@ -60,6 +61,7 @@ section {
                 margin: 10px auto;
                 text-align:center;
                 margin-bottom: 5px;
+                margin:-30px auto;
             }
         }
     }

@@ -106,6 +106,10 @@ label {
   width: 140px;
   text-align: left;
   display: inline-block;
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+    display: block;
+  }
 }
 
 input,select {
@@ -116,6 +120,10 @@ input,select {
   border-radius: 5px;
   width: 290px;
   height: 35px;
+}
+
+select {
+  width: 300px!important;
 }
 
 .money {
@@ -208,6 +216,22 @@ button {
   position: relative;
   z-index: 2;
   cursor: pointer;
+  @media only screen and (max-width: 480px) {
+    padding-bottom: 50px;
+    width: 100%;
+    img {
+      width: 10%!important;
+      display: inline-block;
+    }
+    &:after {
+      width: 85%;
+      display: inline-block;
+      padding-left: 10px;
+      content: attr(data-tooltip);
+    }
+
+  }
+  @media only screen and (min-width: 480px) {
 
     &:before,
     &:after {
@@ -258,6 +282,7 @@ button {
       visibility: visible;
       opacity: 1;
     }
+  }
   img {
     width: 100%; height: auto;
     
