@@ -4,16 +4,171 @@
     page: 1
     sections: 
       - 
-        header: "Funder Information"
-        name: "Section 1"
+        header: "Applicant Information"
+        name: "app"
         questions: 
           - 
-            label: Funder
-            dbfield: funder
-            desc: "Name of the funder to which your org is considering applying"
+            label: Name
+            dbfield: name
+            desc: "First, Middle, Last"
             type: text
           - 
-            label: Other person without tag
-            dbfield: funder
-            # desc: "Name of the funder to which your org is considering applying"
+            label: gender
+            dbfield: zipcode
             type: text
+          - 
+            label: What is your race?
+            dbfield: race
+            type: dropdown
+            content:
+              - label: White
+              - label: Asian
+              - label: Asian AND White
+              - label: Black
+          - 
+            label: Birthday
+            dbfield: birthday
+            type: text
+          - 
+            label: Address
+            dbfield: address
+            desc: "First, Middle, Last"
+            type: text
+          - 
+            label: State
+            dbfield: state
+            type: text
+          - 
+            label: State
+            dbfield: state
+            desc: "First, Middle, Last"
+            type: dropdown
+          - 
+            label: Zip Code
+            dbfield: zipcode
+            type: text
+          - 
+            label: phone
+            dbfield: phone
+            type: text
+      - 
+        header: "Personal Info"
+        name: "pers"
+        questions: 
+          - 
+            label: Are you Hispanic/Latino?
+            dbfield: latino
+            type: radio
+            content:
+              - label: Yes
+              - label: No
+          - 
+            label: English Level
+            dbfield: english
+            type: radio
+            content:
+              - label: Beginner
+              - label: Intermediate
+              - label: Advanced
+              - label: Fluent
+          - 
+            label: Language spoken at home
+            dbfield: language
+            type: text
+          - 
+            label: Are you Hispanic/Latino?
+            dbfield: latino
+            type: radio
+            content:
+              - label: Yes
+              - label: No
+          - 
+            label: Are you the head of the household?
+            dbfield: headhousehold
+            desc: "First, Middle, Last"
+            type: radio
+            content:
+              - label: Yes
+              - label: No
+          - 
+            label: What year did you enter the United State?
+            dbfield: year
+            type: dropdown
+          - 
+            label: How many people are in your family?
+            dbfield: famnumber
+            desc: "Please list children, grandparents, and siblings"
+            type: dropdown
+          - 
+            label: Are you the head of the household?
+            dbfield: headhousehold
+            desc: "First, Middle, Last"
+            type: radio
+            content:
+              - label: Yes
+              - label: No
+          - 
+            label: Do you have a disability?
+            dbfield: disability
+            type: radio
+            content:
+              - label: Yes
+              - label: No
+              - label: I don't wish to say
+          - 
+            label: Weekly Income
+            dbfield: money
+            type: money
+      - 
+        header: "Membership Photo ID"
+        name: "membership"
+        questions: 
+          - 
+            label: What document are you using?
+            dbfield: doc
+            type: radio
+            content:
+              - label: ID from country
+              - label: Birth Certificate
+              - label: Driver's License
+              - label: State-Isued ID
+              - label: Passport
+              - label: US Immigration Document
+          - 
+            label: Witness Name
+            dbfield: witnessname
+            type: text
+          - 
+            label: Witness Telephone Number
+            dbfield: witnesstelephone
+            type: text
+          - 
+            label: Document presented by Witness
+            dbfield: witnessdoc
+            type: radio
+            content:
+              - label: ID from country of origin
+              - label: Driver's License
+              - label: Passport
+
+      - 
+        header: "Service Desired"
+        name: "Service"
+        questions: 
+          - 
+            label: Service Desired?
+            dbfield: servicedes
+            type: radio
+            content:
+              - label: Employment
+              - label: Citizenship
+              - label: Driver's License
+              - label: Parental and Community Engagement
+              - label: English and Adult Learning
+              - label: Health Services
+              - label: Financial Education and Taxes
+              - label: Organizing Campaigns
+              - label: Legal Services
+              - label: General Social Services
+              - label: Schools
+              - label: Photo ID
