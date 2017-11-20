@@ -145,6 +145,9 @@ select {
   p {
     display: inline-block;
     width: 30%;
+    @media only screen and (max-width: 480px) {
+      width: 45%;
+    }
   }
   [type="radio"]:checked,
   [type="radio"]:not(:checked) {
