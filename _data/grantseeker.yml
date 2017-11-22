@@ -26,7 +26,7 @@
         questions:
           -
             label: Amount requested?
-            dbfield: Amount
+            dbfield: amount
             desc: "How much is your organization requesting from this funder?" 
             type: money
           -
