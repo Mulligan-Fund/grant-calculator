@@ -9,7 +9,7 @@ def generateSchema(l):
 	lines.append("var grantmakerSchema = new Schema({\n")
 
 	for i in l:
-		lines.append(i["field"]+":"+i["type"]+",\n")
+		lines.append("\t"+i["field"]+" : "+i["type"]+",\n")
 
 	lines.append("});")
 	# target.write(lines)
