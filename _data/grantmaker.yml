@@ -279,14 +279,9 @@
             desc: "Who is involved in drafting the LOI?"
             type: peoplelist
           -
-            label: Review Draft LOI
-            dbfield: program_review_draft_loi
-            desc: "Who is involved in reviewing the draft LOI?"
-            type: peoplelist
-          -
-            label: Revise LOI
-            dbfield: revise_loi
-            desc: "Who is involved in revising the LOI?"
+            label: Finalize LOI
+            dbfield: program_finalize_loi
+            desc: "Who is involved in finalizing the LOI?"
             type: peoplelist
           -
             label: Publish/Release/Publicize LOI
@@ -299,14 +294,9 @@
             desc: "Who is involved in drafting the RFP?"
             type: peoplelist
           -
-            label: Review Draft RFP
-            dbfield: review_rfp
-            desc: "Who is involved in reviewing the draft RFP?"
-            type: peoplelist
-          -
-            label: Revise RFP
-            dbfield: revise_rfp
-            desc: "Who is involved in revising the RFP?"
+            label: Finalize RFP
+            dbfield: finalize_rfp
+            desc: "Who is involved in finalizing the RFP?"
             type: peoplelist
           -
             label: Publish/Release/Publicize RFP
@@ -319,20 +309,19 @@
             desc: "Who is involved in drafting the reporting requirements?"
             type: peoplelist
           -
-            label: Review Draft Report Requirements
-            dbfield: review_report_req
-            desc: "Who is involved in reviewing the draft reporting requirements?"
-            type: peoplelist
-          -
-            label: Revise Report Requirements
-            dbfield: revise_report_req
-            desc: "Who is involved in revising the reporting requirements?"
+            label: Finalize Report Requirements
+            dbfield: finalize_report_req
+            desc: "Who is involved in finalizing the reporting requirements?"
             type: peoplelist
           -
             label: Publish/Release Report Forms/Requirements
             dbfield: publish_report_req
             desc: "Who is involved in publishing/releasing the reporting requirements?"
             type: peoplelist
+          -
+            label: Communication with Grantseekers
+            dbfield: communication_with_seekers
+            desc: "Who is involved in communicating with grantseekers (e.g., webinars, meetings)?"
       -
         header: "LOI"
         name: "prog_loi"
@@ -397,14 +386,9 @@
             desc: "Who is involved in preparing recommendations for the board/grant/review committee?"
             type: peoplelist
           -
-            label: Review Recommendations for Board/Committee Meeting
+            label: Review/Revise Recommendations for Board/Committee Meeting
             dbfield: review_recommendations
-            desc: "Who is involved in reviewing recommendations for the board/grant/review committee?"
-            type: peoplelist
-          -
-            label: Revise Recommendations for Board/Committee Meeting
-            dbfield: revise_recommendations
-            desc: "Who is involved in revising recommendations for the board/grant/review committee?"
+            desc: "Who is involved in reviewing and revising recommendations for the board/grant/review committee?"
             type: peoplelist
           -
             label: Schedule Board/Committee Meeting
@@ -412,19 +396,9 @@
             desc: "Who is involved in scheduling the board/grant/review committee meeting?"
             type: peoplelist
           -
-            label: Prepare for Board/Committee Meeting
-            dbfield: prep_mtg
-            desc: "Who is involved in preparing for the board/grant/review committee meeting?"
-            type: peoplelist
-          -
             label: Hold Board/Committee Meeting
             dbfield: hold_mtg
             desc: "Who is involved in the board/grant/review committee meeting?"
-            type: peoplelist
-          -
-            label: Other communications about proposals
-            dbfield: other_proposal_comm
-            desc: "Who is involved in other communications about proposals?"
             type: peoplelist
       -
         header: "Site Visits"
@@ -475,9 +449,9 @@
             desc: "Who is involved in release grant funds to grantees?"
             type: peoplelist
           -
-            label: Other Post-Grant Communications with Grantees
+            label: Press Release and Other Communications about Grants
             dbfield: post_grant_comm
-            desc: "Who is involved in other post-grant communications with grantees?"
+            desc: "Who is involved in issuing a press release about awarded grants or other post-grant communications?"
             type: peoplelist
       -
         header: "Reporting"
@@ -509,9 +483,9 @@
             desc: "Who is involved in releasing additional grant funds to grantees, if applicable?"
             type: peoplelist
           -
-            label: Other Communications with Grantees about Reports
-            dbfield: other_report_comm
-            desc: "Who is involved in other communications with grantees about reports?"
+            label: Reporting on Impact to Board
+            dbfield: report_board
+            desc: "Who is involved in reporting on outcomes/impact to the board and other post-grant communications?"
             type: peoplelist
       -
         header: "Other"
