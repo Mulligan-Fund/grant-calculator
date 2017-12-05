@@ -11,8 +11,10 @@ def generateSchema(l):
 	for i in l:
 		lines.append("\t"+i["field"]+" : "+i["type"]+",\n")
 
-	lines.append("});")
-	# target.write(lines)
+	lines.append("});\n\n")
+	lines.append("mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/peddler-test');\n")
+	lines.append("module.exports = mongoose.model('db', grantmakerSchema);\n")
+	
 
 	fo = open("schema.js", "w")
 	fo.writelines( lines )
@@ -25,7 +27,10 @@ with open("../_data/grantseeker.yml", 'r') as stream:
 
     for sect in out[0]["sections"]:
     	for quest in sect["questions"]:
-    		o = {"field": quest['dbfield'], "type": quest['type']}
+
+    		t = "String" if quest['type'] in ["dropdown","text"] else "Number"
+
+    		o = {"field": quest['dbfield'], "type": t}
     		lo.append(o)
     		print o
 	    	# print quest['dbfield']
