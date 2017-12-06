@@ -8,7 +8,7 @@ var express = require('express')
     , port = process.env.PORT || 3000
     , router = express.Router()
     , passport = require('passport')
-    , passport_local = require('passport-local')
+    , LocalStrategy = require('passport-local')
     , mongoose = require('mongoose');
 
 app.set('view engine', 'jade');
@@ -45,31 +45,20 @@ function ensureAuthenticated(req, res, next) {
 
 var heroku = process.env.HEROKU_TRUE || false
 
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'passwd',
-    passReqToCallback: true,
-    session: false,
-    callbackURL: "http://127.0.0.1:3000/auth/callback"
-  }, function(accessToken, refreshToken, profile, done) {
-  	console.log("user get!",accessToken,profile)
-    User.findOneAndUpdate(
-    		{id:profile.id}, 
-    		{id:profile.id,
-    			access_token: accessToken}, 
-    		{upsert:true}, function(err, user) {
-      if(err) {
-        return done(err);
-      } else {
-        return done(null, user);
-        console.log("Set user with id",profile.id,"and token",accessToken)
-      }
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
     });
   }
 ));
 
 app.get('/auth',
-  passport.authenticate('local'));
+  passport.authenticate('local')
+);
 
 app.get('/auth/callback', 
   passport.authenticate('local',
@@ -135,6 +124,8 @@ app.get('/logout', function(req, res){
 //////////////////////////////////
 app.get('/user',ensureAuthenticated,function(req,res,next){
 	// Get User info here
+	res.setHeader('Content-Type', 'application/json');	
+	res.send(JSON.stringify("Testing"))
 })
 
 app.put("/user/update",ensureAuthenticated,function(req,res,next){
