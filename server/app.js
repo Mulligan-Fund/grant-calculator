@@ -58,7 +58,7 @@ passport.use(new LocalStrategy(
 
 app.get('/auth',
   passport.authenticate('local')
-);
+  );
 
 app.get('/auth/callback', 
   passport.authenticate('local',

@@ -16,6 +16,7 @@ window.gc = {
             });
 
         this.Init.Form = new this.Views.formView({
+        	el:'#form',
             collection: this.Init.User
         });
 
@@ -29,5 +30,8 @@ window.gc = {
 
 $(document).ready(function () {
     'use strict';
+    $('button').on('click',function(e){
+    	e.preventDefault()
+    })
     gc.init();
 });

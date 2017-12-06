@@ -7,7 +7,7 @@ gc.Views = gc.Views || {};
         // template: JST['app/scripts/templates/card.ejs'],
         // errorTemplate: JST['app/scripts/templates/card-err.ejs'],
         events: {
-            "click .submit":"submitSection",
+            "click .submit":"submitForm",
         	
         },
         initialize: function() {
@@ -15,22 +15,36 @@ gc.Views = gc.Views || {};
             this.boards = []
         },
 
-        usernameUpdate: function(e) {
+        submitForm: function(e) {
             var _this = this
-             if(e.keyCode == 13){
-                e.preventDefault();
-                this.collection.doPinBoardsExist($(this.el).find("#pinterestUsername").html()
-                    , function(data) {
-                    if(data.length > 0) {
-                        console.log("populating boards")
-                        for(var v in data) {
-                            $(_this.el).find(".boardList").append("<option value="+data[v]+">"+data[v]+"</option>")
-                        }
-                    $(_this.el).find(".boardList").show()
-                }
+            console.log("Form clicked")
+            var l = $(this.el).find('input').length
+            var t = []
+            console.log("input",$(this.el).find('input'))
+
+             $(this.el).find('input').each(function(e,i){
+                t.push( String($(i).attr('id') +":"+ $(i).val() ))
             })
-            }
+
+             console.log(t)
+
+            this.collection.sendData($(this.el).find("#pinterestUsername").html()
+                , function(data) {
+                
+
+            })
             
+        },
+
+        getFields:  function(context){
+            var _this = context
+            var t = []
+            console.log($(_this))
+             $(_this).find('input').each(function(e,i){
+                t.push( String($(i).attr('id') +":"+ $(i).val() ))
+                console.log(e,_this.length)
+                if (e==_this.length) return t
+            })
         },
 
         usernameClear: function() {

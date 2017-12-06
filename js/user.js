@@ -47,9 +47,13 @@ gc.Collections = gc.Collections || {};
             }
         },
 
-        login: function(o,callback) {
-            var endpoint = this.url + "/update?"
+        sendData: function(o,callback) {
+            
+        },
 
+        login: function(o,callback) {
+            var endpoint = this.url + "/login?"
+            if(o.pinUser) endpoint += "username=" + o.pin_user + "&password=" + 
             console.log(endpoint)
             $.ajax({
                 url : endpoint,
