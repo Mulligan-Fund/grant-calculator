@@ -4,11 +4,10 @@ gc.Views = gc.Views || {};
     'use strict';
 
     gc.Views.formView = Backbone.View.extend({
-        // template: JST['app/scripts/templates/card.ejs'],
-        // errorTemplate: JST['app/scripts/templates/card-err.ejs'],
         events: {
-            "click .submit":"submitForm",
-        	
+            "click .submit":"submitForm"
+        	, "focusout input": "submitField"
+            , "blur input": "submitField"
         },
         initialize: function() {
         	var _this = this
@@ -22,25 +21,30 @@ gc.Views = gc.Views || {};
             var t = {}
 
             $(this.el).find('input').each(function(e,i){
-                // t.push( { "key": $(i).attr('id'),
-                         // "val": $(i).val() })
                 t[$(i).attr('id')] = $(i).val()
 
             })
 
-             console.log(t)
+            console.log(t)
 
             this.collection.sendData( 
-                // var o = {}
-                // for(i in t) {
-                //     o[i['key']]=i['val']
-                // }
-
                 t
                 , function(data) {
                     
             })
             
+        },
+
+        submitField: function(e) {
+            var _this = this;
+            console.log("Field submit")
+            var t = $(e.currentTarget)
+            console.log(t.attr("id"),t.val())
+            var i={};
+            this.grant.sendData(i[t.attr("id")] = t.val()
+                , function(data) {
+                    
+            })
         },
 
         getFields:  function(context){
@@ -59,19 +63,7 @@ gc.Views = gc.Views || {};
                 $(this.el).find("#pinterestUsername").html("")
                 this.cleared = true
             }
-        },
-
-
-
-        render: function() {
-            	
-        },
-
-        resize: function() {
-
-        },
-
-
+        }
 
     });
 

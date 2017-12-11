@@ -164,8 +164,8 @@ app.put("/user",function(req,res,next){
 app.get('/grant', ensureAuthenticated,function(req, res, next) {
 	var items = []
 	console.log("req.user for /items",req.user)
-	User.findOne({id:req.user.id}, function(err,user) {
-		console.log("/items user",user)
+	User.findById(req.user.id,function(err,user){
+		console.log("/grant user",user)
 		if(err)  {
 			console.log("Some kind of error fetching pins",err)
 			res.sendStatus(400,err)
@@ -175,6 +175,47 @@ app.get('/grant', ensureAuthenticated,function(req, res, next) {
 			res.sendStatus(400,err)	
 		} else {
 		console.log("Returned user",user)
+
+
+		
+
+		data = "FetchDataFrom"
+
+		console.log("FULLDUMP",data)
+
+		res.setHeader('Content-Type', 'application/json');	
+    	res.send(JSON.stringify(items))
+		}
+	})
+})
+
+app.put('/grant', ensureAuthenticated, function(req,res,next) {
+	var items = []
+	console.log("req.user for /items",req.user)
+	User.findById(req.user.id,function(err,user){
+		console.log("/grant user",user)
+		if(err)  {
+			console.log("Some kind of error fetching pins",err)
+			res.sendStatus(400,err)
+		}
+
+		if(user.username == null) {
+			res.sendStatus(400,err)	
+		} else {
+		console.log("Returned user",user)
+
+		if (!user) { 
+		     usr = new User({ username: username, password: password });
+		     usr.save(function(err) {
+			     if(err) {
+			           console.log(err);
+			     } else {
+			           console.log('user: ' + usr.username + " saved.");
+			     }
+		  });
+
+		}
+		
 
 		data = "FetchDataFrom"
 

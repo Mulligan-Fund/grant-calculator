@@ -15,9 +15,14 @@ window.gc = {
                 model: new this.Models.UserModel()
             });
 
+        this.Init.Login = new this.Views.formView({
+        	el:'.login',
+            collection: this.Init.User,
+        });
+
         this.Init.Form = new this.Views.formView({
-        	el:'#form',
-            collection: this.Init.User
+            el:'.form',
+            collection: this.Init.Grant
         });
 
         _.each(this.Init, function(v){

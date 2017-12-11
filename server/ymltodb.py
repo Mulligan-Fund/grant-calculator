@@ -7,12 +7,15 @@ def generateSchema(l):
 	lines.append("var mongoose = require('mongoose');\n")
 	lines.append("var Schema = mongoose.Schema;\n")
 	lines.append("var grantmakerSchema = new Schema({\n")
+	lines.append("\tgrantid: Schema.Types.ObjectId,\n")
+	lines.append("\tuserid: Schema.Types.ObjectId,\n")
+	
 
 	for i in l:
 		lines.append("\t"+i["field"]+" : "+i["type"]+",\n")
 
 	lines.append("});\n\n")
-	lines.append("mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/peddler-test');\n")
+	lines.append("mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/grantcalc');\n")
 	lines.append("module.exports = mongoose.model('db', grantmakerSchema);\n")
 	
 

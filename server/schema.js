@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var grantmakerSchema = new Schema({
+	grantid: Schema.Types.ObjectId,
+	userid: Schema.Types.ObjectId,
 	funder : String,
 	past_grant : String,
 	amount : Number,
@@ -16,5 +18,5 @@ var grantmakerSchema = new Schema({
 	number_of_reports : Number,
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/grantcalc');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/peddler-test');
 module.exports = mongoose.model('db', grantmakerSchema);
