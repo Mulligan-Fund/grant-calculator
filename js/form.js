@@ -19,19 +19,26 @@ gc.Views = gc.Views || {};
             var _this = this
             console.log("Form clicked")
             var l = $(this.el).find('input').length
-            var t = []
-            console.log("input",$(this.el).find('input'))
+            var t = {}
 
-             $(this.el).find('input').each(function(e,i){
-                t.push( String($(i).attr('id') +":"+ $(i).val() ))
+            $(this.el).find('input').each(function(e,i){
+                // t.push( { "key": $(i).attr('id'),
+                         // "val": $(i).val() })
+                t[$(i).attr('id')] = $(i).val()
+
             })
 
              console.log(t)
 
-            this.collection.sendData($(this.el).find("#pinterestUsername").html()
-                , function(data) {
-                
+            this.collection.sendData( 
+                // var o = {}
+                // for(i in t) {
+                //     o[i['key']]=i['val']
+                // }
 
+                t
+                , function(data) {
+                    
             })
             
         },
@@ -47,22 +54,14 @@ gc.Views = gc.Views || {};
             })
         },
 
-        usernameClear: function() {
+        formClear: function() {
             if(!this.cleared) {
                 $(this.el).find("#pinterestUsername").html("")
                 this.cleared = true
             }
         },
 
-        registerPinterest: function() {
-            var _this = this
-            var username = $(this.el).find("#pinterestUsername").html()
-            var board = $(this.el).find(".boardList").find(':selected').html()
 
-            this.collection.registerUserPinterestConfig(username,board,function() {
-                    window.location.href="/"
-            })
-        },
 
         render: function() {
             	

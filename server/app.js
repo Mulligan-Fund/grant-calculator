@@ -9,23 +9,23 @@ var express = require('express')
     , router = express.Router()
     , passport = require('passport')
     , LocalStrategy = require('passport-local')
-    , mongoose = require('mongoose');
+    , mongoose = require('mongoose')
+    , cors = require('cors');
 
 app.set('view engine', 'jade');
 app.use(morgan('dev'));  
-app.use(bodyParser());   
+app.use(bodyParser());
 app.use(sessions({ secret: 'wowfoundations' }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
 app.use(methodOverride());
 
 // Mongoose
 var schema = require('./schema.js');
 var User = require('./user.js');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/grantcalc');
+mongoose.connect('mongodb://localhost/grantcalc'); //process.env.MONGODB_URI || 
 
-
-// STRAVA METHODS (Auth and passport)
 passport.serializeUser(function(user, done) {
 	console.log("serializeUser")
 	console.log(user)
@@ -45,37 +45,63 @@ function ensureAuthenticated(req, res, next) {
 
 var heroku = process.env.HEROKU_TRUE || false
 
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+            usernameField: 'username',
+            passwordField: 'password'
+        },
   function(username, password, done) {
+  	console.log("Looking for",username,password)
     User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      if (!user.verifyPassword(password)) { return done(null, false); }
-      return done(null, user);
+    	console.log("Looking for user",user,err)
+		if (err) { return done(err); }
+
+		if (!user) { 
+		     usr = new User({ username: username, password: password });
+		     usr.save(function(err) {
+			     if(err) {
+			           console.log(err);
+			     } else {
+			           console.log('user: ' + usr.username + " saved.");
+			     }
+		  });
+
+		}
+
+		if(user) {
+			if(user.password == password) {
+				done(null,user)
+			} else {
+				return done(null,false, {message: 'Invalid password'});
+			}
+		}
+
+
+
+		// TO IMPLEMENT
+		// bcrypt.compare(pw, this.password, function(err, isMatch) {
+		//   if (err) return done(err);
+		//   if(isMatch) {
+		//     return done(null, user);
+		//   } else {
+		//     return done(null, false, { message: 'Invalid password' });
+		//   }
+		// });
+
     });
   }
 ));
 
-app.get('/auth',
-  passport.authenticate('local')
-  );
+// Default return
+app.put('/', function(req,res) {
+	console.log("Nope",req)
+	res.setHeader('Content-Type', 'application/json');	
+	res.send(JSON.stringify("Error"))
+})
 
-app.get('/auth/callback', 
-  passport.authenticate('local',
-  	{ failureRedirect: '/login' }),
+app.put('/auth',
+  passport.authenticate('local'),
   function(req, res) {
-  	 User.findOneAndUpdate(
-		{id:req.user.id}, 
-		{id:req.user.id,
-		}, 
-		{upsert:true}, function(err,user){
-			if(err) {
-				res.redirect('/logout')
-			} else {
-			    res.redirect('/');
-			}
-		})
-
+  	console.log("Punted through")
 });
 
 function authenticationMiddleware() { 
@@ -89,28 +115,13 @@ function authenticationMiddleware() {
 
 // Main index
 app.get('/', authenticationMiddleware(), function(req, res, next) {
-	// console.log("Rendering index")
-	console.log(req.session.pinid)
-	console.log(req.session.pinboard)
-
-	User.findOne({id:req.user.id}, function (err, user) {
-	  if(err) {
-	  	res.redirect('/login')
-	  } else {
-		  if(user.pin_username == null) {
-	      	res.render('pin-auth');	
-	      } else {
-	      	res.render('index')
-	      }	
-	  }
-      
-    });
-    // console.log(req.user)
+	res.setHeader('Content-Type', 'application/json');	
+	res.send(JSON.stringify("Error"))
 });
 
 app.get('/login', function(req, res, next) {
-	// console.log(req.user)
-    res.render('auth');
+	res.setHeader('Content-Type', 'application/json');	
+	res.send(JSON.stringify("Error login"))
 });
 
 
@@ -122,32 +133,14 @@ app.get('/logout', function(req, res){
 //////////////////////////////////
 ////////////// USER //////////////
 //////////////////////////////////
-app.get('/user',ensureAuthenticated,function(req,res,next){
+app.get('/user',function(req,res,next){
 	// Get User info here
 	res.setHeader('Content-Type', 'application/json');	
-	res.send(JSON.stringify("Testing"))
+	res.send(JSON.stringify("User info should return"))
 })
 
-app.put("/user/update",ensureAuthenticated,function(req,res,next){
+app.put("/user",function(req,res,next){
 	console.log("Updating user",req.query)
-
-	var update = function() {
-	 	if(typeof req.query.yearly_goal !== "undefined") 
-	 		return {yearly_goal:req.query.yearly_goal}
-	 	else if(typeof req.query.monthly_budget !== "undefined")
-	 		return {monthly_budget:req.query.monthly_budget}
- 		else if(typeof req.query.pin_username !== "undefined") 
- 			return {pin_username:req.query.pin_user}
-		else if(typeof req.query.pin_board !== "undefined") 
-			return {pin_board:req.query.pin_board}
-		else {
-			console.log("Nothin...",req.query)
-			return {}
-		}
-	}
-
-	console.log('updateQuery',update())
-
 	User.findOneAndUpdate(
 	{id:req.user.id}, 
 		update(),
@@ -168,34 +161,7 @@ app.put("/user/update",ensureAuthenticated,function(req,res,next){
 /////////////  Items  ////////////////
 //////////////////////////////////////
 
-app.get('/items/claim',ensureAuthenticated,function(req,res,next){
-	// console.log("req.user",req.user)
-	// console.log("req.session",req.session)
-
-	schema.findOneAndUpdate(
-
-	// Loop through the dbfields and create approp
-	{id:req.query.pinid}, 
-		{userid: req.user._id,
-		 stravaid: req.user.id,
-		 pinid: req.query.pinid, 
-		 link: req.query.link,
-		 cost: req.query.cost,
-		 img: req.query.img
-		},
-		{safe: true, upsert:true}, function(err,user){
-			if(err) {
-				console.log("claim fail :(",err)
-				res.sendStatus(500)
-			} else {
-				console.log("Claim success",user)
-				res.sendStatus(200)
-			}
-	})		
-})
-
-
-app.get('/items', ensureAuthenticated,function(req, res, next) {
+app.get('/grant', ensureAuthenticated,function(req, res, next) {
 	var items = []
 	console.log("req.user for /items",req.user)
 	User.findOne({id:req.user.id}, function(err,user) {

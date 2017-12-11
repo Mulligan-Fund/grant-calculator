@@ -34,7 +34,7 @@ gc.Collections = gc.Collections || {};
 
         // model: peddler.Models.UserModel,
 
-    	url: '/user',
+    	url: 'http://localhost:3000/auth',
 
         initialize: function() {
 
@@ -47,33 +47,28 @@ gc.Collections = gc.Collections || {};
             }
         },
 
-        sendData: function(o,callback) {
-            
-        },
-
-        login: function(o,callback) {
-            var endpoint = this.url + "/login?"
-            if(o.pinUser) endpoint += "username=" + o.pin_user + "&password=" + 
-            console.log(endpoint)
+        sendData: function(data,callback) {
+            console.log("Data got to",data)
             $.ajax({
-                url : endpoint,
+                url : this.url,
                 type : 'PUT',
                 dataType:'json',
+                data: data,
                 success : function(data) { 
+                    console.log(data)
                     callback()
                 },
                 error : function(request,error)
                 {
-                    console.log("Request: "+JSON.stringify(request));
+                    console.log("Request: ",JSON.stringify(data),JSON.stringify(request));
                     callback()
                 }
             });
         },
 
-        getUserInfo: function(username,callback) {
-            var endpoint = this.url + "/pin-exist?user=" + username
+        getData: function(username,callback) {
+            var endpoint = this.url
             $.ajax({
-
             url : endpoint,
             type : 'GET',
             dataType:'json',
@@ -86,27 +81,7 @@ gc.Collections = gc.Collections || {};
                 alert("Request: "+JSON.stringify(request));
             }
             });
-        },
-
-        registerUserPinterestConfig: function(username,board,callback) {
-            var endpoint = this.url + "/login?user=" + username + "&board=" + board
-                $.ajax({
-
-                url : endpoint,
-                type : 'PUT',
-                dataType:'json',
-                success : function(data) {              
-                    console.log("Updated")
-                    callback()
-                },
-                error : function(request,error)
-                {
-                    console.log("Request: "+JSON.stringify(request));
-                    callback()
-                }
-            });
         }
-
 
     });
 
