@@ -15,7 +15,6 @@ def generateSchema(l):
 		lines.append("\t"+i["field"]+" : "+i["type"]+",\n")
 
 	lines.append("});\n\n")
-	lines.append("mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/grantcalc');\n")
 	lines.append("module.exports = mongoose.model('db', grantmakerSchema);\n")
 	
 

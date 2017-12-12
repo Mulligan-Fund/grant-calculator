@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    <div class="fullbg yellow">
+      <div class="logo-block">
+     <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+     </div>
+     <div class="description">
+        <h2>Your Grants</h2>
+        <a href="./form" class="create">New Grant</a>
+        <div id="grants"></div>
+
+      </div>
+
+   </div>
+
+  </body>
+
+</html>

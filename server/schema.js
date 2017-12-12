@@ -18,5 +18,4 @@ var grantmakerSchema = new Schema({
 	number_of_reports : Number,
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/peddler-test');
 module.exports = mongoose.model('db', grantmakerSchema);

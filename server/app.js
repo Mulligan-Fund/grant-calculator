@@ -15,10 +15,13 @@ var express = require('express')
 app.set('view engine', 'jade');
 app.use(morgan('dev'));  
 app.use(bodyParser());
-app.use(sessions({ secret: 'wowfoundations' }));
+app.use(sessions({ secret: 'wowfoundations'
+					 ,cookie:
+					    { secure: false
+					    , httpOnly: false } } ));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://127.0.0.1:4000'}));
 app.use(methodOverride());
 
 // Mongoose
@@ -39,8 +42,12 @@ passport.deserializeUser(function(id, done) {
 });
 
 function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
+  if (req.isAuthenticated()) { console.log("Authenticated"); return next(); }
+  else {
+  	console.log("Not Authenticated");
+	res.setHeader('Content-Type', 'application/json');	
+	res.status(401).send(JSON.stringify("Not Logged In"))
+  }
 }
 
 var heroku = process.env.HEROKU_TRUE || false
@@ -53,9 +60,10 @@ passport.use(new LocalStrategy({
   	console.log("Looking for",username,password)
     User.findOne({ username: username }, function (err, user) {
     	console.log("Looking for user",user,err)
-		if (err) { return done(err); }
+		if (err) { console.log(err); return done(err); }
 
 		if (!user) { 
+			console.log("Making user")
 		     usr = new User({ username: username, password: password });
 		     usr.save(function(err) {
 			     if(err) {
@@ -92,54 +100,60 @@ passport.use(new LocalStrategy({
 ));
 
 // Default return
-app.put('/', function(req,res) {
-	console.log("Nope",req)
+
+app.options('*', cors()); // Setup CORS option
+
+app.get('/', function(req,res) {
 	res.setHeader('Content-Type', 'application/json');	
-	res.send(JSON.stringify("Error"))
+	res.send(JSON.stringify("No Login"))
 })
 
 app.put('/auth',
   passport.authenticate('local'),
   function(req, res) {
   	console.log("Punted through")
+  	res.setHeader('Content-Type', 'application/json');	
+	res.status(202).send(JSON.stringify("./list"))
 });
 
 function authenticationMiddleware() { 
   return function (req, res, next) {
     if (req.isAuthenticated()) {
       return next()
-    }
-    res.redirect('/login')
+    } else {
+		res.status(401).send(JSON.stringify("Not Logged In"))
+	}
   }
 }
 
 // Main index
-app.get('/', authenticationMiddleware(), function(req, res, next) {
+app.put('/',  ensureAuthenticated, function(req, res, next) {
 	res.setHeader('Content-Type', 'application/json');	
-	res.send(JSON.stringify("Error"))
+	res.send(JSON.stringify("Logged in"))
 });
 
-app.get('/login', function(req, res, next) {
+app.get('/login',  function(req, res, next) {
 	res.setHeader('Content-Type', 'application/json');	
 	res.send(JSON.stringify("Error login"))
 });
 
 
-app.get('/logout', function(req, res){
+app.get('/logout',  function(req, res){
   req.logout();
-  res.redirect('/');
+  res.setHeader('Content-Type', 'application/json');	
+  res.send(JSON.stringify("Error login"))
 });
 
 //////////////////////////////////
 ////////////// USER //////////////
 //////////////////////////////////
-app.get('/user',function(req,res,next){
+app.get('/user', ensureAuthenticated,function(req,res,next){
 	// Get User info here
 	res.setHeader('Content-Type', 'application/json');	
 	res.send(JSON.stringify("User info should return"))
 })
 
-app.put("/user",function(req,res,next){
+app.put("/user", ensureAuthenticated,function(req,res,next){
 	console.log("Updating user",req.query)
 	User.findOneAndUpdate(
 	{id:req.user.id}, 
@@ -161,7 +175,7 @@ app.put("/user",function(req,res,next){
 /////////////  Items  ////////////////
 //////////////////////////////////////
 
-app.get('/grant', ensureAuthenticated,function(req, res, next) {
+app.get('/grant', ensureAuthenticated, function(req, res, next) {
 	var items = []
 	console.log("req.user for /items",req.user)
 	User.findById(req.user.id,function(err,user){

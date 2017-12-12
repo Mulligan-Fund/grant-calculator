@@ -8,25 +8,25 @@ layout: default
 	{% for section in form.sections %}
 	<section class="block" id="{{section.name}}">
 		<h3>{{section.header}}</h3>
-		<form>
+		<form class="form">
 			{% for question in section.questions %}
 			<div class="question">
 			<label>{{question.label}}</label>
 			{% if question.type == "dropdown" %}
-				<select id="{{question.dbfield}}">
+				<select id="{{question.dbfield}}" class="live">
 					{% for option in question.content %}
 						<option>{{option.label}}</option>
 					{% endfor %}
 				</select>
 			{% elsif question.type == "text" %}
-				<input type="text" id="{{question.dbfield}}" />
+				<input class="live" type="text" id="{{question.dbfield}}" />
 			{% elsif question.type == "money" %}
-				<div class="money"><input type="number" min="0.0" step="0.01" id="{{question.dbfield}}" /></div>
+				<div class="money"><input class="live" type="number" min="0.0" step="0.01" id="{{question.dbfield}}" /></div>
 			{% elsif question.type == "radio" %}
 			<div class="radio">
 				{% for option in question.content %}
 				<p>
-					<input type="radio" id="{{question.dbfield}}-{{option.label}}"
+					<input class="live" type="radio" id="{{question.dbfield}}-{{option.label}}"
 					name="{{question.dbfield}}" value="{{option.label}}" />
 					<label for="{{question.dbfield}}-{{option.label}}">{{option.label}}</label>
 				</p>

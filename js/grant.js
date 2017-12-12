@@ -1,4 +1,5 @@
 gc.Models = gc.Models || {};
+gc.Collections = gc.Collections || {};
 
 (function () {
     'use strict';
@@ -20,15 +21,6 @@ gc.Models = gc.Models || {};
             return response;
         }
     });
-
-})();
-
-
-
-gc.Collections = gc.Collections || {};
-
-(function () {
-    'use strict';
 
     gc.Collections.GrantCollection = Backbone.Collection.extend({
 
@@ -52,15 +44,18 @@ gc.Collections = gc.Collections || {};
             $.ajax({
                 url : this.url,
                 type : 'PUT',
+                xhrFields: {
+                    withCredentials: true
+                },
                 dataType:'json',
                 data: data,
-                success : function(data) { 
-                    console.log(data)
+                success : function(data,status,xfr) {              
+                console.log("Put Success: ",data,status,xfr)
                     callback()
                 },
                 error : function(request,error)
                 {
-                    console.log("Request: ",JSON.stringify(data),JSON.stringify(request));
+                    console.log("Put Error: ",JSON.stringify(data),JSON.stringify(request));
                     callback()
                 }
             });
@@ -71,14 +66,17 @@ gc.Collections = gc.Collections || {};
             $.ajax({
             url : endpoint,
             type : 'GET',
+            xhrFields: {
+                withCredentials: true
+            },
             dataType:'json',
-            success : function(data) {              
-                console.log("returning data",data)
-                callback(data)
+            success : function(data,status,xfr) {              
+                console.log("Get Success",data,status,xfr)
+                callback(data,)
             },
             error : function(request,error)
             {
-                alert("Request: "+JSON.stringify(request));
+                alert("Get Error: "+JSON.stringify(request));
             }
             });
         }

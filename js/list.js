@@ -3,7 +3,7 @@ gc.Views = gc.Views || {};
 (function () {
     'use strict';
 
-    gc.Views.formView = Backbone.View.extend({
+    gc.Views.listView = Backbone.View.extend({
         events: {
             "click .submit":"submitForm"
         	, "focusout .live": "submitField"
@@ -11,6 +11,7 @@ gc.Views = gc.Views || {};
         },
         initialize: function() {
         	var _this = this
+            this.boards = []
         },
 
         submitForm: function(e) {
@@ -27,11 +28,9 @@ gc.Views = gc.Views || {};
             console.log(t)
 
             this.collection.sendData( 
-                t, function(data,status) {
-                console.log(data)
-                if(String(data).match('/')) {
-                    window.location.replace(data)
-                }
+                t
+                , function(data) {
+                    
             })
             
         },
@@ -43,8 +42,8 @@ gc.Views = gc.Views || {};
             console.log(t.attr("id"),t.val())
             var i={};
             this.collection.sendData(i[t.attr("id")] = t.val()
-                , function(data,next) {
-
+                , function(data) {
+                    
             })
         },
 
@@ -67,8 +66,7 @@ gc.Views = gc.Views || {};
         },
 
         redirectClient: function(path) {
-            console.log("Trying to redirect to",path)
-            window.location.replace(path)
+            window.location.href=path
         }
 
     });

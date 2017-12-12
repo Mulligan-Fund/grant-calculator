@@ -15,6 +15,10 @@ window.gc = {
                 model: new this.Models.UserModel()
             });
 
+        this.Init.Grant = new this.Collections.GrantCollection({
+                model: new this.Models.GrantModel()
+            });
+
         this.Init.Login = new this.Views.formView({
         	el:'.login',
             collection: this.Init.User,

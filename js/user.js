@@ -1,4 +1,5 @@
 gc.Models = gc.Models || {};
+gc.Collections = gc.Collections || {};
 
 (function () {
     'use strict';
@@ -21,14 +22,6 @@ gc.Models = gc.Models || {};
         }
     });
 
-})();
-
-
-
-gc.Collections = gc.Collections || {};
-
-(function () {
-    'use strict';
 
     gc.Collections.UserCollection = Backbone.Collection.extend({
 
@@ -52,15 +45,18 @@ gc.Collections = gc.Collections || {};
             $.ajax({
                 url : this.url,
                 type : 'PUT',
+                xhrFields: {
+                    withCredentials: true
+                },
                 dataType:'json',
                 data: data,
-                success : function(data) { 
-                    console.log(data)
-                    callback()
+                success : function(data,status,xfr) {              
+                console.log("Put Success: ",data,status,xfr)
+                    callback(data,status)
                 },
                 error : function(request,error)
                 {
-                    console.log("Request: ",JSON.stringify(data),JSON.stringify(request));
+                    console.log("Put Error: ",JSON.stringify(data),JSON.stringify(request));
                     callback()
                 }
             });
@@ -70,15 +66,18 @@ gc.Collections = gc.Collections || {};
             var endpoint = this.url
             $.ajax({
             url : endpoint,
+            xhrFields: {
+                withCredentials: true
+            },
             type : 'GET',
             dataType:'json',
-            success : function(data) {              
-                console.log("returning data",data)
-                callback(data)
+            success : function(data,status,xfr) {              
+                console.log("Get Success",data,status,xfr)
+                callback(data,)
             },
             error : function(request,error)
             {
-                alert("Request: "+JSON.stringify(request));
+                alert("Get Error: "+JSON.stringify(request));
             }
             });
         }
