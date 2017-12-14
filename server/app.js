@@ -41,15 +41,6 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { console.log("Authenticated"); return next(); }
-  else {
-  	console.log("Not Authenticated");
-	res.setHeader('Content-Type', 'application/json');	
-	res.status(401).send(JSON.stringify("Not Logged In"))
-  }
-}
-
 var heroku = process.env.HEROKU_TRUE || false
 
 passport.use(new LocalStrategy({
@@ -99,15 +90,35 @@ passport.use(new LocalStrategy({
   }
 ));
 
-// Default return
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { console.log("Authenticated"); return next(); }
+  else {
+  	console.log("Not Authenticated");
+	res.setHeader('Content-Type', 'application/json');	
+	res.status(401).send(JSON.stringify("Not Logged In"))
+  }
+}
 
-app.options('*', cors()); // Setup CORS option
+// // Default return
+
+// function `ware() { 
+//   return function (req, res, next) {
+//     if (req.isAuthenticated()) {
+//       return next()
+//     } else {
+// 		res.status(401).send(JSON.stringify("Not Logged In"))
+// 	}
+//   }
+// }
+
+// app.options('*', cors()); // Setup CORS option
 
 app.get('/', function(req,res) {
 	res.setHeader('Content-Type', 'application/json');	
 	res.send(JSON.stringify("No Login"))
 })
 
+// Authenticate
 app.put('/auth',
   passport.authenticate('local'),
   function(req, res) {
@@ -116,18 +127,14 @@ app.put('/auth',
 	res.status(202).send(JSON.stringify("./list"))
 });
 
-function authenticationMiddleware() { 
-  return function (req, res, next) {
-    if (req.isAuthenticated()) {
-      return next()
-    } else {
-		res.status(401).send(JSON.stringify("Not Logged In"))
-	}
-  }
-}
+// Check if authenticated
+app.get('/auth', ensureAuthenticated, function(req,res,next){
+	res.setHeader('Content-Type', 'application/json');	
+	res.status(200).send(JSON.stringify(req.user))
+});
 
 // Main index
-app.put('/',  ensureAuthenticated, function(req, res, next) {
+app.put('/', ensureAuthenticated, function(req, res, next) {
 	res.setHeader('Content-Type', 'application/json');	
 	res.send(JSON.stringify("Logged in"))
 });
@@ -217,18 +224,9 @@ app.put('/grant', ensureAuthenticated, function(req,res,next) {
 			res.sendStatus(400,err)	
 		} else {
 		console.log("Returned user",user)
+		console.log("To insert",req.body)
 
-		if (!user) { 
-		     usr = new User({ username: username, password: password });
-		     usr.save(function(err) {
-			     if(err) {
-			           console.log(err);
-			     } else {
-			           console.log('user: ' + usr.username + " saved.");
-			     }
-		  });
-
-		}
+		// schema.save
 		
 
 		data = "FetchDataFrom"

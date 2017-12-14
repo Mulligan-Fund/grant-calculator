@@ -42,8 +42,8 @@ gc.Views = gc.Views || {};
             var t = $(e.currentTarget)
             console.log(t.attr("id"),t.val())
             var i={};
-            this.collection.sendData(i[t.attr("id")] = t.val()
-                , function(data,next) {
+            i[t.attr("id")] = t.val();
+            this.collection.sendData(i, function(data,next) {
 
             })
         },

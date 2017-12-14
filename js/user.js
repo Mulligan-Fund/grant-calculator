@@ -27,7 +27,7 @@ gc.Collections = gc.Collections || {};
 
         // model: peddler.Models.UserModel,
 
-    	url: 'http://localhost:3000/auth',
+    	url: window.gc.api + '/auth',
 
         initialize: function() {
 

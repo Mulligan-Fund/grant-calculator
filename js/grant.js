@@ -24,9 +24,7 @@ gc.Collections = gc.Collections || {};
 
     gc.Collections.GrantCollection = Backbone.Collection.extend({
 
-        // model: peddler.Models.UserModel,
-
-    	url: 'http://localhost:3000/grant',
+    	url: window.gc.api+'/grant',
 
         initialize: function() {
 
