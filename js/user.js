@@ -22,22 +22,12 @@ gc.Collections = gc.Collections || {};
         }
     });
 
-
     gc.Collections.UserCollection = Backbone.Collection.extend({
-
-        // model: peddler.Models.UserModel,
 
     	url: window.gc.api + '/auth',
 
-        initialize: function() {
+        initialize: function() { 
 
-        },
-
-        getUserStat: function() {
-            var user = this.findWhere()
-            return {
-                user
-            }
         },
 
         sendData: function(data,callback) {

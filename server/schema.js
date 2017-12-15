@@ -18,4 +18,4 @@ var grantmakerSchema = new Schema({
 	number_of_reports : Number,
 });
 
-module.exports = mongoose.model('db', grantmakerSchema);
+module.exports = mongoose.model('grant', grantmakerSchema);

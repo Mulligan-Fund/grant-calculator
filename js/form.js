@@ -11,6 +11,9 @@ gc.Views = gc.Views || {};
         },
         initialize: function() {
         	var _this = this
+            if(!this.collection.id) {
+                
+            }
         },
 
         submitForm: function(e) {

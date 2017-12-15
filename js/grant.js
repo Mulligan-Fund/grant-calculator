@@ -24,17 +24,10 @@ gc.Collections = gc.Collections || {};
 
     gc.Collections.GrantCollection = Backbone.Collection.extend({
 
-    	url: window.gc.api+'/grant',
+    	url: window.gc.api + '/grant',
 
         initialize: function() {
-
-        },
-
-        getUserStat: function() {
-            var user = this.findWhere()
-            return {
-                user
-            }
+            this.at(0).get('_id')
         },
 
         sendData: function(data,callback) {
@@ -48,7 +41,8 @@ gc.Collections = gc.Collections || {};
                 dataType:'json',
                 data: data,
                 success : function(data,status,xfr) {              
-                console.log("Put Success: ",data,status,xfr)
+                    console.log("Put Success: ",data,status,xfr)
+                    this.at(0)
                     callback()
                 },
                 error : function(request,error)

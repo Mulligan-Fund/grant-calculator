@@ -182,6 +182,7 @@ app.put("/user", ensureAuthenticated,function(req,res,next){
 /////////////  Items  ////////////////
 //////////////////////////////////////
 
+
 app.get('/grant', ensureAuthenticated, function(req, res, next) {
 	var items = []
 	console.log("req.user for /items",req.user)
@@ -210,33 +211,62 @@ app.get('/grant', ensureAuthenticated, function(req, res, next) {
 	})
 })
 
-app.put('/grant', ensureAuthenticated, function(req,res,next) {
+app.put('/grant/:id?', ensureAuthenticated, function(req,res,next) {
 	var items = []
 	console.log("req.user for /items",req.user)
-	User.findById(req.user.id,function(err,user){
-		console.log("/grant user",user)
-		if(err)  {
-			console.log("Some kind of error fetching pins",err)
-			res.sendStatus(400,err)
+
+	// Is this a new grant?
+	if(req.params.id==null) {
+		console.log("Looks like a new grant")
+		grant = new schema();
+		grant.userid = req.user.id
+		for(var i in req.body) {
+			grant[i] = req.body[i]
 		}
-
-		if(user.username == null) {
-			res.sendStatus(400,err)	
-		} else {
-		console.log("Returned user",user)
-		console.log("To insert",req.body)
-
-		// schema.save
+		grant.save(function(err,grant){
+			if(err) console.log("Error creating grant",err,newItem)
+			res.setHeader('Content-Type', 'application/json');	
+	    	res.status(200).send(grant)
+		})
 		
+	} else {
+		User.findById(req.user.id,function(err,user){
+			console.log("/grant user",user)
+			if(err)  {
+				console.log("Some kind of error fetching pins",err)
+				res.sendStatus(400,err)
+			}
 
-		data = "FetchDataFrom"
+			if(user.username == null) {
+				res.sendStatus(400,err)	
+			} else {
+			console.log("Returned user",user)
+			console.log("To insert",req.body)
 
-		console.log("FULLDUMP",data)
 
-		res.setHeader('Content-Type', 'application/json');	
-    	res.send(JSON.stringify(items))
-		}
-	})
+
+			
+			schema.findByIdAndUpdate({grantid},req.body,
+	          {upsert: false, new: true},
+	          function(err,item){
+	           if(err) console.log("checkReadyToClaim")
+	           db.user.findByIdAndUpdate(user._id,user,
+	            {upsert: false, new: true},
+	            function(err,updatedUser){
+	              return(callback(err,updatedUser))
+	          })
+	        })
+			
+
+			data = "FetchDataFrom"
+
+			console.log("FULLDUMP",data)
+
+			res.setHeader('Content-Type', 'application/json');	
+	    	res.send(JSON.stringify(items))
+			}
+		}) 
+	}
 })
 
 app.listen(port);
