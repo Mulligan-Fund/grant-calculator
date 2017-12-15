@@ -8,8 +8,10 @@ window.gc = {
     Views: {},
     Routers: {},
     Init: {},
+    
     home: 'http://127.0.0.1:4000/grant-calculator/',
     api: 'http://127.0.0.1:3000',
+    
     init: function () {
         'use strict';
 
@@ -71,3 +73,18 @@ function checkAuth(callback) {
         callback()
     }
 }
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};

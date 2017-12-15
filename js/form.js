@@ -11,8 +11,9 @@ gc.Views = gc.Views || {};
         },
         initialize: function() {
         	var _this = this
-            if(!this.collection.id) {
-                
+            if($(this.el).hasClass('form')) {
+                this.collection.getID()
+                this.getFields()
             }
         },
 
@@ -51,13 +52,16 @@ gc.Views = gc.Views || {};
             })
         },
 
+        // This fills in all the fields
         getFields:  function(context){
-            var _this = context
-            var t = []
-            console.log($(_this))
-             $(_this).find('input').each(function(e,i){
-                t.push( String($(i).attr('id') +":"+ $(i).val() ))
-                console.log(e,_this.length)
+            var _this = this
+            var t = {}
+            this.collection.getData( function(data){
+                   t = data 
+                } )
+            $(_this).find('input').each(function(e,i){
+                console.log($(i).attr('id'))
+                
                 if (e==_this.length) return t
             })
         },

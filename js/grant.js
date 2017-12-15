@@ -26,12 +26,20 @@ gc.Collections = gc.Collections || {};
 
     	url: window.gc.api + '/grant',
 
-        initialize: function() {
-            this.at(0).get('_id')
+        initialize: function() {    
+        },
+
+        getID: function(data,callback) {
+            if(decodeURIComponent(window.location.search.substring(1)) == "") {
+                this.sendData({},function(data){
+                    location.href = location.href + '?id='+data._id
+                })
+            }
         },
 
         sendData: function(data,callback) {
             console.log("Data got to",data)
+            if(getUrlParameter('id')) data._id = getUrlParameter('id')
             $.ajax({
                 url : this.url,
                 type : 'PUT',
@@ -42,18 +50,17 @@ gc.Collections = gc.Collections || {};
                 data: data,
                 success : function(data,status,xfr) {              
                     console.log("Put Success: ",data,status,xfr)
-                    this.at(0)
-                    callback()
+                    callback(data)
                 },
                 error : function(request,error)
                 {
                     console.log("Put Error: ",JSON.stringify(data),JSON.stringify(request));
-                    callback()
+                    callback(error)
                 }
             });
         },
 
-        getData: function(username,callback) {
+        getData: function(callback) {
             var endpoint = this.url
             $.ajax({
             url : endpoint,
@@ -61,10 +68,11 @@ gc.Collections = gc.Collections || {};
             xhrFields: {
                 withCredentials: true
             },
+            data: {id: getUrlParameter('id') },
             dataType:'json',
             success : function(data,status,xfr) {              
                 console.log("Get Success",data,status,xfr)
-                callback(data,)
+                callback(data)
             },
             error : function(request,error)
             {

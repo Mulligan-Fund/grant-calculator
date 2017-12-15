@@ -183,31 +183,22 @@ app.put("/user", ensureAuthenticated,function(req,res,next){
 //////////////////////////////////////
 
 
-app.get('/grant', ensureAuthenticated, function(req, res, next) {
+app.get('/grant/:id?', ensureAuthenticated, function(req, res, next) {
 	var items = []
-	console.log("req.user for /items",req.user)
-	User.findById(req.user.id,function(err,user){
-		console.log("/grant user",user)
+	User.findById(req.user._id,function(err,user){
 		if(err)  {
-			console.log("Some kind of error fetching pins",err)
+			console.log("Some kind of error fetching user",err)
 			res.sendStatus(400,err)
 		}
-
-		if(user.username == null) {
-			res.sendStatus(400,err)	
-		} else {
-		console.log("Returned user",user)
-
-
-		
-
-		data = "FetchDataFrom"
-
-		console.log("FULLDUMP",data)
-
-		res.setHeader('Content-Type', 'application/json');	
-    	res.send(JSON.stringify(items))
-		}
+		schema.findById(req.query.id,function(err,grant){
+			console.log("/grant grant",grant)
+			if(err)  {
+				console.log("Some kind of error fetching grant",err)
+				res.sendStatus(400,err)
+			}
+			res.setHeader('Content-Type', 'application/json');	
+	    	res.status(200).send(grant)
+	    })
 	})
 })
 
@@ -215,8 +206,8 @@ app.put('/grant/:id?', ensureAuthenticated, function(req,res,next) {
 	var items = []
 	console.log("req.user for /items",req.user)
 
-	// Is this a new grant?
-	if(req.params.id==null) {
+	// Is this a new grant?	
+	if(req.body._id==null) {
 		console.log("Looks like a new grant")
 		grant = new schema();
 		grant.userid = req.user.id
@@ -224,13 +215,13 @@ app.put('/grant/:id?', ensureAuthenticated, function(req,res,next) {
 			grant[i] = req.body[i]
 		}
 		grant.save(function(err,grant){
-			if(err) console.log("Error creating grant",err,newItem)
+			if(err) console.log("Error creating grant",err,grant)
 			res.setHeader('Content-Type', 'application/json');	
 	    	res.status(200).send(grant)
 		})
 		
 	} else {
-		User.findById(req.user.id,function(err,user){
+		User.findById(req.user._id,function(err,user){
 			console.log("/grant user",user)
 			if(err)  {
 				console.log("Some kind of error fetching pins",err)
@@ -243,27 +234,14 @@ app.put('/grant/:id?', ensureAuthenticated, function(req,res,next) {
 			console.log("Returned user",user)
 			console.log("To insert",req.body)
 
-
-
-			
-			schema.findByIdAndUpdate({grantid},req.body,
+			schema.findByIdAndUpdate(req.body._id ,req.body,
 	          {upsert: false, new: true},
-	          function(err,item){
-	           if(err) console.log("checkReadyToClaim")
-	           db.user.findByIdAndUpdate(user._id,user,
-	            {upsert: false, new: true},
-	            function(err,updatedUser){
-	              return(callback(err,updatedUser))
-	          })
+	          function(err,grant){
+	           if(err) console.log("Updated form")
+	                res.setHeader('Content-Type', 'application/json');	
+					res.send(JSON.stringify(grant))
 	        })
 			
-
-			data = "FetchDataFrom"
-
-			console.log("FULLDUMP",data)
-
-			res.setHeader('Content-Type', 'application/json');	
-	    	res.send(JSON.stringify(items))
 			}
 		}) 
 	}

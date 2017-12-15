@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var grantmakerSchema = new Schema({
-	grantid: Schema.Types.ObjectId,
+	// _id: Schema.Types.ObjectId,
 	userid: Schema.Types.ObjectId,
 	funder : String,
 	past_grant : String,
