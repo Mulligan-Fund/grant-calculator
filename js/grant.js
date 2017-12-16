@@ -50,6 +50,9 @@ gc.Collections = gc.Collections || {};
                 xhrFields: {
                     withCredentials: true
                 },
+                headers: {
+                    'Access-Control-Allow-Origin': true
+                },
                 crossDomain: true,
                 dataType:'json',
                 data: data,
@@ -74,6 +77,9 @@ gc.Collections = gc.Collections || {};
             type : 'GET',
             xhrFields: {
                 withCredentials: true
+            },
+            headers: {
+                'Access-Control-Allow-Origin': true
             },
             crossDomain: true,
             data: data,
