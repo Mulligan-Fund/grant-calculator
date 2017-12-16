@@ -56,7 +56,7 @@ gc.Views = gc.Views || {};
         getFields:  function(context){
             var _this = this
             var t = {}
-            this.collection.getData( function(data){
+            this.collection.getData( {}, function(data){
                    t = data 
                    $(_this.el).find('form').find('input,select').each(function(e,i){
                         var id = $(i).attr('id')

@@ -37,6 +37,10 @@ gc.Collections = gc.Collections || {};
             }
         },
 
+        getAllGrants: function(data,callback) {
+
+        },
+
         sendData: function(data,callback) {
             console.log("Data got to",data)
             if(getUrlParameter('id')) data._id = getUrlParameter('id')
@@ -60,15 +64,17 @@ gc.Collections = gc.Collections || {};
             });
         },
 
-        getData: function(callback) {
+        getData: function(data,callback) {
             var endpoint = this.url
+            var data = data || {};
+            if(getUrlParameter('id')) data.id = getUrlParameter('id');
             $.ajax({
             url : endpoint,
             type : 'GET',
             xhrFields: {
                 withCredentials: true
             },
-            data: {id: getUrlParameter('id') },
+            data: data,
             dataType:'json',
             success : function(data,status,xfr) {              
                 console.log("Get Success",data,status,xfr)

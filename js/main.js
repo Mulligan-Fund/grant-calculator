@@ -33,6 +33,11 @@ window.gc = {
             collection: this.Init.Grant
         });
 
+        this.Init.List = new this.Views.listView({
+            el:'#list',
+            collection: this.Init.Grant
+        });
+
         _.each(this.Init, function(v){
             v.initialize();
         })

@@ -190,15 +190,27 @@ app.get('/grant/:id?', ensureAuthenticated, function(req, res, next) {
 			console.log("Some kind of error fetching user",err)
 			res.sendStatus(400,err)
 		}
-		schema.findById(req.query.id,function(err,grant){
-			console.log("/grant grant",grant)
-			if(err)  {
-				console.log("Some kind of error fetching grant",err)
-				res.sendStatus(400,err)
-			}
-			res.setHeader('Content-Type', 'application/json');	
-	    	res.status(200).send(grant)
-	    })
+		if(req.query.list) {
+			schema.find({userid:req.user._id}, function(err,list) {
+				console.log("/grant list",list)
+				if(err)  {
+					console.log("Some kind of error fetching grant",err)
+					res.sendStatus(400,err)
+				}
+				res.setHeader('Content-Type', 'application/json');	
+		    	res.status(200).send(list)
+			})
+		} else {
+			schema.findById(req.query.id,function(err,grant){
+				console.log("/grant grant",grant)
+				if(err)  {
+					console.log("Some kind of error fetching grant",err)
+					res.sendStatus(400,err)
+				}
+				res.setHeader('Content-Type', 'application/json');	
+		    	res.status(200).send(grant)
+		    })
+		}
 	})
 })
 
