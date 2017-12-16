@@ -11,7 +11,7 @@ gc.Views = gc.Views || {};
         },
         initialize: function() {
         	var _this = this
-            if($(this.el).hasClass('form')) {
+            if($(this.el).hasClass('page')) {
                 this.collection.getID()
                 this.getFields()
             }
@@ -58,12 +58,15 @@ gc.Views = gc.Views || {};
             var t = {}
             this.collection.getData( function(data){
                    t = data 
-                } )
-            $(_this).find('input').each(function(e,i){
-                console.log($(i).attr('id'))
+                   $(_this.el).find('form').find('input,select').each(function(e,i){
+                        var id = $(i).attr('id')
+                        console.log(id,e)
+                    
+                        $('#'+id).val(t[id])
                 
-                if (e==_this.length) return t
-            })
+                    // if (e==_this.length) return t
+                })
+            } )
         },
 
         formClear: function() {

@@ -8,7 +8,7 @@ window.gc = {
     Views: {},
     Routers: {},
     Init: {},
-    
+
     home: 'http://127.0.0.1:4000/grant-calculator/',
     api: 'http://127.0.0.1:3000',
     
@@ -29,7 +29,7 @@ window.gc = {
         });
 
         this.Init.Form = new this.Views.formView({
-            el:'.form',
+            el:'.page',
             collection: this.Init.Grant
         });
 
