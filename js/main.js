@@ -1,60 +1,22 @@
 /*global gc, $*/
 
 
-window.gc = {
-    auth: false,
-    Models: {},
-    Collections: {},
-    Views: {},
-    Routers: {},
-    Init: {},
-
-    home: 'http://127.0.0.1:4000/grant-calculator/',
-    api: 'http://127.0.0.1:3000',
-    
-    init: function () {
-        'use strict';
-
-        this.Init.User = new this.Collections.UserCollection({
-                model: new this.Models.UserModel()
-            });
-
-        this.Init.Grant = new this.Collections.GrantCollection({
-                model: new this.Models.GrantModel()
-            });
-
-        this.Init.Login = new this.Views.formView({
-        	el:'.login',
-            collection: this.Init.User,
-        });
-
-        this.Init.Form = new this.Views.formView({
-            el:'.page',
-            collection: this.Init.Grant
-        });
-
-        this.Init.List = new this.Views.listView({
-            el:'#list',
-            collection: this.Init.Grant
-        });
-
-        _.each(this.Init, function(v){
-            v.initialize();
-        })
-
-    },
-
+// TODO: Make dynamic. Basically just checking if there's a port...
+var getCientPath = function getCientPath() {
+    if(window.location.href.split('/')[2].indexOf(':') > 0) {
+        return 'http://127.0.0.1:4000/grant-calculator/'
+    } else {
+        return 'https://mulligan-fund.github.io/grant-calculator/'
+    }
 };
 
-$(document).ready(function () {
-    'use strict';
-    $('button').on('click',function(e){
-    	e.preventDefault()
-    })
-    checkAuth(function() {
-        gc.init();
-    });
-});
+var getAPIPath = function getAPIPath() {
+    if(window.location.href.split('/')[2].indexOf(':') > 0) {
+        return 'http://127.0.0.1:3000'
+    } else {
+        return 'https://grantcalc.herokuapp.com'
+    }
+}
 
 function checkAuth(callback) {
     if(window.location.href !== window.gc.home) {
@@ -93,3 +55,58 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
+
+window.gc = {
+    auth: false,
+    Models: {},
+    Collections: {},
+    Views: {},
+    Routers: {},
+    Init: {},
+
+    home: getCientPath(),
+    api: getAPIPath(),
+    
+    init: function () {
+        'use strict';
+
+        this.Init.User = new this.Collections.UserCollection({
+                model: new this.Models.UserModel()
+            });
+
+        this.Init.Grant = new this.Collections.GrantCollection({
+                model: new this.Models.GrantModel()
+            });
+
+        this.Init.Login = new this.Views.formView({
+        	el:'.login',
+            collection: this.Init.User,
+        });
+
+        this.Init.Form = new this.Views.formView({
+            el:'.page',
+            collection: this.Init.Grant
+        });
+
+        this.Init.List = new this.Views.listView({
+            el:'#list',
+            collection: this.Init.Grant
+        });
+
+        _.each(this.Init, function(v){
+            // v.initialize();
+        })
+
+    },
+
+};
+
+$(document).ready(function () {
+    'use strict';
+    $('button').on('click',function(e){
+    	e.preventDefault()
+    })
+    checkAuth(function() {
+        gc.init();
+    });
+});
