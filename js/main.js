@@ -26,6 +26,7 @@ function checkAuth(callback) {
             xhrFields: {
                 withCredentials: true
             },
+            crossDomain: true,
             success : function(data,status,xfr) {              
                 console.log("Authenticated");
                 callback()

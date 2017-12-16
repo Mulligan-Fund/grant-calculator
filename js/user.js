@@ -38,6 +38,7 @@ gc.Collections = gc.Collections || {};
                 xhrFields: {
                     withCredentials: true
                 },
+                crossDomain: true,
                 dataType:'json',
                 data: data,
                 success : function(data,status,xfr) {              
@@ -59,6 +60,7 @@ gc.Collections = gc.Collections || {};
             xhrFields: {
                 withCredentials: true
             },
+            crossDomain: true,
             type : 'GET',
             dataType:'json',
             success : function(data,status,xfr) {              
