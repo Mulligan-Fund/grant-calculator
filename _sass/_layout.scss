@@ -41,6 +41,7 @@ section {
 .site-header {
     height: 65px;
     width: 100%;
+    z-index: 100;
     // height: 80px;
     // Positioning context for the mobile navigation icon
     position: fixed;
@@ -164,7 +165,6 @@ section {
 
 
 body {
-    background-image: url("../img/bg.png");
     background-color: #F5F4F2;
     background-repeat: no-repeat;
     background-origin: top left;
@@ -219,8 +219,13 @@ p {
     background: #FFFEF7;
 }
 
+img.support {
+    width: 50px;
+    padding-right:50px;
+}
+
 .fullbg {
-    position: fixed;
+    // position: fixed;
     left: 0; right: 0;
     width: 100%;
     height: 100%;

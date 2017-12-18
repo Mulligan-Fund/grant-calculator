@@ -8,7 +8,7 @@ gc.Views = gc.Views || {};
 
         },
 
-        template: _.template("<div class='item'><a href='form/?id=<%= _id %>'></strong> (<%= funder %>) - <%= amount %></a></div>"),
+        template: _.template("<div class='item'><a href='form?id=<%= _id %>'></strong> <%= funder %> - $<%= amount %></a></div>"),
 
 
         initialize: function() {
