@@ -11,6 +11,7 @@ gc.Views = gc.Views || {};
         },
         initialize: function() {
         	var _this = this
+            console.log("Init form",this.el)
             if($(this.el).hasClass('page')) {
                 this.collection.getID()
                 this.getFields()
@@ -19,7 +20,6 @@ gc.Views = gc.Views || {};
 
         submitForm: function(e) {
             var _this = this
-            console.log("Form clicked")
             var l = $(this.el).find('input').length
             var t = {}
 
@@ -27,17 +27,14 @@ gc.Views = gc.Views || {};
                 t[$(i).attr('id')] = $(i).val()
 
             })
-
-            console.log(t)
-
             this.collection.sendData( 
                 t, function(data,status) {
-                console.log(data)
+                // Redirect
                 if(String(data).match('/')) {
+                    console.log("Redirecting")
                     window.location.replace(data)
                 }
             })
-            
         },
 
         submitField: function(e) {

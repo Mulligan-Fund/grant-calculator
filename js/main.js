@@ -19,30 +19,29 @@ var getAPIPath = function getAPIPath() {
 }
 
 function checkAuth(callback) {
-    if(window.location.href !== window.gc.home) {
-        $.ajax({
-            url : window.gc.api + '/auth',
-            type : 'GET',
-            xhrFields: {
-                withCredentials: true
-            },
-            headers: {
-                'Access-Control-Allow-Origin': true
-            },
-            crossDomain: true,  
-            success : function(data,status,xfr) {              
-                console.log("Authenticated");
-                callback()
-            },
-            error : function(request,error)
-            {
-                if(window.location.href !== window.gc.home) window.location.replace(window.gc.home)
-                else console.log("Already logged out")
-            }
-        });
-    } else {
-        callback()
-    }
+    console.log("Checking auth")
+    $.ajax({
+        url : window.gc.api + '/auth',
+        type : 'GET',
+        xhrFields: {
+            withCredentials: true
+        },
+        headers: {
+            'Access-Control-Allow-Origin': true
+        },
+        crossDomain: true,  
+        success : function(data,status,xfr) {              
+            console.log("Authenticated",data);
+            if(window.location.href == window.gc.home) window.location.replace(window.gc.home+'/list')
+            callback()
+        },
+        error : function(request,error)
+        {
+            if(window.location.href !== window.gc.home) window.location.replace(window.gc.home)
+            else console.log("Already logged out")
+            callback()
+        }
+    });
 }
 
 var getUrlParameter = function getUrlParameter(sParam) {

@@ -90,7 +90,8 @@ gc.Collections = gc.Collections || {};
             },
             error : function(request,error)
             {
-                alert("Get Error: "+JSON.stringify(request));
+                // alert("Get Error: "+JSON.stringify(request));
+                callback()
             }
             });
         }

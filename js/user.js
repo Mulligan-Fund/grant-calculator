@@ -45,7 +45,7 @@ gc.Collections = gc.Collections || {};
                 dataType:'json',
                 data: data,
                 success : function(data,status,xfr) {              
-                console.log("Put Success: ",data,status,xfr)
+                    console.log("Put Success: ", data, status, xfr)
                     callback(data,status)
                 },
                 error : function(request,error)
@@ -75,7 +75,8 @@ gc.Collections = gc.Collections || {};
             },
             error : function(request,error)
             {
-                alert("Get Error: "+JSON.stringify(request));
+                // alert("Get Error: "+JSON.stringify(request));
+                callback()
             }
             });
         }
