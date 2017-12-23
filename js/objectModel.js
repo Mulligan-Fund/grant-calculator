@@ -4,7 +4,7 @@ gc.Collections = gc.Collections || {};
 (function () {
     'use strict';
 
-    gc.Models.GrantModel = Backbone.Model.extend({
+    gc.Models.ObjectModel = Backbone.Model.extend({
 
         initialize: function() {
             
@@ -22,11 +22,9 @@ gc.Collections = gc.Collections || {};
         }
     });
 
-    gc.Collections.GrantCollection = Backbone.Collection.extend({
+    gc.Collections.ObjectCollection = Backbone.Collection.extend({
 
     	url: window.gc.api + '/grant',
-        obj: window.gc.api + '/object',
-
 
         initialize: function() {    
         },
@@ -96,36 +94,7 @@ gc.Collections = gc.Collections || {};
                 callback()
             }
             });
-        },
-
-        getObjectData: function(data,callback) {
-            var endpoint = this.obj
-            var data = data || {};
-            if(getUrlParameter('id')) data.id = getUrlParameter('id');
-            $.ajax({
-            url : endpoint,
-            type : 'GET',
-            xhrFields: {
-                withCredentials: true
-            },
-            headers: {
-                'Access-Control-Allow-Origin': true
-            },
-            crossDomain: true,
-            data: data,
-            dataType:'json',
-            success : function(data,status,xfr) {              
-                console.log("Get Success",data,status,xfr)
-                callback(data)
-            },
-            error : function(request,error)
-            {
-                // alert("Get Error: "+JSON.stringify(request));
-                callback()
-            }
-            });
         }
-
 
     });
 

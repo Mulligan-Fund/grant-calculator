@@ -14,6 +14,7 @@ gc.Views = gc.Views || {};
             console.log("Init form",this.el)
             if($(this.el).hasClass('page')) {
                 this.collection.getID()
+                this.getObjectList()
                 this.getFields()
             }
         },
@@ -41,9 +42,15 @@ gc.Views = gc.Views || {};
             var _this = this;
             console.log("Field submit")
             var t = $(e.currentTarget)
-            console.log(t.attr("id"),t.val())
+            // console.log(t.attr("id"),t.val())
             var i={};
-            i[t.attr("id")] = t.val();
+            var val = ""
+            if($(t).prop('nodeName') == 'SELECT') {
+                 val = $(t).children("option:selected").attr("data_id")
+            } else {
+                val = t.val()
+            }
+            i[t.attr("id")] = val
             this.collection.sendData(i, function(data,next) {
 
             })
@@ -54,16 +61,42 @@ gc.Views = gc.Views || {};
             var _this = this
             var t = {}
             this.collection.getData( {}, function(data){
-                   t = data 
-                   $(_this.el).find('form').find('input,select').each(function(e,i){
-                        var id = $(i).attr('id')
-                        console.log(id,e)
-                    
-                        $('#'+id).val(t[id])
-                
-                    // if (e==_this.length) return t
+                    t = data
+                   $('.page').each(function(z,x) {
+                        $(x).find('form').each(function(o,p) {
+                            console.log("Pop page",o)
+
+                            $(p).find('input').each(function(e,i){
+                                var id = $(i).attr('id')
+                                console.log(id,t[id])
+                                $('#'+id).val(t[id])
+                            })
+
+                           $(p).find('select').each(function(e,i){
+                                var id = $(i).attr('id')
+                                console.log(id,t[id])
+                                // console.log("Trying to set attr",'option[data_id="'+ data[id] +'"]')
+                                $('#'+id).children('option[data_id="'+ t[id] +'"]').attr('selected',true)
+                            })
+                    } )
                 })
-            } )
+           })
+        },
+
+        // This populators dynamic fields
+        getObjectList: function(context) {
+            var _this = this
+            var t = {}
+            this.collection.getObjectData({'list':true}, function(data){
+                console.log("obj list data",data)
+               $('.objlist').each(function(i,l){
+
+                    $(l).find('option').remove();
+                    for(var t in data) {
+                        $(l).append("<option data_id='"+data[t]._id+"''>"+ data[t].name +"</option>")
+                    }
+               })
+            })
         },
 
         formClear: function() {

@@ -321,6 +321,7 @@
           -
             label: Communication with Grantseekers
             dbfield: communication_with_seekers
+            type: peoplelist
             desc: "Who is involved in communicating with grantseekers (e.g., webinars, meetings)?"
       -
         header: "LOI"
