@@ -14,7 +14,7 @@ gc.Views = gc.Views || {};
         initialize: function() {
             var _this = this
             console.log("Init form",this.el)
-            if($(this.el).has('#objectlist')) {
+            if($(this.el).has('#objectlist').length > 0) {
                this.getClassifiers({},function() {
                 _this.template = _.template($('#objectTemplate').html())
                 _this.getObjects()

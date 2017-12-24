@@ -8,6 +8,7 @@ gc.Views = gc.Views || {};
             "click .submit":"submitForm"
         	, "focusout .live": "submitField"
             , "blur .live": "submitField"
+            , "click .turn": "pageTurn"
         },
         initialize: function() {
         	var _this = this
@@ -97,6 +98,18 @@ gc.Views = gc.Views || {};
                     }
                })
             })
+        },
+
+        pageTurn: function(e) {
+            console.log("Turning page",e)
+            if($(e.currentTarget).hasClass('next')) {
+                console.log("Next page")
+                $('.page.show').removeClass('show').next().addClass('show')    
+            } else {
+                console.log("prev page")
+                $('.page.show').removeClass('show').prev().addClass('show')
+            }
+            
         },
 
         formClear: function() {

@@ -3,8 +3,14 @@ layout: default
 ---
 <div class="formblock">
 	{% for form in site.data.grantseeker %}
-	<section class="page col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
+	{% assign loopindex = forloop.index0%}    
+	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
 		<div class="title">{{ form.name }}</div>
+
+
+		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
+		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
+		
 
 		{% for section in form.sections %}
 		<section class="block" id="{{section.name}}">
@@ -50,7 +56,9 @@ layout: default
 
 		</section>
 		{% endfor %}
+
+		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
+		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
 	</section>
-	<button class="submit">Next Page</button>
 	{% endfor %}
 </div>
