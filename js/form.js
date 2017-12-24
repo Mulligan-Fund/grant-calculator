@@ -12,8 +12,8 @@ gc.Views = gc.Views || {};
         },
         initialize: function() {
         	var _this = this
-            // console.log("Init form",this.el)
             if($(this.el).hasClass('page')) {
+                console.log("Init form",this.el)
                 this.collection.getID()
                 this.getObjectList()
                 this.getFields()
