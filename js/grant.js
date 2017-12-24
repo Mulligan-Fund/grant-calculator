@@ -88,7 +88,7 @@ gc.Collections = gc.Collections || {};
             data: data,
             dataType:'json',
             success : function(data,status,xfr) {              
-                console.log("Get Success",data,status,xfr)
+                // console.log("Get Success",data,status,xfr)
                 callback(data)
             },
             error : function(request,error)
@@ -98,6 +98,34 @@ gc.Collections = gc.Collections || {};
             }
             });
         },
+
+        sendObject: function(data,callback) {
+            console.log("Data got to",data)
+            if(getUrlParameter('id')) data._id = getUrlParameter('id')
+            $.ajax({
+                url : this.obj,
+                type : 'PUT',
+                xhrFields: {
+                    withCredentials: true
+                },
+                headers: {
+                    'Access-Control-Allow-Origin': true
+                },
+                crossDomain: true,
+                dataType:'json',
+                data: data,
+                success : function(data,status,xfr) {              
+                    console.log("Put Success: ",data,status,xfr)
+                    callback(data)
+                },
+                error : function(request,error)
+                {
+                    console.log("Put Error: ",JSON.stringify(data),JSON.stringify(request));
+                    callback(error)
+                }
+            });
+        },
+
 
         getObjectData: function(data,callback) {
             var endpoint = this.obj
@@ -116,7 +144,7 @@ gc.Collections = gc.Collections || {};
             data: data,
             dataType:'json',
             success : function(data,status,xfr) {              
-                console.log("Get Success",data,status,xfr)
+                // console.log("Get Success",data,status,xfr)
                 callback(data)
             },
             error : function(request,error)
@@ -144,7 +172,7 @@ gc.Collections = gc.Collections || {};
             data: data,
             dataType:'json',
             success : function(data,status,xfr) {              
-                console.log("Get Success",data,status,xfr)
+                // console.log("Get Success",data,status,xfr)
                 callback(data)
             },
             error : function(request,error)

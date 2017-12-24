@@ -264,21 +264,35 @@ section.block {
     margin-bottom: 30px;
 }
 
-.object-container {
-    input,select {
-        // width: 245px;
+#objectlist{
+    position: relative;
+    padding-top: 100px;
+
+    .new {
+        position: absolute;
+        top: 0; left: 0;
     }
 
-    button {
-        margin: auto;
+    .object-container {
+
+        &.fadein {
+            opacity: 0;
+        }
+
+        button {
+            margin: auto;
+        }
+
+        margin: 0px 10px 10px 0px;
+        float: left;
+        clear: none;
+        width: 300px;
+        padding: 20px;
+        background: #FFFEF7;
+        border: 1px solid #EBEBEB;
+        border-radius: 5px;
+        -webkit-transition: all 0.3s ease-in-out 0.3s;
+        transition: all 0.3s ease-in-out 0.3s;
+        opacity: 1;
     }
-    margin: 0px 10px 10px 0px;
-    float: left;
-    clear: none;
-    width: 300px;
-    padding: 20px;
-    background: #FFFEF7;
-    border: 1px solid #EBEBEB;
-    border-radius: 5px;
 }
-
