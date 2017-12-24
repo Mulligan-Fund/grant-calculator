@@ -272,7 +272,9 @@ section.block {
     button {
         margin: auto;
     }
-    display: flex;
+    margin: 0px 10px 10px 0px;
+    float: left;
+    clear: none;
     width: 300px;
     padding: 20px;
     background: #FFFEF7;

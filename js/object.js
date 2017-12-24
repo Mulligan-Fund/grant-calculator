@@ -60,9 +60,8 @@ gc.Views = gc.Views || {};
                 t[$(i).attr('id')] = $(i).val()
 
             })
-            this.collection.sendData( 
+            this.collection.sendObject( 
                 t, function(data,status) {
-                // Redirect
                 if(String(data).match('/')) {
                     console.log("Redirecting")
                     window.location.replace(data)
