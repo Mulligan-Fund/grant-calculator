@@ -264,3 +264,19 @@ section.block {
     margin-bottom: 30px;
 }
 
+.object-container {
+    input,select {
+        // width: 245px;
+    }
+
+    button {
+        margin: auto;
+    }
+    display: flex;
+    width: 300px;
+    padding: 20px;
+    background: #FFFEF7;
+    border: 1px solid #EBEBEB;
+    border-radius: 5px;
+}
+

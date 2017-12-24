@@ -96,6 +96,11 @@ window.gc = {
             collection: this.Init.Grant
         });
 
+        this.Init.objectList = new this.Views.objectListView({
+            el:'#objectlist',
+            collection: this.Init.Grant
+        });
+
         _.each(this.Init, function(v){
             // v.initialize();
         })

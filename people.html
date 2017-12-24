@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div id="objectlist">
+	<a class="new">Add new person</a>
+</div>
+
+<script type="text/template" id="objectTemplate">
+	<div>
+	<div class="object-container">
+		<form>
+			<label>Name</label>
+			<input data_id="name" value="<%= name %>" />
+			<label>Role</label>
+			<select data_id="role" class="role">
+				<option>Loading Roles...</option>
+			</select>
+			<label>Salary</label>
+			<input data_id="salary" value="<%= salary %>" />
+			<button class="submit">Submit</button>
+		</form>
+	</div>
+	</div>
+</script>

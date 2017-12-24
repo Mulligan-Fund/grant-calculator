@@ -5,18 +5,50 @@ gc.Views = gc.Views || {};
 
     gc.Views.objectListView = Backbone.View.extend({
         events: {
-            "click .submit":"submitForm"
+            "click .new":"newObject"
             , "focusout .live": "submitField"
             , "blur .live": "submitField"
         },
-        template: $('#objectTemplate').html(),
+        
+        template: {},
 
         initialize: function() {
             var _this = this
             console.log("Init form",this.el)
-            if($(this.el).hasClass('page')) {
-                    
+            if($(this.el).has('#objectlist')) {
+               this.getClassifiers({},function() {
+                console.log("cb")
+                _this.template = _.template($('#objectTemplate').html())
+                _this.getObjects()
+               })
             }
+        },
+
+        newObject: function(e) {
+            this.makeObject({
+                name: ""
+                , salary: 0
+            })
+        },
+
+        makeObject: function(data) {
+          $(this.el).append(this.template(data))
+        },
+
+        getClassifiers: function(e,cb) {
+            this.collection.getRoleData({},function(data){
+                   var t = data 
+                   var temp = $($('#objectTemplate')[0].innerHTML)
+                   $(temp).find('option').remove();
+                   console.log("class",t)
+                    for(var i in t) {
+                        $(temp).find('select').append("<option data_id='"+t[i]._id+"''>"+ t[i].title +"</option>")
+                        if(i==data.length-1) { 
+                            $('#objectTemplate')[0].innerHTML = $(temp).html()
+                            cb()
+                        }
+                    }
+            })
         },
 
         submitForm: function(e) {
@@ -38,32 +70,16 @@ gc.Views = gc.Views || {};
             })
         },
 
-        submitField: function(e) {
-            var _this = this;
-            console.log("Field submit")
-            var t = $(e.currentTarget)
-            console.log(t.attr("id"),t.val())
-            var i={};
-            i[t.attr("id")] = t.val();
-            this.collection.sendData(i, function(data,next) {
-
-            })
-        },
-
         // This fills in all the fields
-        getFields:  function(context){
+        getObjects:  function(context){
             var _this = this
             var t = {}
-            this.collection.getData( {}, function(data){
+            this.collection.getObjectData({'list':true}, function(data){
                    t = data 
-                   $(_this.el).find('form').find('input,select').each(function(e,i){
-                        var id = $(i).attr('id')
-                        console.log(id,e)
-                    
-                        $('#'+id).val(t[id])
-                
-                    // if (e==_this.length) return t
-                })
+                    for(var i in t) {
+                        console.log("GETTING OBJECTS",t[i])
+                        _this.makeObject(t[i])
+                    }
             } )
         },
 
