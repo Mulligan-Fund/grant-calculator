@@ -32,7 +32,7 @@ gc.Views = gc.Views || {};
         getFields:  function(context){
             var _this = this
             var t = {}
-            var hr = []
+            var hr = {}
             var ro = []
             this.collection.getData( {}, function(data){
                 t = data
@@ -55,9 +55,14 @@ gc.Views = gc.Views || {};
                             }
                         }
                     })
+                    // console.log("Printing HR",hr)
+                    _.each(hr,function(val,key,context){
+                        console.log('printing',val.time+" * "+val.salary+" = "+(val.time*val.salary))
+                        $('.resultblock').append(key+" : "+val.time+" * "+val.salary+" = "+(val.time*val.salary)+"<br>")    
+                    })
+                    
                 })
            })
-            console.log()
         },
 
         getCount: function(data) {
