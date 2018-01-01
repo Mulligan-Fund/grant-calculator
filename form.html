@@ -10,7 +10,7 @@ layout: default
 
 		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
 		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
-		
+
 
 		{% for section in form.sections %}
 		<section class="block" id="{{section.name}}">
@@ -43,6 +43,7 @@ layout: default
 					<select id="{{question.dbfield}}" class="live objlist">
 							<option>Loading contributors...</option>
 					</select>
+					<div class="time"><input class="live" type="number" min="0.0" step="0.1" id="{{question.dbfield}}_hour" /></div>
 				{% else %}
 
 				{% endif %}

@@ -14,8 +14,8 @@ gc.Views = gc.Views || {};
         initialize: function() {
             var _this = this
             if($(this.el).is('#objectlist')) {
-                console.log("Init obj",this.el)
                this.getClassifiers({},function() {
+                console.log("Init obj",this.el)
                 _this.template = _.template($('#objectTemplate').html())
                 _this.getObjects()
                })
@@ -45,7 +45,6 @@ gc.Views = gc.Views || {};
                var t = data 
                var temp = $($('#objectTemplate')[0].innerHTML)
                $(temp).find('option').remove();
-               // console.log("class",t)
                 for(var i in t) {
                     $(temp).find('select').append("<option data_id='"+t[i]._id+"''>"+ t[i].title +"</option>")
                     if(i==data.length-1) { 
