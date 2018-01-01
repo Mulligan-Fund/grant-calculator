@@ -15,7 +15,7 @@ gc.Views = gc.Views || {};
             var _this = this
             if($(this.el).is('#objectlist')) {
                this.getClassifiers({},function() {
-                console.log("Init obj",this.el)
+                // console.log("Init obj",this.el)
                 _this.template = _.template($('#objectTemplate').html())
                 _this.getObjects()
                })

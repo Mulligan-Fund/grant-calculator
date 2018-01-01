@@ -26,23 +26,38 @@ gc.Views = gc.Views || {};
             })
         },
 
+
+
         // This fills in all the fields
         getFields:  function(context){
             var _this = this
             var t = {}
             var hr = []
+            var ro = []
             this.collection.getData( {}, function(data){
                 t = data
                 console.log(t)
-                _.each(t,function(val,key,context) {
-                    if(key.indexOf('_hour') > 0) {
-                        // var oo = {}
-                        hr[key.split('_hour')[0]] = val
-                        // hr.push(oo)
-                    }
+                _this.collection.getObjectData({list:true}, function(roles){
+                    ro = roles
+                    console.log("Roles",ro)
+                    _.each(t,function(val,key,context) {
+                        if(key.indexOf('_hour') > 0) {
+                            var id = key.split('_hour')[0]
+                            if(typeof t[id] !== 'undefined') {
+                                console.log(t[id])
+                                var person = _.findWhere(ro, {'_id': t[id]})
+                                console.log("Person found",person)
+                                hr[id] = { 
+                                    time: val
+                                    , salary: person.salary
+                                    } 
+                                // hr.push(oo)
+                            }
+                        }
+                    })
                 })
-                console.log(hr)
            })
+            console.log()
         },
 
         getCount: function(data) {
