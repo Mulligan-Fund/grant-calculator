@@ -297,6 +297,21 @@ section.block {
     }
 }
 
+.time {
+    width: 300px;
+    display: inline-block;
+    .objlist {
+        display: inline-block;
+        width: 50%;
+    }
+    
+    input {
+        display: inline-block;
+        width: 30%;
+    }
+}
+
+
 .formblock {
 
     .page {
