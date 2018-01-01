@@ -27,6 +27,7 @@ gc.Collections = gc.Collections || {};
     	url: window.gc.api + '/grant',
         obj: window.gc.api + '/object',
         role: window.gc.api + '/role',
+        lookup: {},
 
 
         initialize: function() {    
@@ -129,8 +130,11 @@ gc.Collections = gc.Collections || {};
 
         getObjectData: function(data,callback) {
             var endpoint = this.obj
+            var _this = this;
             var data = data || {};
+
             if(getUrlParameter('id')) data.id = getUrlParameter('id');
+            // if(this.lookup)
             $.ajax({
             url : endpoint,
             type : 'GET',
@@ -145,6 +149,10 @@ gc.Collections = gc.Collections || {};
             dataType:'json',
             success : function(data,status,xfr) {              
                 // console.log("Get Success",data,status,xfr)
+                 for(var t in data) {
+                    _this.lookup[data[t]._id] = data[t].name
+                }
+
                 callback(data)
             },
             error : function(request,error)
