@@ -29,6 +29,8 @@ layout: default
 					<input class="live" type="text" id="{{question.dbfield}}" />
 				{% elsif question.type == "money" %}
 					<div class="money"><input class="live" type="number" min="0.0" step="0.01" id="{{question.dbfield}}" /></div>
+				{% elsif question.type == "percentage" %}
+					<div class="percentage"><input class="live" type="number" min="0.0" max="100.0" step="0.1" id="{{question.dbfield}}" /></div>
 				{% elsif question.type == "radio" %}
 				<div class="radio">
 					{% for option in question.content %}

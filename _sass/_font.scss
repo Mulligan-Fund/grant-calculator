@@ -137,6 +137,19 @@ select {
   }
 }
 
+.percentage {
+  display: inline;
+  position:relative;
+  input { padding-left: 15px; }
+  &:after {
+    position: absolute;
+    right: 6px;
+    top: 2px;
+    content: '%';
+  }
+}
+
+
 .radio {
   label,input {
     width: auto;

@@ -26,7 +26,23 @@ gc.Views = gc.Views || {};
             })
         },
 
+        calculateExpected: function(data) {
+            return data.amount * (data.probability*.01)
+        },
 
+        calculateCost: function(data){
+            var total = 0;
+            _.each(data,function(val,key,context){
+                console.log("VAL!",val.salary*val.time)
+                total += val.salary*val.time
+            })
+            return total;
+            
+        },
+
+        calculateNet: function(data,cost) {
+            return this.calculateExpected(data) - cost
+        },
 
         // This fills in all the fields
         getFields:  function(context){
@@ -60,6 +76,15 @@ gc.Views = gc.Views || {};
                         console.log('printing',val.time+" * "+val.salary+" = "+(val.time*val.salary))
                         $('.resultblock').append(key+" : "+val.time+" * "+val.salary+" = "+(val.time*val.salary)+"<br>")    
                     })
+
+
+                    var expect = _this.calculateExpected(t);
+                    var cost = _this.calculateCost(hr)
+                    var net = _this.calculateNet(t, cost)
+                    
+                    $('.resultblock').append("<br>THE TOTAL EXPECTED VALUE IS: $"+ expect +"<br><br>")
+                    $('.resultblock').append("<br>THE TOTAL GRANT COST IS: $"+ cost +"<br><br>")
+                    $('.resultblock').append("<br>THE NET GRANT VALUE IS: $"+ net +"<br><br>")
                     
                 })
            })
