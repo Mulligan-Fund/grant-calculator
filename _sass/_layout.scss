@@ -297,6 +297,16 @@ section.block {
     }
 }
 
+.nav-links {
+    ul {
+        float: right;
+        li {
+            padding: 0 20px;
+            display: inline-block;
+        }
+    }
+}
+
 .time {
     width: 300px;
     display: inline-block;
