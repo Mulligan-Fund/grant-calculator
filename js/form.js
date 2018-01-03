@@ -20,6 +20,7 @@ gc.Views = gc.Views || {};
             }
         },
 
+
         submitForm: function(e) {
             var _this = this
             var l = $(this.el).find('input').length

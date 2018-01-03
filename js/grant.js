@@ -34,11 +34,23 @@ gc.Collections = gc.Collections || {};
         },
 
         getID: function(data,callback) {
+            var _this = this
             if(decodeURIComponent(window.location.search.substring(1)) == "") {
                 this.sendData({},function(data){
                     location.href = location.href + '?id='+data._id
+                    _this.setLocalLinks(data._id)
                 })
+            } else {
+                _this.setLocalLinks(window.location.search.substring(0).split('?id=')[1])
             }
+        },
+
+        setLocalLinks: function(id) {
+            $('.local').each(function(e,v) {
+                console.log('local',v)
+                var cur = $(v).attr('href')
+                $(v).attr('href',cur+ '?id='+id)
+            })
         },
 
         getAllGrants: function(data,callback) {
