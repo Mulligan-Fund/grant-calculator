@@ -298,8 +298,31 @@ section.block {
 }
 
 .nav-links {
+
+    &.left {
+        float: left
+    }
+
+    &.right {
+        float: right
+    }
     ul {
-        float: right;
+        // float: right;
+
+        li {
+            padding: 0 20px;
+            display: inline-block;
+            .button {
+                margin: 0
+            }
+        }
+    }
+}
+
+.options {
+    height: 100px;
+        ul {
+        width: 100%;
         li {
             padding: 0 20px;
             display: inline-block;
