@@ -82,9 +82,9 @@ gc.Views = gc.Views || {};
                     var cost = _this.calculateCost(hr)
                     var net = _this.calculateNet(t, cost)
                     
-                    $('#expected').append("$"+ expect)
-                    $('#cost').append("$"+ cost)
-                    $('#total').append("$"+ net)
+                    $('#expected').append("$"+ _this.addComma(expect))
+                    $('#cost').append("$"+ _this.addComma(cost))
+                    $('#total').append("$"+ _this.addComma(net))
                     
                 })
            })
@@ -92,6 +92,10 @@ gc.Views = gc.Views || {};
 
         getCount: function(data) {
 
+        },
+
+        addComma(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         },
 
         pageTurn: function(e) {
