@@ -74,7 +74,7 @@ gc.Views = gc.Views || {};
                     // console.log("Printing HR",hr)
                     _.each(hr,function(val,key,context){
                         console.log('printing',val.time+" * "+val.salary+" = "+(val.time*val.salary))
-                        $('.resultblock').append(key+" : "+val.time+" * "+val.salary+" = "+(val.time*val.salary)+"<br>")    
+                        $('.details').append(key+" : "+val.time+" * "+val.salary+" = "+(val.time*val.salary)+"<br>")    
                     })
 
 
@@ -82,9 +82,9 @@ gc.Views = gc.Views || {};
                     var cost = _this.calculateCost(hr)
                     var net = _this.calculateNet(t, cost)
                     
-                    $('.resultblock').append("<br>THE TOTAL EXPECTED VALUE IS: $"+ expect +"<br><br>")
-                    $('.resultblock').append("<br>THE TOTAL GRANT COST IS: $"+ cost +"<br><br>")
-                    $('.resultblock').append("<br>THE NET GRANT VALUE IS: $"+ net +"<br><br>")
+                    $('#expected').append("$"+ expect)
+                    $('#cost').append("$"+ cost)
+                    $('#total').append("$"+ net)
                     
                 })
            })
