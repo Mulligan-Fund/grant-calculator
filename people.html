@@ -9,7 +9,8 @@ layout: default
 <script type="text/template" id="objectTemplate">
 	<div>
 	<div class="object-container">
-		<form>
+		<div class="del">X</div>
+		<form obj_id="<%= id %>">
 			<label>Name</label>
 			<input data_id="name" value="<%= name %>" />
 			<label>Role</label>

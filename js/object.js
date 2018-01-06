@@ -7,6 +7,7 @@ gc.Views = gc.Views || {};
         events: {
             "click .new":"newObject"
             , "click .submit": "submitForm"
+            , "click .del": "deleteObject"
         },
         
         template: {},
@@ -26,21 +27,19 @@ gc.Views = gc.Views || {};
             this.makeObject({
                 name: ""
                 , salary: 0
+                , id: 0
             })
         },
 
         makeObject: function(data) {
           var _this = this
-          // this.undelegateEvents();
-
-          // $(this.template(data)).prepend(this.$el).fadeIn('fast')
-
           this.$el.prepend($(this.template(data)).hide().fadeIn('fast'))
-          // this.$el.find('.fadein').removeClass('fadein');
-          // this.$el.find('.submit:first').on('click',function(e) {
-          //   _this.submitForm(e)
-          // })
-          // this.delegateEvents();
+        },
+
+        deleteObject: function(obj) {
+            this.collection.deleteObject(obj,function(r) {
+
+            })
         },
 
         getClassifiers: function(e,cb) {
@@ -72,17 +71,14 @@ gc.Views = gc.Views || {};
                     val = $(i).val()
                     console.log("input val",val)
                 }
-
+                
                 t[$(i).attr('data_id')] = $(i).val()
 
             })
+            t._id = $(e.currentTarget).parent('form').attr('obj_id')
             this.collection.sendObject( 
                 t, function(data,status) {
                     console.log(data,status)
-                // if(String(data).match('/')) {
-                //     console.log("Redirecting")
-                //     window.location.replace(data)
-                // }
             })
         },
 
@@ -93,7 +89,6 @@ gc.Views = gc.Views || {};
             this.collection.getObjectData({'list':true}, function(data){
                    t = data 
                     for(var i in t) {
-                        // console.log("GETTING OBJECTS",t[i])
                         _this.makeObject(t[i])
                     }
             } )

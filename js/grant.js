@@ -160,9 +160,10 @@ gc.Collections = gc.Collections || {};
             data: data,
             dataType:'json',
             success : function(data,status,xfr) {              
-                // console.log("Get Success",data,status,xfr)
+                console.log("Get Success",data,status,xfr)
                  for(var t in data) {
                     _this.lookup[data[t]._id] = data[t].name
+                    data[t].id = data[t]._id
                 }
 
                 callback(data)
