@@ -33,7 +33,7 @@ gc.Views = gc.Views || {};
         calculateCost: function(data){
             var total = 0;
             _.each(data,function(val,key,context){
-                total += (val.salary*365)*val.time
+                total += (val.salary/365)*val.time
             })
             return total;
             
