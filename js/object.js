@@ -32,8 +32,11 @@ gc.Views = gc.Views || {};
         makeObject: function(data) {
           var _this = this
           // this.undelegateEvents();
-          this.$el.prepend(this.template(data))
-          this.$el.find('.fadein').removeClass('fadein');
+
+          // $(this.template(data)).prepend(this.$el).fadeIn('fast')
+
+          this.$el.prepend($(this.template(data)).hide().fadeIn('fast'))
+          // this.$el.find('.fadein').removeClass('fadein');
           // this.$el.find('.submit:first').on('click',function(e) {
           //   _this.submitForm(e)
           // })
