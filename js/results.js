@@ -33,7 +33,7 @@ gc.Views = gc.Views || {};
         calculateCost: function(data){
             var total = 0;
             _.each(data,function(val,key,context){
-                total += (val.salary/365)*val.time
+                total += (val.salary/   365)*val.time
             })
             return total;
             
@@ -81,9 +81,9 @@ gc.Views = gc.Views || {};
                     var cost = _this.calculateCost(hr)
                     var net = _this.calculateNet(t, cost)
                     
-                    $('#expected').append("$"+ _this.addComma(expect))
-                    $('#cost').append("$"+ _this.addComma(cost))
-                    $('#total').append("$"+ _this.addComma(net))
+                    $('#expected').append("$"+ _this.addComma(expect.toFixed(2)))
+                    $('#cost').append("$"+ _this.addComma(cost.toFixed(2)))
+                    $('#total').append("$"+ _this.addComma(net.toFixed(2)))
                     
                 })
            })
