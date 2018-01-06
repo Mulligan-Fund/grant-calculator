@@ -33,7 +33,10 @@ gc.Views = gc.Views || {};
 
         makeObject: function(data) {
           var _this = this
-          this.$el.prepend($(this.template(data)).hide().fadeIn('fast'))
+          var t = $(this.template(data))
+          t.find('select').find('option[data_id="'+data.title+'"]').attr('selected',true)
+          t.hide().fadeIn('fast')
+          this.$el.prepend(t)
         },
 
         deleteObject: function(obj) {
@@ -66,16 +69,15 @@ gc.Views = gc.Views || {};
                 console.log('Submitting',i)
                 if($(i).prop('nodeName') == 'SELECT') {
                  val = $(i).children("option:selected").attr("data_id")
-                 console.log("Select val",val)
+                 t.title = val
                 } else {
                     val = $(i).val()
-                    console.log("input val",val)
                 }
-                
                 t[$(i).attr('data_id')] = $(i).val()
 
             })
             t._id = $(e.currentTarget).parent('form').attr('obj_id')
+            console.log("Submitting obj",t)
             this.collection.sendObject( 
                 t, function(data,status) {
                     console.log(data,status)
