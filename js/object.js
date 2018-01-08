@@ -8,6 +8,7 @@ gc.Views = gc.Views || {};
             "click .new":"newObject"
             , "click .submit": "submitForm"
             , "click .del": "deleteObject"
+            , "change .role":  "changeSalary"
         },
         
         template: {},
@@ -51,13 +52,18 @@ gc.Views = gc.Views || {};
                var temp = $($('#objectTemplate')[0].innerHTML)
                $(temp).find('option').remove();
                 for(var i in t) {
-                    $(temp).find('select').append("<option data_id='"+t[i]._id+"''>"+ t[i].title +"</option>")
+                    $(temp).find('select').append("<option data_id='"+t[i]._id+"' data_salary='" + t[i].salary + "'>"+ t[i].title +"</option>")
                     if(i==data.length-1) { 
                         $('#objectTemplate')[0].innerHTML = $(temp).html()
                         cb()
                     }
                 }
             })
+        },
+
+        changeSalary: function(e) {
+            var sal = $(e.currentTarget).find("option:selected").attr("data_salary")
+            $(e.currentTarget).siblings('.money').children('input').val(sal)
         },
 
         submitForm: function(e) {
