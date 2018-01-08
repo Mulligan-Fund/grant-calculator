@@ -309,10 +309,20 @@ section.block {
         }
     }
     ul {
+        &.left {
+            text-align: left;
+
+            li {
+                padding: 0 20px 0 0;
+            }
+        }
         // float: right;
+        text-align: right;
 
         li {
-            padding: 0 20px;
+            // float:right;
+            // text-align: right;
+            padding: 0 0 0 20px;
             display: inline-block;
             .button {
                 margin: 0;
@@ -396,4 +406,39 @@ section.block {
             opacity: 1;
         }
     }
+}
+
+.item {
+    width: 90%;
+    height: 30px;
+    margin: 0px 5% 10px 0;
+    padding: 20px;
+    background: #FFFEF7;
+    border: 1px solid #EBEBEB;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-in-out 0.3s;
+    transition: all 0.3s ease-in-out 0.3s;
+    opacity: 1;
+    &:hover {
+        box-shadow: 0 2px 1px 1px rgba(0,0,0,.1)
+    }
+
+    .name {
+        font-family: "Vollkorn";
+        font-weight: 800;
+        float: left; clear: none;
+        width: 65%;
+        font-size: 16pt;
+        height: 20px;
+    }
+
+    .amount {
+        text-align: right;
+        width: 30%;
+        font-size: 20pt;
+        float: right;
+        clear: none;
+        height: 20px;
+    }
+
 }
