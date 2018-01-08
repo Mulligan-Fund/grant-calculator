@@ -27,6 +27,8 @@ page: form
 					</select>
 				{% elsif question.type == "text" %}
 					<input class="live" type="text" id="{{question.dbfield}}" />
+				{% elsif question.type == "number" %}
+					<input class="live" type="number" min="0.0" step="0.01" id="{{question.dbfield}}" />
 				{% elsif question.type == "money" %}
 					<div class="money"><input class="live" type="number" min="0.0" step="0.01" id="{{question.dbfield}}" /></div>
 				{% elsif question.type == "percentage" %}
