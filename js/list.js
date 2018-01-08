@@ -15,6 +15,7 @@ gc.Views = gc.Views || {};
         	var _this = this
             if($(this.el).find('#list')) {
                 this.getItems()
+                this.getObjectList()
             }
         },
 
@@ -31,6 +32,21 @@ gc.Views = gc.Views || {};
                 })
                 
             } )
+        },
+
+
+        getObjectList: function(context) {
+            var _this = this
+            var t = {}
+            this.collection.getObjectData({'list':true}, function(data){
+                console.log("obj list data",data)
+                if(data.length < 1) {
+                    $('.objlist').html("After you add them, your team members will show up here.")
+                }
+                for(var t in data) {
+                    $(".objlist ul").append("<li>"+ data[t].name +"</li>")
+                }
+            })
         },
 
         redirectClient: function(path) {

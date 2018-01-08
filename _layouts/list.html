@@ -12,14 +12,16 @@ page: list
      <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
      </div>
      <div class="description">
-        <div class="options">
-          <ul>
-            <li><a class="button" href="./people">See your team</a></li>
-            <li><a class="button" href="./form" class="create">New Grant</a></li>
-          </ul>
+        <div class="step">
+          <h2>Step 1: Add your team</h2>
+          <a class="button" href="./people">See your team</a>
+          <div class="objlist"><ul></ul></div>
         </div>
-        <h2>Your Grants</h2>
-        <div id="list"></div>
+        <div class="step">
+          <h2>Step 2: Fill in your Grant Info</h2>
+          <a class="button" href="./form" class="create">New Grant</a>
+          <div id="list"></div>
+        </div>
 
       </div>
 
