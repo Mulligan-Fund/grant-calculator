@@ -226,12 +226,13 @@ select {
 
 button,.button {
   display: inline-block;
+  text-align: center;
   margin: 20px 0;
   width: 140px;
   height: 35px;
   padding: 10px 20px;
   font-family: "Circular-Black";
-  font-size: 16px;
+  font-size: 16pt;
   color: #ACC3CB;
   background: #FFFEF7;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
@@ -312,6 +313,16 @@ button,.button {
     
   }
 }
+
+.unsaved {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  &.hide {
+  opacity: 0!important;
+  }  
+}
+
 
 a {
   color: #6B6B6B;

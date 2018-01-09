@@ -9,6 +9,8 @@ gc.Views = gc.Views || {};
             , "click .submit": "submitForm"
             , "click .del": "deleteObject"
             , "change .role":  "changeSalary"
+            , "change input": "unsavedNotice"
+            , "change select": "unsavedNotice"
         },
         
         template: {},
@@ -91,6 +93,7 @@ gc.Views = gc.Views || {};
             this.collection.sendObject( 
                 t, function(data,status) {
                     console.log(data,status)
+                    _this.unsavedNotice(e,true)
             })
         },
 
@@ -104,6 +107,16 @@ gc.Views = gc.Views || {};
                         _this.makeObject(t[i])
                     }
             } )
+        },
+
+        unsavedNotice: function(e,saved) {
+            console.log("changing",e)
+            if(!saved) {
+                $(e.currentTarget).parent().find('.unsaved').removeClass('hide');
+            } else {
+                $(e.currentTarget).parent().find('.unsaved').addClass('hide')
+            }
+            
         },
 
         formClear: function() {
