@@ -13,7 +13,7 @@ gc.Views = gc.Views || {};
 
         initialize: function() {
         	var _this = this
-            if($(this.el).find('#list')) {
+            if($(this.el).is('#list')) {
                 this.getItems()
                 this.getObjectList()
             }
