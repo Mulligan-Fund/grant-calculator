@@ -494,6 +494,9 @@ section.block {
             border-radius: 5px;
             display: inline-block;
             overflow: hidden;
+            @media only screen and (max-width: 480px) {
+                width: 25%;
+            }
         }
     }
 }

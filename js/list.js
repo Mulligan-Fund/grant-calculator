@@ -45,8 +45,14 @@ gc.Views = gc.Views || {};
                 if(data.length < 1) {
                     $('.objlist').html("Add your team first in order to assign them to grant tasks.")
                 }
+                var count = 0
                 for(var t in data) {
                     $(".objlist ul").append("<li>"+ data[t].name +"</li>")
+                    count+=1;
+                    if(count >= 12) {
+                        $(".objlist ul").append("<br>plus " + (data.length-count) + " more people.")
+                        break;
+                    }
                 }
             })
         },
