@@ -337,6 +337,9 @@ section.block {
             .button {
                 margin: 0;
                 padding: 5px;
+                font-size: 16px;
+                width: unset;
+                height: unset;
                 @media only screen and (max-width: 480px) {
                     font-size: 10pt;
                     width:80%;
