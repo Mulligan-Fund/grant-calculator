@@ -34,6 +34,13 @@
   src: local('Vollkorn Regular'), local('Vollkorn-Regular'), url('../fonts/vollkorn.woff') format('woff');
 }
 
+// Mobile hack
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
+
 .orange {
   color: #FF6543!important;
 }
@@ -104,6 +111,9 @@ label {
   width: 140px;
   text-align: left;
   display: inline-block;
+  @media only screen and (max-width: 480px) {
+    width: 90%;
+  }
 }
 
 input,select {
@@ -117,10 +127,16 @@ input,select {
 
 input {
   width: 260px;
+  @media only screen and (max-width: 480px) {
+    width: 200px!important;
+  }
 }
 
 select {
-  width: 300px
+  width: 300px;
+  @media only screen and (max-width: 480px) {
+    width: 245px;
+  }
 }
 
 .money {
@@ -220,6 +236,18 @@ button,.button {
   background: #FFFEF7;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
   border-radius: 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+      text-decoration: none;
+      background: #ACC3CB;
+      color: #FFFEF7;
+      box-shadow: 0 2px 1px 1px rgba(0,0,0,.1)
+  }
+  @media only screen and (max-width: 480px) {
+    display: block;
+    clear: both;
+  }
 
 }
 
