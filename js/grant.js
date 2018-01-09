@@ -176,6 +176,31 @@ gc.Collections = gc.Collections || {};
             });
         },
 
+        deleteObject: function(id,callback) {
+            var endpoint = this.obj
+            $.ajax({
+            url : endpoint,
+            type : 'DELETE',
+            xhrFields: {
+                withCredentials: true
+            },
+            headers: {
+                'Access-Control-Allow-Origin': true
+            },
+            crossDomain: true,
+            data: { 'id' : id },
+            dataType:'json',
+            success : function(data,status,xfr) {              
+                callback(data)
+            },
+            error : function(request,error)
+            {
+                // alert("Get Error: "+JSON.stringify(request));
+                callback()
+            }
+            });
+        },
+
         getRoleData: function(data,callback) {
             var endpoint = this.role
             var data = data || {};

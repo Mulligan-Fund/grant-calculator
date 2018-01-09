@@ -24,8 +24,10 @@ gc.Views = gc.Views || {};
             var _this = this
             var t = {}
             this.collection.getData({'list':true}, function(data){
+                if(data.length < 1) {
+                    $(_this.el).html("Once created, your grants will appear here.")
+                }
                 $.each(data,function(e,i){
-                    // console.log(_this.template(i))
                     i.funder  = i.funder || "No funder yet"
                     i.amount  = i.amount || "0"
                     $(_this.el).append( _this.template(i));    
@@ -41,7 +43,7 @@ gc.Views = gc.Views || {};
             this.collection.getObjectData({'list':true}, function(data){
                 console.log("obj list data",data)
                 if(data.length < 1) {
-                    $('.objlist').html("After you add them, your team members will show up here.")
+                    $('.objlist').html("Add your team first in order to assign them to grant tasks.")
                 }
                 for(var t in data) {
                     $(".objlist ul").append("<li>"+ data[t].name +"</li>")

@@ -40,9 +40,13 @@ gc.Views = gc.Views || {};
           this.$el.prepend(t)
         },
 
-        deleteObject: function(obj) {
-            this.collection.deleteObject(obj,function(r) {
-
+        deleteObject: function(e) {
+            var _this = this
+            var id = $(e.currentTarget).siblings('form').attr('obj_id')
+            this.collection.deleteObject(id,function(r) {
+                $(e.currentTarget).parent('.object-container').fadeOut(function(t){
+                    $(t).remove()
+                })
             })
         },
 
