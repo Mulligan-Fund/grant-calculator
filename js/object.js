@@ -45,7 +45,7 @@ gc.Views = gc.Views || {};
             var id = $(e.currentTarget).siblings('form').attr('obj_id')
             this.collection.deleteObject(id,function(r) {
                 $(e.currentTarget).parent('.object-container').fadeOut(function(t){
-                    $(t).remove()
+                    $(t).remove();
                 })
             })
         },
