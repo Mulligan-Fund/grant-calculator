@@ -42,6 +42,7 @@ section {
     height: 65px;
     z-index: 10;
     width: 100%;
+    z-index: 100;
     // height: 80px;
     // Positioning context for the mobile navigation icon
     position: fixed;
@@ -52,10 +53,8 @@ section {
     .logo {
         width: 100%;
         img {
-            height: 90px;
-            margin-top:-30px;
-            margin:-30px auto;
-             display:block;
+            height: 30px;
+            max-width: unset;
             // margin: 30px 0 30px 0;
             @media only screen and (max-width: 480px) {
                 margin: 10px auto;
@@ -69,7 +68,6 @@ section {
 
 
 body {
-    background-image: url("../img/bg.png");
     background-color: #F5F4F2;
     background-repeat: no-repeat;
     background-origin: top left;
@@ -124,8 +122,13 @@ p {
     background: #FFFEF7;
 }
 
+img.support {
+    width: 50px;
+    padding-right:50px;
+}
+
 .fullbg {
-    position: fixed;
+    // position: fixed;
     left: 0; right: 0;
     width: 100%;
     height: 100%;
@@ -133,6 +136,12 @@ p {
     max-width: 500px;
     margin: auto;
     padding: 20px;
+
+    @media only screen and (max-width: 480px) {
+        width: unset;
+        max-width: 90%;
+    }
+
 
     .logo-block {
         margin-top: 50px;
@@ -149,6 +158,10 @@ p {
     .logo {
         width: 50%;
     }
+
+    button {
+        width: auto;
+    }
 }
 
 section.page {
@@ -164,3 +177,241 @@ section.block {
     margin-bottom: 30px;
 }
 
+#objectlist{
+    position: relative;
+    padding-top: 100px;
+
+    .new {
+        position: absolute;
+        top: 0; left: 0;
+    }
+
+    .object-container {
+
+        &.fadein {
+            opacity: 0;
+        }
+
+        button {
+            margin: auto;
+        }
+
+        .del {
+            float: right;
+        }
+
+        margin: 0px 10px 10px 0px;
+        float: left;
+        clear: none;
+        width: 300px;
+        padding: 20px;
+        background: #FFFEF7;
+        border: 1px solid #EBEBEB;
+        border-radius: 5px;
+        -webkit-transition: all 0.3s ease-in-out 0.3s;
+        transition: all 0.3s ease-in-out 0.3s;
+        opacity: 1;
+    }
+}
+
+.nav-links {
+    @media only screen and (max-width: 480px) {
+        &.mobile-hide {
+            display: none;
+        }
+    }
+    ul {
+        &.left {
+            text-align: left;
+
+            li {
+                padding: 0 20px 0 0;
+            }
+        }
+        // float: right;
+        text-align: right;
+
+        li {
+            // float:right;
+            // text-align: right;
+            padding: 0 0 0 20px;
+            display: inline-block;
+            .button {
+                margin: 0;
+                padding: 5px;
+                font-size: 16px;
+                width: unset;
+                height: unset;
+                @media only screen and (max-width: 480px) {
+                    font-size: 10pt;
+                    width:80%;
+                    padding: 2px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.options {
+    height: 100px;
+        ul {
+        width: 100%;
+        li {
+            padding: 0 20px;
+            display: inline-block;
+        }
+    }
+}
+
+.time {
+    width: 300px;
+    display: inline-block;
+    @media only screen and (max-width: 480px) {
+            width: 220px!important;;
+      };
+    .objlist {
+        display: inline-block;
+        width: 50%;
+        @media only screen and (max-width: 480px) {
+            width: 80px!important;
+      }
+    }
+    
+    input {
+        display: inline-block;
+        width: 30%;
+        @media only screen and (max-width: 480px) {
+            width: 80px!important;
+      }
+    }
+}
+
+.resultblock {
+
+    .focus {
+        margin: 0px 2% 10px 0px;
+        float: left;
+        clear: none;
+        width: 40%;
+        min-width: 300px;
+        height: 200px;
+        padding: 20px;
+        background: #FFFEF7;
+        border: 1px solid #EBEBEB;
+        border-radius: 5px;
+        -webkit-transition: all 0.3s ease-in-out 0.3s;
+        transition: all 0.3s ease-in-out 0.3s;
+        opacity: 1;
+        h1 {
+            font-size: 22pt;
+        }
+        div {
+            font-size: 40pt;
+        }
+    }
+    .details {
+        width: 100%;
+        float: left; clear: both;
+    }
+    .total {
+        width: 86%!important;
+    }
+
+}
+
+.turn {
+    float:right;
+}
+
+.formblock {
+
+    .page {
+        -webkit-transition: all 0.3s ease-in-out 0.3s;
+        transition: all 0.3s ease-in-out 0.3s;
+        display: none;
+        opacity: 0;
+        &.show {
+            display: block;
+            opacity: 1;
+        }
+    }
+}
+
+.item {
+    width: 90%;
+    height: 30px;
+    margin: 0px 5% 10px 0;
+    padding: 20px;
+    background: #FFFEF7;
+    border: 1px solid #EBEBEB;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-in-out 0.1s;
+    transition: all 0.3s ease-in-out 0.1s;
+    opacity: 1;
+    &:hover {
+        box-shadow: 0 2px 1px 1px rgba(0,0,0,.1)
+    }
+
+    .name {
+        font-family: "Vollkorn";
+        font-weight: 800;
+        float: left; clear: none;
+        width: 65%;
+        font-size: 16pt;
+        height: 20px;
+    }
+
+    .amount {
+        text-align: right;
+        width: 30%;
+        font-size: 20pt;
+        float: right;
+        clear: none;
+        height: 20px;
+    }
+
+}
+
+
+.step {
+    position: relative;
+    margin-bottom: 30px;
+    min-height: 100px;
+    @media only screen and (max-width: 480px) {
+        width: 80%;
+    }
+
+    .button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        text-align: center;
+        height: 20px;
+        @media only screen and (max-width: 480px) {
+            position: initial;
+            width: 90%;
+        }
+        // width: 2
+    }
+
+    ul {
+        text-align: left;
+        margin: 0;
+        li {
+            width: 30%;
+            height: 20px;
+            margin: 2px;
+            padding: 5px;
+            background: #FFFEF7;
+            border: 1px solid #EBEBEB;
+            border-radius: 5px;
+            display: inline-block;
+            overflow: hidden;
+            @media only screen and (max-width: 480px) {
+                width: 25%;
+            }
+        }
+    }
+}

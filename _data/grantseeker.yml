@@ -1,0 +1,286 @@
+--- 
+  - 
+    name: "Grant Information"
+    id: "grantinfo"
+    page: 1
+    sections: 
+      - 
+        header: "Funder Information"
+        name: "funder_info"
+        questions: 
+          - 
+            label: Funder
+            dbfield: funder
+            desc: "Name of the funder to which your org is considering applying"
+            type: text
+          - 
+            label: Has your organization received a grant from this funder in the past?
+            dbfield: past_grant
+            desc: "Has this funder supported your organization in the past?"
+            type: dropdown
+            content:
+              - label: Yes
+              - label: No
+      -
+        header: "Grant Details"
+        name: "details"
+        questions:
+          -
+            label: Amount requested?
+            dbfield: amount
+            desc: "How much is your organization requesting from this funder?" 
+            type: money
+          -
+            label: Expected likelihood of receiving grant
+            dbfield: probability
+            desc: "What's your best estimate of the percentage likelihood of getting this grant?"
+            type: percentage
+          -
+            label: New Grant or Renewal?
+            dbfield: new_or_renewal
+            desc: "Is this a new grant?  Or a renewal of an existing grant?"
+            type: dropdown
+            content:
+              - label: New Grant
+              - label: Renewal
+          -
+            label: Invited or Unsolicited?
+            dbfield: invited_or_unsolicited
+            desc: "Was your organization invited to apply for this grant, or is the request unsolicited?"
+            type: dropdown
+            content:
+              - label: Invited
+              - label: Unsolicited
+          -
+            label: Type of Support 
+            dbfield: type_of_support
+            desc: "What type of grant? General operating support? Project support, etc?"
+            type: dropdown
+            content:
+              - label: Capacity-building and technical assistance
+              - label: Capital and infrastructure
+              - label: Continuing support
+              - label: Financial sustainability
+              - label: General support
+              - label: Individual development
+              - label: Leadership and professional development
+              - label: Network-building and collaboration
+              - label: Outreach
+              - label: Policy advocacy and systems reform
+              - label: Presentations and productions
+              - label: Product and service development
+              - label: Program development
+              - label: Regranting
+              - label: Research and evaluation
+              - label: Other (please specify)
+      -
+        header: "Grant Logistics"
+        name: "logistics"
+        questions:
+          - 
+            label: Type of Application
+            dbfield: type_of_application
+            desc: "How will you be submitting this application?"
+            type: dropdown
+            content:
+              - label: online
+              - label: via email
+              - label: on paper
+          -
+            label: Length of Grant Award
+            dbfield: length_of_award
+            desc: "In years, what is the expected length of this grant award?"
+            type: number
+          -
+            label: Number of Questions
+            dbfield: number_of_questions
+            desc: "How many questions are in the application?  You can ballpark if you're not sure, or if the application is less structured, you can estimate or skip"
+            type: number
+          -
+            label: Site Visit Required?
+            dbfield: site_visit
+            desc: "Will the funder conduct a site visit as part of the grant application process?"
+            type: dropdown
+            content:
+              - label: Yes
+              - label: No
+          -
+            label: LOI?
+            dbfield: loi
+            desc: "Does this grant have a letter of intent/inquiry prior to the full proposal?"
+            type: dropdown
+            content:
+              - label: Yes
+              - label: No
+          -
+            label: Number of Reports Required?
+            dbfield: number_of_reports
+            desc: "How many progress reports does this funder require?  If unsure, enter 1."
+            type: number
+  - 
+    name: "Grant Cost"
+    page: 2
+    sections: 
+      - 
+        header: "Research"
+        name: "rsch"
+        questions: 
+          -
+            label: Preliminary Research
+            dbfield: preliminary_rsch_people
+            desc: "Who is involved in preliminary research?"
+            type: peoplelist
+          -
+            label: In-Depth Research for Specific Opportunity
+            dbfield: in_depth_rsch_people
+            desc: "Who is involved in in-depth research for this specific opportunity?"
+            type: peoplelist
+      -
+        header: "LOI"
+        name: "loi"
+        questions:
+          -
+            label: Review LOI Requirements
+            dbfield: loi_requirements
+            desc: "Who is involved in reviewing the LOI requirements?"
+            type: peoplelist
+          -
+            label: Pre-Submission Communication with Funder
+            dbfield: pre_loi_comm
+            desc: "Who is involved in pre-submission communication with the funder?"
+            type: peoplelist
+          -
+            label: Draft LOI 
+            dbfield: draft_loi
+            desc: "Who is involved in drafting the LOI?"
+            type: peoplelist
+          -
+            label: Review LOI Draft
+            dbfield: review_loi_draft
+            desc: "Who is involved in reviewing the LOI draft?"
+            type: peoplelist
+          -
+            label: Edit LOI
+            dbfield: edit_loi
+            desc: "Who is involved in editing the LOI?"
+            type: peoplelist
+          -
+            label: Finalize LOI
+            dbfield: finalize_loi
+            desc: "Who is involved in finalizing the LOI?"
+            type: peoplelist
+      -
+        header: "Proposal"
+        name: "proposal"
+        questions:
+          -
+            label: Review Proposal Requirements
+            dbfield: proposal_requirements
+            desc: "Who is involved in reviewing the proposal requirements?"
+            type: peoplelist
+          -
+            label: Pre-Submission Communication with Funder
+            dbfield: pre_proposal_comm
+            desc: "Who is involved in pre-submission communication with the funder?"
+            type: peoplelist
+          -
+            label: Draft Proposal
+            dbfield: draft_proposal
+            desc: "Who is involved in drafting the proposal?"
+            type: peoplelist
+          -
+            label: Review Proposal Draft
+            dbfield: review_proposal_draft
+            desc: "Who is involved in reviewing the proposal draft?"
+            type: peoplelist
+          -
+            label: Edit Proposal
+            dbfield: edit_proposal
+            desc: "Who is involved in editing the proposal?"
+            type: peoplelist
+          -
+            label: Finalize Proposal
+            dbfield: finalize_proposal
+            desc: "Who is involved in finalizing the proposal?"
+            type: peoplelist
+      -
+        header: "Site Visit"
+        name: "visit"
+        questions:
+          -
+            label: Prepare for Site Visit
+            dbfield: prep_visit
+            desc: "Who is involved in preparing for a site visit?"
+            type: peoplelist
+          -
+            label: Site Visit
+            dbfield: site_visit
+            desc: "Who is involved in the site visit?"
+            type: peoplelist
+          -
+            label: Site Visit Follow Ups
+            dbfield: visit_follow_ups
+            desc: "Who is involved in site visit follow-ups?"
+            type: peoplelist
+      -
+        header: "Post-Grant Communications"
+        name: "post_grant"
+        questions:
+          -
+            label: Award Letter Review/Signing
+            dbfield: letter_signing
+            desc: "Who is involved in reviewing/signing the award letter?"
+            type: peoplelist
+          -
+            label: Post-Grant Communications
+            dbfield: post_grant_comm
+            desc: "Who is involved with post-grant communications with the funder?"
+            type: peoplelist
+      -
+        header: "Reporting"
+        name: "reporting"
+        questions:
+          -
+            label: Review Report Requirements
+            dbfield: report_requirements
+            desc: "Who is involved in reviewing the report requirements?"
+            type: peoplelist
+          -
+            label: Collect Data for Report
+            dbfield: collect_data
+            desc: "Who is involved in collecting data for reports?"
+            type: peoplelist
+          -
+            label: Prepare Financials for Report
+            dbfield: prepare_financials
+            desc: "Who is involved in preparing financial information for reports?"
+            type: peoplelist
+          -
+            label: Draft Report
+            dbfield: draft_report
+            desc: "Who is involved in drafting the report?"
+            type: peoplelist
+          -
+            label: Review Report Draft
+            dbfield: preview_report_draft
+            desc: "Who is involved in reviewing the report draft?"
+            type: peoplelist
+          -
+            label: Edit Report
+            dbfield: edit_report
+            desc: "Who is involved in editing the report?"
+            type: peoplelist
+          -
+            label: Finalize Report
+            dbfield: finalize_report
+            desc: "Who is involved in finalizing the report?"
+            type: peoplelist
+      -
+        header: "Other"
+        name: "other"
+        questions:
+          -
+            label: (user-inputted)
+            dbfield: other_activity
+            desc: "Who is involved in other grant activities?"
+            type: peoplelist

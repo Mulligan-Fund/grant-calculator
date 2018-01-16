@@ -1,0 +1,499 @@
+--- 
+  - 
+    name: "Program Information"
+    page: 1
+    sections: 
+      - 
+        header: "Program Information"
+        name: "program_info"
+        questions: 
+          - 
+            label: Program Name
+            dbfield: program_name
+            desc: "Name of the program you are analyzing"
+            type: text
+          - 
+            label: Primary Issue Addressed
+            dbfield: primary_issue
+            desc: "What is the primary issue this program addresses?"
+            type: text
+      -
+        header: "Program Details"
+        name: "prog_details"
+        questions:
+          -
+            label: Expected Number of Grants to Be Awarded
+            dbfield: number_of_grants
+            desc: "How many grants do you expect this program to award?" 
+            type: number
+          -
+            label: Expected amount to be awarded
+            dbfield: amount_of_grants
+            desc: "What is the total amount this program is expected to award?"
+            type: money
+          -
+            label: Expected Number of Applications
+            dbfield: number_of_applications
+            desc: "How many applications do you expect this program to receive?"
+            type: number
+      -
+        header: "Program Logistics"
+        name: "prog_logistics"
+        questions:
+          -
+            label: Invited or Unsolicited?
+            dbfield: gm_invited_or_unsolicited
+            desc: "Does this program accept unsolicited requests, or is it invite only?"
+            type: dropdown
+            content:
+              - label: invite-only
+              - label: unsolicited
+          - 
+            label: Type of Application
+            dbfield: gm_type_of_application
+            desc: "How will applicants be submitting this application?"
+            type: dropdown
+            content:
+              - label: online
+              - label: via email
+              - label: on paper
+          -
+            label: Length of Grant Award
+            dbfield: gm_length_of_award
+            desc: "In years, what is the expected length of a grant award in this program?"
+            type: number
+          -
+            label: Number of Questions
+            dbfield: gm_number_of_questions
+            desc: "How many questions are in the application?  You can ballpark if you're not sure, or if the application is less structured, you can estimate or skip"
+            type: number
+          -
+            label: Site Visit Required?
+            dbfield: gm_site_visit
+            desc: "Will you conduct a site visit as part of the grant application process?"
+            type: dropdown
+            content:
+              - label: Yes
+              - label: No
+          -
+            label: LOI?
+            dbfield: gm_loi
+            desc: "Does this grant have a letter of intent/inquiry prior to the full proposal?"
+            type: dropdown
+            content:
+              - label: Yes
+              - label: No
+          -
+            label: Number of Reports Required?
+            dbfield: gm_number_of_reports
+            desc: "How many progress reports do you require?  If unsure, enter 1."
+            type: number
+  - 
+    name: "Grant Cost to Grantee"
+    page: 2
+    sections: 
+      - 
+        header: "Research"
+        name: "grantee_rsch"
+        questions: 
+          -
+            label: Preliminary Research
+            dbfield: gm_preliminary_rsch_people
+            desc: "Which applicant staff are involved in preliminary research?"
+            type: peoplelist
+          -
+            label: In-Depth Research for Specific Opportunity
+            dbfield: gm_in_depth_rsch_people
+            desc: "Which applicant staff are involved in in-depth research for this specific opportunity?"
+            type: peoplelist
+      -
+        header: "LOI"
+        name: "grantee_loi"
+        questions:
+          -
+            label: Review LOI Requirements
+            dbfield: gm_loi_requirements
+            desc: "Which applicant staff are involved in reviewing the LOI requirements?"
+            type: peoplelist
+          -
+            label: Pre-Submission Communication with Funder
+            dbfield: gm_pre_loi_comm
+            desc: "Which applicant staff are involved in pre-submission communication with the funder?"
+            type: peoplelist
+          -
+            label: Draft LOI 
+            dbfield: gm_draft_loi
+            desc: "Which applicant staff are involved in drafting the LOI?"
+            type: peoplelist
+          -
+            label: Review LOI Draft
+            dbfield: gm_review_loi_draft
+            desc: "Which applicant staff are involved in reviewing the LOI draft?"
+            type: peoplelist
+          -
+            label: Edit LOI
+            dbfield: gm_edit_loi
+            desc: "Which applicant staff are involved in editing the LOI?"
+            type: peoplelist
+          -
+            label: Finalize LOI
+            dbfield: gm_finalize_loi
+            desc: "Which applicant staff are involved in finalizing the LOI?"
+            type: peoplelist
+      -
+        header: "Proposal"
+        name: "grantee_proposal"
+        questions:
+          -
+            label: Review Proposal Requirements
+            dbfield: gm_proposal_requirements
+            desc: "Which applicant staff are involved in reviewing the proposal requirements?"
+            type: peoplelist
+          -
+            label: Pre-Submission Communication with Funder
+            dbfield: gm_pre_proposal_comm
+            desc: "Which applicant staff are involved in pre-submission communication with the funder?"
+            type: peoplelist
+          -
+            label: Draft Proposal
+            dbfield: gm_draft_proposal
+            desc: "Which applicant staff are involved in drafting the proposal?"
+            type: peoplelist
+          -
+            label: Review Proposal Draft
+            dbfield: gm_review_proposal_draft
+            desc: "Which applicant staff are involved in reviewing the proposal draft?"
+            type: peoplelist
+          -
+            label: Edit Proposal
+            dbfield: gm_edit_proposal
+            desc: "Which applicant staff are involved in editing the proposal?"
+            type: peoplelist
+          -
+            label: Finalize Proposal
+            dbfield: gm_finalize_proposal
+            desc: "Which applicant staff are involved in finalizing the proposal?"
+            type: peoplelist
+      -
+        header: "Site Visit"
+        name: "grantee_visit"
+        questions:
+          -
+            label: Prepare for Site Visit
+            dbfield: gm_prep_visit
+            desc: "Which applicant staff are involved in preparing for a site visit?"
+            type: peoplelist
+          -
+            label: Site Visit
+            dbfield: gm_site_visit
+            desc: "Which applicant staff are involved in the site visit?"
+            type: peoplelist
+          -
+            label: Site Visit Follow Ups
+            dbfield: gm_visit_follow_ups
+            desc: "Which applicant staff are involved in site visit follow-ups?"
+            type: peoplelist
+      -
+        header: "Post-Grant Communications"
+        name: "grantee_post"
+        questions:
+          -
+            label: Award Letter Review/Signing
+            dbfield: gm_letter_signing
+            desc: "Which grantee staff are involved in reviewing/signing the award letter?"
+            type: peoplelist
+          -
+            label: Post-Grant Communications
+            dbfield: gm_post_grant_comm
+            desc: "Which grantee staff are involved with post-grant communications with the funder?"
+            type: peoplelist
+      -
+        header: "Reporting"
+        name: "reporting"
+        questions:
+          -
+            label: Review Report Requirements
+            dbfield: gm_report_requirements
+            desc: "Which grantee staff are involved in reviewing the report requirements?"
+            type: peoplelist
+          -
+            label: Collect Data for Report
+            dbfield: gm_collect_data
+            desc: "Which grantee staff are involved in collecting data for reports?"
+            type: peoplelist
+          -
+            label: Prepare Financials for Report
+            dbfield: gm_prepare_financials
+            desc: "Which grantee staff are involved in preparing financial information for reports?"
+            type: peoplelist
+          -
+            label: Draft Report
+            dbfield: gm_draft_report
+            desc: "Which grantee staff are involved in drafting the report?"
+            type: peoplelist
+          -
+            label: Review Report Draft
+            dbfield: gm_preview_report_draft
+            desc: "Which grantee staff are involved in reviewing the report draft?"
+            type: peoplelist
+          -
+            label: Edit Report
+            dbfield: gm_edit_report
+            desc: "Which grantee staff are involved in editing the report?"
+            type: peoplelist
+          -
+            label: Finalize Report
+            dbfield: gm_finalize_report
+            desc: "Which grantee staff are involved in finalizing the report?"
+            type: peoplelist
+      -
+        header: "Other"
+        name: "Section 7"
+        questions:
+          -
+            label: # (user-inputted)
+            dbfield: gm_other_activity
+            desc: "Which grantee staff are involved in other grant activities?"
+            type: peoplelist
+  - 
+    name: "Program Cost"
+    page: 3
+    sections: 
+      - 
+        header: "Research"
+        name: "prog_rsch"
+        questions: 
+          -
+            label: Research Issue Area
+            dbfield: rsch_issue
+            desc: "Who is involved in researching the issue area?"
+            type: peoplelist
+          -
+            label: Communicate internally about program goals
+            dbfield: comm_prog_goals
+            desc: "Who is involved in communicating program goals internally?"
+            type: peoplelist
+          -
+            label: Draft LOI
+            dbfield: program_draft_loi
+            desc: "Who is involved in drafting the LOI?"
+            type: peoplelist
+          -
+            label: Finalize LOI
+            dbfield: program_finalize_loi
+            desc: "Who is involved in finalizing the LOI?"
+            type: peoplelist
+          -
+            label: Publish/Release/Publicize LOI
+            dbfield: publish_loi
+            desc: "Who is involved in publishing/releasing/publicizing the LOI?"
+            type: peoplelist
+          -
+            label: Draft RFP
+            dbfield: draft_rfp
+            desc: "Who is involved in drafting the RFP?"
+            type: peoplelist
+          -
+            label: Finalize RFP
+            dbfield: finalize_rfp
+            desc: "Who is involved in finalizing the RFP?"
+            type: peoplelist
+          -
+            label: Publish/Release/Publicize RFP
+            dbfield: publish_rfp
+            desc: "Who is involved in publishing/releasing the RFP?"
+            type: peoplelist
+          -
+            label: Draft Report Requirements
+            dbfield: draft_report_req
+            desc: "Who is involved in drafting the reporting requirements?"
+            type: peoplelist
+          -
+            label: Finalize Report Requirements
+            dbfield: finalize_report_req
+            desc: "Who is involved in finalizing the reporting requirements?"
+            type: peoplelist
+          -
+            label: Publish/Release Report Forms/Requirements
+            dbfield: publish_report_req
+            desc: "Who is involved in publishing/releasing the reporting requirements?"
+            type: peoplelist
+          -
+            label: Communication with Grantseekers
+            dbfield: communication_with_seekers
+            type: peoplelist
+            desc: "Who is involved in communicating with grantseekers (e.g., webinars, meetings)?"
+      -
+        header: "LOI"
+        name: "prog_loi"
+        questions:
+          -
+            label: Field LOI Questions from Applicants
+            dbfield: field_loi_q
+            desc: "Who is involved in fielding questions from applicants about the LOI?"
+            type: peoplelist
+          -
+            label: Review Submitted LOIs
+            dbfield: review_submitted_lois
+            desc: "Who is involved in reviewing submitted LOIs?"
+            type: peoplelist
+          -
+            label: Ask Questions about Submitted LOIs
+            dbfield: ask_loi_q
+            desc: "Who is involved in asking applicants questions about submitted LOIs?"
+            type: peoplelist
+          -
+            label: Decide Which Proposals to Invite
+            dbfield: decide_invite
+            desc: "Who is involved in deciding which proposals to invite?"
+            type: peoplelist
+          -
+            label: Invite Proposals
+            dbfield: invite_proposal
+            desc: "Who is involved in inviting proposals?"
+            type: peoplelist
+          -
+            label: Other Communications about LOIs
+            dbfield: other_comm_loi
+            desc: "Who is involved in other communications about LOIs?"
+            type: peoplelist
+      -
+        header: "Proposal"
+        name: "prog_proposal"
+        questions:
+          -
+            label: Field Proposal Questions from Applicants
+            dbfield: field_proposal_q
+            desc: "Who is involved in fielding questions from applicants about proposals?"
+            type: peoplelist
+          -
+            label: Review Submitted Proposals
+            dbfield: review_submitted_proposals
+            desc: "Who is involved in reviewing submitted proposals?"
+            type: peoplelist
+          -
+            label: Ask Questions about Submitted Proposals
+            dbfield: ask_proposal_q
+            desc: "Who is involved in asking applicants questions about proposals?"
+            type: peoplelist
+          -
+            label: Decide Which Proposals to Recommend
+            dbfield: decide_recommend
+            desc: "Who is involved in deciding which proposals to recommend?"
+            type: peoplelist
+          - 
+            label: Prepare Recommendations for Board/Committee Meeting
+            dbfield: prep_recommendations
+            desc: "Who is involved in preparing recommendations for the board/grant/review committee?"
+            type: peoplelist
+          -
+            label: Review/Revise Recommendations for Board/Committee Meeting
+            dbfield: review_recommendations
+            desc: "Who is involved in reviewing and revising recommendations for the board/grant/review committee?"
+            type: peoplelist
+          -
+            label: Schedule Board/Committee Meeting
+            dbfield: schedule_mtg
+            desc: "Who is involved in scheduling the board/grant/review committee meeting?"
+            type: peoplelist
+          -
+            label: Hold Board/Committee Meeting
+            dbfield: hold_mtg
+            desc: "Who is involved in the board/grant/review committee meeting?"
+            type: peoplelist
+      -
+        header: "Site Visits"
+        name: "prog_visit"
+        questions:
+          -
+            label: Schedule Site Visits
+            dbfield: prog_schedule_visits
+            desc: "Who is involved in scheduling site visits?"
+            type: peoplelist
+          -
+            label: Conduct Site Visits
+            dbfield: conduct_visits
+            desc: " Who is involved in conducting site visits?"
+            type: peoplelist
+          -
+            label: Write Up Site Visit Reports
+            dbfield: visit_reports
+            desc: "Who is involved in writing up site visit reports?"
+            type: peoplelist
+          -
+            label: Post-Site Visit Follow-Up Communications
+            dbfield: post_visit_comm
+            desc: "Who is involved in post-site visit follow-up communications with applicants?"
+            type: peoplelist
+      -
+        header: "Post-Decision Communications"
+        name: "prog_post"
+        questions:
+          -
+            label: Create and Send Declines
+            dbfield: declines
+            desc: "Who is involved in creating and sending declines?"
+            type: peoplelist
+          -
+            label: Create and Send Grant Award Letters/Agreements
+            dbfield: award_letters
+            desc: "Who is involved in creating and sending award letters/grant agreements?"
+            type: peoplelist
+          -
+            label: Accept/File Signed Grant Agreements
+            dbfield: accept_agreements
+            desc: "Who is involved in accepting/filing signed grant agreements?"
+            type: peoplelist
+          -
+            label: Release Grant Funds to Grantees
+            dbfield: release_funds
+            desc: "Who is involved in release grant funds to grantees?"
+            type: peoplelist
+          -
+            label: Press Release and Other Communications about Grants
+            dbfield: post_grant_comm
+            desc: "Who is involved in issuing a press release about awarded grants or other post-grant communications?"
+            type: peoplelist
+      -
+        header: "Reporting"
+        name: "prog_reporting"
+        questions:
+          -
+            label: Field Report Questions from Grantees
+            dbfield: field_report_q
+            desc: "Who is involved in fielding questions from grantees about reports?"
+            type: peoplelist
+          -
+            label: Review Submitted Reports
+            dbfield: review_submitted_reports
+            desc: "Who is involved in reviewing submitted reports?"
+            type: peoplelist
+          -
+            label: Ask Questions about Submitted Reports
+            dbfield: ask_report_q
+            desc: "Who is involved in asking grantees questions about reports?"
+            type: peoplelist
+          -
+            label: Acknowledge Receipt/Approve Reports
+            dbfield: approve_report
+            desc: "Who is involved in acknowledging reciept/approving reports?"
+            type: peoplelist
+          -
+            label: Release Additional Funds to Grantees, if Applicable
+            dbfield: release_addl_funds
+            desc: "Who is involved in releasing additional grant funds to grantees, if applicable?"
+            type: peoplelist
+          -
+            label: Reporting on Impact to Board
+            dbfield: report_board
+            desc: "Who is involved in reporting on outcomes/impact to the board and other post-grant communications?"
+            type: peoplelist
+      -
+        header: "Other"
+        name: "prog_other"
+        questions:
+          -
+            label: # user input
+            dbfield: prog_other_activity
+            desc: "Who is involved in other grant-related activities?"
+            type: peoplelist

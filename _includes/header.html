@@ -1,11 +1,25 @@
 <header class="site-header">
 	<div class="container">
 	  <div class="row">
-	    <div class="logo col col--xs-5 col--sm-5 col--md-5 col--lg-5">
-	      <a href="{{ site.baseurl }}/">
+	    <div class="logo col col--xs-2 col--sm-2 col--md-2 col--lg-2">
+	      <a href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">
 	        <img src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}" />
 	      </a>
 	    </div>
+	    <div class="nav-links col col--xs-0 col--sm-0 col--md-4 col--lg-4 mobile-hide">
+	    	<ul class="left">	
+	    		<li><a href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">All Grants</a></li>
+	    		<li><a href="{{ "/people" | prepend: site.baseurl | prepend: site.url }}">Edit Team</a></li>
+	    	</ul>
+	    </div>
+	    {% if page.url == "/form.html" or page.url == "/result.html" %}
+	    <div class="nav-links col col--xs-10 col--sm-10 col--md-4 col--lg-4">
+	    	<ul>
+	    		<li><a class="local button" href="{{ "/form" | prepend: site.baseurl | prepend: site.url }}">Edit Grant</a></li>
+	    		<li><a class="local button" href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}">Grant Result</a></li>
+	    	</ul>
+	    </div>
+	    {% endif %}
 	</div>
   </div>
 </header>

@@ -1,0 +1,32 @@
+---
+page: list
+---
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    <div class="fullbg yellow">
+      <div class="logo-block">
+     <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+     </div>
+     <div class="description">
+        <div class="step">
+          <h2>Step 1: Add your team</h2>
+          <a class="button" href="./people">Edit your team</a>
+          <div class="objlist"><ul></ul></div>
+        </div>
+        <div class="step">
+          <h2>Step 2: Fill in your Grant Info</h2>
+          <a class="button" href="./form" class="create">New Grant</a>
+          <div id="list"></div>
+        </div>
+
+      </div>
+
+   </div>
+
+  </body>
+
+</html>
