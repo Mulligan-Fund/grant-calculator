@@ -4,9 +4,9 @@
 // TODO: Make dynamic. Basically just checking if there's a port...
 var getCientPath = function getCientPath() {
     if(window.location.href.split('/')[2].indexOf(':') > 0) {
-        return 'http://127.0.0.1:4000/grant-calculator/'
+        return 'http://127.0.0.1:4000/casaform/'
     } else {
-        return 'https://mulligan-fund.github.io/grant-calculator/'
+        return 'https://readywater.github.io/casaform/'
     }
 };
 
@@ -14,7 +14,7 @@ var getAPIPath = function getAPIPath() {
     if(window.location.href.split('/')[2].indexOf(':') > 0) {
         return 'http://127.0.0.1:3000'
     } else {
-        return 'https://grantcalc.herokuapp.com'
+        return 'https://casaserver.herokuapp.com'
     }
 }
 

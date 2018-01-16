@@ -3,7 +3,7 @@ layout: default
 page: form
 ---
 <div class="formblock">
-	{% for form in site.data.grantseeker %}
+	{% for form in site.data.intakeform %}
 	{% assign loopindex = forloop.index0%}    
 	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
 
