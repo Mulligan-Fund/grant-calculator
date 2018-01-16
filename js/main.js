@@ -14,7 +14,7 @@ var getAPIPath = function getAPIPath() {
     if(window.location.href.split('/')[2].indexOf(':') > 0) {
         return 'http://127.0.0.1:3000'
     } else {
-        return 'https://casaserver.herokuapp.com'
+        return 'https://casaserve.herokuapp.com'
     }
 }
 
