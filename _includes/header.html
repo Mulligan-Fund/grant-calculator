@@ -15,8 +15,11 @@
 	    {% if page.url == "/form.html" or page.url == "/result.html" %}
 	    <div class="nav-links col col--xs-10 col--sm-10 col--md-4 col--lg-4">
 	    	<ul>
+	    		{% if page.url == "/result.html" %}
 	    		<li><a class="local button" href="{{ "/form" | prepend: site.baseurl | prepend: site.url }}">Edit Grant</a></li>
-	    		<li><a class="local button" href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}">Grant Result</a></li>
+	    		{% else %}
+	    		<li><a class="local button" href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}">Show Grant Result</a></li>
+	    		{% endif %}
 	    	</ul>
 	    </div>
 	    {% endif %}

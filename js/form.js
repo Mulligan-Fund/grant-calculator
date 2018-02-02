@@ -94,6 +94,8 @@ gc.Views = gc.Views || {};
                $('.objlist').each(function(i,l){
 
                     $(l).find('option').remove();
+                    $(l).append('<option value="" selected disabled hidden>Select Team Member</option>');
+
                     for(var t in data) {
                         $(l).append("<option data_id='"+data[t]._id+"''>"+ data[t].name +"</option>")
                     }
