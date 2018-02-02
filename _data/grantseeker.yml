@@ -3,6 +3,7 @@
     name: "Grant Information"
     id: "grantinfo"
     page: 1
+    desc: "Please select which staff members are involved in each activity in the grant process - from initial research to close-out - and how much time (in hours) is spent by each person on each activity. Each activity can have more than one staff member involved."
     sections: 
       - 
         header: "Funder Information"

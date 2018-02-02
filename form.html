@@ -5,6 +5,14 @@ page: form
 <div class="formblock">
 	{% for form in site.data.grantseeker %}
 	{% assign loopindex = forloop.index0%}    
+
+
+	{% if form.desc %}
+	<div class="form-desc col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2">
+		{{form.desc}}
+	</div>
+	{% endif %}
+
 	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
 		
 
