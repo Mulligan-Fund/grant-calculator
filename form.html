@@ -66,6 +66,10 @@ page: form
 
 		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
 		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
+
+		{% if forloop.last %}<button class="local bottomgrant" href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}">Grant Result</button>{% endif %}
+
+
 	</section>
 	{% endfor %}
 </div>
