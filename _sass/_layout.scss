@@ -13,6 +13,117 @@ section {
         padding: 0!important;
     }
 }
+body.landing {
+    background: #fff;
+}
+
+.landing-background {
+    z-index: -1;
+    position: absolute;
+    top: 170px; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    background-color: #F9F9F9;
+}
+
+.landing-wrapper {
+    z-index: 100;
+    margin: auto;
+    width: 90%;
+    .logo-block {
+        width: 40%;
+        margin-top: 50px;
+    }
+    .login-layer {
+        margin-top:100px;
+        background: #FFFEF7;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+        min-height: 100vh;
+        max-height: 100vh;
+        .login {
+            margin-top: 30px;
+            .reg,.log {
+                display: inline-block;
+                width: 45%;
+                font-size: 32px;
+                color: #ACC3CB;
+                .active {
+                    border-bottom: 7px solid #ACC3CB;
+                }
+            }
+            form {
+                display: none;
+                margin-top: 30px;
+                label {
+                    font-size: 16px;
+                    color: #ACC3CB;
+                    align: right;
+                }
+                input {
+                    width: 45%;
+                }
+            }
+            form.active {
+                display: block;
+            }
+        }
+    }
+    .marketing {
+        margin-top: 70px;
+        .valueprop {
+            width: 100%;
+            div {
+                padding: 0 20px 0 0;
+                h1 {
+                    text-transform: capitalize;
+                    font-size: 12px;
+                    color: #ACC3CB;
+                    font-weight: 800;
+                    line-height: normal;
+                }
+                h2 {
+                    font-size: 26px;
+                    color: #52525A;
+                    font-weight: 800;
+                }
+                p {
+                    font-size: 12px;
+                    color: #52525A;
+                }
+            }
+        }
+        .features {
+            .feature {
+                padding: 0 20px 0 0;
+                .logo {
+                    float: left;
+                    width: 25%;
+                    height: 100%;
+                    img {
+                        width: 80%;
+                        margin:0 10% 10% 0;
+                    }
+                }
+                h1 {
+                    float: right;
+                    width: 75%;
+                    line-height: normal;
+                    font-size: 20px;
+                    font-weight: 800;
+                    color: #52525A;
+                }
+                p {
+                    float: right;
+                    width: 75%;
+                    font-size: 12px;
+                    color: #52525A;   
+                }
+            }
+        }
+    }
+    .description {
+        color: #ACC3CB;
+    }
+}
 
 #header {
     background:transparent;
