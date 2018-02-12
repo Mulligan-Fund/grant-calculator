@@ -9,7 +9,7 @@ gc.Views = gc.Views || {};
         	, "focusout .live": "submitField"
             , "blur .live": "submitField"
             , "click .turn": "pageTurn"
-            , "click .people-button":"makeHourObject"
+            , "click .people-button":"newHourObject"
         },
         template: {},
         initialize: function() {
@@ -55,7 +55,21 @@ gc.Views = gc.Views || {};
             } else {
                 val = t.val()
             }
-            i[t.attr("id")] = val
+            // Handle ppl list info
+            if (t.hasClass('ppl')) {
+
+                var f = t.parent()
+                i[t.attr('id')] = [{
+                    "_id" : f.attr('obj_id')
+                    , "person": f.find('.objlist').children("option:selected").attr("data_id")
+                    , "hours": f.find('.hours').val()
+                }]
+                console.log("Handling ppl",i)
+
+            } else {
+                i[t.attr("id")] = val
+            }
+
             this.collection.sendData(i, function(data,next) {
 
             })
@@ -83,9 +97,22 @@ gc.Views = gc.Views || {};
                                 // console.log("Trying to set attr",'option[data_id="'+ data[id] +'"]')
                                 $('#'+id).children('option[data_id="'+ t[id] +'"]').attr('selected',true)
                             })
+
+                           $(p).find('peoplelist').each(function(e,i){
+                            var id = $(i).attr('id');
+                            getFieldArray(id,t)
+
+                           })
                     } )
                 })
            })
+        },
+
+        getFieldArray: function(id,data) {
+          var _this = this
+          $.each(data.id,function(e,i){
+                this.makeHourObject(i)
+            })
         },
 
         // This populates dynamic fields
@@ -107,10 +134,17 @@ gc.Views = gc.Views || {};
             })
         },
         
+        newHourObject: function(e) {
+            this.makeHourObject(e, {
+                id: 0
+                , dbid: $(e.currentTarget).attr('id')
+            })
+        },
+
         makeHourObject: function(e,data) {
           var _this = this
 
-          data = data ? data : { title: ""}
+          data = data ? data : { id: 0, title: ""}
           var t = $(this.template(data))
           t.find('select').find('option[data_id="'+data.title+'"]').attr('selected',true)
           t.hide().fadeIn('fast')

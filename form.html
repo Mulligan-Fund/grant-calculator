@@ -52,7 +52,7 @@ page: form
 					{% endfor %}
 				</div>
 				{% elsif question.type == "peoplelist" %}
-					<div class="peoplelist">
+					<div class="peoplelist" id="{{question.dbfield}}">
 						<div class="header">
 							<div>Contributor</div>
 							<div>Hours</div>
@@ -60,7 +60,7 @@ page: form
 						<div class="bod">
 
 						</div>
-						<a class="button people-button" id="{{question.dbfield}}">Add a contributor</a>
+						<a class="button people-button" id="{{question.dbfield}}">Add contributor</a>
 						</div>
 				{% else %}
 
@@ -86,10 +86,10 @@ page: form
 	{% endfor %}
 </div>
 <div style="display:none" id="ppllistTemplate">
-	<div class="time">
-		<select id="{{question.dbfield}}" class="live objlist">
+	<div class="time" db_id="<%= id %>" obj_id="<%= id %>">
+		<select id="<%= dbid %>" class="live ppl objlist">
 			<option>Loading contributors...</option>
 		</select>
-		<input class="live" type="number" min="0.0" step="0.1" id="{{question.dbfield}}_hour" />
+		<input class="live ppl hours" type="number" min="0.0" step="0.1" id="<%= dbid %>" value="0" />
 	</div>
 </div>
