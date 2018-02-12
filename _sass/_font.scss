@@ -75,6 +75,7 @@ label {
   width: 140px;
   text-align: left;
   display: inline-block;
+  vertical-align: top;
   @media only screen and (max-width: 480px) {
     width: 90%;
   }
@@ -219,6 +220,7 @@ button,.button {
 .tag {
   width: 33px; height: 33px;
   display: inline-block;
+  vertical-align: top;
   position: relative;
   z-index: 2;
   cursor: pointer;

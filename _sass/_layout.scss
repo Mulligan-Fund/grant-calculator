@@ -23,6 +23,48 @@ body.landing {
     top: 170px; left: 0; right: 0; bottom: 0;
     width: 100%;
     background-color: #F9F9F9;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.21);
+}
+
+.landing-links {
+    position: absolute;
+    top: 50px;
+    right: 5%;
+    ul {
+        li {
+            display: inline-block;
+            list-style: none;
+            padding-left: 30px;
+        }
+    }
+}
+
+.peoplelist {
+    display: inline-block;
+    width: 300px;
+    height: auto;
+    .button {
+        font-size: 10pt;
+        width: 120px;
+        height: 20px;
+        float:right;
+        clear: both;
+
+    }
+    .header {
+        width: 100%;
+        height: 20px;
+        div {
+            width: 45%;
+            display: inline-block;
+            &:first-child {
+                width: 60%;
+            }
+            &:last-child {
+                width: 30%;
+            }
+        }
+    }
 }
 
 .landing-wrapper {
@@ -93,6 +135,7 @@ body.landing {
         }
         .features {
             .feature {
+                min-height: 150px;
                 padding: 0 20px 0 0;
                 .logo {
                     float: left;
@@ -332,8 +375,8 @@ p {
 }
 
 img.support {
-    width: 50px;
-    padding-right:50px;
+    width: 15%;
+    padding-right:15%;
 }
 
 .fullbg {

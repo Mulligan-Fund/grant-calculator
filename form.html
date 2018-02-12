@@ -52,12 +52,16 @@ page: form
 					{% endfor %}
 				</div>
 				{% elsif question.type == "peoplelist" %}
-					<div class="time">
-						<select id="{{question.dbfield}}" class="live objlist">
-							<option>Loading contributors...</option>
-						</select>
-						<input class="live" type="number" min="0.0" step="0.1" id="{{question.dbfield}}_hour" />
-					</div>
+					<div class="peoplelist">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="{{question.dbfield}}">Add a contributor</a>
+						</div>
 				{% else %}
 
 				{% endif %}
@@ -80,4 +84,12 @@ page: form
 
 	</section>
 	{% endfor %}
+</div>
+<div style="display:none" id="ppllistTemplate">
+	<div class="time">
+		<select id="{{question.dbfield}}" class="live objlist">
+			<option>Loading contributors...</option>
+		</select>
+		<input class="live" type="number" min="0.0" step="0.1" id="{{question.dbfield}}_hour" />
+	</div>
 </div>

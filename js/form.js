@@ -9,12 +9,15 @@ gc.Views = gc.Views || {};
         	, "focusout .live": "submitField"
             , "blur .live": "submitField"
             , "click .turn": "pageTurn"
+            , "click .people-button":"makeHourObject"
         },
+        template: {},
         initialize: function() {
         	var _this = this
             if($(this.el).hasClass('page')) {
                 console.log("Init form",this.el)
                 this.collection.getID()
+                _this.template = _.template($('#ppllistTemplate').html())
                 this.getObjectList()
                 this.getFields()
             }
@@ -85,7 +88,7 @@ gc.Views = gc.Views || {};
            })
         },
 
-        // This populators dynamic fields
+        // This populates dynamic fields
         getObjectList: function(context) {
             var _this = this
             var t = {}
@@ -100,7 +103,18 @@ gc.Views = gc.Views || {};
                         $(l).append("<option data_id='"+data[t]._id+"''>"+ data[t].name +"</option>")
                     }
                })
+               _this.template = _.template($('#ppllistTemplate').html())
             })
+        },
+        
+        makeHourObject: function(e,data) {
+          var _this = this
+
+          data = data ? data : { title: ""}
+          var t = $(this.template(data))
+          t.find('select').find('option[data_id="'+data.title+'"]').attr('selected',true)
+          t.hide().fadeIn('fast')
+          $(e.currentTarget).parent().find('.bod').append(t)
         },
 
         pageTurn: function(e) {

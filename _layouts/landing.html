@@ -5,6 +5,12 @@
 
   <body class="landing">
   <div class="landing-background"></div>
+  <div class="landing-links">
+    <ul>
+      <li><a href="{{ "/about" | prepend: site.baseurl | prepend: site.url }}" >About</a></li>
+      <li><a href="{{ "/contact" | prepend: site.baseurl | prepend: site.url }}">Contact Us</a></li>
+    </ul>
+  </div>
   <div class="landing-wrapper">
     <div class="left col col--xs-12 col--sm-12 col--md-8 col--lg-8">
       <div class="logo-block">
@@ -62,13 +68,6 @@
           <div class="log">Login</div>
         </div>
         <form class="register active">
-          <label>Email</label>
-          <input type="text" id="username">
-          <label>Password</label>
-          <input type="password" id="password">
-          <button class="submit">Register</button>
-        </form>
-        <form class="login">
           <label>Email</label>
           <input type="text" id="username">
           <label>Password</label>
