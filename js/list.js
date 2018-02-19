@@ -7,33 +7,42 @@ gc.Views = gc.Views || {};
         events: {
 
         },
+        seeker: null,
+        maker: null,
 
         template: _.template("<a href='form?id=<%= _id %>'><div class='item'><div class='name'><%= funder %></div> <div class='amount'>$<%= amount %></div></div></a>"),
 
-
         initialize: function() {
-        	var _this = this
-            if($(this.el).is('#list')) {
-                this.getItems()
+            this.seeker = $('#seeker')
+            this.maker = $('#maker')   
+            var _this = this
+            console.log(this.seeker, this.maker) 
+            if($(_this.seeker).is('#seeker')) {
+                this.getItems(_this.maker)
+                this.getItems(_this.seeker)
                 this.getObjectList()
             }
         },
 
 
-        getItems:  function(){
+        getItems:  function(t){
             var _this = this
-            var t = {}
+            console.log("Get item pass",t)
             this.collection.getData({'list':true}, function(data){
                 if(data.length < 1) {
-                    $(_this.el).html("Once created, your grants will appear here.")
+                    if(t.is('#maker')) { 
+                        t.html("Once created, your Grant Makers will appear here.") 
+                    } else {
+                        t.html("Once created, your Grant Applications will appear here.") 
+                    }
                 }
                 $.each(data,function(e,i){
                     i.funder  = i.funder || "No funder yet"
                     i.amount  = i.amount || "0"
-                    $(_this.el).append( _this.template(i));    
+                    t.append( _this.template(i));    
                 })
                 
-            } )
+            }, t.is('#maker') )
         },
 
 

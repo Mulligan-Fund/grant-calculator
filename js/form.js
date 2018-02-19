@@ -40,7 +40,7 @@ gc.Views = gc.Views || {};
                     console.log("Redirecting")
                     window.location.replace(data)
                 }
-            })
+            },checkIfURL('gmaker'))
         },
 
         submitField: function(e) {
@@ -57,10 +57,9 @@ gc.Views = gc.Views || {};
             }
             // Handle ppl list info
             if (t.hasClass('ppl')) {
-
                 var f = t.parent()
                 i[t.attr('id')] = [{
-                    "_id" : f.attr('obj_id')
+                    "_id" : f.attr('obj_id') == 0 ? null : f.attr('obj_id')
                     , "person": f.find('.objlist').children("option:selected").attr("data_id")
                     , "hours": f.find('.hours').val()
                 }]
@@ -72,7 +71,7 @@ gc.Views = gc.Views || {};
 
             this.collection.sendData(i, function(data,next) {
 
-            })
+            },checkIfURL('gmaker'))
         },
 
         // This fills in all the fields
@@ -105,7 +104,7 @@ gc.Views = gc.Views || {};
                            })
                     } )
                 })
-           })
+           }, checkIfURL('gmaker') )
         },
 
         getFieldArray: function(id,data) {

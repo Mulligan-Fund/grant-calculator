@@ -18,6 +18,10 @@ var getAPIPath = function getAPIPath() {
     }
 }
 
+var checkIfURL = function checkIfURL(path) {
+    return window.location.href.indexOf(path) > -1 ? true : false
+}
+
 function checkAuth(callback) {
     console.log("Checking auth")
     $.ajax({
@@ -92,7 +96,7 @@ window.gc = {
         });
 
         this.Init.List = new this.Views.listView({
-            el:'#list',
+            el:null,
             collection: this.Init.Grant
         });
 

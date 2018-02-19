@@ -25,6 +25,7 @@ gc.Collections = gc.Collections || {};
     gc.Collections.GrantCollection = Backbone.Collection.extend({
 
     	url: window.gc.api + '/grant',
+        maker: window.gc.api + '/maker',
         obj: window.gc.api + '/object',
         role: window.gc.api + '/role',
         lookup: {},
@@ -57,11 +58,11 @@ gc.Collections = gc.Collections || {};
 
         },
 
-        sendData: function(data,callback) {
+        sendData: function(data,callback, maker) {
             console.log("Data got to",data)
             if(getUrlParameter('id')) data._id = getUrlParameter('id')
             $.ajax({
-                url : this.url,
+                url : maker ? this.maker : this.url,
                 type : 'PUT',
                 xhrFields: {
                     withCredentials: true
@@ -84,8 +85,8 @@ gc.Collections = gc.Collections || {};
             });
         },
 
-        getData: function(data,callback) {
-            var endpoint = this.url
+        getData: function(data,callback, maker) {
+            var endpoint = maker ? this.maker : this.url
             var data = data || {};
             if(getUrlParameter('id')) data.id = getUrlParameter('id');
             $.ajax({
