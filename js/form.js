@@ -47,7 +47,6 @@ gc.Views = gc.Views || {};
             var _this = this;
             console.log("Field submit")
             var t = $(e.currentTarget)
-            // console.log(t.attr("id"),t.val())
             var i={};
             var val = ""
             if($(t).prop('nodeName') == 'SELECT') {
@@ -58,13 +57,17 @@ gc.Views = gc.Views || {};
             // Handle ppl list info
             if (t.hasClass('ppl')) {
                 var f = t.parent()
+                var bod = f.parent()
                 var pa = []
-                var tt = {
-                        "person": f.find('.objlist').children("option:selected").attr("data_id")
-                        , "hours": f.find('.hours').val()
+                bod.find('.time').each(function(i,e){
+                    var tt = {
+                        "person": $(e).find('.objlist').children("option:selected").attr("data_id")
+                        , "hours": $(e).find('.hours').val()
                     }
-                if(f.attr('obj_id') != 0) tt["_id"] = f.attr('obj_id') == 0 ? null : f.attr('obj_id')
-                pa.push(tt)
+                    // if($(e).attr('obj_id') != 0) tt["_id"] = $(e).attr('obj_id') == 0 ? null : $(e).attr('obj_id')
+                    console.log(i,tt)
+                    pa.push(tt)
+                })
                 i[t.attr('id')] = pa
                 console.log("Handling ppl",i)
 
@@ -141,6 +144,10 @@ gc.Views = gc.Views || {};
           if(data.hours) t.find('input').val(data.hours)
           t.hide().fadeIn('fast')
           e.find('.bod').append(t)
+        },
+
+        deleteHourObject: function(e) {
+
         },
 
         // This populates dynamic fields
