@@ -33,7 +33,8 @@ gc.Views = gc.Views || {};
         calculateCost: function(data){
             var total = 0;
             _.each(data,function(val,key,context){
-                total += (val.salary/   365)*val.time
+                console.log("test calc cost",val)
+                total += (val.salary/365)*val.time
             })
             return total;
             
@@ -55,22 +56,44 @@ gc.Views = gc.Views || {};
                 _this.collection.getObjectData({list:true}, function(roles){
                     ro = roles
                     console.log("Roles",ro)
-                    _.each(t,function(val,key,context) {
-                        if(key.indexOf('_hour') > 0) {
-                            var id = key.split('_hour')[0]
-                            if(typeof t[id] !== 'undefined') {
-                                console.log(t[id])
-                                var person = _.findWhere(ro, {'_id': t[id]})
-                                console.log("Person found",person)
-                                hr[id] = { 
-                                    time: val
+
+                    // Rewrite this whole block
+                    // _.each(t,function(val,key,context) {
+                    //     if(key.indexOf('_hour') > 0) {
+                    //         var id = key.split('_hour')[0]
+                    //         if(typeof t[id] !== 'undefined') {
+                    //             console.log(t[id])
+                    //             var person = _.findWhere(ro, {'_id': t[id]})
+                    //             console.log("Person found",person)
+                    //             hr[id] = { 
+                    //                 time: val
+                    //                 , salary: person.salary
+                    //                 } 
+                    //             // hr.push(oo)
+                    //         }
+                    //     }
+                    // })
+
+                     _.each(t,function(val,key,context) {
+                        if(typeof val == "object" && val.length > 0) {
+                            var id = key
+                            console.log("Found ppllist", val)
+                            $.each(val,function(i,e){
+                                console.log('vv',i,e)
+                                var person = _.findWhere(ro, {'_id': e.person })
+                                hr[id+"_"+i] = { 
+                                    time: e.hours
                                     , salary: person.salary
                                     } 
                                 // hr.push(oo)
+                            })
+                            if(typeof t[id] !== 'undefined') {
+                                var person = _.findWhere(ro, {'_id': t[id]})
+                                console.log("Person found",person)
                             }
                         }
                     })
-                    // console.log("Printing HR",hr)
+                    console.log("Printing HR",hr)
                     _.each(hr,function(val,key,context){
                         console.log('printing',val.time+" * "+val.salary+" = "+(val.time*val.salary))
                         $('.details').append(key+" : "+val.time+" * "+val.salary+" = "+(val.time*val.salary)+"<br>")    
