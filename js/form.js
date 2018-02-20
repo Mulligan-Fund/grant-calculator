@@ -51,6 +51,7 @@ gc.Views = gc.Views || {};
             var val = ""
             if($(t).prop('nodeName') == 'SELECT') {
                  val = $(t).children("option:selected").attr("data_id")
+                 console.log('gotval select',val)
             } else {
                 val = t.val()
             }

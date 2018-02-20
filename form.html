@@ -30,7 +30,7 @@ page: form
 				{% if question.type == "dropdown" %}
 					<select id="{{question.dbfield}}" class="live">
 						{% for option in question.content %}
-							<option>{{option.label}}</option>
+							<option data_id="{{option.label}}">{{option.label}}</option>
 						{% endfor %}
 					</select>
 				{% elsif question.type == "text" %}
