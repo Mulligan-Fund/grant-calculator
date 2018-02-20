@@ -119,7 +119,7 @@ gc.Views = gc.Views || {};
             var _this = this
             var t = {}
             this.collection.getObjectData({'list':true}, function(data){
-                console.log("obj list data",data)
+                // console.log("obj list data",data)
                $('.objlist').each(function(i,l){
 
                     $(l).find('option').remove();

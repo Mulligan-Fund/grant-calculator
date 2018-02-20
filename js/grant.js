@@ -40,7 +40,7 @@ gc.Collections = gc.Collections || {};
                 this.sendData({},function(data){
                     location.href = location.href + '?id='+data._id
                     _this.setLocalLinks(data._id)
-                })
+                },checkIfURL('gmaker'))
             } else {
                 _this.setLocalLinks(window.location.search.substring(0).split('?id=')[1])
             }
@@ -86,11 +86,11 @@ gc.Collections = gc.Collections || {};
         },
 
         getData: function(data,callback, maker) {
-            var endpoint = maker ? this.maker : this.url
+            // var endpoint = maker ? this.maker : this.url
             var data = data || {};
             if(getUrlParameter('id')) data.id = getUrlParameter('id');
             $.ajax({
-            url : endpoint,
+            url : maker ? this.maker : this.url,
             type : 'GET',
             xhrFields: {
                 withCredentials: true
@@ -108,7 +108,7 @@ gc.Collections = gc.Collections || {};
             error : function(request,error)
             {
                 // alert("Get Error: "+JSON.stringify(request));
-                callback()
+                callback("err",error)
             }
             });
         },
