@@ -58,7 +58,7 @@ gc.Collections = gc.Collections || {};
 
         },
 
-        sendData: function(data,callback, maker) {
+        sendData: function(data,callback,maker) {
             console.log("Data got to",data)
             if(getUrlParameter('id')) data._id = getUrlParameter('id')
             $.ajax({
@@ -85,7 +85,7 @@ gc.Collections = gc.Collections || {};
             });
         },
 
-        getData: function(data,callback, maker) {
+        getData: function(data,callback,maker) {
             // var endpoint = maker ? this.maker : this.url
             var data = data || {};
             if(getUrlParameter('id')) data.id = getUrlParameter('id');

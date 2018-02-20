@@ -10,7 +10,7 @@ gc.Views = gc.Views || {};
         seeker: null,
         maker: null,
 
-        template: _.template("<a href='form?id=<%= _id %>'><div class='item'><div class='name'><%= funder %></div> <div class='amount'>$<%= amount %></div></div></a>"),
+        template: _.template("<a href='<%= path %>?id=<%= _id %>'><div class='item'><div class='name'><%= funder %></div> <div class='amount'>$<%= amount %></div></div></a>"),
 
         initialize: function() {
             this.seeker = $('#seeker')
@@ -37,8 +37,9 @@ gc.Views = gc.Views || {};
                     }
                 }
                 $.each(data,function(e,i){
-                    i.funder  = i.funder || "No funder yet"
-                    i.amount  = i.amount || "0"
+                    i.funder  = t.is('#maker') ? i.program_name || "No Grant Name" : i.funder || "No Funder Name"
+                    i.amount  = t.is('#maker') ? i.amount_of_grants || 0 : i.amount || "0"
+                    i.path    = t.is('#maker') ? "gmaker" : "form"
                     t.append( _this.template(i));    
                 })
                 

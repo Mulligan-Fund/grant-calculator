@@ -58,11 +58,14 @@ gc.Views = gc.Views || {};
             // Handle ppl list info
             if (t.hasClass('ppl')) {
                 var f = t.parent()
-                i[t.attr('id')] = [{
-                    "_id" : f.attr('obj_id') == 0 ? null : f.attr('obj_id')
-                    , "person": f.find('.objlist').children("option:selected").attr("data_id")
-                    , "hours": f.find('.hours').val()
-                }]
+                var pa = []
+                var tt = {
+                        "person": f.find('.objlist').children("option:selected").attr("data_id")
+                        , "hours": f.find('.hours').val()
+                    }
+                if(f.attr('obj_id') != 0) tt["_id"] = f.attr('obj_id') == 0 ? null : f.attr('obj_id')
+                pa.push(tt)
+                i[t.attr('id')] = pa
                 console.log("Handling ppl",i)
 
             } else {
@@ -97,21 +100,47 @@ gc.Views = gc.Views || {};
                                 $('#'+id).children('option[data_id="'+ t[id] +'"]').attr('selected',true)
                             })
 
-                           $(p).find('peoplelist').each(function(e,i){
-                            var id = $(i).attr('id');
-                            getFieldArray(id,t)
+                           $(p).find('.peoplelist').each(function(e,i){
+                                var id = $(i).attr('id');
+                                _this.getFieldArray(id,t)
 
                            })
                     } )
                 })
            }, checkIfURL('gmaker') )
         },
-
+        // These handle the people list
         getFieldArray: function(id,data) {
           var _this = this
-          $.each(data.id,function(e,i){
-                this.makeHourObject(i)
+          if(data[id].length > 0) console.log("GetFieldArray",id,data[id])
+          $.each(data[id],function(e,i){
+            // console.log("GetFieldArray",e,i)
+                _this.makeHourObject($('#'+id), {
+                    id: e
+                    , dbid: data[id]
+                    , personid: i.person
+                    , hours: i.hours
+                })
             })
+        },
+        
+        newHourObject: function(e) {
+            var target = $(e.currentTarget).parent()
+            this.makeHourObject(target, {
+                id: 0
+                , dbid: $(e.currentTarget).attr('id')
+            })
+        },
+
+        makeHourObject: function(e,data) {
+          var _this = this
+
+          data = data ? data : { id: 0, title: ""}
+          var t = $(this.template(data))
+          t.find('select').find('option[data_id="'+data.personid+'"]').attr('selected',true)
+          if(data.hours) t.find('input').val(data.hours)
+          t.hide().fadeIn('fast')
+          e.find('.bod').append(t)
         },
 
         // This populates dynamic fields
@@ -131,23 +160,6 @@ gc.Views = gc.Views || {};
                })
                _this.template = _.template($('#ppllistTemplate').html())
             })
-        },
-        
-        newHourObject: function(e) {
-            this.makeHourObject(e, {
-                id: 0
-                , dbid: $(e.currentTarget).attr('id')
-            })
-        },
-
-        makeHourObject: function(e,data) {
-          var _this = this
-
-          data = data ? data : { id: 0, title: ""}
-          var t = $(this.template(data))
-          t.find('select').find('option[data_id="'+data.title+'"]').attr('selected',true)
-          t.hide().fadeIn('fast')
-          $(e.currentTarget).parent().find('.bod').append(t)
         },
 
         pageTurn: function(e) {
