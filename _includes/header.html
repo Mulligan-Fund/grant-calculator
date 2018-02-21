@@ -12,11 +12,18 @@
 	    		<li><a href="{{ "/people" | prepend: site.baseurl | prepend: site.url }}">Edit Team</a></li>
 	    	</ul>
 	    </div>
-	    {% if page.url == "/form.html" or page.url == "/result.html" %}
+	    {% if page.url == "/form.html" 
+	    	or page.url == "/result.html"
+	    	or page.url == "/gmaker.html"
+	    	or page.url == "/makerresult.html" %}
 	    <div class="nav-links col col--xs-10 col--sm-10 col--md-4 col--lg-4">
 	    	<ul>
 	    		{% if page.url == "/result.html" %}
 	    		<li><a class="local button" href="{{ "/form" | prepend: site.baseurl | prepend: site.url }}">Edit Grant</a></li>
+	    		{% elsif page.url == "/makerresult.html" %}
+	    		<li><a class="local button" href="{{ "/gmaker" | prepend: site.baseurl | prepend: site.url }}">Edit Program</a></li>
+	    		{% elsif page.url == "/gmaker.html" %}
+	    		<li><a class="local button" href="{{ "/makerresult" | prepend: site.baseurl | prepend: site.url }}">Show Program Result</a></li>
 	    		{% else %}
 	    		<li><a class="local button" href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}">Show Grant Result</a></li>
 	    		{% endif %}

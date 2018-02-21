@@ -26,6 +26,20 @@ gc.Views = gc.Views || {};
             })
         },
 
+        makerCalcExpected: function(d) {
+            console.log("d",d)
+            return (d.amount_of_grants / d.number_of_grants) * (d.number_of_grants / d.number_of_applications)
+        },
+
+        makerProgramCost: function(progcost, grantcost) {
+            return grantcost - progcost;
+        },
+
+
+
+
+        // For Grant Seeker
+
         calculateExpected: function(data) {
             return data.amount * (data.probability*.01)
         },
@@ -37,7 +51,6 @@ gc.Views = gc.Views || {};
                 total += (val.salary/365)*val.time
             })
             return total;
-            
         },
 
         calculateNet: function(data,cost) {
@@ -57,35 +70,18 @@ gc.Views = gc.Views || {};
                     ro = roles
                     console.log("Roles",ro)
 
-                    // Rewrite this whole block
-                    // _.each(t,function(val,key,context) {
-                    //     if(key.indexOf('_hour') > 0) {
-                    //         var id = key.split('_hour')[0]
-                    //         if(typeof t[id] !== 'undefined') {
-                    //             console.log(t[id])
-                    //             var person = _.findWhere(ro, {'_id': t[id]})
-                    //             console.log("Person found",person)
-                    //             hr[id] = { 
-                    //                 time: val
-                    //                 , salary: person.salary
-                    //                 } 
-                    //             // hr.push(oo)
-                    //         }
-                    //     }
-                    // })
-
                      _.each(t,function(val,key,context) {
                         if(typeof val == "object" && val.length > 0) {
                             var id = key
                             console.log("Found ppllist", val)
                             $.each(val,function(i,e){
-                                console.log('vv',i,e)
+                                // console.log('vv',i,e)
                                 var person = _.findWhere(ro, {'_id': e.person })
+                                // if(person == null) return
                                 hr[id+"_"+i] = { 
                                     time: e.hours
                                     , salary: person.salary
                                     } 
-                                // hr.push(oo)
                             })
                             if(typeof t[id] !== 'undefined') {
                                 var person = _.findWhere(ro, {'_id': t[id]})
@@ -100,16 +96,28 @@ gc.Views = gc.Views || {};
                     })
 
 
-                    var expect = _this.calculateExpected(t);
-                    var cost = _this.calculateCost(hr)
-                    var net = _this.calculateNet(t, cost)
-                    
-                    $('#expected').append("$"+ _this.addComma(expect.toFixed(2)))
-                    $('#cost').append("$"+ _this.addComma(cost.toFixed(2)))
-                    $('#total').append("$"+ _this.addComma(net.toFixed(2)))
-                    
+                    if(!checkIfURL("maker")) {
+                        // Grant Seeker
+                        var expect = _this.calculateExpected(t);
+                        var cost = _this.calculateCost(hr)
+                        var net = _this.calculateNet(t, cost)
+
+                        $('#expected').append("$"+ _this.addComma(expect.toFixed(2)))
+                        $('#cost').append("$"+ _this.addComma(cost.toFixed(2)))
+                        $('#total').append("$"+ _this.addComma(net.toFixed(2)))
+                    } else {
+                        // Grant Maker
+                        console.log("calling gmaker")
+                        var expect = _this.makerCalcExpected(t);
+                        var cost = _this.calculateCost(hr)
+                        var pcost = _this.makerProgramCost(cost, expect)
+                        console.log("gmaker",expect, cost, pcost)
+                        $('#expected').append("$"+ _this.addComma(expect.toFixed(2)))
+                        $('#cost').append("$"+ _this.addComma(cost.toFixed(2)))
+                        $('#total').append("$"+ _this.addComma(pcost.toFixed(2)))
+                    }
                 })
-           })
+           },checkIfURL("maker"))
         },
 
         getCount: function(data) {
