@@ -26,6 +26,30 @@ function checkAuth(callback) {
     console.log("Checking auth")
     if(checkIfURL('about')) return
     if(checkIfURL('contact')) return
+    if(checkIfURL('logout')) {
+    $.ajax({
+        url : window.gc.api + '/logout',
+        type : 'GET',
+        xhrFields: {
+            withCredentials: true
+        },
+        headers: {
+            'Access-Control-Allow-Origin': true
+        },
+        crossDomain: true,  
+        success : function(data,status,xfr) {              
+            console.log("Logged Out",data);
+            window.location.replace(window.gc.home)
+            callback()
+        },
+        error : function(request,error)
+        {
+            alert('error logging out')
+            callback()
+        }
+    });
+    return
+    }
 
     $.ajax({
         url : window.gc.api + '/auth',
