@@ -18,12 +18,21 @@ body.landing {
 }
 
 .landing-background {
-    z-index: -1;
-    position: absolute;
-    top: 170px; left: 0; right: 0; bottom: 0;
+    z-index: -10;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
     width: 100%;
     background-color: #F9F9F9;
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.21);
+}
+.landing-cover {
+    z-index: -1;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    height: 170px;
+    width: 100%;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.21);
+    background-color: #ffffff;
 }
 
 .landing-links {
@@ -75,6 +84,18 @@ body.landing {
     .logo-block {
         width: 40%;
         margin-top: 50px;
+        display: inline-block;
+    }
+    .title-text {
+        margin-top: 50px;
+        display: inline-block;
+        overflow: auto;
+        h1 {
+            font-size: 42px;
+            line-height: 42px;
+            font-weight: 800;    
+        }
+        
     }
     .login-layer {
         margin-top:100px;
@@ -112,6 +133,9 @@ body.landing {
     }
     .marketing {
         margin-top: 70px;
+        &.content {
+            margin-right: 50px
+        }
         .valueprop {
             width: 100%;
             div {

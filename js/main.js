@@ -24,6 +24,9 @@ var checkIfURL = function checkIfURL(path) {
 
 function checkAuth(callback) {
     console.log("Checking auth")
+    if(checkIfURL('about')) return
+    if(checkIfURL('contact')) return
+
     $.ajax({
         url : window.gc.api + '/auth',
         type : 'GET',

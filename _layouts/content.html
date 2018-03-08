@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="landing">
+  <div class="landing-background"></div>
+  <div class="landing-cover"></div>
+  <div class="landing-links">
+    <ul>
+      <li><a href="{{ "/about" | prepend: site.baseurl | prepend: site.url }}" >About</a></li>
+      <li><a href="{{ "/contact" | prepend: site.baseurl | prepend: site.url }}">Contact Us</a></li>
+    </ul>
+  </div>
+  <div class="landing-wrapper">
+    <div class="left col col--xs-12 col--sm-12 col--md-8 col--lg-8">
+      <div class="logo-block">
+       <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+      </div>
+      <div class="marketing content">
+	      <div class="title-text"><h1>{{ page.title }}</h1></div>
+      	{{ content }}
+      </div>
+    </div>
+    <div class= "login-layer col col--xs-12 col--sm-12 col--md-4 col--lg-4">
+      <div class="login" id="form">
+        <div class="login-toggle">
+          <div class="reg active">Register</div>
+          <div class="log">Login</div>
+        </div>
+        <form class="register active">
+          <label>Email</label>
+          <input type="text" id="username">
+          <label>Password</label>
+          <input type="password" id="password">
+          <button class="submit">Register</button>
+        </form>
+      </div>
+      <div class="description">
+        <h2>Grant Calculator is a project of</h2>
+        <img class="support" alt="Peak Grantmaking" src="{{ "/img/peak_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+        <img class="support" alt="New America PIT" src="{{ "/img/newamerica_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+        <img class="support" alt="The Mulligan Fund" src="{{ "/img/mulligan_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
