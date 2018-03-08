@@ -7,7 +7,7 @@ The Net Grant Calculator helps both not-for-profits and grantmakers evaluate the
 
 We built the Net Grant Calculator to help organizations maximize their net grant values to help ensure as much net grant money as possible goes to program and service delivery.
 
-[Read more here]
+[Read more here](https://www.peakgrantmaking.org/blog/net-grants-how-much-is-that-grant-really-worth/)
 
 ## How to Use the Net Grant Calculator
 To get the most value from this tool, you’ll need information about who in your organization is involved with different stages of the grant process and how much time they spent. If you don’t know exact numbers, you can use estimates and still get a good sense of the net value of a particular grant or program.
@@ -18,14 +18,14 @@ It will also help to have an idea of the salaries of people involved in the gran
 
 ![PEAK Grantmaking]({{ "/img/peak_logo.png" | absolute_url }})
 
-**PEAK Grantmaking** is a member-led national association of professionals who specialize in grants management for funding organizations. The people of PEAK Grantmaking come together to form a vibrant community of grantmaking practice that advances shared leadership and learning across the sector.
+**[PEAK Grantmaking](https://www.peakgrantmaking.org/)** is a member-led national association of professionals who specialize in grants management for funding organizations. The people of PEAK Grantmaking come together to form a vibrant community of grantmaking practice that advances shared leadership and learning across the sector.
 
 This is where Practice Meets Purpose. By cultivating resources, learning opportunities, and collaborations across the philanthropic spectrum, we support grantmaking practices designed to maximize mission-driven efficiency and effectiveness of funders of every size.
 
-![PEAK Grantmaking]({{ "/img/newamerica_logo.png" | absolute_url }})
+![New America]({{ "/img/newamerica_logo.png" | absolute_url }})
 
-**New America**: Founded in 1999, New America is a think tank and civic enterprise committed to renewing American politics, prosperity, and purpose in the Digital Age. We generate big ideas, bridge the gap between technology and policy, and curate broad public conversation.
+**[New America](https://newamerica.org)**: Founded in 1999, New America is a think tank and civic enterprise committed to renewing American politics, prosperity, and purpose in the Digital Age. We generate big ideas, bridge the gap between technology and policy, and curate broad public conversation.
 
-![PEAK Grantmaking]({{ "/img/mulligan_logo.png" | absolute_url }})
+![Mulligan Fund]({{ "/img/mulligan_logo.png" | absolute_url }})
 
 **The Mulligan Fund** is dedicated to helping create stronger and more effective organizations in the not-for-profit sector. Through tools, research, pooled funding, and capacity-building technical assistance, Mulligan Fund leverages capital - philanthropic, intellectual, and human - to support and scale world-changing ideas and organizations.
