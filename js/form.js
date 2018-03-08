@@ -10,6 +10,7 @@ gc.Views = gc.Views || {};
             , "blur .live": "submitField"
             , "click .turn": "pageTurn"
             , "click .people-button":"newHourObject"
+            , "click .delete": "deleteGrant"
         },
         template: {},
         initialize: function() {
@@ -20,6 +21,7 @@ gc.Views = gc.Views || {};
                 _this.template = _.template($('#ppllistTemplate').html())
                 this.getObjectList()
                 this.getFields()
+                this.listenTo('click .delete',this.deleteGrant)
             }
         },
 
@@ -187,6 +189,22 @@ gc.Views = gc.Views || {};
                 $(this.el).find("#pinterestUsername").html("")
                 this.cleared = true
             }
+        },
+
+        deleteGrant: function(e) {
+            var _this = this
+            var id = decodeURIComponent(window.location.search.substring(1)).split('=')[1]
+            console.log('Delete',id)
+            
+            if (window.confirm("Delete this Grant?")) {
+                this.collection.deleteGrant(id,function(r) {
+                    // _this.redirectClient('/list')
+                    alert("This grant was deleted")
+                },checkIfURL('gmaker'))
+            } else {
+                console.log("Canceled")
+            }
+            
         },
 
         redirectClient: function(path) {

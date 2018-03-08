@@ -5,7 +5,7 @@ gc.Views = gc.Views || {};
 
     gc.Views.listView = Backbone.View.extend({
         events: {
-
+            "click .del": "deleteObject"
         },
         seeker: null,
         maker: null,

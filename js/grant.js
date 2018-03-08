@@ -177,8 +177,8 @@ gc.Collections = gc.Collections || {};
             });
         },
 
-        deleteObject: function(id,callback) {
-            var endpoint = this.obj
+        deleteGrant: function(id,callback,maker) {
+            var endpoint = maker ? this.maker : this.url
             $.ajax({
             url : endpoint,
             type : 'DELETE',

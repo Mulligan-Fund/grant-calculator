@@ -81,7 +81,9 @@ page: form
 
 		{% if forloop.last %}<button class="local bottomgrant" href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}">Grant Result</button>{% endif %}
 
-
+		<div class="del col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2"">
+		<a href="#" class="delete">Delete Grant?</a>
+		</div>
 	</section>
 	{% endfor %}
 </div>
