@@ -13,13 +13,23 @@
             desc: "Name of the funder to which your org is considering applying"
             type: text
           - 
+            label: Grant Program Name
+            dbfield: grant_program
+            desc: "What is the name of this grant program?"
+            type: text
+          -
+            label: Primary Issue Addressed
+            dbfield: primar_issue
+            desc: "What is the primary issue the grant will address?"
+            type: text
+          -
             label: Has your organization received a grant from this funder in the past?
             dbfield: past_grant
             desc: "Has this funder supported your organization in the past?"
             type: dropdown
             content:
-              - label: Yes
-              - label: No
+              - label: Received Prior Grant
+              - label: Haven't Recevied Prior Grant
       -
         header: "Grant Details"
         name: "details"
@@ -35,7 +45,7 @@
             desc: "What's your best estimate of the percentage likelihood of getting this grant?"
             type: percentage
           -
-            label: New Grant or Renewal?
+            label: New or Renewal Grant?
             dbfield: new_or_renewal
             desc: "Is this a new grant?  Or a renewal of an existing grant?"
             type: dropdown
@@ -109,170 +119,154 @@
             desc: "Does this grant have a letter of intent/inquiry prior to the full proposal?"
             type: dropdown
             content:
-              - label: Yes
-              - label: No
+              - label: LOI required
+              - label: LOI not required
           -
-            label: Number of Reports Required?
+            label: Reports Required by Grantmaker
             dbfield: number_of_reports
-            desc: "How many progress reports does this funder require?  If unsure, enter 1."
-            type: number
+            desc: "What reports does this funder require?  If unsure, select annual."
+            type: dropdown
+            content:
+              - label: Annual
+              - label: Semi-Annual
+              - label: Quarterly
+              - label: Monthly
+              - label: Ad hoc
   - 
     name: "Grant Cost"
     page: 2
     sections: 
       - 
-        header: "Research"
-        name: "rsch"
+        header: "Applications"
+        name: "applications"
         questions: 
           -
-            label: Preliminary Research
+            label: Preliminary and In-Depth Research on Opportunity
             dbfield: preliminary_rsch_people
-            desc: "Who is involved in preliminary research?"
+            desc: "How much time is spent by each staff person on researching this grant opportunity, its requirements, and the organization's potential eligibility"
             type: peoplelist
-          -
-            label: In-Depth Research for Specific Opportunity
-            dbfield: in_depth_rsch_people
-            desc: "Who is involved in in-depth research for this specific opportunity?"
-            type: peoplelist
-      -
-        header: "LOI"
-        name: "loi"
-        questions:
           -
             label: Review LOI Requirements
             dbfield: loi_requirements
-            desc: "Who is involved in reviewing the LOI requirements?"
+            desc: "How much time is spent reviewing the requirements for the letter of inquiry?"
             type: peoplelist
           -
             label: Pre-Submission Communication with Funder
             dbfield: pre_loi_comm
-            desc: "Who is involved in pre-submission communication with the funder?"
+            desc: "How much time do you estimate you will spend communicating with the funder prior to submitting the LOI?"
             type: peoplelist
           -
-            label: Draft LOI 
+            label: Draft and Finalize LOI 
             dbfield: draft_loi
-            desc: "Who is involved in drafting the LOI?"
+            desc: "How much time do you estimate it will take all involved staff to draft and finalize the LOI?"
             type: peoplelist
           -
-            label: Review LOI Draft
-            dbfield: review_loi_draft
-            desc: "Who is involved in reviewing the LOI draft?"
-            type: peoplelist
-          -
-            label: Edit LOI
-            dbfield: edit_loi
-            desc: "Who is involved in editing the LOI?"
-            type: peoplelist
-          -
-            label: Finalize LOI
-            dbfield: finalize_loi
-            desc: "Who is involved in finalizing the LOI?"
-            type: peoplelist
-      -
-        header: "Proposal"
-        name: "proposal"
-        questions:
-          -
-            label: Review Proposal Requirements
+            label: If Invited, Review Proposal Requirements
             dbfield: proposal_requirements
-            desc: "Who is involved in reviewing the proposal requirements?"
+            desc: "How much time is spent reviewing the requirements for the proposal?"
             type: peoplelist
           -
             label: Pre-Submission Communication with Funder
             dbfield: pre_proposal_comm
-            desc: "Who is involved in pre-submission communication with the funder?"
+            desc: "How much time do you estimate you will spend communicating with the funder prior to submitting the proposal?)"
             type: peoplelist
           -
-            label: Draft Proposal
+            label: Internal Meetings about Proposal
+            dbfield: pre_proposal_mtg
+            desc: "How much time do you estimate staff will spend meeting about the proposal?"
+            type: peoplelist
+          -
+            label: Gather Supporting Documentation
+            dbfield: gather_docs
+            desc: "How much time do you estimate staff will spend gathering the supporting documentation, like 501(c)(3) status, letters of support, staff bios, board list, etc."
+            type: peoplelist
+          -
+            label: Prepare Budget and Budget Narrative
+            dbfield: prepare_budget
+            desc: "How much time do you estimate staff will spend preparing the grant budget and budget narrative?"
+            type: peoplelist 
+          -
+            label: Draft and Finalize Proposal
             dbfield: draft_proposal
-            desc: "Who is involved in drafting the proposal?"
+            desc: "How much time do you estimate staff will spend on actually drafting and finalizing the proposal?"
             type: peoplelist
           -
-            label: Review Proposal Draft
-            dbfield: review_proposal_draft
-            desc: "Who is involved in reviewing the proposal draft?"
+            label: Formatting Application to Fit Requirements
+            dbfield: format_app
+            desc: "How much time do you think it will take you to enter this information into the online application or finalizing PDFs and documents for submission?"
             type: peoplelist
           -
-            label: Edit Proposal
-            dbfield: edit_proposal
-            desc: "Who is involved in editing the proposal?"
-            type: peoplelist
-          -
-            label: Finalize Proposal
-            dbfield: finalize_proposal
-            desc: "Who is involved in finalizing the proposal?"
+            label: Other (Fill In)
+            dbfield: proposal_other
+            desc: "Fill in staff time for any other tasks not included above."
             type: peoplelist
       -
-        header: "Site Visit"
-        name: "visit"
+        header: "Compliance & Decision-Making"
+        name: "compliance"
         questions:
           -
-            label: Prepare for Site Visit
-            dbfield: prep_visit
-            desc: "Who is involved in preparing for a site visit?"
+            label: Answering Follow-Up Questions from Grantmaker
+            dbfield: follow_up_qs
+            desc: "How much time do you estimate staff will spend answering follow up questions from the funder?"
             type: peoplelist
           -
-            label: Site Visit
+            label: Staff Time for Site Visit 
             dbfield: site_visit
-            desc: "Who is involved in the site visit?"
+            desc: "How much time do you estimate staff will spend preparing for, attending, and following up from the site visit, if applicable?)"
             type: peoplelist
           -
-            label: Site Visit Follow Ups
-            dbfield: visit_follow_ups
-            desc: "Who is involved in site visit follow-ups?"
-            type: peoplelist
-      -
-        header: "Post-Grant Communications"
-        name: "post_grant"
-        questions:
-          -
-            label: Award Letter Review/Signing
+            label: Award Letter Review/Sign/Return
             dbfield: letter_signing
-            desc: "Who is involved in reviewing/signing the award letter?"
+            desc: "How much time do you estimate it will take to review the award letter and return a signed copy to the funder?"
             type: peoplelist
           -
-            label: Post-Grant Communications
+            label: Post-Award Communications
             dbfield: post_grant_comm
-            desc: "Who is involved with post-grant communications with the funder?"
+            desc: "How much time do you estimate it will take to participate in any other post-award communications with the funder?"
+            type: peoplelist
+          -
+            label: Other (Fill In)
+            dbfield: compliance_other
+            desc: "Fill in staff time for any other tasks not included above."
             type: peoplelist
       -
-        header: "Reporting"
+        header: "Monitoring & Reporting"
         name: "reporting"
         questions:
           -
             label: Review Report Requirements
             dbfield: report_requirements
-            desc: "Who is involved in reviewing the report requirements?"
+            desc: "How much time do you estimate it will take you to review and understand the reporting requirements?"
             type: peoplelist
           -
-            label: Collect Data for Report
+            label: Ensure Systems Are Set up to Track Data and Financials 
             dbfield: collect_data
-            desc: "Who is involved in collecting data for reports?"
+            desc: "How much time do you estimate it will take you to set up data reports and financial reports or systems to support tracking the required grant metrics? This may include customizing database reports, updating database fields or records, updating general ledger or other financial tracking information, informing staff how to track time or expenses against the grant, etc.)"
             type: peoplelist
           -
             label: Prepare Financials for Report
             dbfield: prepare_financials
-            desc: "Who is involved in preparing financial information for reports?"
+            desc: "How much time do you estimate it will take you to prepare the financial information and other supporting documentation required in the report?)"
             type: peoplelist
           -
-            label: Draft Report
+            label: Stay Informed about Modifications 
+            dbfield: modifications
+            desc: "How much time do you think you will spend staying on top of grant outcomes, requesting extensions, reporting staff changes, reporting a change in expected deliverables, outcomes, or budget reallocation, etc.)"
+            type: peoplelist
+          -
+            label: Draft and Finalize Reports
             dbfield: draft_report
-            desc: "Who is involved in drafting the report?"
+            desc: "How much time do you think it will take you to draft and finalize the required reports?"
             type: peoplelist
           -
-            label: Review Report Draft
-            dbfield: preview_report_draft
-            desc: "Who is involved in reviewing the report draft?"
+            label: Respond To Any Grantmaker Questions
+            dbfield: monitoring_qs
+            desc: "How much time do you think you will spend following up with grantmaker questions about the report's contents?"
             type: peoplelist
           -
-            label: Edit Report
-            dbfield: edit_report
-            desc: "Who is involved in editing the report?"
-            type: peoplelist
-          -
-            label: Finalize Report
-            dbfield: finalize_report
-            desc: "Who is involved in finalizing the report?"
+            label: Other (Fill In)
+            dbfield: monitoring_other
+            desc: "Fill in staff time for any other tasks not included above."
             type: peoplelist
       -
         header: "Other"
