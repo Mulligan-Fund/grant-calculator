@@ -9,22 +9,31 @@
      <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
      </div>
      <div class="description">
-        <h2>Find your grant truth</h2>
-        <p>See where your grant money is really going. Ask for the right amount the first time, and use that money the way it was intended.
-
-        Grant Calculator breaks down where your dollars are going during the application process so that the grant isn’t just paying for you to apply for it.</p>
+        <h2>How much is that grant really worth? The Net Grant Calculator will help you find out.</h2>
+        <p>The Net Grant Calculator helps both not-for-profits and grantmakers evaluate the net value a grant will provide. <b>For not-for-profits</b>, the calculator provides a tool to help decide which grants to pursue. For <b>grantmakers</b>, the calculator helps understand the impact on grantees of application and management processes and helps identify ways to increase their grants' net value to grantees. It also helps grantmakers understand the cost of running a grant program to help identify ways to streamline internal processes.</p>
+ 
+        <p>To get the most value from this tool, you’ll need information about who in your organization is involved with different stages of the grant process and how much time they spent. If you don’t know exact numbers, you can use estimates and still get a good sense of the net value of a particular grant or program.</p>
+          
+        <p>It will also help to have an idea of the salaries of people involved in the grant process. Don’t worry; we understand that salaries are sensitive information, and the tool doesn’t ask for names. But understanding how much time staff members are spending and the cost of that time is a key component in assessing net grant values. If you don’t know or don’t want to input that information, you can use industry averages, which the tool will help you fill in based on job title.</p>
       </div>
 
-      <div class="login">
-        <label>User name</label>
-        <input>
-        <label>password</label>
-        <input>
-        <label>org EIN</label>
-        <input>
-        <button>Register</button>
-
+      <div class="login" id="form">
+        <form>
+        <label>Your Email</label>
+        <input type="text" id="username">
+        <label>Your password</label>
+        <input type="password" id="password">
+        <label>Your EIN (optional)</label>
+        <input type="text" id="ein">
+        <button class="submit">Register or Login</button>
+      </form>
       </div>
+    <div class="description">
+      <h2>Grant Calculator is a project of</h2>
+      <img class="support" alt="Peak Grantmaking" src="{{ "/img/peak_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+      <img class="support" alt="New America PIT" src="{{ "/img/newamerica_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+      <img class="support" alt="The Mulligan Fund" src="{{ "/img/mulligan_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+    </div>
 
 
      <div class="blog">
@@ -38,5 +47,6 @@
    </div>
 
   </body>
+  
 
 </html>

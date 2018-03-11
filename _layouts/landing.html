@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="landing">
+  <div class="landing-background"></div>
+  <div class="landing-cover"></div>
+  <div class="landing-links">
+    <ul>
+      <li><a href="{{ "/about" | prepend: site.baseurl | prepend: site.url }}" >About</a></li>
+      <li><a href="{{ "/contact" | prepend: site.baseurl | prepend: site.url }}">Contact Us</a></li>
+    </ul>
+  </div>
+  <div class="landing-wrapper">
+    <div class="left col col--xs-12 col--sm-12 col--md-8 col--lg-8">
+      <div class="logo-block">
+       <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+      </div>
+      <div class="marketing">
+        <div class="valueprop">
+          <div class="gseek col col--xs-12 col--sm-12 col--md-6 col--lg-6">
+            <h1>The Grant Seeker</h1>
+            <h2>Decide Which  Grants To Pursue</h2>
+            <p>The net grant calculator helps you decide which grant to pursue, and prioritize those grants with this highest net grant value to your organization.</p>
+          </div>
+          <div class="gmake col col--xs-12 col--sm-12 col--md-6 col--lg-6">
+            <h1>The Grant Maker</h1>
+            <h2>Know The Cost  of Your Grant</h2>
+            <p>How much does it cost to run each of your grant programs? How much does it cost your grantees to apply? Find out with the net grant calculator.</p>
+          </div>
+        </div>
+        <div class="features">
+          <div class="feature col col--xs-6 col--sm-6 col--md-6 col--lg-6">
+            <div class="logo">
+              <img src="{{ "/img/data.png" | prepend: site.baseurl | prepend: site.url }}">
+            </div>
+            <h1>Data-Driven Grants</h1>
+            <p>Use data about specific grant opportunities to make informed decisions.</p>
+          </div>
+          <div class="feature col col--xs-6 col--sm-6 col--md-6 col--lg-6">
+            <div class="logo">
+              <img src="{{ "/img/flex.png" | prepend: site.baseurl | prepend: site.url }}">
+            </div>
+            <h1>Flexible Analysis</h1>
+            <p>Evaluate and improve grant practices to increase grant efficiency.</p>
+          </div>
+          <div class="feature col col--xs-6 col--sm-6 col--md-6 col--lg-6">
+            <div class="logo">
+              <img src="{{ "/img/refl.png" | prepend: site.baseurl | prepend: site.url }}">
+            </div>
+            <h1>Reflect and Learn</h1>
+            <p>Analysis that matches your organization's grant management processes.</p>
+          </div>
+          <div class="feature col col--xs-6 col--sm-6 col--md-6 col--lg-6">
+            <div class="logo">
+              <img src="{{ "/img/lock.png" | prepend: site.baseurl | prepend: site.url }}">
+            </div>
+            <h1>Simple Security</h1>
+            <p>Securely Store information about grant opportunities to ensure privacy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class= "login-layer col col--xs-12 col--sm-12 col--md-4 col--lg-4">
+      <div class="login" id="form">
+        <div class="login-toggle">
+          <div class="reg active">Register</div>
+          <div class="log">Login</div>
+        </div>
+        <form class="register active">
+          <label>Email</label>
+          <input type="text" id="username">
+          <label>Password</label>
+          <input type="password" id="password">
+          <button class="submit">Register</button>
+        </form>
+      </div>
+      <div class="description">
+        <h2>Grant Calculator is a project of</h2>
+        <img class="support" alt="Peak Grantmaking" src="{{ "/img/peak_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+        <img class="support" alt="New America PIT" src="{{ "/img/newamerica_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+        <img class="support" alt="The Mulligan Fund" src="{{ "/img/mulligan_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
