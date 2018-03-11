@@ -96,6 +96,7 @@
               - label: Ad Hoc
   - 
     name: "Grant Cost to Grantee"
+    id: "Grantee_Cost"
     page: 2
     sections: 
        - 
@@ -264,18 +265,6 @@
             desc: "How much time do you anticipate it will take staff to create the application and outline grantee requirements, including supporting documentation?"
             type: peoplelist
           -
-<<<<<<< HEAD
-=======
-            label: Communication with Grantseekers
-            dbfield: communication_with_seekers
-            type: peoplelist
-            desc: "Who is involved in communicating with grantseekers (e.g., webinars, meetings)?"
-      -
-        header: "LOI"
-        name: "prog_loi"
-        questions:
-          -
->>>>>>> b6ffcdd3bbd6ad42fc921ad0441bce105c4cac6a
             label: Field LOI Questions from Applicants
             dbfield: field_loi_q
             desc: "How much time do you estimate it will take your staff to field questions from applicants during the LOI stage?"
