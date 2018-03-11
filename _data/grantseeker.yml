@@ -19,7 +19,7 @@
             type: text
           -
             label: Primary Issue Addressed
-            dbfield: primar_issue
+            dbfield: primary_issue
             desc: "What is the primary issue the grant will address?"
             type: text
           -
@@ -58,7 +58,7 @@
             desc: "Was your organization invited to apply for this grant, or is the request unsolicited?"
             type: dropdown
             content:
-              - label: Invited
+              - label: Invite-Only
               - label: Unsolicited
           -
             label: Type of Support 
@@ -81,7 +81,7 @@
               - label: Program development
               - label: Regranting
               - label: Research and evaluation
-              - label: Other (please specify)
+              - label: Other (please specify) # user input
       -
         header: "Grant Logistics"
         name: "logistics"
@@ -111,8 +111,8 @@
             desc: "Will the funder conduct a site visit as part of the grant application process?"
             type: dropdown
             content:
-              - label: Yes
-              - label: No
+              - label: Site Visit Required
+              - label: Site Visit Not Required
           -
             label: LOI?
             dbfield: loi
@@ -196,7 +196,7 @@
             desc: "How much time do you think it will take you to enter this information into the online application or finalizing PDFs and documents for submission?"
             type: peoplelist
           -
-            label: Other (Fill In)
+            label: # user input
             dbfield: proposal_other
             desc: "Fill in staff time for any other tasks not included above."
             type: peoplelist
@@ -225,7 +225,7 @@
             desc: "How much time do you estimate it will take to participate in any other post-award communications with the funder?"
             type: peoplelist
           -
-            label: Other (Fill In)
+            label: # user input
             dbfield: compliance_other
             desc: "Fill in staff time for any other tasks not included above."
             type: peoplelist
@@ -264,16 +264,7 @@
             desc: "How much time do you think you will spend following up with grantmaker questions about the report's contents?"
             type: peoplelist
           -
-            label: Other (Fill In)
+            label: # user input
             dbfield: monitoring_other
             desc: "Fill in staff time for any other tasks not included above."
-            type: peoplelist
-      -
-        header: "Other"
-        name: "other"
-        questions:
-          -
-            label: (user-inputted)
-            dbfield: other_activity
-            desc: "Who is involved in other grant activities?"
             type: peoplelist
