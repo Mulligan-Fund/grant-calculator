@@ -96,10 +96,9 @@
               - label: Ad Hoc
   - 
     name: "Grant Cost to Grantee"
-    id: "Grantee_Cost"
     page: 2
     sections: 
-       - 
+      - 
         header: "Applications"
         name: "applications"
         questions: 
