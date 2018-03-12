@@ -6,11 +6,12 @@
 	        <img src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}" />
 	      </a>
 	    </div>
-	    <div class="nav-links col col--xs-0 col--sm-0 col--md-4 col--lg-4 mobile-hide">
+	    <div class="nav-links col col--xs-0 col--sm-0 col--md-6 col--lg-6  mobile-hide">
 	    	<ul class="left">	
-	    		<li><a href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">All Grants</a></li>
-	    		<li><a href="{{ "/people" | prepend: site.baseurl | prepend: site.url }}">Edit Team</a></li>
+	    		<li><a href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">Grants</a></li>
+	    		<li><a href="{{ "/people" | prepend: site.baseurl | prepend: site.url }}">Team</a></li>
 	    		<li><a href="{{ "/logout" | prepend: site.baseurl | prepend: site.url }}">Logout</a></li>
+	    		<li><a class="button" href="https://goo.gl/forms/qkGEc8joAGwtzgt53" target="_blank">Leave Feedback!</a></li>
 	    	</ul>
 	    </div>
 	    {% if page.url == "/form.html" 
