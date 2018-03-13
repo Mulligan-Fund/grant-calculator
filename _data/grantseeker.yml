@@ -3,7 +3,7 @@
     name: "Grant Information"
     id: "grantinfo"
     page: 1
-    desc: "Please select which staff members are involved in each activity in the grant process - from initial research to close-out - and how much time (in hours) is spent by each person on each activity. Each activity can have more than one staff member involved."
+    desc: "Fill out the information below to help us understand the type of funding you are seeking and the work that will be required to go into that grant."
     sections: 
       - 
         header: "Funder Information"
@@ -137,6 +137,7 @@
   - 
     name: "Grant Cost"
     page: 2
+    desc: "For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one/tenth of an hour."
     sections: 
       - 
         header: "Applications"
