@@ -26,6 +26,7 @@ gc.Collections = gc.Collections || {};
 
     	url: window.gc.api + '/grant',
         maker: window.gc.api + '/maker',
+        profile: window.gc.api + '/org',
         obj: window.gc.api + '/object',
         role: window.gc.api + '/role',
         lookup: {},
@@ -58,11 +59,11 @@ gc.Collections = gc.Collections || {};
 
         },
 
-        sendData: function(data,callback,maker) {
+        sendData: function(data,callback,maker,org) {
             console.log("Data got to",data)
             if(getUrlParameter('id')) data._id = getUrlParameter('id')
             $.ajax({
-                url : maker ? this.maker : this.url,
+                url : maker ? this.maker : org ? this.profile : this.url ,
                 type : 'PUT',
                 xhrFields: {
                     withCredentials: true
@@ -85,12 +86,12 @@ gc.Collections = gc.Collections || {};
             });
         },
 
-        getData: function(data,callback,maker) {
+        getData: function(data,callback,maker,org) {
             // var endpoint = maker ? this.maker : this.url
             var data = data || {};
             if(getUrlParameter('id')) data.id = getUrlParameter('id');
             $.ajax({
-            url : maker ? this.maker : this.url,
+            url : maker ? this.maker : org ? this.profile : this.url ,
             type : 'GET',
             xhrFields: {
                 withCredentials: true

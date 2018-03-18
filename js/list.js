@@ -9,21 +9,41 @@ gc.Views = gc.Views || {};
         },
         seeker: null,
         maker: null,
+        org: null,
 
         template: _.template("<a href='<%= path %>?id=<%= _id %>'><div class='item'><div class='name'><%= funder %></div> <div class='amount'>$<%= amount %></div></div></a>"),
 
         initialize: function() {
             this.seeker = $('#seeker')
-            this.maker = $('#maker')   
+            this.maker = $('#maker')
+            this.org = $('#profile')
             var _this = this
             console.log(this.seeker, this.maker) 
             if($(_this.seeker).is('#seeker')) {
                 this.getItems(_this.maker)
                 this.getItems(_this.seeker)
+                this.getProfile(_this.org)
                 this.getObjectList()
             }
         },
 
+        getProfile: function(t) {
+            var _this = this
+            console.log("Get item pass",t)
+            this.collection.getData({'list':true}, function(data){
+                if(data.length < 1) {
+                    console.log("No profile details")
+                    t.html("<a class='button' href='./profile'>Add Your Profile Details</a>") 
+                }
+                $.each(data,function(e,i){
+                    i.funder  = i.username || "No User Name"
+                    i.amount  = i.amount_of_grants || 0
+                    i.path    = "profile"
+                    t.append( _this.template(i));    
+                })
+                
+            }, false, true )
+        },
 
         getItems:  function(t){
             var _this = this

@@ -1,0 +1,39 @@
+--- 
+  - 
+    name: "User Information"
+    page: 1
+    desc: "Please tell us a bit about yourself and the organziation."
+    sections: 
+      - 
+        header: "User Information"
+        name: "user_details"
+        questions: 
+          - 
+            label: What is your name?
+            dbfield: username
+            desc: "Name of user"
+            type: text
+          - 
+            label: What is your role?
+            dbfield: user_role
+            desc: "What is your role in the organization?"
+            type: text
+      -
+        header: "Organzation Details Details"
+        name: "org_details"
+        questions:
+          -
+            label: Name of your organization?
+            dbfield: name_of_org
+            desc: "What is your org called?" 
+            type: text
+          -
+            label: What is your EIN?
+            dbfield: ein
+            desc: "EIN number for tax purposes"
+            type: number
+          -
+            label: What is your yearly revenue approx?
+            dbfield: yearly_rev
+            desc: "Yearly revenue?"
+            type: number

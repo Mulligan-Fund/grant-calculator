@@ -65,7 +65,7 @@ gc.Views = gc.Views || {};
                     console.log("Redirecting")
                     window.location.replace(data)
                 }
-            },checkIfURL('gmaker'))
+            },checkIfURL('gmaker'),checkIfURL('profile'))
         },
 
         submitField: function(e) {
@@ -103,7 +103,7 @@ gc.Views = gc.Views || {};
 
             this.collection.sendData(i, function(data,next) {
 
-            },checkIfURL('gmaker'))
+            },checkIfURL('gmaker'),checkIfURL('profile'))
         },
 
         // This fills in all the fields
@@ -136,7 +136,7 @@ gc.Views = gc.Views || {};
                            })
                     } )
                 })
-           }, checkIfURL('gmaker') )
+           }, checkIfURL('gmaker'),checkIfURL('profile') )
         },
         // These handle the people list
         getFieldArray: function(id,data) {
@@ -223,7 +223,7 @@ gc.Views = gc.Views || {};
                 this.collection.deleteGrant(id,function(r) {
                     // _this.redirectClient('/list')
                     alert("This grant was deleted")
-                },checkIfURL('gmaker'))
+                },checkIfURL('gmaker'),checkIfURL('profile'))
             } else {
                 console.log("Canceled")
             }
