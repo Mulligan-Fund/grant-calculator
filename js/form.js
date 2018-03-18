@@ -11,6 +11,8 @@ gc.Views = gc.Views || {};
             , "click .turn": "pageTurn"
             , "click .people-button":"newHourObject"
             , "click .delete": "deleteGrant"
+            , "click .login-toggle": "tab"
+            , "click #consent": "activateButton"
         },
         template: {},
         initialize: function() {
@@ -25,6 +27,27 @@ gc.Views = gc.Views || {};
             }
         },
 
+        activateButton: function(e) {
+            console.log("Activating register")
+            if($("#consent").find('input').is(":checked")) $("#loginreg").prop("disabled",false);
+            else $("#loginreg").prop("disabled",true);
+        },
+
+        tab: function(e) {
+            var t = $(e.currentTarget).find('.active')
+            var n = t.siblings()
+            n.addClass('active')
+            t.removeClass('active')
+            if(n.hasClass('log')) {
+                $('#consent').hide()
+                $("#loginreg").prop("disabled",false);
+                $('#loginreg').html('Login')
+            } else {
+                $('#consent').show()
+                $('#loginreg').html('Register')
+                if(!$('#consent').find('input').is(":checked")) $("#loginreg").prop("disabled",true);
+            }
+        },
 
         submitForm: function(e) {
             var _this = this

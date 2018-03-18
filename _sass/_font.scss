@@ -213,6 +213,12 @@ button,.button {
       color: #FFFEF7;
       box-shadow: 0 2px 1px 1px rgba(0,0,0,.1)
   }
+  &:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
   @media only screen and (max-width: 480px) {
     display: block;
     clear: both;

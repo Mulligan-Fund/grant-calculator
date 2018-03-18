@@ -102,18 +102,21 @@ body.landing {
         background: #FFFEF7;
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
         min-height: 100vh;
-        max-height: 100vh;
+        // max-height: 100vh;
         .login {
             margin-top: 30px;
-            .reg,.log {
-                display: inline-block;
-                width: 45%;
-                font-size: 32px;
-                color: #ACC3CB;
-                .active {
-                    border-bottom: 7px solid #ACC3CB;
+            .login-toggle {
+                .reg,.log {
+                    display: inline-block;
+                    width: 45%;
+                    font-size: 32px;
+                    color: #ACC3CB;
+                    &.active {
+                        border-bottom: 7px solid #ACC3CB;
+                    }
                 }
             }
+            
             form {
                 display: none;
                 margin-top: 30px;
@@ -124,6 +127,10 @@ body.landing {
                 }
                 input {
                     width: 45%;
+                }
+                input[type='checkbox'] {
+                    width: 10%;
+                    display: inline-block
                 }
             }
             form.active {
