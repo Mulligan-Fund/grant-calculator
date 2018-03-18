@@ -403,6 +403,9 @@ img.support {
     width: 50%;
     padding-top: 30px;
     padding-right:15%;
+    &:first-of-type {
+        padding-top: 0px;
+    }
 }
 
 .fullbg {
