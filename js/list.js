@@ -31,6 +31,7 @@ gc.Views = gc.Views || {};
             var _this = this
             console.log("Get item pass",t)
             this.collection.getData({'list':true}, function(data){
+                console.log("Getting profile data",data)
                 if(data.length < 1) {
                     console.log("No profile details")
                     t.html("<a class='button' href='./profile'>Add Your Profile Details</a>") 

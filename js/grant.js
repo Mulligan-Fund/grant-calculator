@@ -41,7 +41,7 @@ gc.Collections = gc.Collections || {};
                 this.sendData({},function(data){
                     location.href = location.href + '?id='+data._id
                     _this.setLocalLinks(data._id)
-                },checkIfURL('gmaker'))
+                },checkIfURL('gmaker'),checkIfURL('profile'))
             } else {
                 _this.setLocalLinks(window.location.search.substring(0).split('?id=')[1])
             }
