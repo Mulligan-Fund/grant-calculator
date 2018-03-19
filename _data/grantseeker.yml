@@ -266,6 +266,11 @@
             dbfield: monitoring_qs
             desc: "How much time do you think you will spend following up with grantmaker questions about the report's contents?"
             type: peoplelist
+          - 
+            label: Describe other activities
+            dbfield: other_label
+            desc: "What is the name for these other actvities?"
+            type: text
           -
             label: # user input
             dbfield: monitoring_other

@@ -424,8 +424,13 @@
             dbfield: report_board
             desc: "How much time do you estimate staff will spend on utilizing the data gained in grantee reports to help support evaluation, outcomes, or dashboard reporting for the funder?"
             type: peoplelist
+          - 
+            label: Describe other activities
+            dbfield: other_label
+            desc: "What is the name for these other actvities?"
+            type: text
           -
-            label: # user input
+            label: Other activities
             dbfield: gm_reporting_other
             desc: "Fill in staff time for any other tasks not included above."
             type: peoplelist
