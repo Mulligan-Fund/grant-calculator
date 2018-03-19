@@ -98,7 +98,7 @@
   - 
     name: "Grant Cost to Grantee"
     page: 2
-    desc: "To the best of your ability, fill out the information below from the perspective of a typical prospecitve grantee.  For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one/tenth of an hour."
+    desc: "To the best of your ability, fill out the information below from the perspective of a typical prospecitve grantee.  For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one tenth of an hour."
     sections: 
       - 
         header: "Applications"

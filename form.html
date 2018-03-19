@@ -6,20 +6,19 @@ page: form
 	{% for form in site.data.grantseeker %}
 	{% assign loopindex = forloop.index0%}    
 
-
-	{% if form.desc %}
-	<div class="form-desc col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2">
-		{{form.desc}}
-	</div>
-	{% endif %}
-
 	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
-		
 
 		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
 		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
-
-		<div class="title">{{ form.name }}</div>
+		{% if form.desc %}
+		<section class="block">
+			<div class="form-desc col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+				{{form.desc}}
+			</div>
+		</section>
+		{% endif %}
+		
+		<div class="title"><h2>{{ form.name }}</h2></div>
 		{% for section in form.sections %}
 		<section class="block" id="{{section.name}}">
 			<h3>{{section.header}}</h3>
