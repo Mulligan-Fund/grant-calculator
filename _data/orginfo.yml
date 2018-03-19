@@ -1,4 +1,4 @@
---- 
+  --- 
   - 
     name: "User Information"
     page: 1
@@ -9,14 +9,19 @@
         name: "user_details"
         questions: 
           - 
-            label: What is your name?
-            dbfield: username
-            desc: "Name of user"
+            label: What is your first name?
+            dbfield: firstname
+            desc: "First name of user"
+            type: text
+          -
+            label: What is your last name?
+            dbfield: lastname
+            desc: "Last name of user"
             type: text
           - 
-            label: What is your role?
-            dbfield: user_role
-            desc: "What is your role in the organization?"
+            label: What is your title?
+            dbfield: user_title
+            desc: "What is your title in the organization?"
             type: text
       -
         header: "Organzation Details Details"
@@ -28,12 +33,88 @@
             desc: "What is your org called?" 
             type: text
           -
-            label: What is your EIN?
+            label: In which state is your organization located?
+            dbfield: org_state
+            desc: "In which state is your organization located?  If your organization is not in the US, please select 'outside the US'"
+            type: dropdown
+            content:
+              - label: AL
+              - label: AK
+              - label: AZ
+              - label: AR
+              - label: CA
+              - label: CO
+              - label: CT
+              - label: DC
+              - label: DE
+              - label: FL
+              - label: GA
+              - label: GU
+              - label: HI
+              - label: ID
+              - label: IL
+              - label: IN
+              - label: IA
+              - label: KS
+              - label: KY
+              - label: LA
+              - label: ME
+              - label: MD
+              - label: MA
+              - label: MI
+              - label: MN
+              - label: MS
+              - label: MO
+              - label: MT
+              - label: NE
+              - label: NV
+              - label: NH
+              - label: NJ
+              - label: NM
+              - label: NY
+              - label: NC
+              - label: ND
+              - label: OH
+              - label: OK
+              - label: OR
+              - label: PA
+              - label: PR
+              - label: RI
+              - label: SC
+              - label: SD
+              - label: TN
+              - label: TX
+              - label: UT
+              - label: VT
+              - label: VI
+              - label: VA
+              - label: WA
+              - label: WV
+              - label: WI
+              - label: WY
+              - label: outside US
+          -
+            label: What is your organization's EIN?
             dbfield: ein
             desc: "EIN number for tax purposes"
             type: number
           -
-            label: What is your yearly revenue approx?
+            label: What was your organization's revenue last year?
             dbfield: yearly_rev
-            desc: "Yearly revenue?"
+            desc: "What was your organization's revenue for the most recently-completed year?  Please approximate if you're not sure."
+            type: number
+          -
+            label: Number of employees
+            dbfield: number_employees
+            desc: "How many employees does your organization have?  Please approximate if you're unsure of the exact number."
+            type: number
+          -
+            label: Number of grants
+            dbfield: number_grants
+            desc: "If your organization is a grantmaker, how many grants did you award last year?  If your organization is a grantseeker, how many grants did you receive last year?"
+            type: number
+          -
+            label: Amount of grants
+            dbfield: amount_grants
+            desc: "If your organization is a grantmaker, what is the total amount of grants you awarded last year?  If your organization is a grantseeker, what is the total amount of grants you received last year?"
             type: number
