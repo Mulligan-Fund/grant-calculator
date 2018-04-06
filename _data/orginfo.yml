@@ -18,6 +18,14 @@
             dbfield: user_role
             desc: "What is your role in the organization?"
             type: text
+          -
+            label: Are you a Grant Seeker or Grant Maker?
+            dbfield: grantorg
+            desc: "Are you searching for a grant, or providing grants to others?"
+            type: dropdown
+            content:
+              - label: Maker
+              - label: Seeker
       -
         header: "Organzation Details Details"
         name: "org_details"
