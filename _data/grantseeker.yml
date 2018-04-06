@@ -266,6 +266,10 @@
             dbfield: monitoring_qs
             desc: "How much time do you think you will spend following up with grantmaker questions about the report's contents?"
             type: peoplelist
+      -
+        header: "Additional Hours"
+        name: "additional"
+        questions:
           - 
             label: Describe other activities
             dbfield: other_label

@@ -70,6 +70,7 @@ page: form
 						<img src="{{ "/img/tooltip.png" | prepend: site.baseurl | prepend: site.url }}"  />
 					</div>
 				{% endif %}
+				</div>
 				{% endfor %}
 			</form>
 
@@ -78,12 +79,6 @@ page: form
 
 		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
 		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
-
-		{% if forloop.last %}<button class="local bottomgrant" href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}">Grant Result</button>{% endif %}
-
-		<div class="del col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2"">
-		<a href="#" class="delete">Delete Grant?</a>
-		</div>
 	</section>
 	{% endfor %}
 </div>
