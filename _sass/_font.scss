@@ -1,8 +1,21 @@
 // Mobile hack
 input[type='text'],
 input[type='number'],
-textarea {
+textarea, select {
   font-size: 16px;
+}
+
+.required {
+  input,select {
+    border-color: #D06E6E;
+    border-width: 2px;
+  }
+    &::after {
+      // margin-left: 150px;
+      // display: block;
+      color: #D06E6E;
+      content: 'Required';
+    }
 }
 
 .orange {

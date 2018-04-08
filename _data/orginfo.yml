@@ -23,6 +23,7 @@
             dbfield: grantorg
             desc: "Are you searching for a grant, or providing grants to others?"
             type: dropdown
+            required: yes
             content:
               - label: Maker
               - label: Seeker

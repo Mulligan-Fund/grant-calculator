@@ -9,7 +9,15 @@ page: list
   <body>
     <div class="fullbg yellow">
       <div class="logo-block">
-     <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+       <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+     </div>
+     <div>
+      <ul class="list-links"> 
+          <li><a href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">Grants</a></li>
+          <li><a href="{{ "/people" | prepend: site.baseurl | prepend: site.url }}">Team</a></li>
+          <li><a href="{{ "/logout" | prepend: site.baseurl | prepend: site.url }}">Logout</a></li>
+          <li><a class="button" href="https://goo.gl/forms/qkGEc8joAGwtzgt53" target="_blank">Leave Feedback!</a></li>
+        </ul>
      </div>
      <div class="description">
       <div class="step">
