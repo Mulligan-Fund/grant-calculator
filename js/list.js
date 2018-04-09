@@ -12,6 +12,7 @@ gc.Views = gc.Views || {};
         org: null,
 
         template: _.template("<a href='<%= path %>?id=<%= _id %>'><div class='item'><div class='name'><%= funder %></div> <div class='amount'>$<%= amount %></div></div></a>"),
+        profile: _.template("<a href='<%= path %>?id=<%= _id %>'><div class='item'><div class='name'><%= funder %></div> <div class='amount'><%= type %></div></div></a>"),
 
         initialize: function() {
             this.seeker = $('#seeker')
@@ -27,18 +28,16 @@ gc.Views = gc.Views || {};
 
         getProfile: function(t) {
             var _this = this
-            console.log("Get item pass",t)
             this.collection.getData({'list':true}, function(data){
-                console.log("Getting profile data",data)
                 if(data.length < 1) {
                     console.log("No profile details")
                     t.html("<a class='button' href='./profile'>Create your profile</a>") 
                 }
                 $.each(data,function(e,i){
                     i.funder  = i.username || "No User Name"
-                    i.amount  = i.amount_of_grants || 0
+                    i.type  = i.grantorg || "INCOMPLETE"
                     i.path    = "profile"
-                    t.append( _this.template(i));    
+                    t.append( _this.profile(i));    
                 })
                 if(data[0].grantorg.indexOf("aker") > 0) {
                     _this.getItems(_this.maker)
