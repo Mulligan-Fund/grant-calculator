@@ -159,9 +159,14 @@
             dbfield: gm_format_app
             desc: "How much time do you think it will take grantees to enter this information into the online application or finalizing PDFs and documents for submission?"
             type: peoplelist
+          - 
+            label: Describe other application-related activities
+            dbfield: gm_gs_applications_other_label
+            desc: "What is the name for these other activities?"
+            type: text
           -
-            label: # user input
-            dbfield: gm_proposal_other
+            label: Other application-related activities
+            dbfield: gm_gs_applications_other
             desc: "Fill in grantee staff time for any other tasks not included above."
             type: peoplelist
       -
@@ -189,8 +194,13 @@
             desc: "How much time do you estimate it will take grantees to participate in any other post-award communications with the funder?"
             type: peoplelist
           -
-            label: # user input
-            dbfield: gm_compliance_other
+            label: Describe other compliance-related activities
+            dbfield: gm_gs_compliance_other_label
+            desc: "What is the name for these other activities?"
+            type: text
+          -
+            label: Other compliance-related activities
+            dbfield: gm_gs_compliance_other
             desc: "Fill in grantee staff time for any other tasks not included above."
             type: peoplelist
       -
@@ -228,8 +238,13 @@
             desc: "How much time do you think grantees will spend following up with grantmaker questions about the report's contents?"
             type: peoplelist
           -
-            label: # user input
-            dbfield: gm_monitoring_other
+            label: Describe other reporting-related activities
+            dbfield: gm_gs_reporting_other_label
+            desc: "What is the name for these other activities?"
+            type: text
+          -
+            label: Other reporting-related activities
+            dbfield: gm_gs_reporting_other
             desc: "Fill in grantee staff time for any other tasks not included above."
             type: peoplelist
   - 
@@ -292,9 +307,14 @@
             desc: "How much time do you estimate staff will spend fielding questions from applicants about the proposal process?"
             type: peoplelist
           -
-            label: # user input
-            dbfield: gm_application_other
-            desc: "Fill in staff time for any other tasks not included above."
+            label: Describe other application-related activities
+            dbfield: gm_prog_applications_other_label
+            desc: "What is the name for these other activities?"
+            type: text
+          -
+            label: Other application-related activities
+            dbfield: gm_prog_applications_other
+            desc: "Fill in grantee staff time for any other tasks not included above."
             type: peoplelist
       -
         header: "Compliance & Decision-Making"
@@ -371,9 +391,14 @@
             desc: "How much time do you anticipate staff will spend in other post-grant communications with grantees?"
             type: peoplelist
           -
-            label: # user input
-            dbfield: gm_compliance_other
-            desc: "Fill in staff time for any other tasks not included above."
+            label: Describe other compliance-related activities
+            dbfield: gm__prog_compliance_other_label
+            desc: "What is the name for these other activities?"
+            type: text
+          -
+            label: Other compliance-related activities
+            dbfield: gm__prog_compliance_other
+            desc: "Fill in grantee staff time for any other tasks not included above."
             type: peoplelist
       -
         header: "Monitoring & Reporting"
@@ -424,17 +449,27 @@
             dbfield: report_board
             desc: "How much time do you estimate staff will spend on utilizing the data gained in grantee reports to help support evaluation, outcomes, or dashboard reporting for the funder?"
             type: peoplelist
+          -
+            label: Describe other reporting-related activities
+            dbfield: gm_prog_reporting_other_label
+            desc: "What is the name for these other activities?"
+            type: text
+          -
+            label: Other reporting-related activities
+            dbfield: gm_prog_reporting_other
+            desc: "Fill in grantee staff time for any other tasks not included above."
+            type: peoplelist
       -
         header: "Additional Hours"
         name: "additional"
         questions:
           - 
             label: Describe other activities
-            dbfield: other_label
-            desc: "What is the name for these other actvities?"
+            dbfield: additional_other_label
+            desc: "What is the name for these other activities?"
             type: text
           -
             label: Other activities
-            dbfield: gm_reporting_other
+            dbfield: gm_additional
             desc: "Fill in staff time for any other tasks not included above."
             type: peoplelist
