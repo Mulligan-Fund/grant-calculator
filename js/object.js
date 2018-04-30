@@ -50,6 +50,11 @@ gc.Views = gc.Views || {};
                     $(t).remove();
                 })
             })
+            // this.collection.deleteObject(id,function(r) {
+            //     $(e.currentTarget).parent('.object-container').fadeOut(function(t){
+            //         $(t).remove();
+            //     })
+            // })
         },
 
         getClassifiers: function(e,cb) {
@@ -104,6 +109,7 @@ gc.Views = gc.Views || {};
             this.collection.getObjectData({'list':true}, function(data){
                    t = data 
                     for(var i in t) {
+                        if(t[i].delete == true) return
                         _this.makeObject(t[i])
                     }
             } )

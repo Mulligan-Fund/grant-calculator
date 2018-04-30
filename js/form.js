@@ -92,6 +92,7 @@ gc.Views = gc.Views || {};
                     }
                     // if($(e).attr('obj_id') != 0) tt["_id"] = $(e).attr('obj_id') == 0 ? null : $(e).attr('obj_id')
                     console.log(i,tt)
+                    
                     pa.push(tt)
                 })
                 i[t.attr('id')] = pa

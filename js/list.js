@@ -81,6 +81,7 @@ gc.Views = gc.Views || {};
                 }
                 var count = 0
                 for(var t in data) {
+                    if(t.delete == true) return
                     $(".objlist ul").append("<li>"+ data[t].name +"</li>")
                     count+=1;
                     if(count >= 12) {

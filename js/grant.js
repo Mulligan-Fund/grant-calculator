@@ -141,6 +141,34 @@ gc.Collections = gc.Collections || {};
             });
         },
 
+        deleteObject: function(id,callback) {
+            var endpoint = this.obj
+            var data = {
+                _id: id
+                , delete: true
+            }
+            $.ajax({
+            url : this.obj,
+            type : 'PUT',
+            xhrFields: {
+                withCredentials: true
+            },
+            headers: {
+                'Access-Control-Allow-Origin': true
+            },
+            crossDomain: true,
+            dataType:'json',
+            data: data,
+            success : function(data,status,xfr) {              
+                callback(data)
+            },
+            error : function(request,error)
+            {
+                // alert("Get Error: "+JSON.stringify(request));
+                callback()
+            }
+            });
+        },
 
         getObjectData: function(data,callback) {
             var endpoint = this.obj
