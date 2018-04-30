@@ -40,11 +40,13 @@
             label: Amount requested?
             dbfield: amount
             desc: "How much is your organization requesting from this funder?" 
+            required: true
             type: money
           -
             label: Expected likelihood of receiving grant
             dbfield: probability
             desc: "What's your best estimate of the percentage likelihood of getting this grant?"
+            required: true
             type: percentage
           -
             label: New or Renewal Grant?

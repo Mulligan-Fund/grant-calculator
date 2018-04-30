@@ -26,16 +26,19 @@
             label: Expected Number of Grants to Be Awarded
             dbfield: number_of_grants
             desc: "How many grants do you expect this program to award?" 
+            required: true
             type: number
           -
             label: Expected amount to be awarded
             dbfield: amount_of_grants
             desc: "What is the total amount this program is expected to award?"
+            required: true
             type: money
           -
             label: Expected Number of Applications
             dbfield: number_of_applications
             desc: "How many applications do you expect this program will receive?"
+            required: yes
             type: number
       -
         header: "Program Logistics"
