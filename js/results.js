@@ -71,6 +71,7 @@ gc.Views = gc.Views || {};
                     console.log("Roles",ro)
 
                      _.each(t,function(val,key,context) {
+                        if(val == null) return
                         if(typeof val == "object" && val.length > 0) {
                             var id = key
                             console.log("Found ppllist", val)
