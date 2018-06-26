@@ -62,7 +62,7 @@
               - label: via email
               - label: on paper
           -
-            label: Length of Grant Award
+            label: Length of Grant Award (in Years)
             dbfield: gm_length_of_award
             desc: "In years, what is the expected length of a grant award in this program?"
             type: number
@@ -72,21 +72,21 @@
             desc: "How many questions are in the application? If you're not sure of if it's more unstructured, ballpark this number"
             type: number
           -
-            label: Site Visit Required?
+            label: Site Visit?
             dbfield: gm_site_visit
-            desc: "Will you conduct a site visit as part of the application process?"
+            desc: "Will you conduct a site visit as part of the application process? If uncertain, select 'Site Visit'"
             type: dropdown
             content:
-              - label: Site Visit Required
-              - label: Site Visit Not Required
+              - label: Site Visit
+              - label: No Site Visit
           -
-            label: LOI?
+            label: LOI/Concept Note?
             dbfield: gm_loi
-            desc: "Will you screen applicants through a letter of inquiry prior to the full proposal?"
+            desc: "Will you screen applicants through a letter of inquiry/concept note prior to the full proposal?"
             type: dropdown
             content:
-              - label: LOI Required
-              - label: LO not Required
+              - label: LOI/Concept Note Required
+              - label: LOI/Concept Note not Required
           -
             label: Number of Reports Required?
             dbfield: gm_number_of_reports
@@ -113,9 +113,9 @@
             desc: "How much time is spent by each staff person on researching this grant opportunity, its requirements, and the organization's potential eligibility"
             type: peoplelist
           -
-            label: Review LOI Requirements
+            label: Review LOI/Concept Note Requirements
             dbfield: gm_loi_requirements
-            desc: "How much time is spent reviewing the requirements for the letter of inquiry?"
+            desc: "How much time is spent reviewing the requirements for the letter of inquiry/concept note?"
             type: peoplelist
           -
             label: Pre-Submission Communication with Funder
@@ -123,9 +123,9 @@
             desc: "How much time do you estimate grantees will spend communicating with the funder prior to submitting the LOI?"
             type: peoplelist
           -
-            label: Draft and Finalize LOI 
+            label: Draft and Finalize LOI/Concept Note 
             dbfield: gm_draft_loi
-            desc: "How much time do you estimate it will take all involved grantee staff to draft and finalize the LOI?"
+            desc: "How much time do you estimate it will take all involved grantee staff to draft and finalize the LOI/concept note?"
             type: peoplelist
           -
             label: If Invited, Review Proposal Requirements
@@ -275,9 +275,9 @@
             desc: "How much time do you anticipate it will take to prepare public-facing descriptions of the program with detailed descriptions of its goals and funding priorities?"
             type: peoplelist
           -
-            label: Publish Requirements for LOI (If Applicable)
+            label: Publish Requirements for LOI/Concept Note (If Applicable)
             dbfield: program_loi
-            desc: "How much time do you anticipate it will take you to publish and disseminate the LOI requirements?)"
+            desc: "How much time do you anticipate it will take you to publish and disseminate the LOI/concept note requirements?)"
             type: peoplelist
           -
             label: Determine Requirements for Proposals
@@ -285,14 +285,14 @@
             desc: "How much time do you anticipate it will take staff to create the application and outline grantee requirements, including supporting documentation?"
             type: peoplelist
           -
-            label: Field LOI Questions from Applicants
+            label: Field LOI/Concept Note Questions from Applicants
             dbfield: field_loi_q
-            desc: "How much time do you estimate it will take your staff to field questions from applicants during the LOI stage?"
+            desc: "How much time do you estimate it will take your staff to field questions from applicants during the LOI/concept note stage?"
             type: peoplelist
           -
-            label: Review Submitted LOIs
+            label: Review Submitted LOIs/Concept Notes
             dbfield: review_submitted_lois
-            desc: "How much time do you estimate staff will spend reviewing the LOIs submitted? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
+            desc: "How much time do you estimate staff will spend reviewing the LOIs/concept notes submitted? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
             type: peoplelist
           -
             label: Decide Which Proposals to Invite
