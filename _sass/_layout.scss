@@ -529,7 +529,7 @@ section.block {
             .button {
                 margin: 0;
                 padding: 5px;
-                font-size: 16px;
+                font-size: 12pt;
                 width: unset;
                 height: unset;
                 @media only screen and (max-width: 480px) {
@@ -575,6 +575,10 @@ section.block {
             width: 80px!important;
       }
     }
+}
+
+.question {
+    margin-bottom: 10px;
 }
 
 .resultblock {
@@ -703,7 +707,7 @@ section.block {
         right: 0;
         margin: 0;
         text-align: center;
-        height: 20px;
+        // height: 20px;
         @media only screen and (max-width: 480px) {
             position: initial;
             width: 90%;
