@@ -114,6 +114,35 @@ gc.Collections = gc.Collections || {};
             });
         },
 
+
+        getTemplate: function(data,callback,maker) {
+            // var endpoint = maker ? this.maker : this.url
+            var data = data || {};
+            if(getUrlParameter('id')) data.id = getUrlParameter('id');
+            $.ajax({
+            url : maker ? window.gc.api + '/template/maker' : window.gc.api + '/template/grant' ,
+            type : 'GET',
+            xhrFields: {
+                withCredentials: true
+            },
+            headers: {
+                'Access-Control-Allow-Origin': true
+            },
+            crossDomain: true,
+            data: data,
+            dataType:'json',
+            success : function(data,status,xfr) {              
+                // console.log("Get Success",data,status,xfr)
+                callback(data)
+            },
+            error : function(request,error)
+            {
+                // alert("Get Error: "+JSON.stringify(request));
+                callback("err",error)
+            }
+            });
+        },
+
         sendObject: function(data,callback) {
             console.log("Data got to",data)
             if(getUrlParameter('id')) data._id = getUrlParameter('id')
