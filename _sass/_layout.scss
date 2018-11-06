@@ -575,6 +575,14 @@ section.block {
             width: 80px!important;
       }
     }
+    .ppllistdel { display: none; }
+    &:hover {
+        .ppllistdel {
+            display: inline-block;
+            float: right;
+            color: red;
+        }
+    }
 }
 
 .question {

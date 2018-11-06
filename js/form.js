@@ -13,6 +13,7 @@ gc.Views = gc.Views || {};
             , "click .delete": "deleteGrant"
             , "click .login-toggle": "tab"
             , "click #consent": "activateButton"
+            , "click .ppllistdel": "deleteHourObject"
         },
         template: {},
         templates: [],
@@ -176,7 +177,10 @@ gc.Views = gc.Views || {};
         },
 
         deleteHourObject: function(e) {
-
+           var target = $(e.currentTarget).parent()
+           // console.log(target) 
+           target.remove()
+           
         },
 
         // This populates dynamic fields

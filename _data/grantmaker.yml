@@ -47,8 +47,8 @@
             desc: "Any changes to this grant will result in template modifications"
             type: dropdown
             content:
-              - label: yes
               - label: no
+              - label: yes
       -
         header: "Program Logistics"
         name: "prog_logistics"
