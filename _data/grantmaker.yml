@@ -40,6 +40,15 @@
             desc: "How many applications do you expect this program will receive?"
             required: yes
             type: number
+          -
+            label: Save this form as a Template?
+            dbfield: template
+            required: true
+            desc: "Any changes to this grant will result in template modifications"
+            type: dropdown
+            content:
+              - label: yes
+              - label: no
       -
         header: "Program Logistics"
         name: "prog_logistics"

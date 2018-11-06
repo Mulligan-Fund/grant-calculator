@@ -215,7 +215,7 @@ gc.Views = gc.Views || {};
                     }
                })
                _this.template = _.template($('#ppllistTemplate').html())
-            }, checkIfURL('gmaker'),checkIfURL('profile') )
+            }, checkIfURL('gmaker'),false)
         },
 
         pageTurn: function(e) {

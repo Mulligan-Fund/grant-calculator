@@ -16,7 +16,7 @@
             type: text
           - 
             label: Grant Program Name
-            dbfield: grant_program
+            dbfield: program_name
             desc: "What is the name of this grant program?"
             type: text
           -
@@ -32,6 +32,15 @@
             content:
               - label: Received Prior Grant
               - label: Haven't Recevied Prior Grant
+          -
+            label: Save this form as a Template?
+            dbfield: template
+            required: true
+            desc: "Any changes to this grant will result in template modifications"
+            type: dropdown
+            content:
+              - label: yes
+              - label: no
       -
         header: "Grant Details"
         name: "details"

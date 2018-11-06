@@ -18,6 +18,18 @@ page: form
 		</section>
 		{% endif %}
 		
+		{% if forloop.first %}
+		<section class="block" id="template">
+			<div class="form col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+				<h3>Load from template?</h3>
+				<p>Note: Any changes you have made will not bechanged by the template.</p>
+				<select id="templateselect">
+					<option>Loading templates...</option>
+				</select>
+			</div>
+		</section>
+		{% endif %}
+		
 		<div class="title"><h2>{{ form.name }}</h2></div>
 		{% for section in form.sections %}
 		<section class="block" id="{{section.name}}">

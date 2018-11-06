@@ -120,7 +120,7 @@ gc.Collections = gc.Collections || {};
             var data = data || {};
             if(getUrlParameter('id')) data.id = getUrlParameter('id');
             $.ajax({
-            url : maker ? window.gc.api + '/template/maker' : window.gc.api + '/template/grant' ,
+            url : maker ? (window.gc.api + '/template/maker') : (window.gc.api + '/template/seeker') ,
             type : 'GET',
             xhrFields: {
                 withCredentials: true
