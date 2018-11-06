@@ -98,6 +98,7 @@ gc.Views = gc.Views || {};
                     
                     pa.push(tt)
                 })
+
                 i[t.attr('id')] = pa
                 console.log("Handling ppl",i)
 
@@ -180,7 +181,7 @@ gc.Views = gc.Views || {};
            var target = $(e.currentTarget).parent()
            // console.log(target) 
            target.remove()
-           
+           this.submitField(target.parent())
         },
 
         // This populates dynamic fields
