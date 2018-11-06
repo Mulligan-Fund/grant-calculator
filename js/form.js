@@ -15,6 +15,7 @@ gc.Views = gc.Views || {};
             , "click #consent": "activateButton"
         },
         template: {},
+        templates: [],
         initialize: function() {
         	var _this = this
             if($(this.el).hasClass('page')) {
@@ -23,6 +24,7 @@ gc.Views = gc.Views || {};
                 _this.template = _.template($('#ppllistTemplate').html())
                 this.getObjectList()
                 this.getFields()
+                this.getTemplateList()
                 this.listenTo('click .delete',this.deleteGrant)
             }
         },
@@ -115,17 +117,17 @@ gc.Views = gc.Views || {};
                     t = data
                    $('.page').each(function(z,x) {
                         $(x).find('form').each(function(o,p) {
-                            console.log("Pop page",o)
+                            // console.log("Pop page",o)
 
                             $(p).find('input').each(function(e,i){
                                 var id = $(i).attr('id')
-                                console.log(id,t[id])
+                                // console.log(id,t[id])
                                 $('#'+id).val(t[id])
                             })
 
                            $(p).find('select').each(function(e,i){
                                 var id = $(i).attr('id')
-                                console.log(id,t[id])
+                                // console.log(id,t[id])
                                 // console.log("Trying to set attr",'option[data_id="'+ data[id] +'"]')
                                 $('#'+id).children('option[data_id="'+ t[id] +'"]').attr('selected',true)
                             })
@@ -142,7 +144,7 @@ gc.Views = gc.Views || {};
         // These handle the people list
         getFieldArray: function(id,data) {
           var _this = this
-          if(data[id].length > 0) console.log("GetFieldArray",id,data[id])
+          // if(data[id].length > 0) console.log("GetFieldArray",id,data[id])
           $.each(data[id],function(e,i){
             // console.log("GetFieldArray",e,i)
                 _this.makeHourObject($('#'+id), {
@@ -194,6 +196,26 @@ gc.Views = gc.Views || {};
                })
                _this.template = _.template($('#ppllistTemplate').html())
             })
+        },
+
+        // This populates template fields
+        getTemplateList: function(context) {
+            var _this = this
+            var t = {}
+            this.collection.getTemplate({}, function(data){
+                console.log("template list data",data)
+                _this.templates = data
+               $('#templateselect').each(function(i,l){
+
+                    $(l).find('option').remove();
+                    $(l).append('<option value="" selected disabled hidden>Choose a template</option>');
+
+                    for(var t in data) {
+                        $(l).append("<option data_id='"+data[t]._id+"''>"+ data[t].program_name +"</option>")
+                    }
+               })
+               _this.template = _.template($('#ppllistTemplate').html())
+            }, checkIfURL('gmaker'),checkIfURL('profile') )
         },
 
         pageTurn: function(e) {
