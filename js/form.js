@@ -149,12 +149,14 @@ gc.Views = gc.Views || {};
           // if(data[id].length > 0) console.log("GetFieldArray",id,data[id])
           $.each(data[id],function(e,i){
             // console.log("GetFieldArray",e,i)
-                _this.makeHourObject($('#'+id), {
-                    id: e
-                    , dbid: data[id]
-                    , personid: i.person
-                    , hours: i.hours
-                })
+                if(i != null) {
+                    _this.makeHourObject($('#'+id), {
+                        id: e
+                        , dbid: data[id]
+                        , personid: i.person
+                        , hours: i.hours
+                    })
+                }
             })
         },
         
@@ -179,10 +181,41 @@ gc.Views = gc.Views || {};
 
         deleteHourObject: function(e) {
            var target = $(e.currentTarget).parent()
-           // console.log(target) 
-           target.remove()
-           this.submitField(target.parent())
+           var delid = target.attr("db_id")
+           this.deleteField(target,delid,function() {
+            target.remove() 
+           })
         },
+
+
+        deleteField: function(e,delid,callback){
+            var _this = this;
+            var i={};
+
+            var bod = e.parent()
+            console.log("bod",bod)
+            var pa = []
+            bod.find('.time').each(function(i,e){
+                // console.log(delid,i)
+                var tt = null
+                if(delid != i) {
+                    tt = {
+                        "person": $(e).find('.objlist').children("option:selected").attr("data_id")
+                        , "hours": $(e).find('.hours').val()
+                    }
+                }
+                console.log("time item",tt)
+                pa.push(tt)
+            })
+            i[bod.parent().attr('id')] = pa
+            console.log("Del ppl",i)
+
+
+            this.collection.sendData(i, function(data,next) {
+                callback()
+            },checkIfURL('gmaker'),checkIfURL('profile'))
+        },
+
 
         // This populates dynamic fields
         getObjectList: function(context) {
