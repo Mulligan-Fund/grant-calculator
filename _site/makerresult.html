@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Grant Calculator</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/grid.css">
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/main.css">
+
+  <script src="http://localhost:4000/grant-calculator/js/jquery.min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/underscore-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/backbone-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/main.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/user.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/object.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/grant.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/form.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/list.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/results.js" type="text/javascript"></script>
+
+
+  <link rel="canonical" href="http://localhost:4000/grant-calculator/makerresult.html">
+  <link rel="alternate" type="application/rss+xml" title="Grant Calculator" href="http://localhost:4000/grant-calculator/feed.xml">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+
+
+  <meta name="google-site-verification" content="V-019dOb2XexEmETxPju1TJkaLbAyz0iSwGTdaqhsPk" />
+
+</head>
+
+
+  <body>
+    <header class="site-header">
+	<div class="container">
+	  <div class="row">
+	    <div class="logo col col--xs-2 col--sm-2 col--md-2 col--lg-2">
+	      <a href="http://localhost:4000/grant-calculator/list">
+	        <img src="http://localhost:4000/grant-calculator/img/logo.png" />
+	        <small>Beta</small>
+	      </a>
+	    </div>
+	    <div class="nav-links col col--xs-0 col--sm-0 col--md-7 col--lg-7  mobile-hide">
+	    	<ul class="left">	
+	    		<li><a href="http://localhost:4000/grant-calculator/list">Grants</a></li>
+	    		<li><a href="http://localhost:4000/grant-calculator/people">Team</a></li>
+	    		<li><a href="http://localhost:4000/grant-calculator/logout">Logout</a></li>
+	    		<li><a class="button" href="https://goo.gl/forms/qkGEc8joAGwtzgt53" target="_blank">Leave Feedback!</a></li>
+	    	</ul>
+	    </div>
+	    
+	    <div class="nav-links col col--xs-10 col--sm-10 col--md-3 col--lg-3">
+	    	<ul>
+	    		
+	    		<li><a class="local button" href="http://localhost:4000/grant-calculator/gmaker">Edit Program</a></li>
+	    		
+	    	</ul>
+	    </div>
+	    
+	</div>
+  </div>
+</header>
+
+    <div class="form-content">
+      <div class="container">
+        <div class="row">
+          <div class="col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+          <div class="resultblock">
+	<div class="focus">
+		<h1>Total Expected Value</h1>
+		<div id="expected"></div>
+	</div>
+	<div class="focus">
+		<h1>Cost to Administer</h1>
+		<div id="cost"></div>
+	</div>
+	<div class="focus total">
+		<h1>Net Program Value</h1>
+		<div id="total"></div>
+	</div>
+	<div class="details">
+		<h2>5 Tips for Streamlining Your Process</h2>
+		<h3>Was your net grant lower than you expected?</h3>
+		<p>NET GRANT: The grant money available to apply to real work, after subtracting the cost of applying for, monitoring, and reporting on a grant.</ br>
+		"Because it took us 40 hours to apply for that $5,000, the net grant was less than $3,000."</p>
+		<p><h3>Follow these 5 Tips:</h3></p>
+		<p><ol>
+			<li><b>Investigate Project Streamline's <a href="https://www.peakgrantmaking.org/projectstreamline/4coreprinciples/" target="_blank">4 Core Principles</a></b>
+			<p>
+			<ul>
+				<li>Take a fresh look at your organization's application and reporting requirements</li>
+				<li>Right-size Grant Expectations</li>
+				<li>Relieve the Burden</li>
+				<li>Improve Communication</li>
+			</ul>
+			</p>
+			</li>
+			<li><b>Discover <a href="https://www.peakgrantmaking.org/projectstreamline/publications/champions-toolkit/whats-first-five-practices-matter/" target="_blank">5 Practices that Matter</a></b>
+				<p>Find some practical advice for online application systems, financial reporting, implementing staged application processes well, and simplifying requirements.</p>
+			</li>
+			<li><b>Access <a href="https://www.peakgrantmaking.org/projectstreamline/publications/champions-toolkit/" target="_blank">Project Streamline's Champions Toolkit</a></b>
+				<p>Use these practical tools and resources to understand your current practice, make the case for streamlining, benchmark against colleague organizations, and identify opportunities to make meaningful change.</p>
+			</li>
+			<li><b>Do Your Homework</b>
+				<p>Our report, <a href="https://www.peakgrantmaking.org/projectstreamline/publications/drowning-paperwork-distracted-purpose/" target="_blank">Drowning in Paperwork, Distracted from Purpose</a>, formed the basis for Project Streamline and continues to be used by grantmakers to better understand inefficiencies in their system. Barriers to change, and principles grantmakers can adopt to improve their practice. </p>
+			</li>
+			<li><b><a href="https://www.peakgrantmaking.org/" target="_blank">Join a Network</a></b>
+				<p>PEAK Grantmaking is a community for grantmakers who want to do their work more effectively and efficiently. CONNECT with others doing this work every day to share tips, tricks and resources.</p>
+			</li>
+			</ol>
+	</div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+  </body>
+
+</html>

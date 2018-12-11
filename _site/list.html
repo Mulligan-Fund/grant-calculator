@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Grant Calculator</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/grid.css">
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/main.css">
+
+  <script src="http://localhost:4000/grant-calculator/js/jquery.min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/underscore-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/backbone-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/main.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/user.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/object.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/grant.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/form.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/list.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/results.js" type="text/javascript"></script>
+
+
+  <link rel="canonical" href="http://localhost:4000/grant-calculator/list.html">
+  <link rel="alternate" type="application/rss+xml" title="Grant Calculator" href="http://localhost:4000/grant-calculator/feed.xml">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+
+
+  <meta name="google-site-verification" content="V-019dOb2XexEmETxPju1TJkaLbAyz0iSwGTdaqhsPk" />
+
+</head>
+
+
+  <body>
+    <div class="fullbg yellow">
+      <div class="logo-block">
+       <img class="logo" src="http://localhost:4000/grant-calculator/img/logo.png">
+       <small style="font-size: 14pt; display: inline-block;">Beta</small>
+     </div>
+     <div>
+      <ul class="list-links"> 
+          <li><a href="http://localhost:4000/grant-calculator/list">Grants</a></li>
+          <li><a href="http://localhost:4000/grant-calculator/people">Team</a></li>
+          <li><a href="http://localhost:4000/grant-calculator/logout">Logout</a></li>
+          <li><a class="button" href="http://bit.ly/gcalcfb" target="_blank">Leave Feedback!</a></li>
+        </ul>
+     </div>
+     <div class="description">
+      <div class="step" style="text-align: center">
+        <a href="http://localhost:4000/grant-calculator/img/Net.Grant.Calculator.User.Guide.pdf" target="_blank">
+          <img style="width:100px; filter: drop-shadow(3px 4px 4px #444444);" src="http://localhost:4000/grant-calculator/img/grant-link.png">
+          <span style="display:block;margin-top: 20px;">Guide to Grant Calculator</span>
+        </a>
+      </div>
+      <div class="step">
+          <h2>Fill in your Profile</h2>
+          <div class="list" id="profile"></div>
+        </div>
+        <div class="step">
+          <h2>Add your team</h2>
+          <a class="button" href="./people">Edit your team</a>
+          <div class="objlist"><ul></ul></div>
+        </div>
+        <div class="step" style="display: none">
+          <h2>Grants</h2>
+          <a class="button" href="./form" class="create">New Grant</a>
+          <div class="list" id="seeker"></div>
+        </div>
+        <div class="step" style="display: none">
+          <h2>Grant Programs</h2>
+          <a class="button" href="./gmaker" class="create">New Program</a>
+          <div class="list" id="maker"></div>
+        </div>
+
+      </div>
+
+   </div>
+
+  </body>
+
+</html>

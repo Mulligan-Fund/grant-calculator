@@ -8,7 +8,6 @@ page: form
 
 	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
 		
-
 		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
 		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
 		{% if form.desc %}

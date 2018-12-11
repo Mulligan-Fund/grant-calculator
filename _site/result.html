@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Grant Calculator</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/grid.css">
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/main.css">
+
+  <script src="http://localhost:4000/grant-calculator/js/jquery.min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/underscore-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/backbone-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/main.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/user.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/object.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/grant.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/form.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/list.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/results.js" type="text/javascript"></script>
+
+
+  <link rel="canonical" href="http://localhost:4000/grant-calculator/result.html">
+  <link rel="alternate" type="application/rss+xml" title="Grant Calculator" href="http://localhost:4000/grant-calculator/feed.xml">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+
+
+  <meta name="google-site-verification" content="V-019dOb2XexEmETxPju1TJkaLbAyz0iSwGTdaqhsPk" />
+
+</head>
+
+
+  <body>
+    <header class="site-header">
+	<div class="container">
+	  <div class="row">
+	    <div class="logo col col--xs-2 col--sm-2 col--md-2 col--lg-2">
+	      <a href="http://localhost:4000/grant-calculator/list">
+	        <img src="http://localhost:4000/grant-calculator/img/logo.png" />
+	        <small>Beta</small>
+	      </a>
+	    </div>
+	    <div class="nav-links col col--xs-0 col--sm-0 col--md-7 col--lg-7  mobile-hide">
+	    	<ul class="left">	
+	    		<li><a href="http://localhost:4000/grant-calculator/list">Grants</a></li>
+	    		<li><a href="http://localhost:4000/grant-calculator/people">Team</a></li>
+	    		<li><a href="http://localhost:4000/grant-calculator/logout">Logout</a></li>
+	    		<li><a class="button" href="https://goo.gl/forms/qkGEc8joAGwtzgt53" target="_blank">Leave Feedback!</a></li>
+	    	</ul>
+	    </div>
+	    
+	    <div class="nav-links col col--xs-10 col--sm-10 col--md-3 col--lg-3">
+	    	<ul>
+	    		
+	    		<li><a class="local button" href="http://localhost:4000/grant-calculator/form">Edit Grant</a></li>
+	    		
+	    	</ul>
+	    </div>
+	    
+	</div>
+  </div>
+</header>
+
+    <div class="form-content">
+      <div class="container">
+        <div class="row">
+          <div class="col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+          <div class="resultblock">
+	<div class="focus">
+		<h1>Total Expected Value</h1>
+		<div id="expected"></div>
+	</div>
+	<div class="focus">
+		<h1>Calculated Grant Cost</h1>
+		<div id="cost"></div>
+	</div>
+	<div class="focus total">
+		<h1>Net Grant Value</h1>
+		<div id="total"></div>
+	</div>
+	<div class="details">
+		<h2>How to use this information</h2>
+		<p>The purpose of this tool is to help you and your organization decide which grants to pursue - and which grants not to pursue. While there is no bright line test for when a grant is not worth pursuing, think about whether the net grant value for this grant is sufficient for your organization to do what it needs to do with those grant funds. Will it cover the expenses your organization needs it to cover? If some - or all - of the grant is restricted, will it still cover the expenses your organization needs it to cover?</p>
+		<p>Deciding whether or not to pursue a grant is not only a matter of looking at each individual grant opportunity; it’s also a matter of looking at each opportunity relative to other opportunities. Take into account both the net value of each grant opportunity and the amount of effort that is required for each opportunity. Keep in mind that each grant your organization pursues has an associated opportunity cost; the hours spent pursuing one grant cannot be spent pursuing a different grant. Sometimes a large grant with a low probability of award and a high level of effort is not a good investment of time relative to a smaller grant with a higher probability that requires less effort.</p>
+		<p>Additional things to keep in mind when deciding whether or not to pursue a specific grant opportunity:
+			<ul>
+				<li>What is the community/constituent need the grant would address?</li>
+				<li>Is the opportunity consistent with your organization's mission, or will it push your organization to stray from its mission?</li>
+				<li>Does your organization have the capacity to execute the required activities for the grant, particularly given the net value your organization is likely to receive?  This includes having the right staff in place who have enough bandwidth to implement the activities</li>
+				<li>Does this grant rely on partner organizations?  Are your motivations aligned?  Will the other organization have the capacity to execute successfully?</li>
+			</ul>
+		</p>
+
+	</div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+  </body>
+
+</html>

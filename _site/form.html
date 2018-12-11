@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Grant Calculator</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/grid.css">
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/main.css">
+
+  <script src="http://localhost:4000/grant-calculator/js/jquery.min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/underscore-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/backbone-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/main.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/user.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/object.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/grant.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/form.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/list.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/results.js" type="text/javascript"></script>
+
+
+  <link rel="canonical" href="http://localhost:4000/grant-calculator/form.html">
+  <link rel="alternate" type="application/rss+xml" title="Grant Calculator" href="http://localhost:4000/grant-calculator/feed.xml">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+
+
+  <meta name="google-site-verification" content="V-019dOb2XexEmETxPju1TJkaLbAyz0iSwGTdaqhsPk" />
+
+</head>
+
+
+  <body>
+    <header class="site-header">
+	<div class="container">
+	  <div class="row">
+	    <div class="logo col col--xs-2 col--sm-2 col--md-2 col--lg-2">
+	      <a href="http://localhost:4000/grant-calculator/list">
+	        <img src="http://localhost:4000/grant-calculator/img/logo.png" />
+	        <small>Beta</small>
+	      </a>
+	    </div>
+	    <div class="nav-links col col--xs-0 col--sm-0 col--md-7 col--lg-7  mobile-hide">
+	    	<ul class="left">	
+	    		<li><a href="http://localhost:4000/grant-calculator/list">Grants</a></li>
+	    		<li><a href="http://localhost:4000/grant-calculator/people">Team</a></li>
+	    		<li><a href="http://localhost:4000/grant-calculator/logout">Logout</a></li>
+	    		<li><a class="button" href="https://goo.gl/forms/qkGEc8joAGwtzgt53" target="_blank">Leave Feedback!</a></li>
+	    	</ul>
+	    </div>
+	    
+	    <div class="nav-links col col--xs-10 col--sm-10 col--md-3 col--lg-3">
+	    	<ul>
+	    		
+	    		<li><a class="local button" href="http://localhost:4000/grant-calculator/result">Show Grant Result</a></li>
+	    		
+	    	</ul>
+	    </div>
+	    
+	</div>
+  </div>
+</header>
+
+    <div class="form-content">
+      <div class="container">
+        <div class="row">
+          <div class="col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+          <div class="formblock">
+	
+	    
+
+	<section class="page show col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="">
+
+		
+		<button class="turn next">Next Page</button>
+		
+		<section class="block">
+			<div class="form-desc col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+				Fill out the information below to help us understand the type of funding you are seeking and the work that will be required to go into that grant.
+			</div>
+		</section>
+		
+		
+		
+		<section class="block" id="template">
+			<div class="form col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+				<h3>Load from template?</h3>
+				<p>Note: Any changes you have made will not bechanged by the template.</p>
+				<select id="templateselect">
+					<option>Loading templates...</option>
+				</select>
+			</div>
+		</section>
+		
+		
+		<div class="title"><h2>Grant Information</h2></div>
+		
+		<section class="block" id="funder_info">
+			<h3>Funder Information</h3>
+			<form class="form">
+				
+				<div class="question ">
+				<label>Funder</label>
+				
+					<input class="live" type="text" id="funder" />
+				
+				
+					<div class="tag" data-tooltip="Name of the funder to which your org is considering applying">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Grant Program Name</label>
+				
+					<input class="live" type="text" id="program_name" />
+				
+				
+					<div class="tag" data-tooltip="What is the name of this grant program?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Primary Issue Addressed</label>
+				
+					<input class="live" type="text" id="primary_issue" />
+				
+				
+					<div class="tag" data-tooltip="What is the primary issue the grant will address?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Has your organization received a grant from this funder in the past?</label>
+				
+					<select id="past_grant" class="live">
+						
+							<option data_id="Received Prior Grant">Received Prior Grant</option>
+						
+							<option data_id="Haven't Recevied Prior Grant">Haven't Recevied Prior Grant</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="Has this funder supported your organization in the past?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question required">
+				<label>Save this form as a Template?</label>
+				
+					<select id="template" class="live">
+						
+							<option data_id="false">false</option>
+						
+							<option data_id="true">true</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="Any changes to this grant will result in template modifications">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+		<section class="block" id="details">
+			<h3>Grant Details</h3>
+			<form class="form">
+				
+				<div class="question required">
+				<label>Amount requested?</label>
+				
+					<div class="money"><input class="live" type="number" min="0.0" step="0.01" id="amount" /></div>
+				
+				
+					<div class="tag" data-tooltip="How much is your organization requesting from this funder?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question required">
+				<label>Expected likelihood of receiving grant</label>
+				
+					<div class="percentage"><input class="live" type="number" min="0.0" max="100.0" step="0.1" id="probability" /></div>
+				
+				
+					<div class="tag" data-tooltip="What's your best estimate of the percentage likelihood of getting this grant?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>New or Renewal Grant?</label>
+				
+					<select id="new_or_renewal" class="live">
+						
+							<option data_id="New Grant">New Grant</option>
+						
+							<option data_id="Renewal">Renewal</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="Is this a new grant?  Or a renewal of an existing grant?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Invited or Unsolicited?</label>
+				
+					<select id="invited_or_unsolicited" class="live">
+						
+							<option data_id="Invite-Only">Invite-Only</option>
+						
+							<option data_id="Unsolicited">Unsolicited</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="Was your organization invited to apply for this grant, or is the request unsolicited?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Type of Support</label>
+				
+					<select id="type_of_support" class="live">
+						
+							<option data_id="Capacity-building and technical assistance">Capacity-building and technical assistance</option>
+						
+							<option data_id="Capital and infrastructure">Capital and infrastructure</option>
+						
+							<option data_id="Continuing support">Continuing support</option>
+						
+							<option data_id="Financial sustainability">Financial sustainability</option>
+						
+							<option data_id="General support">General support</option>
+						
+							<option data_id="Individual development">Individual development</option>
+						
+							<option data_id="Leadership and professional development">Leadership and professional development</option>
+						
+							<option data_id="Network-building and collaboration">Network-building and collaboration</option>
+						
+							<option data_id="Outreach">Outreach</option>
+						
+							<option data_id="Policy advocacy and systems reform">Policy advocacy and systems reform</option>
+						
+							<option data_id="Presentations and productions">Presentations and productions</option>
+						
+							<option data_id="Product and service development">Product and service development</option>
+						
+							<option data_id="Program development">Program development</option>
+						
+							<option data_id="Regranting">Regranting</option>
+						
+							<option data_id="Research and evaluation">Research and evaluation</option>
+						
+							<option data_id="Other (please specify)">Other (please specify)</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="What type of grant? General operating support? Project support, etc?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+		<section class="block" id="logistics">
+			<h3>Grant Logistics</h3>
+			<form class="form">
+				
+				<div class="question ">
+				<label>Type of Application</label>
+				
+					<select id="type_of_application" class="live">
+						
+							<option data_id="online">online</option>
+						
+							<option data_id="via email">via email</option>
+						
+							<option data_id="on paper">on paper</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="How will you be submitting this application?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Length of Grant Award (in Years)</label>
+				
+					<input class="live" type="number" min="0.0" step="0.01" id="length_of_award" />
+				
+				
+					<div class="tag" data-tooltip="In years, what is the expected length of this grant award?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Number of Questions</label>
+				
+					<input class="live" type="number" min="0.0" step="0.01" id="number_of_questions" />
+				
+				
+					<div class="tag" data-tooltip="How many questions are in the application?  You can ballpark if you're not sure, or if the application is less structured, you can estimate or skip">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Site Visit?</label>
+				
+					<select id="site_visit" class="live">
+						
+							<option data_id="Site Visit">Site Visit</option>
+						
+							<option data_id="No Site Visit">No Site Visit</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="Will the funder conduct a site visit as part of the grant application process? If unsure, select 'Site Visit.'">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>LOI/Concept Note?</label>
+				
+					<select id="loi" class="live">
+						
+							<option data_id="LOI/Concept Note required">LOI/Concept Note required</option>
+						
+							<option data_id="LOI/Concept Note not required">LOI/Concept Note not required</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="Does this grant have a letter of intent/inquiry/concept Note prior to the full proposal?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Reports Required by Grantmaker</label>
+				
+					<select id="number_of_reports" class="live">
+						
+							<option data_id="Annual">Annual</option>
+						
+							<option data_id="Semi-Annual">Semi-Annual</option>
+						
+							<option data_id="Quarterly">Quarterly</option>
+						
+							<option data_id="Monthly">Monthly</option>
+						
+							<option data_id="Ad hoc">Ad hoc</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="What reports does this funder require?  If unsure, select annual.">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+
+		
+		<button class="turn next">Next Page</button>
+
+		
+
+		<div class="del col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2"">
+		<a href="#" class="delete">Delete Grant?</a>
+		</div>
+	</section>
+	
+	    
+
+	<section class="page  col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="">
+
+		<button class="turn prev">Prev Page</button>
+		
+		
+		<section class="block">
+			<div class="form-desc col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+				For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one/tenth of an hour.
+			</div>
+		</section>
+		
+		
+		
+		
+		<div class="title"><h2>Grant Cost</h2></div>
+		
+		<section class="block" id="applications">
+			<h3>Applications</h3>
+			<form class="form">
+				
+				<div class="question ">
+				<label>Preliminary and In-Depth Research on Opportunity</label>
+				
+					<div class="peoplelist" id="preliminary_rsch_people">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="preliminary_rsch_people">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time is spent by each staff person on researching this grant opportunity, its requirements, and the organization's potential eligibility">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Review LOI/Concept Note Requirements</label>
+				
+					<div class="peoplelist" id="loi_requirements">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="loi_requirements">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time is spent reviewing the requirements for the letter of inquiry/concept note?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Pre-Submission Communication with Funder</label>
+				
+					<div class="peoplelist" id="pre_loi_comm">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="pre_loi_comm">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate you will spend communicating with the funder prior to submitting the LOI/concept note?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Draft and Finalize LOI/Concept Note</label>
+				
+					<div class="peoplelist" id="draft_loi">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="draft_loi">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate it will take all involved staff to draft and finalize the LOI/concept note?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>If Invited, Review Proposal Requirements</label>
+				
+					<div class="peoplelist" id="proposal_requirements">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="proposal_requirements">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time is spent reviewing the requirements for the proposal?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Pre-Submission Communication with Funder</label>
+				
+					<div class="peoplelist" id="pre_proposal_comm">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="pre_proposal_comm">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate you will spend communicating with the funder prior to submitting the proposal?)">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Internal Meetings about Proposal</label>
+				
+					<div class="peoplelist" id="pre_proposal_mtg">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="pre_proposal_mtg">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate staff will spend meeting about the proposal?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Gather Supporting Documentation</label>
+				
+					<div class="peoplelist" id="gather_docs">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="gather_docs">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate staff will spend gathering the supporting documentation, like 501(c)(3) status, letters of support, staff bios, board list, etc.">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Prepare Budget and Budget Narrative</label>
+				
+					<div class="peoplelist" id="prepare_budget">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="prepare_budget">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate staff will spend preparing the grant budget and budget narrative?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Draft and Finalize Proposal</label>
+				
+					<div class="peoplelist" id="draft_proposal">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="draft_proposal">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate staff will spend on actually drafting and finalizing the proposal?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Formatting Application to Fit Requirements</label>
+				
+					<div class="peoplelist" id="format_app">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="format_app">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you think it will take you to enter this information into the online application or finalizing PDFs and documents for submission?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Describe other application-related activities</label>
+				
+					<input class="live" type="text" id="gs_applications_other_label" />
+				
+				
+					<div class="tag" data-tooltip="What is the name for these other activities?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Other application-related activities</label>
+				
+					<div class="peoplelist" id="gs_applications_other">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="gs_applications_other">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="Fill in staff time for any other tasks not included above.">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+		<section class="block" id="compliance">
+			<h3>Compliance & Decision-Making</h3>
+			<form class="form">
+				
+				<div class="question ">
+				<label>Answering Follow-Up Questions from Grantmaker</label>
+				
+					<div class="peoplelist" id="follow_up_qs">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="follow_up_qs">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate staff will spend answering follow up questions from the funder?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Staff Time for Site Visit</label>
+				
+					<div class="peoplelist" id="site_visit">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="site_visit">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate staff will spend preparing for, attending, and following up from the site visit, if applicable?)">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Award Letter Review/Sign/Return</label>
+				
+					<div class="peoplelist" id="letter_signing">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="letter_signing">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate it will take to review the award letter and return a signed copy to the funder?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Post-Award Communications</label>
+				
+					<div class="peoplelist" id="post_grant_comm">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="post_grant_comm">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate it will take to participate in any other post-award communications with the funder?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Describe other compliance-related activities</label>
+				
+					<input class="live" type="text" id="gs_compliance_other_label" />
+				
+				
+					<div class="tag" data-tooltip="What is the name for these other activities?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Other compliance-related activities</label>
+				
+					<div class="peoplelist" id="gs_compliance_other">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="gs_compliance_other">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="Fill in staff time for any other tasks not included above.">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+		<section class="block" id="reporting">
+			<h3>Monitoring & Reporting</h3>
+			<form class="form">
+				
+				<div class="question ">
+				<label>Review Report Requirements</label>
+				
+					<div class="peoplelist" id="report_requirements">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="report_requirements">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate it will take you to review and understand the reporting requirements?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Ensure Systems Are Set up to Track Data and Financials</label>
+				
+					<div class="peoplelist" id="collect_data">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="collect_data">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate it will take you to set up data reports and financial reports or systems to support tracking the required grant metrics? This may include customizing database reports, updating database fields or records, updating general ledger or other financial tracking information, informing staff how to track time or expenses against the grant, etc.)">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Prepare Financials for Report</label>
+				
+					<div class="peoplelist" id="prepare_financials">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="prepare_financials">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you estimate it will take you to prepare the financial information and other supporting documentation required in the report?)">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Stay Informed about Modifications</label>
+				
+					<div class="peoplelist" id="modifications">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="modifications">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you think you will spend staying on top of grant outcomes, requesting extensions, reporting staff changes, reporting a change in expected deliverables, outcomes, or budget reallocation, etc.)">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Draft and Finalize Reports</label>
+				
+					<div class="peoplelist" id="draft_report">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="draft_report">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you think it will take you to draft and finalize the required reports?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Respond To Any Grantmaker Questions</label>
+				
+					<div class="peoplelist" id="monitoring_qs">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="monitoring_qs">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="How much time do you think you will spend following up with grantmaker questions about the report's contents?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Describe other reporting-related activities</label>
+				
+					<input class="live" type="text" id="gs_reporting_other_label" />
+				
+				
+					<div class="tag" data-tooltip="What is the name for these other activities?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Other reporting-related activities</label>
+				
+					<div class="peoplelist" id="gs_reporting_other">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="gs_reporting_other">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="Fill in staff time for any other tasks not included above.">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+		<section class="block" id="additional">
+			<h3>Additional Hours</h3>
+			<form class="form">
+				
+				<div class="question ">
+				<label>Describe other activities</label>
+				
+					<input class="live" type="text" id="gs_other_label" />
+				
+				
+					<div class="tag" data-tooltip="What is the name for these other activities?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label></label>
+				
+					<div class="peoplelist" id="gs_additional_other">
+						<div class="header">
+							<div>Contributor</div>
+							<div>Hours</div>
+						</div>
+						<div class="bod">
+
+						</div>
+						<a class="button people-button" id="gs_additional_other">Add contributor</a>
+						</div>
+				
+				
+					<div class="tag" data-tooltip="Fill in staff time for any other tasks not included above.">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+
+		<button class="turn prev">Prev Page</button>
+		
+
+		<button class="local bottomgrant" href="http://localhost:4000/grant-calculator/result">Grant Result</button>
+
+		<div class="del col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2"">
+		<a href="#" class="delete">Delete Grant?</a>
+		</div>
+	</section>
+	
+</div>
+<div style="display:none" id="ppllistTemplate">
+	<div class="time" db_id="<%= id %>" obj_id="<%= id %>">
+		<select id="<%= dbid %>" class="live ppl objlist">
+			<option>Loading contributors...</option>
+		</select>
+		<input class="live ppl hours" type="number" min="0.0" step="0.1" id="<%= dbid %>" value="0" />
+		<a class="ppllistdel">x</a>
+	</div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+  </body>
+
+</html>

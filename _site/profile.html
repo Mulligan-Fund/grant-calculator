@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Grant Calculator</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/grid.css">
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/main.css">
+
+  <script src="http://localhost:4000/grant-calculator/js/jquery.min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/underscore-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/backbone-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/main.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/user.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/object.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/grant.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/form.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/list.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/results.js" type="text/javascript"></script>
+
+
+  <link rel="canonical" href="http://localhost:4000/grant-calculator/profile.html">
+  <link rel="alternate" type="application/rss+xml" title="Grant Calculator" href="http://localhost:4000/grant-calculator/feed.xml">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+
+
+  <meta name="google-site-verification" content="V-019dOb2XexEmETxPju1TJkaLbAyz0iSwGTdaqhsPk" />
+
+</head>
+
+
+  <body>
+    <header class="site-header">
+	<div class="container">
+	  <div class="row">
+	    <div class="logo col col--xs-2 col--sm-2 col--md-2 col--lg-2">
+	      <a href="http://localhost:4000/grant-calculator/list">
+	        <img src="http://localhost:4000/grant-calculator/img/logo.png" />
+	        <small>Beta</small>
+	      </a>
+	    </div>
+	    <div class="nav-links col col--xs-0 col--sm-0 col--md-7 col--lg-7  mobile-hide">
+	    	<ul class="left">	
+	    		<li><a href="http://localhost:4000/grant-calculator/list">Grants</a></li>
+	    		<li><a href="http://localhost:4000/grant-calculator/people">Team</a></li>
+	    		<li><a href="http://localhost:4000/grant-calculator/logout">Logout</a></li>
+	    		<li><a class="button" href="https://goo.gl/forms/qkGEc8joAGwtzgt53" target="_blank">Leave Feedback!</a></li>
+	    	</ul>
+	    </div>
+	    
+	</div>
+  </div>
+</header>
+
+    <div class="form-content">
+      <div class="container">
+        <div class="row">
+          <div class="col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+          <div class="formblock">
+	
+	    
+
+	<section class="page show col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="">
+		
+
+		
+		
+		
+		<section class="block">
+			<div class="form-desc col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+				Please tell us a bit about yourself and the organziation.
+			</div>
+		</section>
+		
+		
+		<div class="title"><h2>User Information</h2></div>
+		
+		<section class="block" id="user_details">
+			<h3>User Information</h3>
+			<form class="form">
+				
+				<div class="question ">
+				<label>What is your first name?</label>
+				
+					<input class="live" type="text" id="firstname" />
+				
+				
+					<div class="tag" data-tooltip="First name of user">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>What is your last name?</label>
+				
+					<input class="live" type="text" id="lastname" />
+				
+				
+					<div class="tag" data-tooltip="Last name of user">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>What is your title?</label>
+				
+					<input class="live" type="text" id="user_title" />
+				
+				
+					<div class="tag" data-tooltip="What is your title in the organization?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question required">
+				<label>Are you a Grant Seeker or Grant Maker?</label>
+				
+					<select id="grantorg" class="live">
+						
+							<option data_id="Maker">Maker</option>
+						
+							<option data_id="Seeker">Seeker</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="Are you searching for a grant, or providing grants to others?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+		<section class="block" id="org_details">
+			<h3>Organzation Details Details</h3>
+			<form class="form">
+				
+				<div class="question ">
+				<label>Name of your organization?</label>
+				
+					<input class="live" type="text" id="name_of_org" />
+				
+				
+					<div class="tag" data-tooltip="What is your org called?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>In which state is your organization located?</label>
+				
+					<select id="org_state" class="live">
+						
+							<option data_id="AL">AL</option>
+						
+							<option data_id="AK">AK</option>
+						
+							<option data_id="AZ">AZ</option>
+						
+							<option data_id="AR">AR</option>
+						
+							<option data_id="CA">CA</option>
+						
+							<option data_id="CO">CO</option>
+						
+							<option data_id="CT">CT</option>
+						
+							<option data_id="DC">DC</option>
+						
+							<option data_id="DE">DE</option>
+						
+							<option data_id="FL">FL</option>
+						
+							<option data_id="GA">GA</option>
+						
+							<option data_id="GU">GU</option>
+						
+							<option data_id="HI">HI</option>
+						
+							<option data_id="ID">ID</option>
+						
+							<option data_id="IL">IL</option>
+						
+							<option data_id="IN">IN</option>
+						
+							<option data_id="IA">IA</option>
+						
+							<option data_id="KS">KS</option>
+						
+							<option data_id="KY">KY</option>
+						
+							<option data_id="LA">LA</option>
+						
+							<option data_id="ME">ME</option>
+						
+							<option data_id="MD">MD</option>
+						
+							<option data_id="MA">MA</option>
+						
+							<option data_id="MI">MI</option>
+						
+							<option data_id="MN">MN</option>
+						
+							<option data_id="MS">MS</option>
+						
+							<option data_id="MO">MO</option>
+						
+							<option data_id="MT">MT</option>
+						
+							<option data_id="NE">NE</option>
+						
+							<option data_id="NV">NV</option>
+						
+							<option data_id="NH">NH</option>
+						
+							<option data_id="NJ">NJ</option>
+						
+							<option data_id="NM">NM</option>
+						
+							<option data_id="NY">NY</option>
+						
+							<option data_id="NC">NC</option>
+						
+							<option data_id="ND">ND</option>
+						
+							<option data_id="OH">OH</option>
+						
+							<option data_id="OK">OK</option>
+						
+							<option data_id="OR">OR</option>
+						
+							<option data_id="PA">PA</option>
+						
+							<option data_id="PR">PR</option>
+						
+							<option data_id="RI">RI</option>
+						
+							<option data_id="SC">SC</option>
+						
+							<option data_id="SD">SD</option>
+						
+							<option data_id="TN">TN</option>
+						
+							<option data_id="TX">TX</option>
+						
+							<option data_id="UT">UT</option>
+						
+							<option data_id="VT">VT</option>
+						
+							<option data_id="VI">VI</option>
+						
+							<option data_id="VA">VA</option>
+						
+							<option data_id="WA">WA</option>
+						
+							<option data_id="WV">WV</option>
+						
+							<option data_id="WI">WI</option>
+						
+							<option data_id="WY">WY</option>
+						
+							<option data_id="outside US">outside US</option>
+						
+					</select>
+				
+				
+					<div class="tag" data-tooltip="In which state is your organization located?  If your organization is not in the US, please select 'outside the US'">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>What is your organization's EIN?</label>
+				
+					<input class="live" type="number" min="0.0" step="0.01" id="ein" />
+				
+				
+					<div class="tag" data-tooltip="EIN number for tax purposes">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>What was your organization's revenue last year?</label>
+				
+					<input class="live" type="number" min="0.0" step="0.01" id="yearly_rev" />
+				
+				
+					<div class="tag" data-tooltip="What was your organization's revenue for the most recently-completed year?  Please approximate if you're not sure.">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Number of employees</label>
+				
+					<input class="live" type="number" min="0.0" step="0.01" id="number_employees" />
+				
+				
+					<div class="tag" data-tooltip="How many employees does your organization have?  Please approximate if you're unsure of the exact number.">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Number of grants</label>
+				
+					<input class="live" type="number" min="0.0" step="0.01" id="number_grants" />
+				
+				
+					<div class="tag" data-tooltip="If your organization is a grantmaker, how many grants did you award last year?  If your organization is a grantseeker, how many grants did you receive last year?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+				<div class="question ">
+				<label>Amount of grants</label>
+				
+					<input class="live" type="number" min="0.0" step="0.01" id="amount_grants" />
+				
+				
+					<div class="tag" data-tooltip="If your organization is a grantmaker, what is the total amount of grants you awarded last year?  If your organization is a grantseeker, what is the total amount of grants you received last year?">
+						<img src="http://localhost:4000/grant-calculator/img/tooltip.png"  />
+					</div>
+				
+				</div>
+				
+			</form>
+
+		</section>
+		
+
+		<a class="button bottomgrant" href="http://localhost:4000/grant-calculator/list">Return to List</a>
+
+		
+		
+	</section>
+	
+</div>
+<div style="display:none" id="ppllistTemplate">
+	<div class="time" db_id="<%= id %>" obj_id="<%= id %>">
+		<select id="<%= dbid %>" class="live ppl objlist">
+			<option>Loading contributors...</option>
+		</select>
+		<input class="live ppl hours" type="number" min="0.0" step="0.1" id="<%= dbid %>" value="0" />
+	</div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+  </body>
+
+</html>

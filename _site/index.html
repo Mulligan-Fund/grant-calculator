@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html>
-	{% include head.html %}
+	<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Grant Calculator</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/grid.css">
+  <link rel="stylesheet" href="http://localhost:4000/grant-calculator/css/main.css">
+
+  <script src="http://localhost:4000/grant-calculator/js/jquery.min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/underscore-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/backbone-min.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/main.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/user.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/object.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/grant.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/form.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/list.js" type="text/javascript"></script>
+  <script src="http://localhost:4000/grant-calculator/js/results.js" type="text/javascript"></script>
+
+
+  <link rel="canonical" href="http://localhost:4000/grant-calculator/">
+  <link rel="alternate" type="application/rss+xml" title="Grant Calculator" href="http://localhost:4000/grant-calculator/feed.xml">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+
+
+  <meta name="google-site-verification" content="V-019dOb2XexEmETxPju1TJkaLbAyz0iSwGTdaqhsPk" />
+
+</head>
+
 	<body class="landing">
 		<div class="landing-background"></div>
 		<div class="landing-cover"></div>
 		<div class="landing-links">
 			<ul>
-				<li><a href="{{ "/about" | prepend: site.baseurl | prepend: site.url }}" >About</a></li>
-				<li><a href="{{ "/contact" | prepend: site.baseurl | prepend: site.url }}">Contact Us</a></li>
+				<li><a href="http://localhost:4000/grant-calculator/about" >About</a></li>
+				<li><a href="http://localhost:4000/grant-calculator/contact">Contact Us</a></li>
 			</ul>
 		</div>
 		<div class="landing-wrapper">
 			<div class="left col col--xs-12 col--sm-12 col--md-8 col--lg-8">
 				<div class="logo-block">
-					<img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+					<img class="logo" src="http://localhost:4000/grant-calculator/img/logo.png">
 					<small style="font-size: 14pt; display: inline-block;">Beta</small>
 				</div>
 				<div class="marketing">
@@ -44,14 +77,14 @@
 							</p>
 							<div class="feature col col--xs-12 col--sm-12 col--md-6 col--lg-6">
 								<div class="logo">
-									<img src="{{ "/img/data.png" | prepend: site.baseurl | prepend: site.url }}">
+									<img src="http://localhost:4000/grant-calculator/img/data.png">
 								</div>
 								<h1>Data-Driven Grants</h1>
 								<p>Use data about specific grant opportunities to make informed decisions.</p>
 							</div>
 							<div class="feature col col--xs-12 col--sm-12 col--md-6 col--lg-6">
 								<div class="logo">
-									<img src="{{ "/img/refl.png" | prepend: site.baseurl | prepend: site.url }}">
+									<img src="http://localhost:4000/grant-calculator/img/refl.png">
 								</div>
 								<h1>Reflect and Learn</h1>
 								<p>Analysis that matches your organization's grant management processes.</p>
@@ -68,14 +101,14 @@
 						<div class="features">
 							<div class="feature col col--xs-12 col--sm-12 col--md-6 col--lg-6">
 								<div class="logo">
-									<img src="{{ "/img/flex.png" | prepend: site.baseurl | prepend: site.url }}">
+									<img src="http://localhost:4000/grant-calculator/img/flex.png">
 								</div>
 								<h1>Flexible Analysis</h1>
 								<p>Evaluate and improve grant practices to increase grant efficiency.</p>
 							</div>
 							<div class="feature col col--xs-12 col--sm-12 col--md-6 col--lg-6">
 								<div class="logo">
-									<img src="{{ "/img/lock.png" | prepend: site.baseurl | prepend: site.url }}">
+									<img src="http://localhost:4000/grant-calculator/img/lock.png">
 								</div>
 								<h1>Simple Security</h1>
 								<p>Securely Store information about grant programs to ensure privacy.</p>
@@ -105,10 +138,10 @@
 				</div>
 				<div class="description">
 					<h2>Grant Calculator is supported by</h2>
-					<img class="support" alt="Peak Grantmaking" src="{{ "/img/peak_logo.png" | prepend: site.baseurl | prepend: site.url }}">
-					<img class="support" alt="New America PIT" src="{{ "/img/newamerica_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+					<img class="support" alt="Peak Grantmaking" src="http://localhost:4000/grant-calculator/img/peak_logo.png">
+					<img class="support" alt="New America PIT" src="http://localhost:4000/grant-calculator/img/newamerica_logo.png">
 					<h2>Grant Calculator is a project of</h2>
-					<img class="support" alt="The Mulligan Fund" src="{{ "/img/mulligan_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+					<img class="support" alt="The Mulligan Fund" src="http://localhost:4000/grant-calculator/img/mulligan_logo.png">
 				</div>
 			</div>
 		</div>
