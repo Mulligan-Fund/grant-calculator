@@ -1,0 +1,62 @@
+---
+layout: default
+page: forgot
+---
+<h2>New Password</h2>
+<form onsubmit="sendNewPassword()">
+<input id="new" type="password" placeholder="new password" /><br>
+<input id="match" type="password" placeholder="confirm password" onChange="checkPasswordMatch();" /><br>
+<div id="divCheckPasswordMatch">Input a password</div><br>
+<button id="save" disabled>Save</button>
+</form>
+
+<script>
+function checkPasswordMatch() {
+    var password = $("#new").val();
+    var confirmPassword = $("#match").val();
+
+    if (password != confirmPassword) {
+        $("#divCheckPasswordMatch").html("Passwords do not match!");
+        $('#save').attr('disabled',true);
+    }
+    else {
+        $("#divCheckPasswordMatch").html("Passwords match.");
+        $('#save').attr('disabled',false);
+    }
+}
+
+function sendNewPassword() {
+	var password = $('#match').val()
+	var token = String(decodeURIComponent(window.location.search.substring(1))).split("=")[1]
+
+	$.ajax({
+	    url: getAPIPath() + "/forgot/"+ token +"?password="+ password,
+	    type: "POST",
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    headers: {
+	        "Access-Control-Allow-Origin": true
+	    },
+	    crossDomain: true,
+	    dataType: "json",
+	    data: {},
+	    success: function(data, status, xfr) {
+	        console.log("Put Success: ", data, status, xfr);
+	        callback(data);
+	    },
+	    error: function(request, error) {
+	        console.log(
+	            "Put Error: ",
+	            JSON.stringify(data),
+	            JSON.stringify(request)
+	        );
+	        callback(error);
+	    }
+	});
+}
+
+$(document).ready(function () {
+   $("#new, #match").keyup(checkPasswordMatch);
+});
+</script>
