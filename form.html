@@ -7,10 +7,7 @@ page: form
 	{% assign loopindex = forloop.index0%}    
 
 	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
-		<div class="pages">
-		{% if forloop.index > 1 %}<button class="turn prev">Prev</button>{% endif %}
-		{% if forloop.index < forloop.length %}<button class="turn next">Next</button>{% endif %}
-		</div>
+
 		{% if form.desc %}
 		<section class="block">
 			<div class="form-desc col col--xs-12 col--sm-12 col--md-12 col--lg-12">
@@ -30,7 +27,10 @@ page: form
 			</div>
 		</section>
 		{% endif %}
-		
+				<div class="pages">
+		{% if forloop.index > 1 %}<button class="turn prev">Prev</button>{% endif %}
+		{% if forloop.index < forloop.length %}<button class="turn next">Next</button>{% endif %}
+		</div>
 		<div class="title"><h2>{{ form.name }}</h2></div>
 		{% for section in form.sections %}
 		<section class="block" id="{{section.name}}">
@@ -38,6 +38,7 @@ page: form
 			<form class="form">
 				{% for question in section.questions %}
 				<div class="question {% if question.required %}required{% endif%}">
+				<div class="load"><img src="{{ "/img/load.gif" | prepend: site.baseurl | prepend: site.url }}"  /></div>
 				<label>{{question.label}}</label>
 				{% if question.type == "dropdown" %}
 					<select id="{{question.dbfield}}" class="live">

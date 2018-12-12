@@ -601,8 +601,24 @@ section.block {
 
 .question {
     margin-bottom: 30px;
+    position: relative;
     label {
         margin: 0 20px 0 0;
+    }
+    .load {
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        opacity: 0;
+        transition: all 0.1s ease-in-out 0.1s;
+        &.show {
+            opacity: 1;
+        }
+        img {
+            margin: 0;
+            height: 80px;
+            width: 80px;
+        }
     }
 }
 
@@ -711,6 +727,10 @@ section.block {
 
 .list-links {
     margin-top: 20px;
+    margin-left: 0;
+    li:first-child {
+        padding: 0;
+    }
     li {
         padding: 0 0 0 20px;
         display: inline-block;
