@@ -312,6 +312,8 @@ button,
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   opacity: 1;
+  font-style: italic;
+  color: crimson;
   &.hide {
     opacity: 0 !important;
   }
@@ -332,4 +334,3 @@ a {
   height: 50px;
   margin-top: 5px;
 }
-
