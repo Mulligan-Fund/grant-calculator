@@ -637,10 +637,25 @@ section.block {
 
 .form-desc {
     margin-bottom: 20px;
+    height: 100px;
+    overflow: auto;
 }
 
-.turn {
+.pages {
+    width: 200px;
+    position: relative;
     float: right;
+    button {
+        width: 100px;
+        position: absolute;
+        top: 0;
+    }
+    .next {
+        right: 0;
+    }
+    .prev {
+        left: 0;
+    }
 }
 
 .formblock {

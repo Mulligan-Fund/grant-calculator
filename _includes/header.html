@@ -8,10 +8,16 @@
 	      </a>
 	    </div>
 	    <div class="nav-links col col--xs-0 col--sm-0 col--md-7 col--lg-7  mobile-hide">
-	    	<ul class="left">	
+	    	<ul class="left">
+		    	{% if page.name == "people.html"
+		    	or page.url == "/form.html" 
+		    	or page.url == "/result.html"
+		    	or page.url == "/gmaker.html"
+		    	or page.url == "/makerresult.html"  %}
 	    		<li><a href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">Grants</a></li>
 	    		<li><a href="{{ "/people" | prepend: site.baseurl | prepend: site.url }}">Team</a></li>
 	    		<li><a href="{{ "/logout" | prepend: site.baseurl | prepend: site.url }}">Logout</a></li>
+	    		{% endif %}
 	    		<li><a class="button" href="https://goo.gl/forms/qkGEc8joAGwtzgt53" target="_blank">Leave Feedback!</a></li>
 	    	</ul>
 	    </div>
