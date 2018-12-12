@@ -3,7 +3,45 @@ layout: default
 page: forgot
 ---
 <h2>You forgot your password?</h2>
-<form>
-<input type="text" placeholder="What's your email?" />
-<button>Submit</button>
+<form onsubmit="queryPassword(event)">
+<input placeholder="Your email" type="email" id="email"
+       pattern=".+@*" size="50" required>
+<input type='submit' name='Submit' value='Submit' />
 </form>
+
+
+<script>
+
+function queryPassword(e) {
+	console.log(e)
+	e.preventDefault();
+	var email = $('#email').val();
+	var path = window.getAPIPath() + "/forgot/"+ email;
+	console.log(path)
+	$.ajax({
+	    url: path,
+	    type: "POST",
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    headers: {
+	        "Access-Control-Allow-Origin": true
+	    },
+	    crossDomain: true,
+	    dataType: "json",
+	    data: {},
+	    success: function(data, status, xfr) {
+	        console.log("Put Success: ", data, status, xfr);
+	        $("form").html("If you have an account with us, you'll recieve an email.")
+	    },
+	    error: function(request, error) {
+	    	$("form").html("Sorry, there was an error!")
+	        console.log(
+	            "Put Error: ",
+	            JSON.stringify(error),
+	            JSON.stringify(request)
+	        );
+	    }
+	});
+}
+</script>

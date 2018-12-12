@@ -30,7 +30,7 @@ function sendNewPassword() {
 	var token = String(decodeURIComponent(window.location.search.substring(1))).split("=")[1]
 
 	$.ajax({
-	    url: getAPIPath() + "/forgot/"+ token +"?password="+ password,
+	    url: getAPIPath() + "/reset/"+ token +"?password="+ password,
 	    type: "POST",
 	    xhrFields: {
 	        withCredentials: true
