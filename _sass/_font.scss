@@ -1,28 +1,30 @@
 // Mobile hack
-input[type='text'],
-input[type='number'],
-textarea, select {
+input[type="text"],
+input[type="number"],
+textarea,
+select {
   font-size: 16px;
 }
 
 .required {
-  input,select {
-    border-color: #D06E6E;
+  input,
+  select {
+    border-color: #d06e6e;
     border-width: 2px;
   }
-    &::after {
-      // margin-left: 150px;
-      // display: block;
-      color: #D06E6E;
-      content: 'Required';
-    }
+  &::after {
+    // margin-left: 150px;
+    // display: block;
+    color: #d06e6e;
+    content: "Required";
+  }
 }
 
 .orange {
-  color: #FF6543!important;
+  color: #ff6543 !important;
 }
 .black {
-  color: #6B6B6B!important;
+  color: #6b6b6b !important;
 }
 
 h1 {
@@ -47,23 +49,22 @@ h2 {
   }
 }
 h3 {
-/* Basic Grant Informat: */
+  /* Basic Grant Informat: */
   font-family: "Helvetica";
   font-size: 20px;
-  color: #383D42;
+  color: #383d42;
 }
 h4 {
-  
 }
 p {
-font-family: "Helvetica";
-font-size: 16px;
-color: #383D42;
+  font-family: "Helvetica";
+  font-size: 16px;
+  color: #383d42;
   a {
-    color: #FF6543;
+    color: #ff6543;
     text-decoration: none;
     &:visited {
-      color: #FF6543;
+      color: #ff6543;
     }
     &:hover {
       text-decoration: underline;
@@ -75,7 +76,7 @@ color: #383D42;
 }
 
 hr {
-  border: 1px solid #FF6543;
+  border: 1px solid #ff6543;
   border-width: 1px 0 0 0;
   margin: 30px 0;
 }
@@ -87,7 +88,7 @@ hr {
 label {
   font-family: "Helvetica";
   font-size: 16px;
-  color: #383D42;
+  color: #383d42;
   width: 140px;
   text-align: left;
   display: inline-block;
@@ -97,10 +98,11 @@ label {
   }
 }
 
-input,select {
+input,
+select {
   margin-bottom: 20px;
-  background: #FFFFFF;
-  box-shadow: inset 0 1px 5px 0 rgba(0,0,0,0.29);
+  background: #ffffff;
+  box-shadow: inset 0 1px 5px 0 rgba(0, 0, 0, 0.29);
   border-radius: 5px;
   padding: 0 20px 0 20px;
   height: 35px;
@@ -109,7 +111,7 @@ input,select {
 input {
   width: 260px;
   @media only screen and (max-width: 480px) {
-    width: 200px!important;
+    width: 200px !important;
   }
 }
 
@@ -122,31 +124,35 @@ select {
 
 .money {
   display: inline;
-  position:relative;
-  input { padding-left: 15px; }
+  position: relative;
+  input {
+    padding-left: 15px;
+  }
   &:after {
     position: absolute;
     left: 6px;
     top: 2px;
-    content: '$';
+    content: "$";
   }
 }
 
 .percentage {
   display: inline;
-  position:relative;
-  input { padding-left: 15px; }
+  position: relative;
+  input {
+    padding-left: 15px;
+  }
   &:after {
     position: absolute;
     right: 6px;
     top: 2px;
-    content: '%';
+    content: "%";
   }
 }
 
-
 .radio {
-  label,input {
+  label,
+  input {
     width: auto;
   }
   p {
@@ -155,57 +161,57 @@ select {
   }
   [type="radio"]:checked,
   [type="radio"]:not(:checked) {
-      position: absolute;
-      left: -9999px;
+    position: absolute;
+    left: -9999px;
   }
   [type="radio"]:checked + label,
-  [type="radio"]:not(:checked) + label
-  {
-      position: relative;
-      padding-left: 28px;
-      cursor: pointer;
-      line-height: 20px;
-      display: inline-block;
-      color: #666;
+  [type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
   }
   [type="radio"]:checked + label:before,
   [type="radio"]:not(:checked) + label:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 18px;
-      height: 18px;
-      border: 1px solid #ddd;
-      border-radius: 100%;
-      background: #fff;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
   }
   [type="radio"]:checked + label:after,
   [type="radio"]:not(:checked) + label:after {
-      content: '';
-      width: 12px;
-      height: 12px;
-      background: #ACC3CB;
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      border-radius: 100%;
-      -webkit-transition: all 0.2s ease;
-      transition: all 0.2s ease;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #acc3cb;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
   }
   [type="radio"]:not(:checked) + label:after {
-      opacity: 0;
-      -webkit-transform: scale(0);
-      transform: scale(0);
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
   }
   [type="radio"]:checked + label:after {
-      opacity: 1;
-      -webkit-transform: scale(1);
-      transform: scale(1);
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 
-button,.button {
+button,
+.button {
   display: inline-block;
   text-align: center;
   margin: 20px 0;
@@ -214,91 +220,91 @@ button,.button {
   padding: 5px 20px;
   font-family: "Helvetica";
   font-size: 18px;
-  color: #ACC3CB;
-  background: #FFFEF7;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
+  color: #acc3cb;
+  background: #fffef7;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   &:hover {
-      text-decoration: none;
-      background: #ACC3CB;
-      color: #FFFEF7;
-      box-shadow: 0 2px 1px 1px rgba(0,0,0,.1)
+    text-decoration: none;
+    background: #acc3cb;
+    color: #fffef7;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
   }
   &:disabled {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
 
   @media only screen and (max-width: 480px) {
     display: block;
     clear: both;
   }
-
 }
 
 .tag {
-  width: 33px; height: 33px;
+  width: 33px;
+  height: 33px;
   display: inline-block;
   vertical-align: top;
   position: relative;
   z-index: 2;
   cursor: pointer;
 
-    &:before,
-    &:after {
-      visibility: hidden;
-      opacity: 0;
-      pointer-events: none;
-    }
-    &:before {
-      position: absolute;
-      bottom: 150%;
-      left: 50%;
-      margin-bottom: 5px;
-      margin-left: -80px;
-      padding: 7px;
-      width: 300px;
-      max-width: 300px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      border-radius: 3px;
-      background-color: #000;
-      background-color: hsla(0, 0%, 20%, 0.9);
-      color: #fff;
-      content: attr(data-tooltip);
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.2;
-    }
+  &:before,
+  &:after {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 300px;
+    max-width: 300px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+  }
 
-    /* Triangle hack to make tooltip look like a speech bubble */
-    &:after {
-      position: absolute;
-      bottom: 150%;
-      left: 50%;
-      margin-left: -5px;
-      width: 0;
-      border-top: 5px solid #000;
-      border-top: 5px solid hsla(0, 0%, 20%, 0.9);
-      border-right: 5px solid transparent;
-      border-left: 5px solid transparent;
-      content: " ";
-      font-size: 0;
-      line-height: 0;
-    }
+  /* Triangle hack to make tooltip look like a speech bubble */
+  &:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+  }
 
-    /* Show tooltip content on hover */
-    &:hover:before,
-    &:hover:after {
-      visibility: visible;
-      opacity: 1;
-    }
+  /* Show tooltip content on hover */
+  &:hover:before,
+  &:hover:after {
+    visibility: visible;
+    opacity: 1;
+  }
   img {
-    width: 100%; height: auto;
-    
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -307,21 +313,22 @@ button,.button {
   transition: all 0.3s ease-in-out;
   opacity: 1;
   &.hide {
-  opacity: 0!important;
-  }  
+    opacity: 0 !important;
+  }
 }
 
-
 a {
-  color: #6B6B6B;
-  &:hover, &:visited {
-    color: #6B6B6B;
+  color: #6b6b6b;
+  &:hover,
+  &:visited {
+    color: #6b6b6b;
   }
 }
 
 .bottomgrant {
-      float: right;
-    clear: both;
-    height: 50px;
-    margin-top: 5px;
+  float: right;
+  clear: both;
+  height: 50px;
+  margin-top: 5px;
 }
+
