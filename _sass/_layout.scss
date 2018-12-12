@@ -600,7 +600,10 @@ section.block {
 }
 
 .question {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    label {
+        margin: 0 20px 0 0;
+    }
 }
 
 .resultblock {
