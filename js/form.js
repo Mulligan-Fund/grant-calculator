@@ -64,13 +64,20 @@ gc.Views = gc.Views || {};
             }
         },
 
+        submitAll: function() {
+            $(".live").each(function(i) {
+                console.log("Submitting all");
+                $(this).trigger("focusout");
+            });
+        },
+
         submitForm: function(e) {
             var _this = this;
             var l = $(this.el).find("input").length;
             var t = {};
 
             $(this.el)
-                .find("input")
+                .find(".live")
                 .each(function(e, i) {
                     t[$(i).attr("id")] = $(i).val();
                 });
@@ -148,7 +155,7 @@ gc.Views = gc.Views || {};
         },
 
         // This fills in all the fields
-        getFields: function(context, varid) {
+        getFields: function(context, varid, cb) {
             var _this = this;
             var t = {};
             var d = {};
@@ -159,14 +166,16 @@ gc.Views = gc.Views || {};
             this.collection.getData(
                 d,
                 function(data) {
-                    _this.populateFields(data);
+                    _this.populateFields(data, function() {
+                        cb();
+                    });
                 },
                 checkIfURL("gmaker"),
                 checkIfURL("profile")
             );
         },
 
-        populateFields: function(data) {
+        populateFields: function(data, cb) {
             var _this = this;
             var t = data;
             $(".page").each(function(z, x) {
@@ -202,6 +211,7 @@ gc.Views = gc.Views || {};
                             });
                     });
             });
+            cb();
         },
         // These handle the people list
         getFieldArray: function(id, data) {
@@ -365,7 +375,9 @@ gc.Views = gc.Views || {};
 
         populateTemplate: function(id) {
             var _this = this;
-            this.getFields(null, id);
+            this.getFields(null, id, function() {
+                _this.submitAll();
+            });
         },
 
         pageTurn: function(e) {
