@@ -73,6 +73,8 @@ gc.Views = gc.Views || {};
             });
         },
 
+        // This stupid function handles the register/password flow.
+        // Why it's here. Honestly. I have no good excuse.
         submitForm: function(e) {
             var _this = this;
             var l = $(this.el).find("input").length;
@@ -97,6 +99,7 @@ gc.Views = gc.Views || {};
             );
         },
 
+        // This handles everything else.
         submitField: function(e) {
             var _this = this;
             console.log("Field submit");
