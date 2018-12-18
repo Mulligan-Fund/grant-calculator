@@ -48,8 +48,6 @@ gc.Collections = gc.Collections || {};
                     $(".register")
                         .find("input")
                         .addClass("error");
-                    // .delay(500)
-                    // .removeClass("error");
                     callback();
                 }
             });

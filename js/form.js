@@ -79,7 +79,7 @@ gc.Views = gc.Views || {};
             var t = {};
 
             $(this.el)
-                .find(".live")
+                .find("input")
                 .each(function(e, i) {
                     t[$(i).attr("id")] = $(i).val();
                 });
@@ -215,6 +215,7 @@ gc.Views = gc.Views || {};
             });
             cb();
         },
+
         // These handle the people list
         getFieldArray: function(id, data) {
             var _this = this;
