@@ -15,7 +15,7 @@ gc.Views = gc.Views || {};
             "<a href='<%= path %>?id=<%= _id %>'><div class='item'><div class='name'><%= funder %></div> <div class='amount'>$<%= amount %></div></div></a>"
         ),
         profile: _.template(
-            "<a href='<%= path %>?id=<%= _id %>'><div class='item'><div class='name'><%= funder %></div> <div class='amount'><%= type %></div></div></a>"
+            "<a href='<%= path %>?id=<%= _id %>'><div class='item'><div class='name'><%= firstname %> <%= lastname %></div> <div class='amount'><%= type %></div></div></a>"
         ),
 
         initialize: function() {
