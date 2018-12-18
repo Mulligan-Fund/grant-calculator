@@ -52,8 +52,10 @@ gc.Views = gc.Views || {};
                 $("#consent").hide();
                 $("#loginreg").prop("disabled", false);
                 $("#loginreg").html("Login");
+                $("#forgot").show();
             } else {
                 $("#consent").show();
+                $("#forgot").hide();
                 $("#loginreg").html("Register");
                 if (
                     !$("#consent")
