@@ -13,7 +13,8 @@ gc.Views = gc.Views || {};
             "click .delete": "deleteGrant",
             "click .login-toggle": "tab",
             "click #consent": "activateButton",
-            "click .ppllistdel": "deleteHourObject"
+            "click .ppllistdel": "deleteHourObject",
+            "change #templateselect": "selectTemplate"
         },
         template: {},
         templates: [],
@@ -120,7 +121,6 @@ gc.Views = gc.Views || {};
                     };
                     // if($(e).attr('obj_id') != 0) tt["_id"] = $(e).attr('obj_id') == 0 ? null : $(e).attr('obj_id')
                     console.log(i, tt);
-
                     pa.push(tt);
                 });
 
@@ -136,6 +136,7 @@ gc.Views = gc.Views || {};
                     t.parent()
                         .find(".load")
                         .removeClass("show");
+                    // <div className="remove"></div>Class("show");
                 },
                 checkIfURL("gmaker"),
                 checkIfURL("profile")
@@ -143,54 +144,60 @@ gc.Views = gc.Views || {};
         },
 
         // This fills in all the fields
-        getFields: function(context) {
+        getFields: function(context, varid) {
             var _this = this;
             var t = {};
+            var d = {};
+            if (typeof varid !== "undefined") {
+                d.id = varid;
+                console.log("Override field:", d);
+            }
             this.collection.getData(
-                {},
+                d,
                 function(data) {
-                    t = data;
-                    $(".page").each(function(z, x) {
-                        $(x)
-                            .find("form")
-                            .each(function(o, p) {
-                                // console.log("Pop page",o)
-
-                                $(p)
-                                    .find("input")
-                                    .each(function(e, i) {
-                                        var id = $(i).attr("id");
-                                        // console.log(id,t[id])
-                                        $("#" + id).val(t[id]);
-                                    });
-
-                                $(p)
-                                    .find("select")
-                                    .each(function(e, i) {
-                                        var id = $(i).attr("id");
-                                        // console.log(id,t[id])
-                                        // console.log("Trying to set attr",'option[data_id="'+ data[id] +'"]')
-                                        $("#" + id)
-                                            .children(
-                                                'option[data_id="' +
-                                                    t[id] +
-                                                    '"]'
-                                            )
-                                            .attr("selected", true);
-                                    });
-
-                                $(p)
-                                    .find(".peoplelist")
-                                    .each(function(e, i) {
-                                        var id = $(i).attr("id");
-                                        _this.getFieldArray(id, t);
-                                    });
-                            });
-                    });
+                    _this.populateFields(data);
                 },
                 checkIfURL("gmaker"),
                 checkIfURL("profile")
             );
+        },
+
+        populateFields: function(data) {
+            var _this = this;
+            var t = data;
+            $(".page").each(function(z, x) {
+                $(x)
+                    .find("form")
+                    .each(function(o, p) {
+                        // console.log("Pop page",o)
+
+                        $(p)
+                            .find("input")
+                            .each(function(e, i) {
+                                var id = $(i).attr("id");
+                                // console.log(id,t[id])
+                                $("#" + id).val(t[id]);
+                            });
+
+                        $(p)
+                            .find("select")
+                            .each(function(e, i) {
+                                var id = $(i).attr("id");
+                                // console.log(id,t[id])
+                                // console.log("Trying to set attr",'option[data_id="'+ data[id] +'"]')
+                                $("#" + id)
+                                    .children('option[data_id="' + t[id] + '"]')
+                                    .attr("selected", true);
+                            });
+
+                        $(p)
+                            .find(".peoplelist")
+                            .each(function(e, i) {
+                                var id = $(i).attr("id");
+                                _this.getFieldArray(id, t);
+                            });
+                    });
+            });
         },
         // These handle the people list
         getFieldArray: function(id, data) {
@@ -335,6 +342,25 @@ gc.Views = gc.Views || {};
                 checkIfURL("gmaker"),
                 false
             );
+        },
+
+        selectTemplate: function(e) {
+            var _this = this;
+            var check = confirm(
+                "This will replace all fields with the template. This can't be undone."
+            );
+            if (check) {
+                var selectedId = $(e.currentTarget)
+                    .children("option:selected")
+                    .attr("data_id");
+                console.log("SelectedId", selectedId);
+                _this.populateTemplate(selectedId);
+            }
+        },
+
+        populateTemplate: function(id) {
+            var _this = this;
+            this.getFields(null, id);
         },
 
         pageTurn: function(e) {

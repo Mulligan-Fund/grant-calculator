@@ -88,7 +88,8 @@ gc.Collections = gc.Collections || {};
         getData: function(data, callback, maker, org) {
             // var endpoint = maker ? this.maker : this.url
             var data = data || {};
-            if (getUrlParameter("id")) data.id = getUrlParameter("id");
+            if (getUrlParameter("id") && typeof data.id == "undefined")
+                data.id = getUrlParameter("id");
             $.ajax({
                 url: maker ? this.maker : org ? this.profile : this.url,
                 type: "GET",
