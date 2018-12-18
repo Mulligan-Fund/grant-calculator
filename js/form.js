@@ -332,11 +332,12 @@ gc.Views = gc.Views || {};
                         );
 
                         for (var t in data) {
+                            var lt = data[t].program_name || data[t].funder;
                             $(l).append(
                                 "<option data_id='" +
                                     data[t]._id +
                                     "''>" +
-                                    data[t].program_name +
+                                    lt +
                                     "</option>"
                             );
                         }
