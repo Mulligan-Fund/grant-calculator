@@ -7,7 +7,7 @@ page: forgot
 <input id="new" type="password" placeholder="new password" /><br>
 <input id="match" type="password" placeholder="confirm password" onChange="checkPasswordMatch();" /><br>
 <div id="divCheckPasswordMatch">Input a password</div><br>
-<button id="save" disabled>Save</button>
+<button onClick="sendNewPassword()"id="save" disabled>Save</button>
 </form>
 
 <script>
@@ -43,7 +43,7 @@ function sendNewPassword() {
 	    data: {},
 	    success: function(data, status, xfr) {
 	        console.log("Put Success: ", data, status, xfr);
-	        callback(data);
+	        window.location.href = '../'
 	    },
 	    error: function(request, error) {
 	        console.log(
