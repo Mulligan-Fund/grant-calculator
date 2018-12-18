@@ -72,7 +72,7 @@ gc.Collections = gc.Collections || {};
                 data: data,
                 success: function(data, status, xfr) {
                     console.log("Put Success: ", data, status, xfr);
-                    callback(data);
+                    callback(data, null);
                 },
                 error: function(request, error) {
                     console.log(
@@ -80,7 +80,7 @@ gc.Collections = gc.Collections || {};
                         JSON.stringify(data),
                         JSON.stringify(request)
                     );
-                    callback(error);
+                    callback(null, error);
                 }
             });
         },

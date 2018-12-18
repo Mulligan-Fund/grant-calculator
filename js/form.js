@@ -132,7 +132,10 @@ gc.Views = gc.Views || {};
 
             this.collection.sendData(
                 i,
-                function(data, next) {
+                function(data, error) {
+                    if (error) {
+                        console.log("Some kind of error");
+                    }
                     t.parent()
                         .find(".load")
                         .removeClass("show");
