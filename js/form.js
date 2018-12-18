@@ -7,6 +7,7 @@ gc.Views = gc.Views || {};
         events: {
             "click .submit": "submitForm",
             "focusout .live": "submitField",
+            "change select.live": "submitField",
             "blur .live": "submitField",
             "click .turn": "pageTurn",
             "click .people-button": "newHourObject",
