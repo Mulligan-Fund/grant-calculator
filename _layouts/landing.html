@@ -1,99 +1,108 @@
 <!DOCTYPE html>
 <html>
-
-  {% include head.html %}
-
-  <body class="landing">
-  <div class="landing-background"></div>
-  <div class="landing-cover"></div>
-  <div class="landing-links">
-    <ul>
-      <li><a href="{{ "/about" | prepend: site.baseurl | prepend: site.url }}" >About</a></li>
-      <li><a href="{{ "/contact" | prepend: site.baseurl | prepend: site.url }}">Contact Us</a></li>
-    </ul>
-  </div>
-  <div class="landing-wrapper">
-    <div class="left col col--xs-12 col--sm-12 col--md-8 col--lg-8">
-      <div class="logo-block">
-       <img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
-       <small style="font-size: 14pt; display: inline-block;">Beta</small>
-      </div>
-      <div class="marketing">
-        <div class="valueprop">
-          <div class="gseek col col--xs-12 col--sm-12 col--md-6 col--lg-6">
-            <h1>The Grantseeker</h1>
-            <h2>Decide Which Grants To Pursue</h2>
-            <p>The net grant calculator helps you decide which grant to pursue, and prioritize those grants with this highest net grant value to your organization.</p>
-          </div>
-          <div class="gmake col col--xs-12 col--sm-12 col--md-6 col--lg-6">
-            <h1>The Grantmaker</h1>
-            <h2>Know The Cost of Your Grant</h2>
-            <p>How much does it cost to run each of your grant programs? How much does it cost your grantees to apply? Find out with the net grant calculator.</p>
-          </div>
-        </div>
-        <div class="features">
-          <div class="feature col col--xs-6 col--sm-6 col--md-6 col--lg-6">
-            <div class="logo">
-              <img src="{{ "/img/data.png" | prepend: site.baseurl | prepend: site.url }}">
-            </div>
-            <h1>Data-Driven Grants</h1>
-            <p>Use data about specific grant opportunities to make informed decisions.</p>
-          </div>
-          <div class="feature col col--xs-6 col--sm-6 col--md-6 col--lg-6">
-            <div class="logo">
-              <img src="{{ "/img/flex.png" | prepend: site.baseurl | prepend: site.url }}">
-            </div>
-            <h1>Flexible Analysis</h1>
-            <p>Evaluate and improve grant practices to increase grant efficiency.</p>
-          </div>
-          <div class="feature col col--xs-6 col--sm-6 col--md-6 col--lg-6">
-            <div class="logo">
-              <img src="{{ "/img/refl.png" | prepend: site.baseurl | prepend: site.url }}">
-            </div>
-            <h1>Reflect and Learn</h1>
-            <p>Analysis that matches your organization's grant management processes.</p>
-          </div>
-          <div class="feature col col--xs-6 col--sm-6 col--md-6 col--lg-6">
-            <div class="logo">
-              <img src="{{ "/img/lock.png" | prepend: site.baseurl | prepend: site.url }}">
-            </div>
-            <h1>Simple Security</h1>
-            <p>Securely Store information about grant opportunities to ensure privacy.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class= "login-layer col col--xs-12 col--sm-12 col--md-4 col--lg-4">
-      <div class="login" id="form">
-        <div class="login-toggle">
-          <div class="reg active">Register</div>
-          <div class="log">Login</div>
-        </div>
-        <form class="register active">
-          <label>Email</label>
-          <input type="text" id="username">
-          <label>Password</label>
-          <input type="password" id="password">
-          <div id="consent" class="checkbox">
-            <input type="checkbox" id="conscheck">
-            <span>I agree that my data can be used for research.</span>
-          </div>
-          <div id="forgot">
-            <a href="forgot">Forgot your password?</a>
-          </div>
-          <button class="submit" id="loginreg" disabled>Register</button>
-        </form>
-      </div>
-      <div class="description">
-        <h2>Grant Calculator is supported by</h2>
-        <img class="support" alt="Peak Grantmaking" src="{{ "/img/peak_logo.png" | prepend: site.baseurl | prepend: site.url }}">
-        <img class="support" alt="New America PIT" src="{{ "/img/newamerica_logo.png" | prepend: site.baseurl | prepend: site.url }}">
-        <h2>Grant Calculator is a project of</h2>
-        <img class="support" alt="The Mulligan Fund" src="{{ "/img/mulligan_logo.png" | prepend: site.baseurl | prepend: site.url }}">
-      </div>
-    </div>
-  </div>
-
-  </body>
-
+	{% include head.html %}
+	<body class="landing">
+		<div class="landing-background"></div>
+		<div class="landing-cover"></div>
+		<div class="landing-links">
+			<ul>
+				<li><a href="{{ "/about" | prepend: site.baseurl | prepend: site.url }}" >About</a></li>
+				<li><a href="{{ "/contact" | prepend: site.baseurl | prepend: site.url }}">Contact Us</a></li>
+			</ul>
+		</div>
+		<div class="landing-wrapper">
+			<div class="left col col--xs-12 col--sm-12 col--md-8 col--lg-8">
+				<div class="logo-block">
+					<img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+					<small style="font-size: 14pt; display: inline-block;">Beta</small>
+				</div>
+				<div class="marketing">
+					<div class="features">
+						<div class="intro col col--xs-24 col--sm-24 col--md-12 col--lg-12">
+							<h2>What is the "Net Grant?"</h2>
+							<p>Net Grant = Total Grant Amount MINUS the Time and Resources expended to seek and implement the grant.
+							</p>
+							<div class="logo">
+								<img src="http://localhost:4000/grant-calculator/img/net-grant-equation.png"  />
+							</div>
+							<p>This tool will help grantmakers and grantseekers better understand the cost to their organization - and to the sector as whole - of making and seeking grants.
+							</p>
+						</div>
+					</div>
+					<div class="features">
+						<div class="gseek col col--xs-24 col--sm-24 col--md-12 col--lg-12">
+							<h2 id="grantseekers">For Grantseekers</h2>
+							<h3>Decide Which Grants To Pursue</h3>
+							<p>The net grant calculator helps you decide which grants to pursue and helps you prioritize those grants with the highest net grant value to your organization.<br>
+								Grantseekers can use the tool to help them calculate – and understand – their return on investment for grantseeking activities and ensure that you’re spending time on what’s most important.
+							</p>
+							<div class="feature col col--xs-12 col--sm-12 col--md-6 col--lg-6">
+								<div class="logo">
+									<img src="{{ "/img/data.png" | prepend: site.baseurl | prepend: site.url }}">
+								</div>
+								<h1>Data-Driven Grants</h1>
+								<p>Use data about specific grant opportunities to make informed decisions.</p>
+							</div>
+							<div class="feature col col--xs-12 col--sm-12 col--md-6 col--lg-6">
+								<div class="logo">
+									<img src="{{ "/img/refl.png" | prepend: site.baseurl | prepend: site.url }}">
+								</div>
+								<h1>Reflect and Learn</h1>
+								<p>Analysis that matches your organization's grant management processes.</p>
+							</div>
+						</div>
+						<div class="gmake col col--xs-24 col--sm-24 col--md-12 col--lg-12">
+							<h2 id="grantmakers">For Grantmakers</h2>
+							<h3>Know The Cost of Your Grant Programs</h3>
+							<p>The net grant calculator helps you map your grantmaking process and understand how much it costs to run each of your grant programs and the amount of time and resources expended by potential grantees to apply.<br>
+								As a grantmaker, you want to ensure that the cost to run each of your programs does not eat away at the benefit it offers and ensure that you are spending time and money on the right parts of the grantmaking process.
+							</p>
+						</div>
+						<div class="features">
+							<div class="feature col col--xs-12 col--sm-12 col--md-6 col--lg-6">
+								<div class="logo">
+									<img src="{{ "/img/flex.png" | prepend: site.baseurl | prepend: site.url }}">
+								</div>
+								<h1>Flexible Analysis</h1>
+								<p>Evaluate and improve grant practices to increase grant efficiency.</p>
+							</div>
+							<div class="feature col col--xs-12 col--sm-12 col--md-6 col--lg-6">
+								<div class="logo">
+									<img src="{{ "/img/lock.png" | prepend: site.baseurl | prepend: site.url }}">
+								</div>
+								<h1>Simple Security</h1>
+								<p>Securely Store information about grant programs to ensure privacy.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class= "login-layer col col--xs-12 col--sm-12 col--md-4 col--lg-4">
+				<div class="login" id="form">
+					<div class="login-toggle">
+						<div class="reg active" id="register">Register</div>
+						<div class="log">Login</div>
+					</div>
+					<form class="register active">
+						<label>Email</label>
+						<input type="text" id="username">
+						<label>Password</label>
+						<input type="password" id="password">
+						<div id="consent">
+							<input type="checkbox" id="conscheck">
+							I agree that this data can be used for user research purposes and improvements of the tool.
+						</div>
+						<button class="submit" id="loginreg" disabled>Register</button>
+					</form>
+				</div>
+				<div class="description">
+					<h2>Grant Calculator is supported by</h2>
+					<img class="support" alt="Peak Grantmaking" src="{{ "/img/peak_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+					<img class="support" alt="New America PIT" src="{{ "/img/newamerica_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+					<h2>Grant Calculator is a project of</h2>
+					<img class="support" alt="The Mulligan Fund" src="{{ "/img/mulligan_logo.png" | prepend: site.baseurl | prepend: site.url }}">
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
