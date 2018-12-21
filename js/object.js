@@ -159,7 +159,8 @@ gc.Views = gc.Views || {};
       this.collection.getObjectData({ list: true }, function(data) {
         t = data;
         for (var i in t) {
-          if (t[i].delete == true) return;
+          if (typeof t[i].delete != "undefined" && t[i].delete == true)
+            continue;
           _this.makeObject(t[i]);
         }
       });
