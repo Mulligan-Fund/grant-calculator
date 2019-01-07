@@ -25,10 +25,12 @@ gc.Views = gc.Views || {};
         console.log("Init form", this.el);
         this.collection.getID();
         _this.template = _.template($("#ppllistTemplate").html());
-        this.getObjectList();
-        this.getFields();
-        this.getTemplateList();
-        this.listenTo("click .delete", this.deleteGrant);
+        this.getObjectList(function() {
+          console.log("Getting called");
+          _this.getFields();
+        });
+        _this.getTemplateList();
+        _this.listenTo("click .delete", _this.deleteGrant);
       }
     },
 
@@ -136,12 +138,10 @@ gc.Views = gc.Views || {};
             person: personid,
             hours: hours
           };
-          //   if($(e).attr('obj_id') != 0) tt["_id"] = $(e).attr('obj_id') == 0 ? null : $(e).attr('obj_id')
           console.log("Input ppllist", i, tt);
           pa.push(tt);
         });
         var ttt = $(e.currentTarget).attr("ID");
-
         i[ttt] = pa;
         console.log("Handling ppl", i);
       } else {
@@ -311,7 +311,7 @@ gc.Views = gc.Views || {};
     },
 
     // This populates dynamic fields
-    getObjectList: function(context) {
+    getObjectList: function(callback) {
       var _this = this;
       var t = {};
       this.collection.getObjectData({ list: true, global: true }, function(
@@ -336,6 +336,8 @@ gc.Views = gc.Views || {};
             );
           }
         });
+        console.log("Finished setting objects", callback);
+        if (callback) callback();
         _this.template = _.template($("#ppllistTemplate").html());
       });
     },
