@@ -4,10 +4,10 @@ page: form
 ---
 <div class="formblock">
 	{% for form in site.data.grantmaker %}
-	{% assign loopindex = forloop.index0%}    
+	{% assign loopindex = forloop.index0%}
 
 	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
-		
+
 
 		{% if form.desc %}
 		<section class="block">
@@ -32,7 +32,7 @@ page: form
 			{% if forloop.index > 1 %}<button class="turn prev">Prev</button>{% endif %}
 			{% if forloop.index < forloop.length %}<button class="turn next">Next</button>{% endif %}
 		</div>
-		
+
 		<div class="title"><h2>{{ form.name }}</h2></div>
 
 		{% for section in form.sections %}

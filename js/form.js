@@ -123,21 +123,26 @@ gc.Views = gc.Views || {};
         var bod = f.parent();
         var pa = [];
         bod.find(".time").each(function(i, e) {
+          //   console.log("LOG", e);
+          var personid = $(e)
+            .find(".objlist")
+            .find("option:selected")
+            .attr("data_id");
+          var hours = $(e)
+            .find(".hours")
+            .val();
+          console.log("person:", personid, hours);
           var tt = {
-            person: $(e)
-              .find(".objlist")
-              .children("option:selected")
-              .attr("data_id"),
-            hours: $(e)
-              .find(".hours")
-              .val()
+            person: personid,
+            hours: hours
           };
-          // if($(e).attr('obj_id') != 0) tt["_id"] = $(e).attr('obj_id') == 0 ? null : $(e).attr('obj_id')
-          console.log(i, tt);
+          //   if($(e).attr('obj_id') != 0) tt["_id"] = $(e).attr('obj_id') == 0 ? null : $(e).attr('obj_id')
+          console.log("Input ppllist", i, tt);
           pa.push(tt);
         });
+        var ttt = $(e.currentTarget).attr("ID");
 
-        i[t.attr("id")] = pa;
+        i[ttt] = pa;
         console.log("Handling ppl", i);
       } else {
         i[t.attr("id")] = val;
@@ -162,6 +167,7 @@ gc.Views = gc.Views || {};
     // This fills in all the fields
     getFields: function(context, varid, cb) {
       var _this = this;
+      var cb = cb || function() {};
       var t = {};
       var d = {};
       if (typeof varid !== "undefined") {
@@ -183,6 +189,7 @@ gc.Views = gc.Views || {};
     populateFields: function(data, cb) {
       var _this = this;
       var t = data;
+      var cb = cb || function() {};
       $(".page").each(function(z, x) {
         $(x)
           .find("form")
@@ -225,10 +232,11 @@ gc.Views = gc.Views || {};
       // if(data[id].length > 0) console.log("GetFieldArray",id,data[id])
       $.each(data[id], function(e, i) {
         // console.log("GetFieldArray",e,i)
+        console.log("getFieldArray", e, i);
         if (i != null) {
           _this.makeHourObject($("#" + id), {
             id: e,
-            dbid: data[id],
+            dbid: String(id), //+ "_" + String(e),
             personid: i.person,
             hours: i.hours
           });
@@ -249,7 +257,7 @@ gc.Views = gc.Views || {};
 
       data = data ? data : { id: 0, title: "" };
       var t = $(this.template(data));
-      t.find("select")
+      t.find(".objlist")
         .find('option[data_id="' + data.personid + '"]')
         .attr("selected", true);
       if (data.hours) t.find("input").val(data.hours);
