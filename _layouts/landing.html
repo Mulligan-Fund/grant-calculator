@@ -23,7 +23,7 @@
 							<p>Net Grant = Total Grant Amount MINUS the Time and Resources expended to seek and implement the grant.
 							</p>
 							<div class="logo">
-								<img src="http://localhost:4000/grant-calculator/img/net-grant-equation.png"  />
+								<img src="{{ "/img/net-grant-equation.png" | prepend: site.baseurl | prepend: site.url }}">
 							</div>
 							<p>This tool will help grantmakers and grantseekers better understand the cost to their organization - and to the sector as whole - of making and seeking grants.
 							</p>
@@ -80,7 +80,7 @@
 			<div class= "login-layer col col--xs-12 col--sm-12 col--md-4 col--lg-4">
 				<div class="login" id="form">
 					<div class="login-toggle">
-						<div class="reg active" id="register">Register</div>
+						<div class="reg active">Register</div>
 						<div class="log">Login</div>
 					</div>
 					<form class="register active">
@@ -88,9 +88,12 @@
 						<input type="text" id="username">
 						<label>Password</label>
 						<input type="password" id="password">
-						<div id="consent">
+						<div id="consent" class="checkbox">
 							<input type="checkbox" id="conscheck">
-							I agree that this data can be used for user research purposes and improvements of the tool.
+							<span>I agree that my data can be used for research.</span>
+						</div>
+						<div id="forgot">
+							<a href="forgot">Forgot your password?</a>
 						</div>
 						<button class="submit" id="loginreg" disabled>Register</button>
 					</form>
@@ -104,5 +107,7 @@
 				</div>
 			</div>
 		</div>
-	</body>
-</html>
+
+		</body>
+
+	</html>

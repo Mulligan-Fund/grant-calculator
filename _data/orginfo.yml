@@ -1,6 +1,6 @@
 --- 
 - 
-  desc: "Please tell us a bit about yourself and the organziation."
+  desc: "Please tell us a bit about yourself and the organziation.  While most of these fields are not required to create your account, we are requesting that you opt-in to provide the optional information. Your data is secure and we will not share individual organization information. This optional information will help us better understand the differences in processes inside different types of organizations."
   name: "User Information"
   page: 1
   sections: 
