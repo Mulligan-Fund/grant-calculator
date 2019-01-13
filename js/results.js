@@ -70,18 +70,16 @@ gc.Views = gc.Views || {};
           console.log(t);
           _this.collection.getObjectData({ list: true }, function(roles) {
             ro = roles;
-            console.log("Roles", ro);
 
             _.each(t, function(val, key, context) {
               if (val == null) return;
               if (typeof val == "object" && val.length > 0) {
                 var id = key;
-                console.log("Found ppllist", val);
                 $.each(val, function(i, e) {
-                  // console.log('vv',i,e)
-                  if (typeof e.person == "undefined") return;
+                  if (e === null) return;
+                  if (typeof e.person === "undefined") return;
                   var person = _.findWhere(ro, { _id: e.person });
-                  // if(person == null) return
+                  if (typeof person === "undefined") return;
                   hr[id + "_" + i] = {
                     time: e.hours,
                     salary: person.salary
