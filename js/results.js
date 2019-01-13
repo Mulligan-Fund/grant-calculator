@@ -124,10 +124,22 @@ gc.Views = gc.Views || {};
               var expect = _this.makerCalcExpected(t);
               var cost = _this.calculateCost(hr);
               var pcost = _this.makerProgramCost(cost, expect);
+              var costgrant = 1;
+              var costmaker = 1;
+              var costapplicant = 1;
               console.log("gmaker", expect, cost, pcost);
               $("#expected").append("$" + _this.addComma(expect.toFixed(2)));
               $("#cost").append("$" + _this.addComma(cost.toFixed(2)));
               $("#total").append("$" + _this.addComma(pcost.toFixed(2)));
+              $("#costgrant").append(
+                "$" + _this.addComma(costgrant.toFixed(2))
+              );
+              $("#costmaker").append(
+                "$" + _this.addComma(costmaker.toFixed(2))
+              );
+              $("#costapplicant").append(
+                "$" + _this.addComma(costapplicant.toFixed(2))
+              );
             }
           });
         },
