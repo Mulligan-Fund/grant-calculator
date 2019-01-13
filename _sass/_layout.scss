@@ -190,6 +190,10 @@ small {
     }
     .features {
       padding-right: 20px;
+      .equation {
+        width: 60%;
+        margin: 0 10% 10% 0;
+      }
       .feature {
         min-height: 150px;
         // padding: 0 20px 0 0;
