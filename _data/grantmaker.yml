@@ -1,23 +1,25 @@
---- 
-  - 
+---
+  -
     name: "Program Information"
     page: 1
     desc: "Please fill out the information below about the grant program you want to analyze."
-    sections: 
-      - 
+    sections:
+      -
         header: "Program Information"
         name: "program_info"
-        questions: 
-          - 
+        questions:
+          -
             label: Grant Program Name
             dbfield: program_name
             desc: "Name of the program you are analyzing"
             type: text
-          - 
+            notemplate: true
+          -
             label: Primary Issue Addressed
             dbfield: primary_issue
             desc: "What is the primary issue this program is addressing?"
             type: text
+            notemplate: true
       -
         header: "Program Details"
         name: "prog_details"
@@ -25,7 +27,7 @@
           -
             label: Expected Number of Grants to Be Awarded
             dbfield: number_of_grants
-            desc: "How many grants do you expect this program to award?" 
+            desc: "How many grants do you expect this program to award?"
             required: true
             type: number
           -
@@ -61,7 +63,7 @@
             content:
               - label: Invite-Only
               - label: Unsolicited
-          - 
+          -
             label: Type of Application
             dbfield: gm_type_of_application
             desc: "How will applicants be submitting this application?"
@@ -107,15 +109,15 @@
               - label: Quarterly
               - label: Monthly
               - label: Ad Hoc
-  - 
+  -
     name: "Grant Cost to Grantee"
     page: 2
     desc: "To the best of your ability, fill out the information below from the perspective of a typical prospecitve grantee.  For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one tenth of an hour."
-    sections: 
-      - 
+    sections:
+      -
         header: "Applications"
         name: "applications"
-        questions: 
+        questions:
           -
             label: Preliminary and In-Depth Research on Opportunity
             dbfield: gm_preliminary_rsch_people
@@ -132,7 +134,7 @@
             desc: "How much time do you estimate grantees will spend communicating with the funder prior to submitting the LOI?"
             type: peoplelist
           -
-            label: Draft and Finalize LOI/Concept Note 
+            label: Draft and Finalize LOI/Concept Note
             dbfield: gm_draft_loi
             desc: "How much time do you estimate it will take all involved grantee staff to draft and finalize the LOI/concept note?"
             type: peoplelist
@@ -160,7 +162,7 @@
             label: Prepare Budget and Budget Narrative
             dbfield: prepare_budget
             desc: "How much time do you estimate grantee staff will spend preparing the grant budget and budget narrative?"
-            type: peoplelist 
+            type: peoplelist
           -
             label: Draft and Finalize Proposal
             dbfield: gm_draft_proposal
@@ -171,7 +173,7 @@
             dbfield: gm_format_app
             desc: "How much time do you think it will take grantees to enter this information into the online application or finalizing PDFs and documents for submission?"
             type: peoplelist
-          - 
+          -
             label: Describe other application-related activities
             dbfield: gm_gs_applications_other_label
             desc: "What is the name for these other activities?"
@@ -191,7 +193,7 @@
             desc: "How much time do you estimate grantee staff will spend answering follow up questions from the funder?"
             type: peoplelist
           -
-            label: Staff Time for Site Visit 
+            label: Staff Time for Site Visit
             dbfield: gm_site_visit
             desc: "How much time do you estimate grantee staff will spend preparing for, attending, and following up from the site visit, if applicable?)"
             type: peoplelist
@@ -225,7 +227,7 @@
             desc: "How much time do you estimate it will take grantees to review and understand the reporting requirements?"
             type: peoplelist
           -
-            label: Ensure Systems Are Set up to Track Data and Financials 
+            label: Ensure Systems Are Set up to Track Data and Financials
             dbfield: gm_collect_data
             desc: "How much time do you estimate it will take grantees to set up data reports and financial reports or systems to support tracking the required grant metrics? This may include customizing database reports, updating database fields or records, updating general ledger or other financial tracking information, informing staff how to track time or expenses against the grant, etc.)"
             type: peoplelist
@@ -235,7 +237,7 @@
             desc: "How much time do you estimate it will take grantees to prepare the financial information and other supporting documentation required in the report?)"
             type: peoplelist
           -
-            label: Stay Informed about Modifications 
+            label: Stay Informed about Modifications
             dbfield: gm_modifications
             desc: "How much time do you think grantees will spend staying on top of grant outcomes, requesting extensions, reporting staff changes, reporting a change in expected deliverables, outcomes, or budget reallocation, etc.)"
             type: peoplelist
@@ -259,15 +261,15 @@
             dbfield: gm_gs_reporting_other
             desc: "Fill in grantee staff time for any other tasks not included above."
             type: peoplelist
-  - 
+  -
     name: "Program Cost"
     page: 3
     desc: "For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one/tenth of an hour."
-    sections: 
-      - 
+    sections:
+      -
         header: "Grant Applications"
         name: "gm_applications"
-        questions: 
+        questions:
           -
             label: Research Issue Area
             dbfield: rsch_issue
@@ -455,7 +457,7 @@
             label: Work with Grantee on Any Grant Modifications
             dbfield: grant_mods
             desc: "How much time do you estimate staff will spend on working with grantees on grant modification issues (extensions, staff changes, change in expected deliverables or outcomes, budget reallocation, etc.)?"
-            type: peoplelist 
+            type: peoplelist
           -
             label: Reporting on Outcomes to Board
             dbfield: report_board
@@ -475,7 +477,7 @@
         header: "Additional Hours"
         name: "additional"
         questions:
-          - 
+          -
             label: Describe other activities
             dbfield: additional_other_label
             desc: "What is the name for these other activities?"
