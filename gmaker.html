@@ -40,7 +40,7 @@ page: form
 			<h3>{{section.header}}</h3>
 			<form class="form">
 				{% for question in section.questions %}
-				<div class="question {% if question.required %}required{% endif%}">
+				<div class="question{% if question.required %} required{% endif%}{% if question.notemplate %} notemplate{% endif%}">
 				<label>{{question.label}}</label>
 				{% if question.type == "dropdown" %}
 					<select id="{{question.dbfield}}" class="live">

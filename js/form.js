@@ -22,11 +22,11 @@ gc.Views = gc.Views || {};
     initialize: function() {
       var _this = this;
       if ($(this.el).hasClass("page")) {
-        console.log("Init form", this.el);
+        // console.log("Init form", this.el);
         this.collection.getID();
         _this.template = _.template($("#ppllistTemplate").html());
         this.getObjectList(function() {
-          console.log("Getting called");
+          // console.log("Getting called");
           _this.getFields();
         });
         _this.getTemplateList();
@@ -35,7 +35,7 @@ gc.Views = gc.Views || {};
     },
 
     activateButton: function(e) {
-      console.log("Activating register");
+      // console.log("Activating register");
       if (
         $("#consent")
           .find("input")
@@ -70,7 +70,7 @@ gc.Views = gc.Views || {};
 
     submitAll: function() {
       $(".live").each(function(i) {
-        console.log("Submitting all");
+        // console.log("Submitting all");
         $(this).trigger("focusout");
       });
     },
@@ -104,7 +104,7 @@ gc.Views = gc.Views || {};
     // This handles everything else.
     submitField: function(e) {
       var _this = this;
-      console.log("Field submit");
+      // console.log("Field submit");
       var t = $(e.currentTarget);
       var i = {};
       var val = "";
@@ -115,7 +115,7 @@ gc.Views = gc.Views || {};
         val = $(t)
           .children("option:selected")
           .attr("data_id");
-        console.log("gotval select", val);
+        // console.log("gotval select", val);
       } else {
         val = t.val();
       }
@@ -133,17 +133,17 @@ gc.Views = gc.Views || {};
           var hours = $(e)
             .find(".hours")
             .val();
-          console.log("person:", personid, hours);
+          // console.log("person:", personid, hours);
           var tt = {
             person: personid,
             hours: hours
           };
-          console.log("Input ppllist", i, tt);
+          // console.log("Input ppllist", i, tt);
           pa.push(tt);
         });
         var ttt = $(e.currentTarget).attr("ID");
         i[ttt] = pa;
-        console.log("Handling ppl", i);
+        // console.log("Handling ppl", i);
       } else {
         i[t.attr("id")] = val;
       }
@@ -165,9 +165,10 @@ gc.Views = gc.Views || {};
     },
 
     // This fills in all the fields
-    getFields: function(context, varid, cb) {
+    getFields: function(context, varid, cb, template) {
       var _this = this;
       var cb = cb || function() {};
+      var template = template || false;
       var t = {};
       var d = {};
       if (typeof varid !== "undefined") {
@@ -177,17 +178,22 @@ gc.Views = gc.Views || {};
       this.collection.getData(
         d,
         function(data) {
-          _this.populateFields(data, function() {
-            cb();
-          });
+          _this.populateFields(
+            data,
+            function() {
+              cb();
+            },
+            template
+          );
         },
         checkIfURL("gmaker"),
         checkIfURL("profile")
       );
     },
 
-    populateFields: function(data, cb) {
+    populateFields: function(data, cb, template) {
       var _this = this;
+      var template = template || false;
       var t = data;
       var cb = cb || function() {};
       $(".page").each(function(z, x) {
@@ -199,6 +205,14 @@ gc.Views = gc.Views || {};
             $(p)
               .find("input")
               .each(function(e, i) {
+                if (
+                  template &&
+                  $(i)
+                    .parent()
+                    .hasClass("notemplate")
+                ) {
+                  return;
+                }
                 var id = $(i).attr("id");
                 // console.log(id,t[id])
                 $("#" + id).val(t[id]);
@@ -207,6 +221,14 @@ gc.Views = gc.Views || {};
             $(p)
               .find("select")
               .each(function(e, i) {
+                if (
+                  template &&
+                  $(i)
+                    .parent()
+                    .hasClass("notemplate")
+                ) {
+                  return;
+                }
                 var id = $(i).attr("id");
                 // console.log(id,t[id])
                 // console.log("Trying to set attr",'option[data_id="'+ data[id] +'"]')
@@ -218,6 +240,14 @@ gc.Views = gc.Views || {};
             $(p)
               .find(".peoplelist")
               .each(function(e, i) {
+                if (
+                  template &&
+                  $(i)
+                    .parent()
+                    .hasClass("notemplate")
+                ) {
+                  return;
+                }
                 var id = $(i).attr("id");
                 _this.getFieldArray(id, t);
               });
@@ -232,7 +262,7 @@ gc.Views = gc.Views || {};
       // if(data[id].length > 0) console.log("GetFieldArray",id,data[id])
       $.each(data[id], function(e, i) {
         // console.log("GetFieldArray",e,i)
-        console.log("getFieldArray", e, i);
+        // console.log("getFieldArray", e, i);
         if (i != null) {
           _this.makeHourObject($("#" + id), {
             id: e,
@@ -278,7 +308,7 @@ gc.Views = gc.Views || {};
       var i = {};
 
       var bod = e.parent();
-      console.log("bod", bod);
+      // console.log("bod", bod);
       var pa = [];
       bod.find(".time").each(function(i, e) {
         // console.log(delid,i)
@@ -294,11 +324,11 @@ gc.Views = gc.Views || {};
               .val()
           };
         }
-        console.log("time item", tt);
+        // console.log("time item", tt);
         pa.push(tt);
       });
       i[bod.parent().attr("id")] = pa;
-      console.log("Del ppl", i);
+      // console.log("Del ppl", i);
 
       this.collection.sendData(
         i,
@@ -336,7 +366,7 @@ gc.Views = gc.Views || {};
             );
           }
         });
-        console.log("Finished setting objects", callback);
+        // console.log("Finished setting objects", callback);
         if (callback) callback();
         _this.template = _.template($("#ppllistTemplate").html());
       });
@@ -349,7 +379,7 @@ gc.Views = gc.Views || {};
       this.collection.getTemplate(
         {},
         function(data) {
-          console.log("template list data", data);
+          // console.log("template list data", data);
           _this.templates = data;
           $("#templateselect").each(function(i, l) {
             $(l)
@@ -389,21 +419,26 @@ gc.Views = gc.Views || {};
 
     populateTemplate: function(id) {
       var _this = this;
-      this.getFields(null, id, function() {
-        _this.submitAll();
-      });
+      this.getFields(
+        null,
+        id,
+        function() {
+          _this.submitAll();
+        },
+        true // This is the notemplate call
+      );
     },
 
     pageTurn: function(e) {
-      console.log("Turning page", e);
+      // console.log("Turning page", e);
       if ($(e.currentTarget).hasClass("next")) {
-        console.log("Next page");
+        // console.log("Next page");
         $(".page.show")
           .removeClass("show")
           .next()
           .addClass("show");
       } else {
-        console.log("prev page");
+        // console.log("prev page");
         $(".page.show")
           .removeClass("show")
           .prev()
