@@ -17,7 +17,81 @@ gc.Views = gc.Views || {};
       }
     },
 
-    seekerfields: [
+    gm_seek_fields: [
+      "gm_preliminary_rsch_people",
+      "gm_loi_requirements",
+      "gm_pre_loi_comm",
+      "gm_draft_loi",
+      "gm_proposal_requirements",
+      "gm_pre_proposal_comm",
+      "gm_pre_proposal_mtg",
+      "gm_gather_docs",
+      "prepare_budget",
+      "gm_draft_proposal",
+      "gm_format_app",
+      "gm_gs_applications_other_label",
+      "gm_gs_applications_other",
+      "gm_follow_up_qs",
+      "gm_site_visit",
+      "gm_letter_signing",
+      "gm_post_grant_comm",
+      "gm_gs_compliance_other_label",
+      "gm_gs_compliance_other",
+      "gm_report_requirements",
+      "gm_collect_data",
+      "gm_prepare_financials",
+      "gm_modifications",
+      "gm_draft_report",
+      "gm_monitoring_qs",
+      "gm_gs_reporting_other_label",
+      "gm_gs_reporting_other"
+    ],
+
+    gm_make_fields: [
+      "rsch_issue",
+      "comm_prog_goals",
+      "guidelines",
+      "program_loi",
+      "prog_proposal_req",
+      "field_loi_q",
+      "review_submitted_lois",
+      "decide_invite",
+      "invite_proposal",
+      "field_proposal_q",
+      "gm_prog_applications_other_label",
+      "gm_prog_applications_other",
+      "review_submitted_proposals",
+      "due_diligence",
+      "ask_proposal_q",
+      "prog_site_visits",
+      "follow_up_visit",
+      "decide_recommend",
+      "schedule_mtg",
+      "prep_recommendations",
+      "hold_mtg",
+      "conduct_visits",
+      "declines_awards",
+      "accept_agreements",
+      "release_funds",
+      "post_grant_comm",
+      "gm__prog_compliance_other_label",
+      "gm__prog_compliance_other",
+      "report_forms",
+      "field_report_q",
+      "review_submitted_reports",
+      "ask_report_q",
+      "approve_report",
+      "release_addl_funds",
+      "other_comm_reports",
+      "grant_mods",
+      "report_board",
+      "gm_prog_reporting_other_label",
+      "gm_prog_reporting_other",
+      "additional_other_label",
+      "gm_additional"
+    ],
+
+    gs_seek_fields: [
       "preliminary_rsch_people",
       "loi_requirements",
       "pre_loi_comm",
@@ -70,16 +144,16 @@ gc.Views = gc.Views || {};
       return grantcost - progcost;
     },
 
-    calculateCostForBoth: function(data) {
+    calculateCostForBothMaker: function(data) {
       var _this = this;
       var seekertotal = 0;
       var makertotal = 0;
       _.each(data, function(val, key, context) {
-        console.log("calboth", val, _this.seekerfields.includes(val.name));
-        if (_this.seekerfields.includes(val.name)) {
-          console.log("test calc cost", val);
+        // console.log("calboth", val, _this.gm_seek_fields.includes(val.name));
+        if (_this.gm_seek_fields.includes(val.name)) {
+          // console.log("test calc cost", val);
           seekertotal += (val.salary / 365) * val.time;
-        } else {
+        } else if (_this.gm_make_fields.includes(val.name)) {
           makertotal += (val.salary / 365) * val.time;
         }
       });
@@ -174,19 +248,20 @@ gc.Views = gc.Views || {};
               $("#total").append("$" + _this.addComma(net.toFixed(2)));
             } else {
               // Grant Maker
-              console.log("feed hr to calcboth", hr);
-              console.log("calcboth", _this.calculateCostForBoth(hr));
-              console.log("calling gmaker");
+              // console.log("feed hr to calcboth", hr);
+              // console.log("calcboth", _this.calculateCostForBothMaker(hr));
+              // console.log("calling gmaker");
+
+              var costToMaker = _this.calculateCostForBothMaker(hr);
               var expect = _this.makerCalcExpected(t);
               var cost = _this.calculateCost(hr);
               var pcost = _this.makerProgramCost(cost, expect);
-              var costgrant = 1;
-              var costmaker = 1;
-              var costapplicant = 1;
+              var costmaker = costToMaker.maker;
+              var costgrant = costToMaker.seeker;
               console.log("gmaker", expect, cost, pcost);
 
               $("#expected").append("$" + _this.addComma(expect.toFixed(2)));
-              $("#cost").append("$" + _this.addComma(cost.toFixed(2)));
+              $("#cost").append("$" + _this.addComma(costmaker.toFixed(2)));
               $("#total").append("$" + _this.addComma(pcost.toFixed(2)));
               $("#costgrant").append(
                 "$" + _this.addComma(costgrant.toFixed(2))
