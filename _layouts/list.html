@@ -13,12 +13,19 @@ page: list
        <small style="font-size: 14pt; display: inline-block;">Beta</small>
      </div>
      <div>
-      <ul class="list-links"> 
+      <ul class="list-links">
           <li><a href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">Grants</a></li>
           <li><a href="{{ "/people" | prepend: site.baseurl | prepend: site.url }}">Team</a></li>
           <li><a href="{{ "/logout" | prepend: site.baseurl | prepend: site.url }}">Logout</a></li>
+          <li>
+              <a href="#instructions">Instructions</a>
+          </li>
           <li><a class="button" href="http://bit.ly/gcalcfb" target="_blank">Leave Feedback!</a></li>
         </ul>
+     </div>
+     <div class="step">
+       <a href="#instructions">View Instructions</a>
+
      </div>
       <div class="step">
         <h2>Complete your Profile</h2>
@@ -42,7 +49,7 @@ page: list
            <div class="description">
             <hr/>
             <h3>Instructions</h3>
-      <div class="step" style="text-align: center">
+      <div class="step" id="instructions" style="text-align: center">
         <a href="{{ "/img/Net.Grant.Calculator.User.Guide.pdf" | prepend: site.baseurl | prepend: site.url }}" target="_blank">
           <img style="width:100px; filter: drop-shadow(3px 4px 4px #444444);" src="{{ "/img/grant-link.png" | prepend: site.baseurl | prepend: site.url }}">
           <span style="display:block;margin-top: 20px;">Guide to Grant Calculator</span>
