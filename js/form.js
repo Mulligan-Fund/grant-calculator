@@ -16,10 +16,85 @@ gc.Views = gc.Views || {};
       "click #consent": "activateButton",
       "click .ppllistdel": "deleteHourObject",
       "change #templateselect": "selectTemplate",
-      "click #template-open": "showForm"
+      "click #template-open": "showForm",
+      "click #loadwizard": "selectFromWizard"
     },
     template: {},
     templates: [],
+    wizardSelect: [
+      {
+        cost: "50",
+        type: "project",
+        new: "new",
+        id: "5c3c073bcbb6db0004bbb8bc"
+      },
+      {
+        cost: "100",
+        type: "project",
+        new: "new",
+        id: "5c3eb24b9951850004136f8e"
+      },
+      {
+        cost: "250",
+        type: "project",
+        new: "new",
+        id: "5c3eb8799951850004136f92"
+      },
+      {
+        cost: "50",
+        type: "operating",
+        new: "new",
+        id: "5c3eac289951850004136f8b"
+      },
+      {
+        cost: "100",
+        type: "operating",
+        new: "new",
+        id: "5c3eb4019951850004136f8f"
+      },
+      {
+        cost: "250",
+        type: "operating",
+        new: "new",
+        id: "5c3eb9aa9951850004136f93"
+      },
+      {
+        cost: "50",
+        type: "project",
+        new: "renew",
+        id: "5c3eaf829951850004136f8c"
+      },
+      {
+        cost: "100",
+        type: "project",
+        new: "renew",
+        id: "5c3eb5339951850004136f90"
+      },
+      {
+        cost: "250",
+        type: "project",
+        new: "renew",
+        id: "5c3ebad39951850004136f94"
+      },
+      {
+        cost: "50",
+        type: "operating",
+        new: "renew",
+        id: "5c3eb15d9951850004136f8d"
+      },
+      {
+        cost: "100",
+        type: "operating",
+        new: "renew",
+        id: "5c3eb7329951850004136f91"
+      },
+      {
+        cost: "250",
+        type: "operating",
+        new: "renew",
+        id: "5c3ebbfb9951850004136f95"
+      }
+    ],
     initialize: function() {
       var _this = this;
       if ($(this.el).hasClass("page")) {
@@ -50,6 +125,30 @@ gc.Views = gc.Views || {};
       $("#wizard").hasClass("show")
         ? $("#wizard").removeClass("show")
         : $("#wizard").addClass("show");
+    },
+
+    selectFromWizard: function() {
+      var cost = $("#wiz-amount")
+        .find("option:selected")
+        .val();
+      var type = $("#wiz-type")
+        .find("option:selected")
+        .val();
+      var isnew = $("#wiz-new")
+        .find("option:selected")
+        .val();
+
+      var id = this.wizardSelect.filter(item => {
+        if (item.cost === cost && item.type === type && item.new === isnew)
+          return item.id;
+      });
+      if (id.length > 0) {
+        id = id[0].id;
+      } else {
+        alert("Error: No template found");
+        return;
+      }
+      this.selectTemplate(null, id);
     },
 
     tab: function(e) {
@@ -410,15 +509,19 @@ gc.Views = gc.Views || {};
       );
     },
 
-    selectTemplate: function(e) {
+    selectTemplate: function(e, id) {
       var _this = this;
       var check = confirm(
         "This will replace all fields with the template. This can't be undone."
       );
       if (check) {
-        var selectedId = $(e.currentTarget)
-          .children("option:selected")
-          .attr("data_id");
+        if (id) {
+          var selectedId = id;
+        } else {
+          var selectedId = $(e.currentTarget)
+            .children("option:selected")
+            .attr("data_id");
+        }
         console.log("SelectedId", selectedId);
         _this.populateTemplate(selectedId);
       }

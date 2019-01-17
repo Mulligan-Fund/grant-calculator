@@ -21,7 +21,7 @@ page: form
 		<section class="block" id="template">
 			<h2 id="template-open">Template Wizard ➕</h2>
 				<div id="wizard" class="wizard col col--xs-12 col--sm-12 col--md-12 col--lg-12">
-					<h3>Tell us about your project</h3>
+					<h3>Load from Wizard</h3>
 					<label>
 						<span>How much are you seeking?</span>
 						<select class="wiz" id="wiz-amount">
@@ -44,10 +44,11 @@ page: form
 							<select class="wiz" id="wiz-new">
 									<option value="" selected disabled hidden>Select an option</option>
 								<option value="new">New</option>
-								<option value="renewal">Renewal</option>
+								<option value="renew">Renewal</option>
 							</select>
 					</label>
-				<h3>Load from template?</h3>
+					<button id="loadwizard">Load</button>
+				<h3>Or Load from existing Template?</h3>
 				<p>Note: Any changes you have made will not bechanged by the template.</p>
 				<select id="templateselect">
 					<option>Loading templates...</option>
