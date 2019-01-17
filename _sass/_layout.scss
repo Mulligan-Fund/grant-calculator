@@ -93,6 +93,15 @@ small {
   }
 }
 
+.wizard {
+  label {
+    width: 100%;
+  }
+  select {
+    width: 30%;
+  }
+}
+
 .landing-wrapper {
   z-index: 100;
   margin: auto;
@@ -112,6 +121,7 @@ small {
       font-weight: 800;
     }
   }
+
   .login-layer {
     margin-top: 100px;
     background: #fffef7;

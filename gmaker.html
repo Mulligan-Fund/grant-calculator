@@ -19,7 +19,34 @@ page: form
 
 		{% if forloop.first %}
 		<section class="block" id="template">
-			<div class="form col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+			<h2>Template Wizard ➕</h2>
+				<div class="wizard col col--xs-12 col--sm-12 col--md-12 col--lg-12">
+					<h3>Tell us about your project</h3>
+					<label>
+						<span>How much are you seeking?</span>
+						<select class="wiz" id="wiz-amount">
+							  <option value="" selected disabled hidden>Select an option</option>
+							<option value="50">Under $50k</option>
+							<option value="100">$50k to 250k</option>
+							<option value="250">Over 250k</option>
+						</select>
+					</label>
+					<label>
+						<span>What is the grant for?</span>
+						<select class="wiz" id="wiz-type">
+								<option value="" selected disabled hidden>Select an option</option>
+							<option value="project">Project</option>
+							<option value="operating">General operating</option>
+						</select>
+					</label>
+					<label>
+						<span>Is this a new grant, or renewed?</span>
+							<select class="wiz" id="wiz-new">
+									<option value="" selected disabled hidden>Select an option</option>
+								<option value="new">New</option>
+								<option value="renewal">Renewal</option>
+							</select>
+					</label>
 				<h3>Load from template?</h3>
 				<p>Note: Any changes you have made will not bechanged by the template.</p>
 				<select id="templateselect">
