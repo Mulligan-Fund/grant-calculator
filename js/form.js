@@ -15,7 +15,8 @@ gc.Views = gc.Views || {};
       "click .login-toggle": "tab",
       "click #consent": "activateButton",
       "click .ppllistdel": "deleteHourObject",
-      "change #templateselect": "selectTemplate"
+      "change #templateselect": "selectTemplate",
+      "click #template-open": "showForm"
     },
     template: {},
     templates: [],
@@ -43,6 +44,12 @@ gc.Views = gc.Views || {};
       )
         $("#loginreg").prop("disabled", false);
       else $("#loginreg").prop("disabled", true);
+    },
+
+    showForm: function() {
+      $("#wizard").hasClass("show")
+        ? $("#wizard").removeClass("show")
+        : $("#wizard").addClass("show");
     },
 
     tab: function(e) {

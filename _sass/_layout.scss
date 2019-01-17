@@ -93,7 +93,21 @@ small {
   }
 }
 
+#template-open {
+  display: inline-block;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
 .wizard {
+  overflow: hidden;
+  height: 0;
+  &.show {
+    height: auto;
+  }
   label {
     width: 100%;
   }
