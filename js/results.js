@@ -168,6 +168,7 @@ gc.Views = gc.Views || {};
     },
 
     calculateSeekerCost: function(data) {
+      var _this = this;
       var total = 0;
       _.each(data, function(val, key, context) {
         // console.log("test calc cost", val);
