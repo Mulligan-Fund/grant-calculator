@@ -17,6 +17,38 @@ gc.Views = gc.Views || {};
       }
     },
 
+    seekerfields: [
+      "preliminary_rsch_people",
+      "loi_requirements",
+      "pre_loi_comm",
+      "draft_loi",
+      "proposal_requirements",
+      "pre_proposal_comm",
+      "pre_proposal_mtg",
+      "gather_docs",
+      "prepare_budget",
+      "draft_proposal",
+      "format_app",
+      "gs_applications_other_label",
+      "gs_applications_other",
+      "follow_up_qs",
+      "site_visit",
+      "letter_signing",
+      "post_grant_comm",
+      "gs_compliance_other_label",
+      "gs_compliance_other",
+      "report_requirements",
+      "collect_data",
+      "prepare_financials",
+      "modifications",
+      "draft_report",
+      "monitoring_qs",
+      "gs_reporting_other_label",
+      "gs_reporting_other",
+      "gs_other_label",
+      "gs_additional_other"
+    ],
+
     // This populators dynamic fields
     getObjectList: function(context) {
       var _this = this;
@@ -27,7 +59,7 @@ gc.Views = gc.Views || {};
     },
 
     makerCalcExpected: function(d) {
-      console.log("d", d);
+      // console.log("d", d);
       return (
         (d.amount_of_grants / d.number_of_grants) *
         (d.number_of_grants / d.number_of_applications)
@@ -36,6 +68,23 @@ gc.Views = gc.Views || {};
 
     makerProgramCost: function(progcost, grantcost) {
       return grantcost - progcost;
+    },
+
+    calculateCostForBoth: function(data) {
+      var _this = this;
+      var seekertotal = 0;
+      var makertotal = 0;
+      _.each(data, function(val, key, context) {
+        console.log("calboth", val, _this.seekerfields.includes(val.name));
+        if (_this.seekerfields.includes(val.name)) {
+          console.log("test calc cost", val);
+          seekertotal += (val.salary / 365) * val.time;
+        } else {
+          makertotal += (val.salary / 365) * val.time;
+        }
+      });
+
+      return { maker: makertotal, seeker: seekertotal };
     },
 
     // For Grant Seeker
@@ -47,7 +96,7 @@ gc.Views = gc.Views || {};
     calculateCost: function(data) {
       var total = 0;
       _.each(data, function(val, key, context) {
-        console.log("test calc cost", val);
+        // console.log("test calc cost", val);
         total += (val.salary / 365) * val.time;
       });
       return total;
@@ -68,19 +117,24 @@ gc.Views = gc.Views || {};
         function(data) {
           t = data;
           console.log(t);
-          _this.collection.getObjectData({ list: true }, function(roles) {
+          _this.collection.getObjectData({ list: true, global: true }, function(
+            roles
+          ) {
             ro = roles;
+            console.log(ro);
 
             _.each(t, function(val, key, context) {
               if (val == null) return;
-              if (typeof val == "object" && val.length > 0) {
+              if (typeof val === "object" && val.length > 0) {
                 var id = key;
                 $.each(val, function(i, e) {
+                  // console.log("Val", key, e, typeof e);
                   if (e === null) return;
                   if (typeof e.person === "undefined") return;
                   var person = _.findWhere(ro, { _id: e.person });
                   if (typeof person === "undefined") return;
                   hr[id + "_" + i] = {
+                    name: id,
                     time: e.hours,
                     salary: person.salary
                   };
@@ -120,6 +174,8 @@ gc.Views = gc.Views || {};
               $("#total").append("$" + _this.addComma(net.toFixed(2)));
             } else {
               // Grant Maker
+              console.log("feed hr to calcboth", hr);
+              console.log("calcboth", _this.calculateCostForBoth(hr));
               console.log("calling gmaker");
               var expect = _this.makerCalcExpected(t);
               var cost = _this.calculateCost(hr);
@@ -128,6 +184,7 @@ gc.Views = gc.Views || {};
               var costmaker = 1;
               var costapplicant = 1;
               console.log("gmaker", expect, cost, pcost);
+
               $("#expected").append("$" + _this.addComma(expect.toFixed(2)));
               $("#cost").append("$" + _this.addComma(cost.toFixed(2)));
               $("#total").append("$" + _this.addComma(pcost.toFixed(2)));
