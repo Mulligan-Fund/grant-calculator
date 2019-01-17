@@ -167,11 +167,13 @@ gc.Views = gc.Views || {};
       return data.amount * (data.probability * 0.01);
     },
 
-    calculateCost: function(data) {
+    calculateSeekerCost: function(data) {
       var total = 0;
       _.each(data, function(val, key, context) {
         // console.log("test calc cost", val);
-        total += (val.salary / 365) * val.time;
+        if (_this.gs_seek_fields.includes(val.name)) {
+          total += (val.salary / 365) * val.time;
+        }
       });
       return total;
     },
@@ -219,7 +221,6 @@ gc.Views = gc.Views || {};
                 }
               }
             });
-            console.log("Printing HR", hr);
             _.each(hr, function(val, key, context) {
               console.log(
                 "printing",
@@ -240,7 +241,7 @@ gc.Views = gc.Views || {};
             if (!checkIfURL("maker")) {
               // Grant Seeker
               var expect = _this.calculateExpected(t);
-              var cost = _this.calculateCost(hr);
+              var cost = _this.calculateSeekerCost(hr);
               var net = _this.calculateNet(t, cost);
 
               $("#expected").append("$" + _this.addComma(expect.toFixed(2)));
@@ -254,21 +255,20 @@ gc.Views = gc.Views || {};
 
               var costToMaker = _this.calculateCostForBothMaker(hr);
               var expect = _this.makerCalcExpected(t);
-              var cost = _this.calculateCost(hr);
-              var pcost = _this.makerProgramCost(cost, expect);
+              //var pcost = _this.makerProgramCost(cost, expect);
               var costmaker = costToMaker.maker;
-              var costgrant = costToMaker.seeker;
-              console.log("gmaker", expect, cost, pcost);
+              var costseeker = costToMaker.seeker;
+              var pcost = costToMaker.seeker - expect;
+              var costapplicant = 1;
 
+              console.log(costToMaker);
               $("#expected").append("$" + _this.addComma(expect.toFixed(2)));
               $("#cost").append("$" + _this.addComma(costmaker.toFixed(2)));
               $("#total").append("$" + _this.addComma(pcost.toFixed(2)));
               $("#costgrant").append(
-                "$" + _this.addComma(costgrant.toFixed(2))
+                "$" + _this.addComma(costseeker.toFixed(2))
               );
-              $("#costmaker").append(
-                "$" + _this.addComma(costmaker.toFixed(2))
-              );
+              $("#costmaker").append("$" + _this.addComma(pcost.toFixed(2)));
               $("#costapplicant").append(
                 "$" + _this.addComma(costapplicant.toFixed(2))
               );
