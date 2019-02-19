@@ -4,7 +4,7 @@ page: form
 ---
 <div class="formblock">
 	{% for form in site.data.grantseeker %}
-	{% assign loopindex = forloop.index0%}    
+	{% assign loopindex = forloop.index0%}
 
 	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
 
@@ -15,11 +15,19 @@ page: form
 			</div>
 		</section>
 		{% endif %}
-		
+
 		{% if forloop.first %}
 		<section class="block" id="template">
 			<div class="form col col--xs-12 col--sm-12 col--md-12 col--lg-12">
 				<h3>Load from template?</h3>
+				<p>
+					If you’ve visited this tool before and saved your template, you may pre-load your data to start from in order to analyze a different potential grant. Note: Any changes you have already made will not be changed by the template.</p>
+
+				<p>If this is your first time using this tool, you will not have any templates below to choose from.</p>
+
+				<h3>Grant Information, Details, and Logistics</h3>
+				<p>Fill in the information below about a specific grant, details, and logistics, . We will use this to calculate the final net grant. You may choose whether to save your own work as a template to work from for additional grants you may analyze using this tool.</p>
+				</p>
 				<p>Note: Any changes you have made will not bechanged by the template.</p>
 				<select id="templateselect">
 					<option>Loading templates...</option>

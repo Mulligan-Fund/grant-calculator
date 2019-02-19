@@ -1,20 +1,20 @@
---- 
-  - 
+---
+  -
     name: "Grant Information"
     id: "grantinfo"
     page: 1
     desc: "Fill out the information below to help us understand the type of funding you are seeking and the work that will be required to go into that grant."
-    sections: 
-      - 
+    sections:
+      -
         header: "Funder Information"
         name: "funder_info"
-        questions: 
-          - 
+        questions:
+          -
             label: Funder
             dbfield: funder
             desc: "Name of the funder to which your org is considering applying"
             type: text
-          - 
+          -
             label: Grant Program Name
             dbfield: program_name
             desc: "What is the name of this grant program?"
@@ -48,7 +48,7 @@
           -
             label: Amount requested?
             dbfield: amount
-            desc: "How much is your organization requesting from this funder?" 
+            desc: "How much is your organization requesting from this funder?"
             required: true
             type: money
           -
@@ -74,7 +74,7 @@
               - label: Invite-Only
               - label: Unsolicited
           -
-            label: Type of Support 
+            label: Type of Support
             dbfield: type_of_support
             desc: "What type of grant? General operating support? Project support, etc?"
             type: dropdown
@@ -99,7 +99,7 @@
         header: "Grant Logistics"
         name: "logistics"
         questions:
-          - 
+          -
             label: Type of Application
             dbfield: type_of_application
             desc: "How will you be submitting this application?"
@@ -145,15 +145,15 @@
               - label: Quarterly
               - label: Monthly
               - label: Ad hoc
-  - 
+  -
     name: "Grant Cost"
     page: 2
     desc: "For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one/tenth of an hour."
-    sections: 
-      - 
+    sections:
+      -
         header: "Applications"
         name: "applications"
-        questions: 
+        questions:
           -
             label: Preliminary and In-Depth Research on Opportunity
             dbfield: preliminary_rsch_people
@@ -170,7 +170,7 @@
             desc: "How much time do you estimate you will spend communicating with the funder prior to submitting the LOI/concept note?"
             type: peoplelist
           -
-            label: Draft and Finalize LOI/Concept Note 
+            label: Draft and Finalize LOI/Concept Note
             dbfield: draft_loi
             desc: "How much time do you estimate it will take all involved staff to draft and finalize the LOI/concept note?"
             type: peoplelist
@@ -198,7 +198,7 @@
             label: Prepare Budget and Budget Narrative
             dbfield: prepare_budget
             desc: "How much time do you estimate staff will spend preparing the grant budget and budget narrative?"
-            type: peoplelist 
+            type: peoplelist
           -
             label: Draft and Finalize Proposal
             dbfield: draft_proposal
@@ -229,7 +229,7 @@
             desc: "How much time do you estimate staff will spend answering follow up questions from the funder?"
             type: peoplelist
           -
-            label: Staff Time for Site Visit 
+            label: Staff Time for Site Visit
             dbfield: site_visit
             desc: "How much time do you estimate staff will spend preparing for, attending, and following up from the site visit, if applicable?)"
             type: peoplelist
@@ -263,7 +263,7 @@
             desc: "How much time do you estimate it will take you to review and understand the reporting requirements?"
             type: peoplelist
           -
-            label: Ensure Systems Are Set up to Track Data and Financials 
+            label: Ensure Systems Are Set up to Track Data and Financials
             dbfield: collect_data
             desc: "How much time do you estimate it will take you to set up data reports and financial reports or systems to support tracking the required grant metrics? This may include customizing database reports, updating database fields or records, updating general ledger or other financial tracking information, informing staff how to track time or expenses against the grant, etc.)"
             type: peoplelist
@@ -273,7 +273,7 @@
             desc: "How much time do you estimate it will take you to prepare the financial information and other supporting documentation required in the report?)"
             type: peoplelist
           -
-            label: Stay Informed about Modifications 
+            label: Stay Informed about Modifications
             dbfield: modifications
             desc: "How much time do you think you will spend staying on top of grant outcomes, requesting extensions, reporting staff changes, reporting a change in expected deliverables, outcomes, or budget reallocation, etc.)"
             type: peoplelist
@@ -301,7 +301,7 @@
         header: "Additional Hours"
         name: "additional"
         questions:
-          - 
+          -
             label: Describe other activities
             dbfield: gs_other_label
             desc: "What is the name for these other activities?"
