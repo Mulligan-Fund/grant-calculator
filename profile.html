@@ -4,10 +4,10 @@ page: form
 ---
 <div class="formblock">
 	{% for form in site.data.orginfo %}
-	{% assign loopindex = forloop.index0%}    
+	{% assign loopindex = forloop.index0%}
 
 	<section class="page {% if loopindex == 0 %}show{% endif %} col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2" id="{{form.grantinfo}}">
-		
+
 
 		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
 		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
@@ -18,7 +18,7 @@ page: form
 			</div>
 		</section>
 		{% endif %}
-		
+
 		<div class="title"><h2>{{ form.name }}</h2></div>
 		{% for section in form.sections %}
 		<section class="block" id="{{section.name}}">
@@ -77,7 +77,7 @@ page: form
 		</section>
 		{% endfor %}
 
-		{% if forloop.last %}<a class="button bottomgrant" href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">Return to List</a>{% endif %}
+		{% if forloop.last %}<a class="button bottomgrant" href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">Save and Return to Home</a>{% endif %}
 
 		{% if forloop.index > 1 %}<button class="turn prev">Prev Page</button>{% endif %}
 		{% if forloop.index < forloop.length %}<button class="turn next">Next Page</button>{% endif %}
