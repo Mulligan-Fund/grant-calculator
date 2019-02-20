@@ -227,16 +227,16 @@ gc.Views = gc.Views || {};
                 "printing",
                 val.time + " * " + val.salary + " = " + val.time * val.salary
               );
-              $(".details").append(
-                key +
-                  " : " +
-                  val.time +
-                  " * " +
-                  val.salary +
-                  " = " +
-                  val.time * val.salary +
-                  "<br>"
-              );
+              // $(".details").append(
+              //   key +
+              //     " : " +
+              //     val.time +
+              //     " * " +
+              //     val.salary +
+              //     " = " +
+              //     val.time * val.salary +
+              //     "<br>"
+              // );
             });
 
             if (!checkIfURL("maker")) {
