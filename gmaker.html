@@ -126,7 +126,8 @@ page: form
 			{% if forloop.index < forloop.length %}<button class="turn next">Next</button>{% endif %}
 		</div>
 
-		{% if forloop.last %}<button class="local bottomgrant" href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}">Grant Result</button>{% endif %}
+		{% if forloop.last %}
+			<a href="{{ "/result" | prepend: site.baseurl | prepend: site.url }}" class="button local bottomgrant">Grant Result</a>{% endif %}
 
 		<div class="del col col--xs-12 col--sm-12 col--md-8 col--lg-8 col--md-offset-2 col--lg-offset-2"">
 		<a href="#" class="delete">Delete Grant?</a>
