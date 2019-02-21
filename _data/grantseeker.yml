@@ -1,9 +1,9 @@
 ---
   -
-    name: "Grant Information"
+    name: "Grant Information, Details, and Logistics"
     id: "grantinfo"
     page: 1
-    desc: "Fill out the information below to help us understand the type of funding you are seeking and the work that will be required to go into that grant."
+    desc: "Fill in the information below about a specific grant, details, and logistics, . We will use this to calculate the final net grant. You may choose whether to save your own work as a template to work from for additional grants you may analyze using this tool."
     sections:
       -
         header: "Funder Information"
