@@ -462,6 +462,7 @@ gc.Views = gc.Views || {};
             '<option value="" selected disabled hidden>Select Team Member</option>'
           );
 
+
           for (var t in data) {
             $(l).append(
               "<option data_id='" +
