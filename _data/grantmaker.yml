@@ -1,8 +1,8 @@
 ---
   -
-    name: "Program Information"
+    name: "Program Information, Details, and Logistics"
     page: 1
-    desc: "Please fill out the information below about the grant program you want to analyze."
+    desc: "Fill in the information below about a specific grant program, program details, and program logistics, . We will use this to calculate the final net grant. You may choose whether to save your own work as a template to work from for additional grant programs you may analyze using this tool."
     sections:
       -
         header: "Program Information"
@@ -262,9 +262,9 @@
             desc: "Fill in grantee staff time for any other tasks not included above."
             type: peoplelist
   -
-    name: "Program Cost"
+    name: "Program Cost to Grantmaker"
     page: 3
-    desc: "For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one/tenth of an hour."
+    desc: "Now that you’ve entered information for the grantseeker side of the process, you will enter your own grantmaking process details in the form below. Note: The template information from the grantseeker side will show up under Contributors. If you haven’t already added your team members on the Team page, you can go back and do that now."
     sections:
       -
         header: "Grant Applications"
