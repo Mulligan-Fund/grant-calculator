@@ -462,6 +462,10 @@ gc.Views = gc.Views || {};
             '<option value="" selected disabled hidden>Select Team Member</option>'
           );
 
+          data.sort(function(a, b) {
+            if (a.name.includes("eg:")) return 1;
+            return -1;
+          });
 
           for (var t in data) {
             $(l).append(
