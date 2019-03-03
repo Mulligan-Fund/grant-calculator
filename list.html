@@ -1,3 +1,69 @@
 ---
-layout: list
+page: list
 ---
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body>
+		<div class="fullbg yellow">
+			<div class="logo-block">
+				<img class="logo" src="{{ "/img/logo.png" | prepend: site.baseurl | prepend: site.url }}">
+				<small style="font-size: 14pt; display: inline-block;">Beta</small>
+			</div>
+			<div>
+				<ul class="list-links">
+					<li><a href="{{ "/list" | prepend: site.baseurl | prepend: site.url }}">Grants</a></li>
+					<li><a href="{{ "/people" | prepend: site.baseurl | prepend: site.url }}">Team</a></li>
+					<li><a href="{{ "/logout" | prepend: site.baseurl | prepend: site.url }}">Logout</a></li>
+					<li><a class="button" href="http://bit.ly/gcalcfb" target="_blank">Leave Feedback!</a></li>
+				</ul>
+			</div>
+			<div class="step">
+				Is this your first visit?  Start <a href="#instructions">here</a>.
+				<h2>Complete your Profile</h2>
+				<div class="list" id="profile"></div>
+			</div>
+			<div class="step">
+				<h2>Add your team</h2>
+				<a class="button" href="./people">Edit Team</a>
+				<div class="objlist"><ul></ul></div>
+			</div>
+			<div class="step" style="display: none">
+				<h2>Grants</h2>
+				<a class="button" href="./form" class="create">New Grant</a>
+				<div class="list" id="seeker"></div>
+			</div>
+			<div class="step" style="display: none">
+				<h2>Grant Programs</h2>
+				<a class="button" href="./gmaker" class="create">New Program</a>
+				<div class="list" id="maker"></div>
+			</div>
+			<div class="description">
+				<hr/>
+				<h3>Instructions</h3>
+				<div class="step" id="instructions" style="text-align: center">
+					<a href="{{ "/img/Net.Grant.Calculator.User.Guide.pdf" | prepend: site.baseurl | prepend: site.url }}" target="_blank">
+						<img style="width:100px; filter: drop-shadow(3px 4px 4px #444444);" src="{{ "/img/grant-link.png" | prepend: site.baseurl | prepend: site.url }}">
+						<span style="display:block;margin-top: 20px;">Guide to Grant Calculator</span>
+					</a>
+				</div>
+				<div class="instructions">
+					<p> This tool is essentially a process mapping tool that allows you to enter time devoted to specific grantseeking or grantmaking tasks, the team members involved in the process, and the salary for these team members. This information is then used to calculate the "Net Grant."
+					</p>
+					<p>This is your home page where you will manage your profile, team members, and grant programs. Choose “Grants” at the top at any time to come back to this page.
+					</p>
+					<ul>
+						<li><b>First</b>, fill out your profile.</li>
+						<li><b>Next</b>, add any team members that are involved in your grantmaking/grantseeking process. You will need to add team members in order to use them in your process mapping. We’ve added both Foundation and Nonprofit employees and used 2017 salary survey data as a starting point. Foundation salary data comes from the Council on Foundations. Nonprofit salary data is derived from industry averages.
+						</li>
+						<li><b>Finally</b>, start building your grant programs. Choose “New Grant” to get started. You will be able to choose from your added team members for each of the tasks listed.
+						</li>
+						<li>If you use the template wizard to start from a template, we will pre-fill the tasks on the grantseeker side and you may add to or edit any of the information provided.
+							For in-depth instructions, see our <a href="{{ "/img/Net.Grant.Calculator.User.Guide.pdf" | prepend: site.baseurl | prepend: site.url }}" target="_blank">Users Guide</a>.
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
