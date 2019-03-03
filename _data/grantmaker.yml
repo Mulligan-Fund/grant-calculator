@@ -1,489 +1,399 @@
 ---
-  -
-    name: "Program Information, Details, and Logistics"
-    page: 1
-    desc: "Fill in the information below about a specific grant program, program details, and program logistics, . We will use this to calculate the final net grant. You may choose whether to save your own work as a template to work from for additional grant programs you may analyze using this tool."
-    sections:
-      -
-        header: "Program Information"
-        name: "program_info"
-        questions:
-          -
-            label: Grant Program Name
-            dbfield: program_name
-            desc: "Name of the program you are analyzing"
-            type: text
-            notemplate: true
-          -
-            label: Primary Issue Addressed
-            dbfield: primary_issue
-            desc: "What is the primary issue this program is addressing?"
-            type: text
-            notemplate: true
-      -
-        header: "Program Details"
-        name: "prog_details"
-        questions:
-          -
-            label: Expected Number of Grants to Be Awarded
-            dbfield: number_of_grants
-            desc: "How many grants do you expect this program to award?"
-            required: true
-            type: number
-          -
-            label: Expected amount to be awarded
-            dbfield: amount_of_grants
-            desc: "What is the total amount this program is expected to award?"
-            required: true
-            type: money
-          -
-            label: Expected Number of Applications
-            dbfield: number_of_applications
-            desc: "How many applications do you expect this program will receive?"
-            required: yes
-            type: number
-          -
-            label: Save this form as a Template?
-            dbfield: template
-            required: true
-            desc: "Any changes to this grant will result in template modifications"
-            type: dropdown
-            content:
-              - label: no
-              - label: yes
-      -
-        header: "Program Logistics"
-        name: "prog_logistics"
-        questions:
-          -
-            label: Invited or Unsolicited?
-            dbfield: gm_invited_or_unsolicited
-            desc: "Does this program accept unsolicited requests, or is it invite only?"
-            type: dropdown
-            content:
-              - label: Invite-Only
-              - label: Unsolicited
-          -
-            label: Type of Application
-            dbfield: gm_type_of_application
-            desc: "How will applicants be submitting this application?"
-            type: dropdown
-            content:
-              - label: online
-              - label: via email
-              - label: on paper
-          -
-            label: Length of Grant Award (in Years)
-            dbfield: gm_length_of_award
-            desc: "In years, what is the expected length of a grant award in this program?"
-            type: number
-          -
-            label: Number of Questions
-            dbfield: gm_number_of_questions
-            desc: "How many questions are in the application? If you're not sure of if it's more unstructured, ballpark this number"
-            type: number
-          -
-            label: Site Visit?
-            dbfield: gm_site_visit
-            desc: "Will you conduct a site visit as part of the application process? If uncertain, select 'Site Visit'"
-            type: dropdown
-            content:
-              - label: Site Visit
-              - label: No Site Visit
-          -
-            label: LOI/Concept Note?
-            dbfield: gm_loi
-            desc: "Will you screen applicants through a letter of inquiry/concept note prior to the full proposal?"
-            type: dropdown
-            content:
-              - label: LOI/Concept Note Required
-              - label: LOI/Concept Note not Required
-          -
-            label: Number of Reports Required?
-            dbfield: gm_number_of_reports
-            desc: "What reports does this funder require?  If unsure, select annual."
-            type: dropdown
-            content:
-              - label: Annual
-              - label: Semi-Annual
-              - label: Quarterly
-              - label: Monthly
-              - label: Ad Hoc
-  -
-    name: "Grant Cost to Grantee"
-    page: 2
-    desc: "To the best of your ability, fill out the information below from the perspective of a typical prospecitve grantee.  For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one tenth of an hour."
-    sections:
-      -
-        header: "Applications"
-        name: "applications"
-        questions:
-          -
-            label: Preliminary and In-Depth Research on Opportunity
-            dbfield: gm_preliminary_rsch_people
-            desc: "How much time is spent by each staff person on researching this grant opportunity, its requirements, and the organization's potential eligibility"
-            type: peoplelist
-          -
-            label: Review LOI/Concept Note Requirements
-            dbfield: gm_loi_requirements
-            desc: "How much time is spent reviewing the requirements for the letter of inquiry/concept note?"
-            type: peoplelist
-          -
-            label: Pre-Submission Communication with Funder
-            dbfield: gm_pre_loi_comm
-            desc: "How much time do you estimate grantees will spend communicating with the funder prior to submitting the LOI?"
-            type: peoplelist
-          -
-            label: Draft and Finalize LOI/Concept Note
-            dbfield: gm_draft_loi
-            desc: "How much time do you estimate it will take all involved grantee staff to draft and finalize the LOI/concept note?"
-            type: peoplelist
-          -
-            label: If Invited, Review Proposal Requirements
-            dbfield: gm_proposal_requirements
-            desc: "How much time is spent reviewing the requirements for the proposal?"
-            type: peoplelist
-          -
-            label: Pre-Submission Communication with Funder
-            dbfield: gm_pre_proposal_comm
-            desc: "How much time do you estimate grantees will spend communicating with the funder prior to submitting the proposal?)"
-            type: peoplelist
-          -
-            label: Internal Meetings about Proposal
-            dbfield: gm_pre_proposal_mtg
-            desc: "How much time do you estimate grantee staff will spend meeting about the proposal?"
-            type: peoplelist
-          -
-            label: Gather Supporting Documentation
-            dbfield: gm_gather_docs
-            desc: "How much time do you estimate grantee staff will spend gathering the supporting documentation, like 501(c)(3) status, letters of support, staff bios, board list, etc."
-            type: peoplelist
-          -
-            label: Prepare Budget and Budget Narrative
-            dbfield: prepare_budget
-            desc: "How much time do you estimate grantee staff will spend preparing the grant budget and budget narrative?"
-            type: peoplelist
-          -
-            label: Draft and Finalize Proposal
-            dbfield: gm_draft_proposal
-            desc: "How much time do you estimate grantee staff will spend on actually drafting and finalizing the proposal?"
-            type: peoplelist
-          -
-            label: Formatting Application to Fit Requirements
-            dbfield: gm_format_app
-            desc: "How much time do you think it will take grantees to enter this information into the online application or finalizing PDFs and documents for submission?"
-            type: peoplelist
-          -
-            label: Describe other application-related activities
-            dbfield: gm_gs_applications_other_label
-            desc: "What is the name for these other activities?"
-            type: text
-          -
-            label: Other application-related activities
-            dbfield: gm_gs_applications_other
-            desc: "Fill in grantee staff time for any other tasks not included above."
-            type: peoplelist
-      -
-        header: "Compliance & Decision-Making"
-        name: "compliance"
-        questions:
-          -
-            label: Answering Follow-Up Questions from Grantmaker
-            dbfield: gm_follow_up_qs
-            desc: "How much time do you estimate grantee staff will spend answering follow up questions from the funder?"
-            type: peoplelist
-          -
-            label: Staff Time for Site Visit
-            dbfield: gm_site_visit
-            desc: "How much time do you estimate grantee staff will spend preparing for, attending, and following up from the site visit, if applicable?)"
-            type: peoplelist
-          -
-            label: Award Letter Review/Sign/Return
-            dbfield: gm_letter_signing
-            desc: "How much time do you estimate it will take grantees to review the award letter and return a signed copy to the funder?"
-            type: peoplelist
-          -
-            label: Post-Award Communications
-            dbfield: gm_post_grant_comm
-            desc: "How much time do you estimate it will take grantees to participate in any other post-award communications with the funder?"
-            type: peoplelist
-          -
-            label: Describe other compliance-related activities
-            dbfield: gm_gs_compliance_other_label
-            desc: "What is the name for these other activities?"
-            type: text
-          -
-            label: Other compliance-related activities
-            dbfield: gm_gs_compliance_other
-            desc: "Fill in grantee staff time for any other tasks not included above."
-            type: peoplelist
-      -
-        header: "Monitoring & Reporting"
-        name: "reporting"
-        questions:
-          -
-            label: Review Report Requirements
-            dbfield: gm_report_requirements
-            desc: "How much time do you estimate it will take grantees to review and understand the reporting requirements?"
-            type: peoplelist
-          -
-            label: Ensure Systems Are Set up to Track Data and Financials
-            dbfield: gm_collect_data
-            desc: "How much time do you estimate it will take grantees to set up data reports and financial reports or systems to support tracking the required grant metrics? This may include customizing database reports, updating database fields or records, updating general ledger or other financial tracking information, informing staff how to track time or expenses against the grant, etc.)"
-            type: peoplelist
-          -
-            label: Prepare Financials for Report
-            dbfield: gm_prepare_financials
-            desc: "How much time do you estimate it will take grantees to prepare the financial information and other supporting documentation required in the report?)"
-            type: peoplelist
-          -
-            label: Stay Informed about Modifications
-            dbfield: gm_modifications
-            desc: "How much time do you think grantees will spend staying on top of grant outcomes, requesting extensions, reporting staff changes, reporting a change in expected deliverables, outcomes, or budget reallocation, etc.)"
-            type: peoplelist
-          -
-            label: Draft and Finalize Reports
-            dbfield: gm_draft_report
-            desc: "How much time do you think it will take grantees to draft and finalize the required reports?"
-            type: peoplelist
-          -
-            label: Respond To Any Grantmaker Questions
-            dbfield: gm_monitoring_qs
-            desc: "How much time do you think grantees will spend following up with grantmaker questions about the report's contents?"
-            type: peoplelist
-          -
-            label: Describe other reporting-related activities
-            dbfield: gm_gs_reporting_other_label
-            desc: "What is the name for these other activities?"
-            type: text
-          -
-            label: Other reporting-related activities
-            dbfield: gm_gs_reporting_other
-            desc: "Fill in grantee staff time for any other tasks not included above."
-            type: peoplelist
-  -
-    name: "Program Cost to Grantmaker"
-    page: 3
-    desc: "Now that you’ve entered information for the grantseeker side of the process, you will enter your own grantmaking process details in the form below. Note: The template information from the grantseeker side will show up under Contributors. If you haven’t already added your team members on the Team page, you can go back and do that now."
-    sections:
-      -
-        header: "Grant Applications"
-        name: "gm_applications"
-        questions:
-          -
-            label: Research Issue Area
-            dbfield: rsch_issue
-            desc: "For a new grant program, how much time do you anticipate staff will spend researching the issue area, current funding landscape, potential desired applicants, relevant outcomes to pursue, etc.?"
-            type: peoplelist
-          -
-            label: Communicate internally about program goals
-            dbfield: comm_prog_goals
-            desc: "For a new grant program or if goals are changing for a program, how much time do you estimate staff will spend in internal communications regarding the program goals and how they will be measured?"
-            type: peoplelist
-          -
-            label: Publish Funding Guidelines
-            dbfield: guidelines
-            desc: "How much time do you anticipate it will take to prepare public-facing descriptions of the program with detailed descriptions of its goals and funding priorities?"
-            type: peoplelist
-          -
-            label: Publish Requirements for LOI/Concept Note (If Applicable)
-            dbfield: program_loi
-            desc: "How much time do you anticipate it will take you to publish and disseminate the LOI/concept note requirements?)"
-            type: peoplelist
-          -
-            label: Determine Requirements for Proposals
-            dbfield: prog_proposal_req
-            desc: "How much time do you anticipate it will take staff to create the application and outline grantee requirements, including supporting documentation?"
-            type: peoplelist
-          -
-            label: Field LOI/Concept Note Questions from Applicants
-            dbfield: field_loi_q
-            desc: "How much time do you estimate it will take your staff to field questions from applicants during the LOI/concept note stage?"
-            type: peoplelist
-          -
-            label: Review Submitted LOIs/Concept Notes
-            dbfield: review_submitted_lois
-            desc: "How much time do you estimate staff will spend reviewing the LOIs/concept notes submitted? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
-            type: peoplelist
-          -
-            label: Decide Which Proposals to Invite
-            dbfield: decide_invite
-            desc: "How much time will be spent among staff deciding which proposals to invite?"
-            type: peoplelist
-          -
-            label: Invite Proposals through an RFP
-            dbfield: invite_proposal
-            desc: "How much time do you anticipate it will take to reach out to invited grantees?"
-            type: peoplelist
-          -
-            label: Field Proposal Questions from Applicants
-            dbfield: field_proposal_q
-            desc: "How much time do you estimate staff will spend fielding questions from applicants about the proposal process?"
-            type: peoplelist
-          -
-            label: Describe other application-related activities
-            dbfield: gm_prog_applications_other_label
-            desc: "What is the name for these other activities?"
-            type: text
-          -
-            label: Other application-related activities
-            dbfield: gm_prog_applications_other
-            desc: "Fill in grantee staff time for any other tasks not included above."
-            type: peoplelist
-      -
-        header: "Compliance & Decision-Making"
-        name: "prog_compliance"
-        questions:
-          -
-            label: Review Submitted Proposals
-            dbfield: review_submitted_proposals
-            desc: "How much time do you anticipate staff will spend reviewing submitted proposals? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
-            type: peoplelist
-          -
-            label: Complete Due Diligence on Submitted Proposals
-            dbfield: due_diligence
-            desc: "How much time do you anticipate staff will spend completing due diligence on all submitted proposals?"
-            type: peoplelist
-          -
-            label: Ask Applicant Questions about Submitted Proposals
-            dbfield: ask_proposal_q
-            desc: "How much time do you estimate staff will spend following up with applicants for more information?"
-            type: peoplelist
-          -
-            label: Schedule and Conduct Site Visits and Interviews
-            dbfield: prog_site_visits
-            desc: "How much time do you estimate staff will spend on scheduling and conducting site visits or interviews with applicants?)"
-            type: peoplelist
-          -
-            label: Follow-Up/Write Up Site Visits/Interviews
-            dbfield: follow_up_visit
-            desc: "How much time do you estimate staff will spend following up on site visits or interviews?"
-            type: peoplelist
-          -
-            label: Decide Which Proposals to Recommend for Approval
-            dbfield: decide_recommend
-            desc: "How much time do you estimate staff will spend making decisions about which proposals to recommend to final decision-makers?"
-            type: peoplelist
-          -
-            label: Schedule Board/Committee Meeting
-            dbfield: schedule_mtg
-            desc: "How much time do you estimate staff will spend scheduling decision meetings? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
-            type: peoplelist
-          -
-            label: Prep Recommendations and Materials for Board/Committee Meeting
-            dbfield: prep_recommendations
-            desc: "How much time do you anticipate staff will spend preparing materials for the decision meetings? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
-            type: peoplelist
-          -
-            label: Hold Board/Committee Meeting
-            dbfield: hold_mtg
-            desc: "How much time is typically spent in decision-making meetings for each staff person involved?"
-            type: peoplelist
-          -
-            label: Other Internal Communications about Decision-Making
-            dbfield: conduct_visits
-            desc: "In addition to the tasks listed above, how much time do you estimate staff will spend communicating internally about compliance and decision-making activities?"
-            type: peoplelist
-          -
-            label: Create and Send Declines and Grant Awards/Agreements
-            dbfield: declines_awards
-            desc: "How much time will staff spend generating grant awards/agreements paperwork or following up with declined applicants?"
-            type: peoplelist
-          -
-            label: Accept/File Signed Grant Agreements
-            dbfield: accept_agreements
-            desc: "How much time do you estimate staff will spend finalizing grant paperwork?"
-            type: peoplelist
-          -
-            label: Release Grant Funds to Grantees
-            dbfield: release_funds
-            desc: "How much time will staff spend authorizing and releasing funds to grantees?"
-            type: peoplelist
-          -
-            label: Other Post-Grant Communications with Grantees
-            dbfield: post_grant_comm
-            desc: "How much time do you anticipate staff will spend in other post-grant communications with grantees?"
-            type: peoplelist
-          -
-            label: Describe other compliance-related activities
-            dbfield: gm__prog_compliance_other_label
-            desc: "What is the name for these other activities?"
-            type: text
-          -
-            label: Other compliance-related activities
-            dbfield: gm__prog_compliance_other
-            desc: "Fill in grantee staff time for any other tasks not included above."
-            type: peoplelist
-      -
-        header: "Monitoring & Reporting"
-        name: "prog_reporting"
-        questions:
-          -
-            label: Draft and Finalize Report Forms/Requirements
-            dbfield: report_forms
-            desc: "How much time do you estimate staff will spend drafting and finalizing report requirements and forms"
-            type: peoplelist
-          -
-            label: Field Report Questions from Grantees
-            dbfield: field_report_q
-            desc: "How much time do you estimate staff will spend fielding questions about reports from grantees?"
-            type: peoplelist
-          -
-            label: Review Submitted Reports
-            dbfield: review_submitted_reports
-            desc: "How much time does staff spend reviewing grant reports for this program?"
-            type: peoplelist
-          -
-            label: Ask Questions about Submitted Reports
-            dbfield: ask_report_q
-            desc: "How much time do you estimate staff will spend following up with grantees about the reports submitted?"
-            type: peoplelist
-          -
-            label: Acknowledge Receipt/Approve Reports
-            dbfield: approve_report
-            desc: "How much time do you estimate staff will spend acknowledging or approving grant reports?"
-            type: peoplelist
-          -
-            label: Release Additional Funds, if Applicable
-            dbfield: release_addl_funds
-            desc: "How much time will staff spend authorizing and releasing additional funds to grantees?"
-            type: peoplelist
-          -
-            label: Other Communications about Reports
-            dbfield: other_comm_reports
-            desc: "How much time do you estimate staff will spend on internal communications or meetings regarding grantee reports?"
-            type: peoplelist
-          -
-            label: Work with Grantee on Any Grant Modifications
-            dbfield: grant_mods
-            desc: "How much time do you estimate staff will spend on working with grantees on grant modification issues (extensions, staff changes, change in expected deliverables or outcomes, budget reallocation, etc.)?"
-            type: peoplelist
-          -
-            label: Reporting on Outcomes to Board
-            dbfield: report_board
-            desc: "How much time do you estimate staff will spend on utilizing the data gained in grantee reports to help support evaluation, outcomes, or dashboard reporting for the funder?"
-            type: peoplelist
-          -
-            label: Describe other reporting-related activities
-            dbfield: gm_prog_reporting_other_label
-            desc: "What is the name for these other activities?"
-            type: text
-          -
-            label: Other reporting-related activities
-            dbfield: gm_prog_reporting_other
-            desc: "Fill in grantee staff time for any other tasks not included above."
-            type: peoplelist
-      -
-        header: "Additional Hours"
-        name: "additional"
-        questions:
-          -
-            label: Describe other activities
-            dbfield: additional_other_label
-            desc: "What is the name for these other activities?"
-            type: text
-          -
-            label: Other activities
-            dbfield: gm_additional
-            desc: "Fill in staff time for any other tasks not included above."
-            type: peoplelist
+- name: "Program Information, Details, and Logistics"
+  page: 1
+  desc: "Fill in the information below about a specific grant program, program details, and program logistics, . We will use this to calculate the final net grant. You may choose whether to save your own work as a template to work from for additional grant programs you may analyze using this tool."
+  sections:
+    - header: "Program Information"
+      name: "program_info"
+      questions:
+        - label: Grant Program Name
+          dbfield: program_name
+          desc: "Name of the program you are analyzing"
+          type: text
+          notemplate: true
+        - label: Primary Issue Addressed
+          dbfield: primary_issue
+          desc: "What is the primary issue this program is addressing?"
+          type: text
+          notemplate: true
+    - header: "Program Details"
+      name: "prog_details"
+      questions:
+        - label: Expected Number of Grants to Be Awarded
+          dbfield: number_of_grants
+          desc: "How many grants do you expect this program to award?"
+          required: true
+          type: number
+          notemplate: true
+        - label: Expected amount to be awarded
+          dbfield: amount_of_grants
+          desc: "What is the total amount this program is expected to award?"
+          required: true
+          type: money
+          notemplate: true
+        - label: Expected Number of Applications
+          dbfield: number_of_applications
+          desc: "How many applications do you expect this program will receive?"
+          required: yes
+          type: number
+          notemplate: true
+        - label: Save this form as a Template?
+          dbfield: template
+          required: true
+          desc: "Any changes to this grant will result in template modifications"
+          type: dropdown
+          notemplate: true
+          content:
+            - label: no
+            - label: yes
+    - header: "Program Logistics"
+      name: "prog_logistics"
+      questions:
+        - label: Invited or Unsolicited?
+          dbfield: gm_invited_or_unsolicited
+          desc: "Does this program accept unsolicited requests, or is it invite only?"
+          type: dropdown
+          content:
+            - label: Invite-Only
+            - label: Unsolicited
+        - label: Type of Application
+          dbfield: gm_type_of_application
+          desc: "How will applicants be submitting this application?"
+          type: dropdown
+          content:
+            - label: online
+            - label: via email
+            - label: on paper
+        - label: Length of Grant Award (in Years)
+          dbfield: gm_length_of_award
+          desc: "In years, what is the expected length of a grant award in this program?"
+          type: number
+        - label: Number of Questions
+          dbfield: gm_number_of_questions
+          desc: "How many questions are in the application? If you're not sure of if it's more unstructured, ballpark this number"
+          type: number
+        - label: Site Visit?
+          dbfield: gm_site_visit
+          desc: "Will you conduct a site visit as part of the application process? If uncertain, select 'Site Visit'"
+          type: dropdown
+          content:
+            - label: Site Visit
+            - label: No Site Visit
+        - label: LOI/Concept Note?
+          dbfield: gm_loi
+          desc: "Will you screen applicants through a letter of inquiry/concept note prior to the full proposal?"
+          type: dropdown
+          content:
+            - label: LOI/Concept Note Required
+            - label: LOI/Concept Note not Required
+        - label: Number of Reports Required?
+          dbfield: gm_number_of_reports
+          desc: "What reports does this funder require?  If unsure, select annual."
+          type: dropdown
+          content:
+            - label: Annual
+            - label: Semi-Annual
+            - label: Quarterly
+            - label: Monthly
+            - label: Ad Hoc
+- name: "Grant Cost to Grantee"
+  page: 2
+  desc: "To the best of your ability, fill out the information below from the perspective of a typical prospecitve grantee.  For each step below, use the drop down menus to add contributors (populated by you in the Staff Contributors section) and the amount of hours spent by each on each task. You may include multiple staff contributors at each level and hours may be estimated to one tenth of an hour."
+  sections:
+    - header: "Applications"
+      name: "applications"
+      questions:
+        - label: Preliminary and In-Depth Research on Opportunity
+          dbfield: gm_preliminary_rsch_people
+          desc: "How much time is spent by each staff person on researching this grant opportunity, its requirements, and the organization's potential eligibility"
+          type: peoplelist
+        - label: Review LOI/Concept Note Requirements
+          dbfield: gm_loi_requirements
+          desc: "How much time is spent reviewing the requirements for the letter of inquiry/concept note?"
+          type: peoplelist
+        - label: Pre-Submission Communication with Funder
+          dbfield: gm_pre_loi_comm
+          desc: "How much time do you estimate grantees will spend communicating with the funder prior to submitting the LOI?"
+          type: peoplelist
+        - label: Draft and Finalize LOI/Concept Note
+          dbfield: gm_draft_loi
+          desc: "How much time do you estimate it will take all involved grantee staff to draft and finalize the LOI/concept note?"
+          type: peoplelist
+        - label: If Invited, Review Proposal Requirements
+          dbfield: gm_proposal_requirements
+          desc: "How much time is spent reviewing the requirements for the proposal?"
+          type: peoplelist
+        - label: Pre-Submission Communication with Funder
+          dbfield: gm_pre_proposal_comm
+          desc: "How much time do you estimate grantees will spend communicating with the funder prior to submitting the proposal?)"
+          type: peoplelist
+        - label: Internal Meetings about Proposal
+          dbfield: gm_pre_proposal_mtg
+          desc: "How much time do you estimate grantee staff will spend meeting about the proposal?"
+          type: peoplelist
+        - label: Gather Supporting Documentation
+          dbfield: gm_gather_docs
+          desc: "How much time do you estimate grantee staff will spend gathering the supporting documentation, like 501(c)(3) status, letters of support, staff bios, board list, etc."
+          type: peoplelist
+        - label: Prepare Budget and Budget Narrative
+          dbfield: prepare_budget
+          desc: "How much time do you estimate grantee staff will spend preparing the grant budget and budget narrative?"
+          type: peoplelist
+        - label: Draft and Finalize Proposal
+          dbfield: gm_draft_proposal
+          desc: "How much time do you estimate grantee staff will spend on actually drafting and finalizing the proposal?"
+          type: peoplelist
+        - label: Formatting Application to Fit Requirements
+          dbfield: gm_format_app
+          desc: "How much time do you think it will take grantees to enter this information into the online application or finalizing PDFs and documents for submission?"
+          type: peoplelist
+        - label: Describe other application-related activities
+          dbfield: gm_gs_applications_other_label
+          desc: "What is the name for these other activities?"
+          type: text
+        - label: Other application-related activities
+          dbfield: gm_gs_applications_other
+          desc: "Fill in grantee staff time for any other tasks not included above."
+          type: peoplelist
+    - header: "Compliance & Decision-Making"
+      name: "compliance"
+      questions:
+        - label: Answering Follow-Up Questions from Grantmaker
+          dbfield: gm_follow_up_qs
+          desc: "How much time do you estimate grantee staff will spend answering follow up questions from the funder?"
+          type: peoplelist
+        - label: Staff Time for Site Visit
+          dbfield: gm_site_visit
+          desc: "How much time do you estimate grantee staff will spend preparing for, attending, and following up from the site visit, if applicable?)"
+          type: peoplelist
+        - label: Award Letter Review/Sign/Return
+          dbfield: gm_letter_signing
+          desc: "How much time do you estimate it will take grantees to review the award letter and return a signed copy to the funder?"
+          type: peoplelist
+        - label: Post-Award Communications
+          dbfield: gm_post_grant_comm
+          desc: "How much time do you estimate it will take grantees to participate in any other post-award communications with the funder?"
+          type: peoplelist
+        - label: Describe other compliance-related activities
+          dbfield: gm_gs_compliance_other_label
+          desc: "What is the name for these other activities?"
+          type: text
+        - label: Other compliance-related activities
+          dbfield: gm_gs_compliance_other
+          desc: "Fill in grantee staff time for any other tasks not included above."
+          type: peoplelist
+    - header: "Monitoring & Reporting"
+      name: "reporting"
+      questions:
+        - label: Review Report Requirements
+          dbfield: gm_report_requirements
+          desc: "How much time do you estimate it will take grantees to review and understand the reporting requirements?"
+          type: peoplelist
+        - label: Ensure Systems Are Set up to Track Data and Financials
+          dbfield: gm_collect_data
+          desc: "How much time do you estimate it will take grantees to set up data reports and financial reports or systems to support tracking the required grant metrics? This may include customizing database reports, updating database fields or records, updating general ledger or other financial tracking information, informing staff how to track time or expenses against the grant, etc.)"
+          type: peoplelist
+        - label: Prepare Financials for Report
+          dbfield: gm_prepare_financials
+          desc: "How much time do you estimate it will take grantees to prepare the financial information and other supporting documentation required in the report?)"
+          type: peoplelist
+        - label: Stay Informed about Modifications
+          dbfield: gm_modifications
+          desc: "How much time do you think grantees will spend staying on top of grant outcomes, requesting extensions, reporting staff changes, reporting a change in expected deliverables, outcomes, or budget reallocation, etc.)"
+          type: peoplelist
+        - label: Draft and Finalize Reports
+          dbfield: gm_draft_report
+          desc: "How much time do you think it will take grantees to draft and finalize the required reports?"
+          type: peoplelist
+        - label: Respond To Any Grantmaker Questions
+          dbfield: gm_monitoring_qs
+          desc: "How much time do you think grantees will spend following up with grantmaker questions about the report's contents?"
+          type: peoplelist
+        - label: Describe other reporting-related activities
+          dbfield: gm_gs_reporting_other_label
+          desc: "What is the name for these other activities?"
+          type: text
+        - label: Other reporting-related activities
+          dbfield: gm_gs_reporting_other
+          desc: "Fill in grantee staff time for any other tasks not included above."
+          type: peoplelist
+- name: "Program Cost to Grantmaker"
+  page: 3
+  desc: "Now that you’ve entered information for the grantseeker side of the process, you will enter your own grantmaking process details in the form below. Note: The template information from the grantseeker side will show up under Contributors. If you haven’t already added your team members on the Team page, you can go back and do that now."
+  sections:
+    - header: "Grant Applications"
+      name: "gm_applications"
+      questions:
+        - label: Research Issue Area
+          dbfield: rsch_issue
+          desc: "For a new grant program, how much time do you anticipate staff will spend researching the issue area, current funding landscape, potential desired applicants, relevant outcomes to pursue, etc.?"
+          type: peoplelist
+        - label: Communicate internally about program goals
+          dbfield: comm_prog_goals
+          desc: "For a new grant program or if goals are changing for a program, how much time do you estimate staff will spend in internal communications regarding the program goals and how they will be measured?"
+          type: peoplelist
+        - label: Publish Funding Guidelines
+          dbfield: guidelines
+          desc: "How much time do you anticipate it will take to prepare public-facing descriptions of the program with detailed descriptions of its goals and funding priorities?"
+          type: peoplelist
+        - label: Publish Requirements for LOI/Concept Note (If Applicable)
+          dbfield: program_loi
+          desc: "How much time do you anticipate it will take you to publish and disseminate the LOI/concept note requirements?)"
+          type: peoplelist
+        - label: Determine Requirements for Proposals
+          dbfield: prog_proposal_req
+          desc: "How much time do you anticipate it will take staff to create the application and outline grantee requirements, including supporting documentation?"
+          type: peoplelist
+        - label: Field LOI/Concept Note Questions from Applicants
+          dbfield: field_loi_q
+          desc: "How much time do you estimate it will take your staff to field questions from applicants during the LOI/concept note stage?"
+          type: peoplelist
+        - label: Review Submitted LOIs/Concept Notes
+          dbfield: review_submitted_lois
+          desc: "How much time do you estimate staff will spend reviewing the LOIs/concept notes submitted? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
+          type: peoplelist
+        - label: Decide Which Proposals to Invite
+          dbfield: decide_invite
+          desc: "How much time will be spent among staff deciding which proposals to invite?"
+          type: peoplelist
+        - label: Invite Proposals through an RFP
+          dbfield: invite_proposal
+          desc: "How much time do you anticipate it will take to reach out to invited grantees?"
+          type: peoplelist
+        - label: Field Proposal Questions from Applicants
+          dbfield: field_proposal_q
+          desc: "How much time do you estimate staff will spend fielding questions from applicants about the proposal process?"
+          type: peoplelist
+        - label: Describe other application-related activities
+          dbfield: gm_prog_applications_other_label
+          desc: "What is the name for these other activities?"
+          type: text
+        - label: Other application-related activities
+          dbfield: gm_prog_applications_other
+          desc: "Fill in grantee staff time for any other tasks not included above."
+          type: peoplelist
+    - header: "Compliance & Decision-Making"
+      name: "prog_compliance"
+      questions:
+        - label: Review Submitted Proposals
+          dbfield: review_submitted_proposals
+          desc: "How much time do you anticipate staff will spend reviewing submitted proposals? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
+          type: peoplelist
+        - label: Complete Due Diligence on Submitted Proposals
+          dbfield: due_diligence
+          desc: "How much time do you anticipate staff will spend completing due diligence on all submitted proposals?"
+          type: peoplelist
+        - label: Ask Applicant Questions about Submitted Proposals
+          dbfield: ask_proposal_q
+          desc: "How much time do you estimate staff will spend following up with applicants for more information?"
+          type: peoplelist
+        - label: Schedule and Conduct Site Visits and Interviews
+          dbfield: prog_site_visits
+          desc: "How much time do you estimate staff will spend on scheduling and conducting site visits or interviews with applicants?)"
+          type: peoplelist
+        - label: Follow-Up/Write Up Site Visits/Interviews
+          dbfield: follow_up_visit
+          desc: "How much time do you estimate staff will spend following up on site visits or interviews?"
+          type: peoplelist
+        - label: Decide Which Proposals to Recommend for Approval
+          dbfield: decide_recommend
+          desc: "How much time do you estimate staff will spend making decisions about which proposals to recommend to final decision-makers?"
+          type: peoplelist
+        - label: Schedule Board/Committee Meeting
+          dbfield: schedule_mtg
+          desc: "How much time do you estimate staff will spend scheduling decision meetings? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
+          type: peoplelist
+        - label: Prep Recommendations and Materials for Board/Committee Meeting
+          dbfield: prep_recommendations
+          desc: "How much time do you anticipate staff will spend preparing materials for the decision meetings? Do not include any volunteer committee or advisory board time, but do include time spent by staff managing those volunteers."
+          type: peoplelist
+        - label: Hold Board/Committee Meeting
+          dbfield: hold_mtg
+          desc: "How much time is typically spent in decision-making meetings for each staff person involved?"
+          type: peoplelist
+        - label: Other Internal Communications about Decision-Making
+          dbfield: conduct_visits
+          desc: "In addition to the tasks listed above, how much time do you estimate staff will spend communicating internally about compliance and decision-making activities?"
+          type: peoplelist
+        - label: Create and Send Declines and Grant Awards/Agreements
+          dbfield: declines_awards
+          desc: "How much time will staff spend generating grant awards/agreements paperwork or following up with declined applicants?"
+          type: peoplelist
+        - label: Accept/File Signed Grant Agreements
+          dbfield: accept_agreements
+          desc: "How much time do you estimate staff will spend finalizing grant paperwork?"
+          type: peoplelist
+        - label: Release Grant Funds to Grantees
+          dbfield: release_funds
+          desc: "How much time will staff spend authorizing and releasing funds to grantees?"
+          type: peoplelist
+        - label: Other Post-Grant Communications with Grantees
+          dbfield: post_grant_comm
+          desc: "How much time do you anticipate staff will spend in other post-grant communications with grantees?"
+          type: peoplelist
+        - label: Describe other compliance-related activities
+          dbfield: gm__prog_compliance_other_label
+          desc: "What is the name for these other activities?"
+          type: text
+        - label: Other compliance-related activities
+          dbfield: gm__prog_compliance_other
+          desc: "Fill in grantee staff time for any other tasks not included above."
+          type: peoplelist
+    - header: "Monitoring & Reporting"
+      name: "prog_reporting"
+      questions:
+        - label: Draft and Finalize Report Forms/Requirements
+          dbfield: report_forms
+          desc: "How much time do you estimate staff will spend drafting and finalizing report requirements and forms"
+          type: peoplelist
+        - label: Field Report Questions from Grantees
+          dbfield: field_report_q
+          desc: "How much time do you estimate staff will spend fielding questions about reports from grantees?"
+          type: peoplelist
+        - label: Review Submitted Reports
+          dbfield: review_submitted_reports
+          desc: "How much time does staff spend reviewing grant reports for this program?"
+          type: peoplelist
+        - label: Ask Questions about Submitted Reports
+          dbfield: ask_report_q
+          desc: "How much time do you estimate staff will spend following up with grantees about the reports submitted?"
+          type: peoplelist
+        - label: Acknowledge Receipt/Approve Reports
+          dbfield: approve_report
+          desc: "How much time do you estimate staff will spend acknowledging or approving grant reports?"
+          type: peoplelist
+        - label: Release Additional Funds, if Applicable
+          dbfield: release_addl_funds
+          desc: "How much time will staff spend authorizing and releasing additional funds to grantees?"
+          type: peoplelist
+        - label: Other Communications about Reports
+          dbfield: other_comm_reports
+          desc: "How much time do you estimate staff will spend on internal communications or meetings regarding grantee reports?"
+          type: peoplelist
+        - label: Work with Grantee on Any Grant Modifications
+          dbfield: grant_mods
+          desc: "How much time do you estimate staff will spend on working with grantees on grant modification issues (extensions, staff changes, change in expected deliverables or outcomes, budget reallocation, etc.)?"
+          type: peoplelist
+        - label: Reporting on Outcomes to Board
+          dbfield: report_board
+          desc: "How much time do you estimate staff will spend on utilizing the data gained in grantee reports to help support evaluation, outcomes, or dashboard reporting for the funder?"
+          type: peoplelist
+        - label: Describe other reporting-related activities
+          dbfield: gm_prog_reporting_other_label
+          desc: "What is the name for these other activities?"
+          type: text
+        - label: Other reporting-related activities
+          dbfield: gm_prog_reporting_other
+          desc: "Fill in grantee staff time for any other tasks not included above."
+          type: peoplelist
+    - header: "Additional Hours"
+      name: "additional"
+      questions:
+        - label: Describe other activities
+          dbfield: additional_other_label
+          desc: "What is the name for these other activities?"
+          type: text
+        - label: Other activities
+          dbfield: gm_additional
+          desc: "Fill in staff time for any other tasks not included above."
+          type: peoplelist
