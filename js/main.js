@@ -5,7 +5,7 @@ var getCientPath = function getCientPath() {
   if (window.location.href.split("/")[2].indexOf(":") > 0) {
     return "http://127.0.0.1:4000/grant-calculator/";
   } else {
-    return "https://netgrant.org";
+    return "https://netgrant.org/";
   }
 };
 
