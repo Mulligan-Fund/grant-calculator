@@ -27,6 +27,8 @@ function checkAuth(callback) {
   if (checkIfURL("contact")) return;
   if (checkIfURL("forgot")) return;
   if (checkIfURL("reset")) return;
+  if (checkIfURL("terms-of-use")) return;
+  if (checkIfURL("privacy")) return;
   if (checkIfURL("logout")) {
     $.ajax({
       url: window.gc.api + "/logout",
