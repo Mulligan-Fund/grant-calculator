@@ -7,7 +7,7 @@ The Net Grant Calculator helps both grantmakers and grantseekers evaluate the ne
 
 We built the Net Grant Calculator to help organizations maximize their net grant values to help ensure as much net grant money as possible goes to program and service delivery.
 
-[Read more here](https://www.peakgrantmaking.org/blog/net-grants-how-much-is-that-grant-really-worth/){target="_blank"}
+[Read more here](https://www.peakgrantmaking.org/blog/net-grants-how-much-is-that-grant-really-worth/){:target="_blank"}
 
 ## How to Use the Net Grant Calculator
 To get the most value from this tool, you’ll need information about who in your organization is involved with different stages of the grant process and how much time they spent. If you don’t know exact numbers, you can use estimates and still get a good sense of the net value of a particular grant or program.
