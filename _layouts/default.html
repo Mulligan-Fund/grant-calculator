@@ -10,7 +10,7 @@
       <div class="container">
         <div class="row">
           <div class="col col--xs-12 col--sm-12 col--md-12 col--lg-12">
-          {{ content }}
+            {{ content }}
           </div>
         </div>
       </div>
@@ -18,14 +18,14 @@
 
     {% assign post_count = site.posts | size %}
     {% if post_count >= 1 %}
-    <div class="blog container">
-      <div class="title">
-        <span>Reports</span>
+      <div class="blog container">
+        <div class="title">
+          <span>Reports</span>
+        </div>
+        {% include blog.html %}
       </div>
-      {% include blog.html %}
-    </div>
     {% endif %}
 
+    {% include footer.html %}
   </body>
-
 </html>
