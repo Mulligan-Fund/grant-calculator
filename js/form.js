@@ -159,12 +159,18 @@ gc.Views = gc.Views || {};
       if (n.hasClass("log")) {
         $("#consent").hide();
         $("#loginreg").prop("disabled", false);
-        $("#loginreg").html("Login");
+        $("#loginreg")
+          .html("Login")
+          .addClass("login-button")
+          .removeCLass("register-button");
         $("#forgot").show();
       } else {
         $("#consent").show();
         $("#forgot").hide();
-        $("#loginreg").html("Register");
+        $("#loginreg")
+          .html("Register")
+          .removeClass("login-button")
+          .addCLass("register-button");
         if (
           !$("#consent")
             .find("input")
