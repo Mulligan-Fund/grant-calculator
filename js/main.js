@@ -70,9 +70,9 @@ function checkAuth(callback) {
       callback();
     },
     error: function (request, error) {
-      if (window.location.href !== window.gc.home)
-        window.location.replace(window.gc.home);
-      else console.log("Already logged out", error, request);
+      // if (window.location.href !== window.gc.home)
+      //   window.location.replace(window.gc.home);
+      console.log("Already logged out", error, request);
       callback();
     },
   });
