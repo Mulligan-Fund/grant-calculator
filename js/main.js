@@ -34,21 +34,21 @@ function checkAuth(callback) {
       url: window.gc.api + "/logout",
       type: "GET",
       xhrFields: {
-        withCredentials: true
+        withCredentials: true,
       },
       headers: {
-        "Access-Control-Allow-Origin": true
+        "Access-Control-Allow-Origin": true,
       },
       crossDomain: true,
-      success: function(data, status, xfr) {
+      success: function (data, status, xfr) {
         console.log("Logged Out", data);
         window.location.replace(window.gc.home);
         callback();
       },
-      error: function(request, error) {
+      error: function (request, error) {
         alert("error logging out");
         callback();
-      }
+      },
     });
     return;
   }
@@ -57,24 +57,24 @@ function checkAuth(callback) {
     url: window.gc.api + "/auth",
     type: "GET",
     xhrFields: {
-      withCredentials: true
+      withCredentials: true,
     },
     headers: {
-      "Access-Control-Allow-Origin": true
+      "Access-Control-Allow-Origin": true,
     },
     crossDomain: true,
-    success: function(data, status, xfr) {
+    success: function (data, status, xfr) {
       console.log("Authenticated", data);
       if (window.location.href == window.gc.home)
         window.location.replace(window.gc.home + "/list");
       callback();
     },
-    error: function(request, error) {
+    error: function (request, error) {
       if (window.location.href !== window.gc.home)
         window.location.replace(window.gc.home);
-      else console.log("Already logged out");
+      else console.log("Already logged out", error, request);
       callback();
-    }
+    },
   });
 }
 
@@ -104,54 +104,54 @@ window.gc = {
   home: getCientPath(),
   api: getAPIPath(),
 
-  init: function() {
+  init: function () {
     "use strict";
 
     this.Init.User = new this.Collections.UserCollection({
-      model: new this.Models.UserModel()
+      model: new this.Models.UserModel(),
     });
 
     this.Init.Grant = new this.Collections.GrantCollection({
-      model: new this.Models.GrantModel()
+      model: new this.Models.GrantModel(),
     });
 
     this.Init.Login = new this.Views.formView({
       el: ".login",
-      collection: this.Init.User
+      collection: this.Init.User,
     });
 
     this.Init.Form = new this.Views.formView({
       el: ".page",
-      collection: this.Init.Grant
+      collection: this.Init.Grant,
     });
 
     this.Init.List = new this.Views.listView({
       el: null,
-      collection: this.Init.Grant
+      collection: this.Init.Grant,
     });
 
     this.Init.objectList = new this.Views.objectListView({
       el: "#objectlist",
-      collection: this.Init.Grant
+      collection: this.Init.Grant,
     });
 
     this.Init.resultView = new this.Views.resultView({
       el: ".resultblock",
-      collection: this.Init.Grant
+      collection: this.Init.Grant,
     });
 
-    _.each(this.Init, function(v) {
+    _.each(this.Init, function (v) {
       // v.initialize();
     });
-  }
+  },
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
   "use strict";
-  $("button").on("click", function(e) {
+  $("button").on("click", function (e) {
     e.preventDefault();
   });
-  checkAuth(function() {
+  checkAuth(function () {
     gc.init();
   });
 });
